@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.Data;
 
 namespace PhamaceySystem.Inheratenz_Forms
 {
@@ -21,7 +22,7 @@ namespace PhamaceySystem.Inheratenz_Forms
         public override void Title(string s_title)
         {
             lbl_tiltle.Text = s_title;
-            lbl_tiltle.BackColor = Properties.Settings.Default.titel_graid_colore;
+           // lbl_tiltle.BackColor = Properties.Settings.Default.titel_graid_colore;
 
         }
         public virtual void gv_DoubleClick(object sender, EventArgs e)

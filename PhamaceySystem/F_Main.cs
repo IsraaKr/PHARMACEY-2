@@ -13,14 +13,21 @@ using DevExpress.XtraEditors;
 using PhamaceySystem.Forms;
 using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
+using PhamaceySystem.Classes;
+using PhamaceySystem.Forms.Medicin_Forms;
+using DevExpress.XtraTab;
 
 namespace PhamaceySystem
 {
     public partial class F_Main : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+
+        private readonly C_Page_Maneger c_Page_Maneger ;
         public F_Main()
         {
             InitializeComponent();
+            c_Page_Maneger = new C_Page_Maneger(this);
+          
             load_first_frame();
             //if (IsFirstTime())
             //{
@@ -38,93 +45,23 @@ namespace PhamaceySystem
         {
 
             F_Quiek_Accses f = new F_Quiek_Accses();
-            nav(f, pan_nav);
-
-
+          
+            open_extra(f, xtraTabControl1);
+            xtraTabControl1.TabPages[0].ShowCloseButton =DevExpress.Utils.DefaultBoolean.False;
+            xtraTabControl1.TabPages[0].Text = "الوصول السريع";
         }
-        string server_nam = "";
-        string db_nam = "PHANACEY_DB";
-
-        //انشاء قاعدة البيانات
-        private void create_db()
-        {  // أول استدعاء من اجل انشاء قاعدة البيانات و الجداول
-            try//جلب اسم السيرفر و  الاتصال بالسيرفر
-            {
-                server_nam = c_db.get_server_name();
-                MessageBox.Show("تم جلب اسم السيرفر : " + server_nam);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error in ServerName part");
-            }
-            c_db.server_connection(server_nam);
-
-            MessageBox.Show("تم الاتصال بالسيرف " + server_nam);
-
-            // ******************************************
-            //string sql = "select name from sys.databases"; //تجلب اسماء قواعد البيانات التي عندي
-            //DataTable dt = c_db.select(sql);
-
-            try//إنشاء قاعدة  البيانات و الاتصال بها
-            {
-                c_db.create_DB(db_nam);
-                MessageBox.Show("تم إنشاء قاعدة البيانات : " + db_nam);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error in data base part");
-            }
-            c_db.db_conection(server_nam, db_nam);
-            MessageBox.Show("تم الاتصال بقاعدة البيانات " + db_nam);
-
-            //************************************************
-            try//إنشاء الجداول
-            {
-                bool run = c_db.runSqlScriptFile(Properties.Settings.Default.sqript_bath);
-                MessageBox.Show("تم إنشاء كل الجداول  " + run);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error in tables part");
-            }
-
-            try
-            {
-                ClsCommander<T_OPeration_Type> cmdopType = new ClsCommander<T_OPeration_Type>();
-
-                T_OPeration_Type TF_op_type = new T_OPeration_Type();
-                var check = cmdopType.Get_All().Count();
-                if (check == 0)
-                {
-                    TF_op_type.OP_type_name = "عملية ادخال";
-                    TF_op_type.OP_type_state = true;
-                    cmdopType.Insert_Data(TF_op_type);
-
-                    TF_op_type.OP_type_name = "عملية اخراج";
-                    TF_op_type.OP_type_state = true;
-                    cmdopType.Insert_Data(TF_op_type);
-
-                    TF_op_type.OP_type_name = "عملية إتلاف";
-                    TF_op_type.OP_type_state = true;
-                    cmdopType.Insert_Data(TF_op_type);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.InnerException.InnerException.ToString());
-            }
-
-        }
+       
         //نستدعيه عند كل فتحة فورم جديد 
         public void nav(Form f, PanelControl p)
         {
-            f.TopLevel = false;
-            f.Size = p.Size;
-            f.Dock = DockStyle.Fill;
-            p.Controls.Clear();
-            p.Controls.Add(f);
-            f.Show();
+          //  c_Page_Maneger.load_page( f );
+           // c_Page_Maneger.view_Child_Forem(f);
+            //f.TopLevel = false;
+            //f.Size = p.Size;
+            //f.Dock = DockStyle.Fill;
+            //p.Controls.Clear();
+            //p.Controls.Add(f);
+            //f.Show();
         }
         //فتح الفورم عن طريق اسمه باستعمال الاسمبلي
         public void open_form_byname(string name)
@@ -133,17 +70,20 @@ namespace PhamaceySystem
             if (ins != null)
             {   //انشاء انستانس من التايب و ارجاعه على شكل فورم
                 var frm = Activator.CreateInstance(ins) as Form;
-                if (Application.OpenForms[frm.Name] != null)//التأكد إذا الفورم كان مفتوح
-                {
+
+                //if (Application.OpenForms[frm.Name] != null)//التأكد إذا الفورم كان مفتوح
+                //{
                     //frm = Application.OpenForms[frm.Name];
-                    nav(frm, pan_nav);
-                }
-                else
-                {
-                    // frm.Show();
-                    nav(frm, pan_nav);
-                }
-                frm.BringToFront();
+                    //  nav(frm, pan_nav);
+                    open_extra(frm, xtraTabControl1);
+
+             //   }
+                //    else
+                //    {
+                //        // frm.Show();
+                //      //  nav(frm, pan_nav);
+                //    }
+             //   frm.BringToFront();
             }
         }
         //حدث يتم تطبيقه عند الضغط على أي المنت في الاكورديون كونترول
@@ -160,7 +100,7 @@ namespace PhamaceySystem
 
         private void ribbon_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //نضع التاغ من الديزايننر نوع سترينغ و القيمة اسم الفورم الذي اريد فتحه
+           // نضع التاغ من الديزايننر نوع سترينغ و القيمة اسم الفورم الذي اريد فتحه
             var tag = e.Item.Tag as string;
             if (tag != string.Empty && tag != null)
             {
@@ -168,6 +108,62 @@ namespace PhamaceySystem
             }
         }
 
-   
+        private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)
+        {
+           
+            //عدم غلق الفورم الأول
+            if (xtraTabControl1.SelectedTabPage != xtraTabControl1.TabPages[0])
+                xtraTabControl1.TabPages.Remove(xtraTabControl1.SelectedTabPage);           
+        }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //F_Med_Shape f = new F_Med_Shape();
+            //open_extra(f, xtraTabControl1);
+        }
+        public bool Is_Form_Activate(Form f)
+        {
+            bool Is_Opened = false;
+            if (xtraTabControl1.TabPages.Count() > 0)
+            {
+                foreach (XtraTabPage item in xtraTabControl1.TabPages)
+                {
+                    if (f.Text == item.Text)
+                    {
+                        xtraTabControl1.SelectedTabPage = item;
+                        Is_Opened = true;
+                    }
+                }
+            }
+            return Is_Opened;
+        }
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //F_Med_Categories f = new F_Med_Categories();
+            //open_extra( f, xtraTabControl1);
+          
+        
+        }
+        public void open_extra(Form f, XtraTabControl xtbc)
+        {
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            if (Is_Form_Activate(f) == false)
+            {
+                xtbc.TabPages.Add();
+                var curent_page = xtbc.TabPages.Last();
+                curent_page.Text = f.Name;
+                curent_page.Controls.Add(f);
+
+                xtbc.SelectedTabPage = curent_page;
+                f.Show();
+            }
+
+        }
+
+        private void xtraTabControl1_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

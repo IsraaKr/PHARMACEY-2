@@ -48,6 +48,7 @@ namespace PhamaceySystem.Forms.Store_Forms
         Boolean Is_Double_Click = false;
         int old_med_Quntitey;
         int old_med_id;
+
         public override void Get_Data(string status_mess)
         {
             try
@@ -202,7 +203,7 @@ namespace PhamaceySystem.Forms.Store_Forms
             donar_empTextEdit.Text = TF_OP_IN.donar_emp;
             donar_idSearchLookUpEdit.EditValue = TF_OP_IN.donar_id;
             emp_idSearchLookUpEdit.EditValue = TF_OP_IN.emp_id;
-
+            med_countTextEdit1.Text = TF_OP_IN.med_count.ToString();
         }
         public void insert_op()
         {
@@ -264,7 +265,7 @@ namespace PhamaceySystem.Forms.Store_Forms
             TF_OP_IN_Item.store_place_id = Convert.ToInt32(med_storage_place_idSearchLookUpEdit.EditValue);
             TF_OP_IN_Item.In_op_id = TF_OP_IN.in_op_id;
             TF_OP_IN_Item.is_out = false;
-
+            TF_OP_IN_Item.out_item_quntitey = 0;
         }
         public void insert_item()
         {

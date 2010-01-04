@@ -83,6 +83,7 @@
             // 
             // gc
             // 
+            this.gc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gc.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
             this.gc.Location = new System.Drawing.Point(12, 67);
             this.gc.MainView = this.gv;

@@ -34,8 +34,11 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         ClsCommander<T_Med_Category> cmdMedCat = new ClsCommander<T_Med_Category>();
         ClsCommander<T_Med_Shape> cmdMedShape = new ClsCommander<T_Med_Shape>();
         ClsCommander<T_Med_Unites> cmdMedUnite = new ClsCommander<T_Med_Unites>();
-
-
+        //private  static F_Med _f_Med;//مشان السينغلتون
+        // public static F_Med instance ()
+        //{
+        //    return _f_Med ?? (new F_Med());//اذا كان فارغ عميل واحد جديد
+        //}
         T_Medician TF_Medician;
 
         DateTime d = DateTime.Today;
@@ -161,6 +164,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         }
         public void Fill_Entitey()
         {
+            //**********************
             TF_Medician.med_code = med_codeTextEdit.Text;
             TF_Medician.med_name = med_nameTextEdit.Text;
             TF_Medician.med_minimum = Convert.ToInt32(med_minimumTextEdit.Text);

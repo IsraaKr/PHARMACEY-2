@@ -68,6 +68,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Phamacey_Entity_Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Phamacey_Entity_Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Phamacey_Entity_Model.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T_Medician.cs">
       <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
@@ -118,6 +123,7 @@
   <ItemGroup>
     <EntityDeploy Include="Phamacey_Entity_Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Phamacey_Entity_Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>

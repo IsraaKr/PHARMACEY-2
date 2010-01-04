@@ -14,7 +14,16 @@ namespace PhamaceyDataBase
     
     public partial class T_Pers_Recivers
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public T_Pers_Recivers()
+        {
+            this.T_OPeration_Out = new HashSet<T_OPeration_Out>();
+        }
+    
         public int id { get; set; }
         public string name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_OPeration_Out> T_OPeration_Out { get; set; }
     }
 }

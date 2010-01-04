@@ -35,6 +35,12 @@ namespace PhamaceySystem.Forms
         {
 
         }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            F_Out_Op f = new F_Out_Op();
+            f.ShowDialog();
+        }
     }
 }
 

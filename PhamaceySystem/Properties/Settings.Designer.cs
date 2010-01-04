@@ -14,189 +14,128 @@ namespace PhamaceySystem.Properties {
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.7.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("ISRAA-PC\\SQLEXPRESS")]
-        public string Server_Name
-        {
-            get
-            {
+        public string Server_Name {
+            get {
                 return ((string)(this["Server_Name"]));
             }
-            set
-            {
+            set {
                 this["Server_Name"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public int gc_row_count
-        {
-            get
-            {
+        public int gc_row_count {
+            get {
                 return ((int)(this["gc_row_count"]));
             }
-            set
-            {
+            set {
                 this["gc_row_count"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string database
-        {
-            get
-            {
+        public string database {
+            get {
                 return ((string)(this["database"]));
             }
-            set
-            {
+            set {
                 this["database"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string username
-        {
-            get
-            {
+        public string username {
+            get {
                 return ((string)(this["username"]));
             }
-            set
-            {
+            set {
                 this["username"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string password
-        {
-            get
-            {
+        public string password {
+            get {
                 return ((string)(this["password"]));
             }
-            set
-            {
+            set {
                 this["password"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string sqript_bath
-        {
-            get
-            {
+        public string sqript_bath {
+            get {
                 return ((string)(this["sqript_bath"]));
             }
-            set
-            {
+            set {
                 this["sqript_bath"] = value;
             }
         }
-
+        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        public string constr
-        {
-            get
-            {
+        public string constr {
+            get {
                 return ((string)(this["constr"]));
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string time_server
-        {
-            get
-            {
+        public string time_server {
+            get {
                 return ((string)(this["time_server"]));
             }
-            set
-            {
+            set {
                 this["time_server"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DarkOrange")]
-        public global::System.Drawing.Color titel_master_color
-        {
-            get
-            {
-                return ((global::System.Drawing.Color)(this["titel_master_color"]));
+        [global::System.Configuration.DefaultSettingValueAttribute("Maroon")]
+        public global::System.Drawing.Color titel_master_colore {
+            get {
+                return ((global::System.Drawing.Color)(this["titel_master_colore"]));
             }
-            set
-            {
-                this["titel_master_color"] = value;
+            set {
+                this["titel_master_colore"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DarkOrange")]
-        public global::System.Drawing.Color titel_list_colore
-        {
-            get
-            {
-                return ((global::System.Drawing.Color)(this["titel_list_colore"]));
-            }
-            set
-            {
-                this["titel_list_colore"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DarkOrange")]
-        public global::System.Drawing.Color titel_graid_colore
-        {
-            get
-            {
-                return ((global::System.Drawing.Color)(this["titel_graid_colore"]));
-            }
-            set
-            {
-                this["titel_graid_colore"] = value;
-            }
-        }
-
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool is_first_time
-        {
-            get
-            {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool is_first_time {
+            get {
                 return ((bool)(this["is_first_time"]));
             }
-            set
-            {
+            set {
                 this["is_first_time"] = value;
             }
         }

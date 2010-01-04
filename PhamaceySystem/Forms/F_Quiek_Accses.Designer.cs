@@ -96,13 +96,13 @@
             this.simpleButton3.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton3.Appearance.Options.UseBackColor = true;
             this.simpleButton3.Appearance.Options.UseFont = true;
-            this.simpleButton3.Enabled = false;
             this.simpleButton3.Location = new System.Drawing.Point(46, 30);
             this.simpleButton3.Margin = new System.Windows.Forms.Padding(10);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(219, 77);
             this.simpleButton3.TabIndex = 2;
             this.simpleButton3.Text = "اخراج مواد";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // label1
             // 

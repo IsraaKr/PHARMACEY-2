@@ -113,7 +113,8 @@ namespace PhamaceySystem
        //تغير العنوان
         public virtual void Title(string s_title)
         {
-            lbl_tiltle.Text = s_title;            
+            lbl_tiltle.Text = s_title;
+            lbl_tiltle.BackColor = Properties.Settings.Default.titel_master_colore;
         }
   
        //تحميل 

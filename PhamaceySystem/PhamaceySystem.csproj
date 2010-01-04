@@ -76,9 +76,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\c_db.cs" />
+    <Compile Include="Classes\C_DB.cs" />
     <Compile Include="Classes\C_GC_Page_Nav.cs" />
     <Compile Include="Classes\C_Master.cs" />
+    <Compile Include="Classes\C_Page_Maneger.cs" />
     <Compile Include="Forms\F_Quiek_Accses.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +103,12 @@
     </Compile>
     <Compile Include="Forms\Medicin_Forms\F_Med_Grid.Designer.cs">
       <DependentUpon>F_Med_Grid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Medicin_Forms\F_Med_Minimem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Medicin_Forms\F_Med_Minimem.Designer.cs">
+      <DependentUpon>F_Med_Minimem.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Medicin_Forms\F_Med_Shape.cs">
       <SubType>Form</SubType>
@@ -145,28 +152,40 @@
     <Compile Include="Forms\Setting_Forms\F_System_Setting.Designer.cs">
       <DependentUpon>F_System_Setting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Store_Forms\F_In_Op.cs">
+    <Compile Include="Forms\Store_OP_Forms\F_In_Op.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Store_Forms\F_In_Op.Designer.cs">
+    <Compile Include="Forms\Store_OP_Forms\F_In_Op.Designer.cs">
       <DependentUpon>F_In_Op.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Store_Forms\F_In_OP_Graid.cs">
+    <Compile Include="Forms\Store_OP_Forms\F_In_OP_Graid.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Store_Forms\F_In_OP_Graid.Designer.cs">
+    <Compile Include="Forms\Store_OP_Forms\F_In_OP_Graid.Designer.cs">
       <DependentUpon>F_In_OP_Graid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Store_Forms\F_Out_Op.cs">
+    <Compile Include="Forms\Store_OP_Forms\F_Out_Op.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Store_Forms\F_Out_Op.Designer.cs">
+    <Compile Include="Forms\Store_OP_Forms\F_Out_Op.Designer.cs">
       <DependentUpon>F_Out_Op.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Store_Forms\F_Store_Places.cs">
+    <Compile Include="Forms\Store_Other_Forms\F_out_med_to_chose.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Store_Forms\F_Store_Places.Designer.cs">
+    <Compile Include="Forms\Store_Other_Forms\F_out_med_to_chose.Designer.cs">
+      <DependentUpon>F_out_med_to_chose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Store_Other_Forms\F_Store_Med_ExpDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Store_Other_Forms\F_Store_Med_ExpDate.Designer.cs">
+      <DependentUpon>F_Store_Med_ExpDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Store_Other_Forms\F_Store_Places.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Store_Other_Forms\F_Store_Places.Designer.cs">
       <DependentUpon>F_Store_Places.cs</DependentUpon>
     </Compile>
     <Compile Include="F_Main.cs">
@@ -207,8 +226,14 @@
     <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_Grid.resx">
       <DependentUpon>F_Med_Grid.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_Minimem.resx">
+      <DependentUpon>F_Med_Minimem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_Shape.resx">
       <DependentUpon>F_Med_Shape.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_Unites.resx">
+      <DependentUpon>F_Med_Unites.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Person_Forms\F_Donars.resx">
       <DependentUpon>F_Donars.cs</DependentUpon>
@@ -222,16 +247,19 @@
     <EmbeddedResource Include="Forms\Setting_Forms\F_Server_Setting.resx">
       <DependentUpon>F_Server_Setting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Store_Forms\F_In_Op.resx">
+    <EmbeddedResource Include="Forms\Store_OP_Forms\F_In_Op.resx">
       <DependentUpon>F_In_Op.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Store_Forms\F_In_OP_Graid.resx">
+    <EmbeddedResource Include="Forms\Store_OP_Forms\F_In_OP_Graid.resx">
       <DependentUpon>F_In_OP_Graid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Store_Forms\F_Out_Op.resx">
+    <EmbeddedResource Include="Forms\Store_OP_Forms\F_Out_Op.resx">
       <DependentUpon>F_Out_Op.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Store_Forms\F_Store_Places.resx">
+    <EmbeddedResource Include="Forms\Store_Other_Forms\F_out_med_to_chose.resx">
+      <DependentUpon>F_out_med_to_chose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Store_Other_Forms\F_Store_Places.resx">
       <DependentUpon>F_Store_Places.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_Main.resx">

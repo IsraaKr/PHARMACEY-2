@@ -39,32 +39,34 @@
             // 
             this.cmb_page_num.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_page_num.AppearanceItemCaption.Options.UseFont = true;
-            this.cmb_page_num.Location = new System.Drawing.Point(0, 201);
+            this.cmb_page_num.Location = new System.Drawing.Point(0, 248);
+            this.cmb_page_num.Size = new System.Drawing.Size(257, 31);
             // 
             // comb_page_num
             // 
-            this.comb_page_num.Location = new System.Drawing.Point(12, 213);
+            this.comb_page_num.Location = new System.Drawing.Point(16, 262);
+            this.comb_page_num.Size = new System.Drawing.Size(139, 32);
             this.comb_page_num.TabIndex = 2;
             // 
             // lbl_tiltle
             // 
             this.lbl_tiltle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_tiltle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl_tiltle.Location = new System.Drawing.Point(10, 10);
-            this.lbl_tiltle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_tiltle.Size = new System.Drawing.Size(818, 60);
+            this.lbl_tiltle.Location = new System.Drawing.Point(13, 12);
+            this.lbl_tiltle.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.lbl_tiltle.Size = new System.Drawing.Size(1091, 74);
             this.lbl_tiltle.Text = "...";
             // 
             // gc
             // 
             this.gc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.gc.Location = new System.Drawing.Point(10, 10);
+            this.gc.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gc.Location = new System.Drawing.Point(13, 12);
             this.gc.MainView = this.gv;
-            this.gc.Margin = new System.Windows.Forms.Padding(2);
+            this.gc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gc.Name = "gc";
-            this.gc.Padding = new System.Windows.Forms.Padding(10);
-            this.gc.Size = new System.Drawing.Size(818, 246);
+            this.gc.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.gc.Size = new System.Drawing.Size(1091, 303);
             this.gc.TabIndex = 18;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -79,7 +81,7 @@
             this.gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gv.Appearance.Row.Options.UseTextOptions = true;
             this.gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gv.DetailHeight = 239;
+            this.gv.DetailHeight = 294;
             this.gv.FixedLineWidth = 1;
             this.gv.GridControl = this.gc;
             this.gv.Name = "gv";
@@ -95,13 +97,13 @@
             // 
             // F_Med_Grid
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 365);
+            this.ClientSize = new System.Drawing.Size(1117, 449);
             this.Controls.Add(this.gc);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "F_Med_Grid";
-            this.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.Padding = new System.Windows.Forms.Padding(13, 12, 13, 0);
             this.Text = "F_Med_Grid";
             this.Controls.SetChildIndex(this.gc, 0);
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);

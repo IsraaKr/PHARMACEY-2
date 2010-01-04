@@ -79,6 +79,7 @@
             // 
             // gc
             // 
+            this.gc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gc.Location = new System.Drawing.Point(17, 109);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";

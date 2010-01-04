@@ -97,6 +97,7 @@
           <Property Name="In_op_id" Type="int" Nullable="false" />
           <Property Name="store_place_id" Type="int" />
           <Property Name="is_out" Type="bit" />
+          <Property Name="out_item_quntitey" Type="int" />
         </EntityType>
         <EntityType Name="T_OPeration_Out">
           <Key>
@@ -122,6 +123,7 @@
           <Property Name="out_B_It_note" Type="nvarchar(max)" />
           <Property Name="Med_id" Type="int" />
           <Property Name="out_op_id" Type="int" Nullable="false" />
+          <Property Name="in_item_id" Type="int" />
         </EntityType>
         <EntityType Name="T_OPeration_Type">
           <Key>
@@ -354,6 +356,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_T_OPeration_Out_Item_T_OPeration_IN_Item">
+          <End Role="T_OPeration_IN_Item" Type="Self.T_OPeration_IN_Item" Multiplicity="0..1" />
+          <End Role="T_OPeration_Out_Item" Type="Self.T_OPeration_Out_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OPeration_IN_Item">
+              <PropertyRef Name="in_item_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Out_Item">
+              <PropertyRef Name="in_item_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_T_OPeration_Out_Item_T_OPeration_Out">
           <End Role="T_OPeration_Out" Type="Self.T_OPeration_Out" Multiplicity="1" />
           <End Role="T_OPeration_Out_Item" Type="Self.T_OPeration_Out_Item" Multiplicity="*" />
@@ -387,6 +401,18 @@
             </Principal>
             <Dependent Role="T_OPeration_Out">
               <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Out_T_Pers_Recivers">
+          <End Role="T_Pers_Recivers" Type="Self.T_Pers_Recivers" Multiplicity="0..1" />
+          <End Role="T_OPeration_Out" Type="Self.T_OPeration_Out" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Pers_Recivers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Out">
+              <PropertyRef Name="reciver_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -470,6 +496,10 @@
             <End Role="T_Medician" EntitySet="T_Medician" />
             <End Role="T_OPeration_Out_Item" EntitySet="T_OPeration_Out_Item" />
           </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Out_Item_T_OPeration_IN_Item" Association="Self.FK_T_OPeration_Out_Item_T_OPeration_IN_Item">
+            <End Role="T_OPeration_IN_Item" EntitySet="T_OPeration_IN_Item" />
+            <End Role="T_OPeration_Out_Item" EntitySet="T_OPeration_Out_Item" />
+          </AssociationSet>
           <AssociationSet Name="FK_T_OPeration_Out_Item_T_OPeration_Out" Association="Self.FK_T_OPeration_Out_Item_T_OPeration_Out">
             <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
             <End Role="T_OPeration_Out_Item" EntitySet="T_OPeration_Out_Item" />
@@ -480,6 +510,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_T_OPeration_Out_T_Pers_Emploee" Association="Self.FK_T_OPeration_Out_T_Pers_Emploee">
             <End Role="T_Pers_Emploee" EntitySet="T_Pers_Emploee" />
+            <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Out_T_Pers_Recivers" Association="Self.FK_T_OPeration_Out_T_Pers_Recivers">
+            <End Role="T_Pers_Recivers" EntitySet="T_Pers_Recivers" />
             <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
           </AssociationSet>
         </EntityContainer>
@@ -567,6 +601,10 @@
             <End Role="T_Store_Placees" EntitySet="T_Store_Placees" />
             <End Role="T_OPeration_IN_Item" EntitySet="T_OPeration_IN_Item" />
           </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Out_Item_T_OPeration_IN_Item" Association="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_OPeration_IN_Item">
+            <End Role="T_OPeration_IN_Item" EntitySet="T_OPeration_IN_Item" />
+            <End Role="T_OPeration_Out_Item" EntitySet="T_OPeration_Out_Item" />
+          </AssociationSet>
           <AssociationSet Name="FK_T_OPeration_Out_Item_T_OPeration_Out" Association="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_OPeration_Out">
             <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
             <End Role="T_OPeration_Out_Item" EntitySet="T_OPeration_Out_Item" />
@@ -577,6 +615,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_T_OPeration_Out_T_Pers_Emploee" Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Emploee">
             <End Role="T_Pers_Emploee" EntitySet="T_Pers_Emploee" />
+            <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Out_T_Pers_Recivers" Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Recivers">
+            <End Role="T_Pers_Recivers" EntitySet="T_Pers_Recivers" />
             <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
           </AssociationSet>
         </EntityContainer>
@@ -692,10 +734,12 @@
           <Property Name="Med_id" Type="Int32" />
           <Property Name="In_op_id" Type="Int32" Nullable="false" />
           <Property Name="store_place_id" Type="Int32" />
+          <Property Name="is_out" Type="Boolean" />
+          <Property Name="out_item_quntitey" Type="Int32" />
           <NavigationProperty Name="T_Medician" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_Medician" FromRole="T_OPeration_IN_Item" ToRole="T_Medician" />
           <NavigationProperty Name="T_OPeration_IN" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_OPeration_IN" FromRole="T_OPeration_IN_Item" ToRole="T_OPeration_IN" />
           <NavigationProperty Name="T_Store_Placees" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_Med_Storage_Shape" FromRole="T_OPeration_IN_Item" ToRole="T_Store_Placees" />
-          <Property Name="is_out" Type="Boolean" />
+          <NavigationProperty Name="T_OPeration_Out_Item" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_OPeration_IN_Item" FromRole="T_OPeration_IN_Item" ToRole="T_OPeration_Out_Item" />
         </EntityType>
         <EntityType Name="T_OPeration_Out">
           <Key>
@@ -714,6 +758,7 @@
           <NavigationProperty Name="T_OPeration_Out_Item" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_OPeration_Out" FromRole="T_OPeration_Out" ToRole="T_OPeration_Out_Item" />
           <NavigationProperty Name="T_OPeration_Type" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_T_OPeration_Type" FromRole="T_OPeration_Out" ToRole="T_OPeration_Type" />
           <NavigationProperty Name="T_Pers_Emploee" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Emploee" FromRole="T_OPeration_Out" ToRole="T_Pers_Emploee" />
+          <NavigationProperty Name="T_Pers_Recivers" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Recivers" FromRole="T_OPeration_Out" ToRole="T_Pers_Recivers" />
         </EntityType>
         <EntityType Name="T_OPeration_Out_Item">
           <Key>
@@ -724,7 +769,9 @@
           <Property Name="out_B_It_note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Med_id" Type="Int32" />
           <Property Name="out_op_id" Type="Int32" Nullable="false" />
+          <Property Name="in_item_id" Type="Int32" />
           <NavigationProperty Name="T_Medician" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_Medician" FromRole="T_OPeration_Out_Item" ToRole="T_Medician" />
+          <NavigationProperty Name="T_OPeration_IN_Item" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_OPeration_IN_Item" FromRole="T_OPeration_Out_Item" ToRole="T_OPeration_IN_Item" />
           <NavigationProperty Name="T_OPeration_Out" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_OPeration_Out" FromRole="T_OPeration_Out_Item" ToRole="T_OPeration_Out" />
         </EntityType>
         <EntityType Name="T_OPeration_Type">
@@ -763,6 +810,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_OPeration_Out" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Recivers" FromRole="T_Pers_Recivers" ToRole="T_OPeration_Out" />
         </EntityType>
         <EntityType Name="T_Store_Placees">
           <Key>
@@ -967,6 +1015,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_T_OPeration_Out_Item_T_OPeration_IN_Item">
+          <End Type="PHANACEY_DBModel.T_OPeration_IN_Item" Role="T_OPeration_IN_Item" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_OPeration_Out_Item" Role="T_OPeration_Out_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OPeration_IN_Item">
+              <PropertyRef Name="in_item_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Out_Item">
+              <PropertyRef Name="in_item_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_T_OPeration_Out_Item_T_OPeration_Out">
           <End Type="PHANACEY_DBModel.T_OPeration_Out" Role="T_OPeration_Out" Multiplicity="1" />
           <End Type="PHANACEY_DBModel.T_OPeration_Out_Item" Role="T_OPeration_Out_Item" Multiplicity="*" />
@@ -1000,6 +1060,18 @@
             </Principal>
             <Dependent Role="T_OPeration_Out">
               <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Out_T_Pers_Recivers">
+          <End Type="PHANACEY_DBModel.T_Pers_Recivers" Role="T_Pers_Recivers" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_OPeration_Out" Role="T_OPeration_Out" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Pers_Recivers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Out">
+              <PropertyRef Name="reciver_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1099,6 +1171,7 @@
           <EntitySetMapping Name="T_OPeration_IN_Item">
             <EntityTypeMapping TypeName="PHANACEY_DBModel.T_OPeration_IN_Item">
               <MappingFragment StoreEntitySet="T_OPeration_IN_Item">
+                <ScalarProperty Name="out_item_quntitey" ColumnName="out_item_quntitey" />
                 <ScalarProperty Name="is_out" ColumnName="is_out" />
                 <ScalarProperty Name="store_place_id" ColumnName="store_place_id" />
                 <ScalarProperty Name="In_op_id" ColumnName="In_op_id" />
@@ -1129,6 +1202,7 @@
           <EntitySetMapping Name="T_OPeration_Out_Item">
             <EntityTypeMapping TypeName="PHANACEY_DBModel.T_OPeration_Out_Item">
               <MappingFragment StoreEntitySet="T_OPeration_Out_Item">
+                <ScalarProperty Name="in_item_id" ColumnName="in_item_id" />
                 <ScalarProperty Name="out_op_id" ColumnName="out_op_id" />
                 <ScalarProperty Name="Med_id" ColumnName="Med_id" />
                 <ScalarProperty Name="out_B_It_note" ColumnName="out_B_It_note" />
