@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30330.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhamaceyDataBase", "PhamaceyDataBase\PhamaceyDataBase.csproj", "{656E5A30-AED5-4093-8F6C-E6CA5156EA03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhamaceySystem", "PhamaceySystem\PhamaceySystem.csproj", "{4F84487C-6137-457F-A024-E3F6FF6D3499}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{656E5A30-AED5-4093-8F6C-E6CA5156EA03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{656E5A30-AED5-4093-8F6C-E6CA5156EA03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{656E5A30-AED5-4093-8F6C-E6CA5156EA03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{656E5A30-AED5-4093-8F6C-E6CA5156EA03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F84487C-6137-457F-A024-E3F6FF6D3499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F84487C-6137-457F-A024-E3F6FF6D3499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F84487C-6137-457F-A024-E3F6FF6D3499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F84487C-6137-457F-A024-E3F6FF6D3499}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8CB8ED57-1306-4EA3-8F7B-945D915816DF}
+	EndGlobalSection
+EndGlobal

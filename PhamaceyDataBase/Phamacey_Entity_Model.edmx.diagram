@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ce145f28e2de4e0caed48c984912c00e" Name="Diagram1">
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Med_Category" Width="1.5" PointX="0.75" PointY="8.5" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Med_Shape" Width="1.5" PointX="0.75" PointY="2.25" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Med_Unites" Width="1.5" PointX="0.75" PointY="5.375" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Medician" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_Damage" Width="1.5" PointX="3" PointY="17.875" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Operation_Damage_Item" Width="1.5" PointX="5.25" PointY="4.75" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_IN" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_IN_Item" Width="1.5" PointX="8.25" PointY="4.75" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_Out" Width="1.5" PointX="3" PointY="12.25" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_Out_Item" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_Type" Width="1.5" PointX="0.75" PointY="14.125" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Pers_Donars" Width="1.5" PointX="1.5" PointY="22.875" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Pers_Emploee" Width="1.5" PointX="0.75" PointY="11.5" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Pers_Recivers" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Store_Placees" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Category" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Shape" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Unites" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_Medician" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_Medician" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_Medician" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_OPeration_Damage" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_IN" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_Type" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Damage_T_Pers_Emploee" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_Store_Placees" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_OPeration_IN" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_IN_T_OPeration_Type" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_IN_T_Pers_Donars" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_IN_T_Pers_Emploee" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_Med_Storage_Shape" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_OPeration_Out" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_OPeration_Type" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Emploee" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
