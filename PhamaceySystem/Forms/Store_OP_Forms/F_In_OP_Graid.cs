@@ -110,7 +110,10 @@ namespace PhamaceySystem.Forms.Store_Forms
             }
             catch (Exception ex)
             {
-                Get_Data(ex.InnerException.InnerException.ToString());
+                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                    C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
+                else
+                    Get_Data(ex.InnerException.InnerException.ToString());
             }
         }
         public override void clear_data(Control.ControlCollection s_controls)

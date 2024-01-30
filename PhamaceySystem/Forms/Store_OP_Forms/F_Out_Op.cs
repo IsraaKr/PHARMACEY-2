@@ -338,7 +338,10 @@ namespace PhamaceySystem.Forms.Store_Forms
             }
             catch (Exception ex)
             {
-                Get_Data(ex.InnerException.InnerException.ToString());
+                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                    C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
+                else
+                    Get_Data(ex.InnerException.InnerException.ToString());
             }
         }
         private void Set_Auto_Id_item()
@@ -533,8 +536,9 @@ WHERE        (dbo.T_OPeration_Out_Item.out_op_id = " + id + ")");
         private void btn_add_reciver_Click(object sender, EventArgs e)
         {
             F_Reciver f = new F_Reciver();
+            f.MdiParent = this.MdiParent;
             f.ShowDialog();
-
+            
             GetRecivers_Data();
 
         }

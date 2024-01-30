@@ -19,7 +19,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             InitializeComponent();
             Title("Med Shape ,  شكل الدواء ");
             txt.Text = "اسم الشكل ";
-         //   MessageBox.Show("" + Properties.Settings.Default.Server_Name);
+  
         }
 
         ClsCommander<T_Med_Shape> cmdMedSape = new ClsCommander<T_Med_Shape>();
@@ -116,7 +116,10 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             }
             catch (Exception ex)
             {
-                Get_Data(ex.InnerException.InnerException.ToString());
+                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                    C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
+                else
+                    Get_Data(ex.InnerException.InnerException.ToString());
             }
 
         }

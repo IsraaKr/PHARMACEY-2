@@ -26,26 +26,16 @@ namespace PhamaceySystem
         public F_Main()
         {
             InitializeComponent();
-            c_Page_Maneger = new C_Page_Maneger(this);
-          
-            load_first_frame();
-            //if (IsFirstTime())
-            //{
-            //    create_db();
-            //    Properties.Settings.Default.is_first_time = false;
-            //}
-
+            c_Page_Maneger = new C_Page_Maneger(this);          
+            load_first_frame();          
         }
         private bool IsFirstTime()
         {
             return Properties.Settings.Default.is_first_time;
-
         }
         private void load_first_frame()
         {
-
-            F_Quiek_Accses f = new F_Quiek_Accses();
-          
+            F_Quiek_Accses f = new F_Quiek_Accses();          
             open_extra(f, xtraTabControl1);
             xtraTabControl1.TabPages[0].ShowCloseButton =DevExpress.Utils.DefaultBoolean.False;
             xtraTabControl1.TabPages[0].Text = "الوصول السريع";
@@ -70,7 +60,8 @@ namespace PhamaceySystem
             if (ins != null)
             {   //انشاء انستانس من التايب و ارجاعه على شكل فورم
                 var frm = Activator.CreateInstance(ins) as Form;
-
+                frm.MdiParent = this;
+                
                 //if (Application.OpenForms[frm.Name] != null)//التأكد إذا الفورم كان مفتوح
                 //{
                     //frm = Application.OpenForms[frm.Name];
@@ -85,19 +76,7 @@ namespace PhamaceySystem
                 //    }
              //   frm.BringToFront();
             }
-        }
-        //حدث يتم تطبيقه عند الضغط على أي المنت في الاكورديون كونترول
-        private void accordionControl1_ElementClick_1(object sender, DevExpress.XtraBars.Navigation.ElementClickEventArgs e)
-        {
-            //نضع التاغ من الديزايننر نوع سترينغ و القيمة اسم الفورم الذي اريد فتحه
-            var tag = e.Element.Tag as string;
-            if (tag != string.Empty && tag != null)
-            {
-                open_form_byname(tag);
-            }
-            // e.Element.Appearance.Normal.BackColor = Color.Gray;
-        }
-
+        }       
         private void ribbon_ItemClick(object sender, ItemClickEventArgs e)
         {
            // نضع التاغ من الديزايننر نوع سترينغ و القيمة اسم الفورم الذي اريد فتحه
@@ -107,20 +86,12 @@ namespace PhamaceySystem
                 open_form_byname(tag);
             }
         }
-
         private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)
-        {
-           
+        {          
             //عدم غلق الفورم الأول
             if (xtraTabControl1.SelectedTabPage != xtraTabControl1.TabPages[0])
                 xtraTabControl1.TabPages.Remove(xtraTabControl1.SelectedTabPage);           
-        }
-
-        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //F_Med_Shape f = new F_Med_Shape();
-            //open_extra(f, xtraTabControl1);
-        }
+        }      
         public bool Is_Form_Activate(Form f)
         {
             bool Is_Opened = false;
@@ -128,7 +99,7 @@ namespace PhamaceySystem
             {
                 foreach (XtraTabPage item in xtraTabControl1.TabPages)
                 {
-                    if (f.Text == item.Text)
+                    if (f.Tag == item.Name)
                     {
                         xtraTabControl1.SelectedTabPage = item;
                         Is_Opened = true;
@@ -136,14 +107,7 @@ namespace PhamaceySystem
                 }
             }
             return Is_Opened;
-        }
-        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //F_Med_Categories f = new F_Med_Categories();
-            //open_extra( f, xtraTabControl1);
-          
-        
-        }
+        }      
         public void open_extra(Form f, XtraTabControl xtbc)
         {
             f.TopLevel = false;
@@ -152,18 +116,12 @@ namespace PhamaceySystem
             {
                 xtbc.TabPages.Add();
                 var curent_page = xtbc.TabPages.Last();
-                curent_page.Text = f.Name;
+                curent_page.Text = f.Text;
+                curent_page.Name = f.Tag.ToString();
                 curent_page.Controls.Add(f);
-
                 xtbc.SelectedTabPage = curent_page;
                 f.Show();
             }
-
-        }
-
-        private void xtraTabControl1_Click(object sender, EventArgs e)
-        {
-           
-        }
+        }       
     }
 }

@@ -91,7 +91,7 @@ namespace PhamaceySystem
         //select
         public static DataTable select(string sql)
         {
-            db_conection(".", "PHANACEY_DB");
+            db_conection(@".", "PHANACEY_DB");
             comnd = new SqlCommand(sql, con);
             dr = comnd.ExecuteReader();
             dt = new DataTable();

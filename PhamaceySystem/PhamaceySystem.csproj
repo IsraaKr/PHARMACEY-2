@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\C_DB.cs" />
+    <Compile Include="Classes\C_Exeption.cs" />
     <Compile Include="Classes\C_GC_Page_Nav.cs" />
     <Compile Include="Classes\C_Master.cs" />
     <Compile Include="Classes\C_Page_Maneger.cs" />

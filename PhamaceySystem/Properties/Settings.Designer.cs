@@ -25,7 +25,7 @@ namespace PhamaceySystem.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ISRAA-PC\\SQLEXPRESS")]
+        [global::System.Configuration.DefaultSettingValueAttribute(".")]
         public string Server_Name {
             get {
                 return ((string)(this["Server_Name"]));

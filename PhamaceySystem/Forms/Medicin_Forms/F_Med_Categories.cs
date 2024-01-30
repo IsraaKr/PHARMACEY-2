@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
+using PhamaceySystem.Classes;
 
 namespace PhamaceySystem.Forms.Medicin_Forms
 {
@@ -17,10 +18,13 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         public F_Med_Categories()
         {
             InitializeComponent();
-            Title("Categoreys , تصنيفات الدواء ");
+           
+            Title(tit);
             txt.Text = "اسم التصنيف ";
+           
+            this.Text = tit;
         }
-
+        public string tit = "Categoreys , تصنيفات الدواء ";
         ClsCommander<T_Med_Category> cmdMedCat = new ClsCommander<T_Med_Category>();
         T_Med_Category TF_Med_Cat;
         Boolean Is_Double_Click = false;
@@ -117,7 +121,10 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             }
             catch (Exception ex)
             {
-                Get_Data(ex.InnerException.InnerException.ToString());
+                if (ex.InnerException.InnerException.ToString().Contains(C_Exeption.FK_Exeption))
+                    C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
+                else         
+                  Get_Data(ex.InnerException.InnerException.ToString());
             }
 
         }

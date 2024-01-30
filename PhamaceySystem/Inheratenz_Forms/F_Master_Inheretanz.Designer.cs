@@ -72,7 +72,9 @@
             // 
             this.lbl_tiltle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_tiltle.BackColor = System.Drawing.Color.Orange;
+            this.lbl_tiltle.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.lbl_tiltle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbl_tiltle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbl_tiltle.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_tiltle.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbl_tiltle.Location = new System.Drawing.Point(0, 0);
@@ -166,7 +168,7 @@
             this.bar_neew.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.bar_neew.Caption = "جديد";
             this.bar_neew.Id = 23;
-            this.bar_neew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bar_new.ImageOptions.SvgImage")));
+            this.bar_neew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bar_neew.ImageOptions.SvgImage")));
             this.bar_neew.Name = "bar_neew";
             this.bar_neew.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.bar_neew.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;

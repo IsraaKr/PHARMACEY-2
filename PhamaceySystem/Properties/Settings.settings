@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Server_Name" Type="System.String" Scope="User">
-      <Value Profile="(Default)">ISRAA-PC\SQLEXPRESS</Value>
+      <Value Profile="(Default)">.</Value>
     </Setting>
     <Setting Name="gc_row_count" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
