@@ -19,9 +19,12 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         public F_Med()
         {
             InitializeComponent();
-            Title("تعريف مادة / Define Material");
+    
             view_inheretanz_butomes(true, true, true, false, false, true, false);
+            Title(tit);
+            this.Text = tit;
         }
+        public string tit = "تعريف مادة / Define Material";
         int id_toUpdate = 0;
         public F_Med(int med_id)
         {

@@ -2,6 +2,7 @@
 using PhamaceyDataBase.Commander;
 using PhamaceySystem.Forms.Medicin_Forms;
 using PhamaceySystem.Forms.Person_Forms;
+using PhamaceySystem.Forms.Store_Other_Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,16 +20,20 @@ namespace PhamaceySystem.Forms.Store_Forms
         public F_Out_Op()
         {
             InitializeComponent();
-            Title("اخراج  مادة / Out Operation");
+   
 
             view_inheretanz_butomes(true, false, false, false, false, false, true);
+
+            Title(tit);
+            this.Text = tit;
         }
+        public string tit = "اخراج  مادة / Out Operation";
         public F_Out_Op(int op_id)
         {
             id_toUpdate = op_id;
             InitializeComponent();
-            Title("اخراج  مادة / Out Operation");
-
+            Title(tit);
+            this.Text = tit;
             view_inheretanz_butomes(true, true, false, false, false, false, true);
         }
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
@@ -73,12 +78,12 @@ namespace PhamaceySystem.Forms.Store_Forms
                 GetRecivers_Data();
                 GetEmp_Data();
                 GetMed_Data();
-                Get_Store_med();
+            //    Get_Store_med();
               //  GetStoragePlace_Data();
                 is_op_insert = 0;
                 Get_OP_Med_count_Data();
 
-                Set_Auto_Id_item();
+               Set_Auto_Id_item();
                 Set_Auto_Id_op();
 
                 //   med_countTextEdit1.Text = "0";
@@ -100,7 +105,6 @@ namespace PhamaceySystem.Forms.Store_Forms
             }
 
         }
-
         private void btn_visible(bool states)
         {
             if (states)
@@ -115,7 +119,6 @@ namespace PhamaceySystem.Forms.Store_Forms
             }
 
         }
-
         public override void Print_Data()
         {
             C_Master.print_header("- تفاصيل فاتورة الاخراج رقم -"
@@ -148,12 +151,11 @@ namespace PhamaceySystem.Forms.Store_Forms
                 Get_Data(ex.InnerException.InnerException.ToString());
             }
         }
-
         public override void clear_data(Control.ControlCollection s_controls)
         {
             base.clear_data(s_controls);
             Set_Auto_Id_op();
-            Set_Auto_Id_item();
+           Set_Auto_Id_item();
 
         }
         public override void neew()
@@ -227,7 +229,6 @@ namespace PhamaceySystem.Forms.Store_Forms
                 //Get_Data("i");
             }
         }
-
         private void update_op()
         {
             if (Validate_Data_op())
@@ -239,7 +240,6 @@ namespace PhamaceySystem.Forms.Store_Forms
             }
 
         }
-
         private void Set_Auto_Id_op()
         {
             var max_id = cmdOpOut.Get_All().Where(c_id => c_id.out_op_id ==
@@ -349,7 +349,8 @@ namespace PhamaceySystem.Forms.Store_Forms
             var max_id =cmdOppOutItem.Get_All().Where(c_id => c_id.out_item_id ==
                         cmdOppOutItem.Get_All().Max(max => max.out_item_id)).FirstOrDefault();
             out_item_idTextEdit.Text = max_id == null ? "1" : (max_id.out_item_id + 1).ToString();
-        }
+
+                   }
         private void Fill_Graid_item()
         {
             int id = Convert.ToInt32(out_op_idTextEdit.Text);
@@ -516,11 +517,28 @@ WHERE        (dbo.T_OPeration_Out_Item.out_op_id = " + id + ")");
                                 datee = Emp.in_item_expDate,
                                 place=Emp.T_Store_Placees.name,
                             }).OrderBy(l => l.datee).Distinct();
-            if (med_list != null && med_list.Count() > 0)
+            if (med_list != null && med_list.Count() <= 1)
             {
                 filter_date_searchLookUpEdit.slkp_iniatalize_data(med_list, "name", "item_id");
                 filter_date_searchLookUpEdit.Properties.View.Columns[0].Caption = "الرقم";
                 filter_date_searchLookUpEdit.Properties.View.Columns[3].Caption = "الاسم ";
+            }
+            else
+                if (med_list != null && med_list.Count() > 1)
+            {
+                if (is_op_insert == 0 && Validate_Data_op())
+                {
+                    insert_op();
+
+                    //  int item_in_id = Convert.ToInt32(filter_date_searchLookUpEdit.EditValue);
+                    int out_op_id = Convert.ToInt32(out_op_idTextEdit.Text);
+                    F_out_med_to_chose f = new F_out_med_to_chose(med_idd, out_op_id);
+                    f.ShowDialog();
+                    Fill_Graid_item();
+                    Get_OP_Med_count_Data();
+                    clear_item();
+                    update_op();
+                }
             }
 
         }
@@ -694,11 +712,11 @@ WHERE        (dbo.T_OPeration_Out_Item.out_op_id = " + id + ")");
             clear_item();
             Fill_Graid_item();
         }
-
   
         private void Med_idSearchlookupEdit_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
         {
             Get_Store_med();
+          
         }
 
 

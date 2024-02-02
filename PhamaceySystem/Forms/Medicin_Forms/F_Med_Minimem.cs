@@ -19,9 +19,11 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         public F_Med_Minimem()
         {
             InitializeComponent();
-            Title("الأدوية التي شارفت على الانتهاء");
 
+            Title(tit);
+            this.Text = tit;
         }
+        public string tit = "الأدوية التي شارفت على الانتهاء";
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
 
 

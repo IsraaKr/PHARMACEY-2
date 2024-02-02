@@ -17,12 +17,15 @@ namespace PhamaceySystem.Forms.Person_Forms
         public F_Emp()
         {
             InitializeComponent();
-        Title("Emploees , الموظفين ");
+    
         txt.Text = "اسم الموظف";
+            Title(tit);
+            this.Text = tit;
         }
+        public string tit = "Emploees , الموظفين ";
 
 
-    ClsCommander<T_Pers_Emploee> cmdEmp = new ClsCommander<T_Pers_Emploee>();
+        ClsCommander<T_Pers_Emploee> cmdEmp = new ClsCommander<T_Pers_Emploee>();
     T_Pers_Emploee TF_Pers_Emploee;
     Boolean Is_Double_Click = false;
 

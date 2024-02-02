@@ -16,16 +16,18 @@ namespace PhamaceySystem.Forms.Setting_Forms
         public F_System_Setting()
         {
             InitializeComponent();
-            Title("System Settings \\ إعدادات البرنامج ");
+ 
             view_inheretanz_butomes(false, true, false, false, false, true, false);
+            Title(tit);
+            this.Text = tit;
         }
+        public string tit = "System Settings \\ إعدادات البرنامج ";
 
         public override void Insert_Data()
         {
-            //Properties.Settings.Default.titel_graid_colore = colorPickEdit_graid.Color;
-            //Properties.Settings.Default.titel_list_colore = colorPickEdit_list.Color;
-            //Properties.Settings.Default.titel_master_color = colorPickEdit_master.Color;
-            //Properties.Settings.Default.gc_row_count = Convert.ToInt32(textEdit_gc_row_count.Text);
+
+            Properties.Settings.Default.titel_master_colore = colorPickEdit_master.Color;
+            Properties.Settings.Default.gc_row_count = Convert.ToInt32(textEdit_gc_row_count.Text);
 
 
             // Save Settings

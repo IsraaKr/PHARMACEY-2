@@ -44,5 +44,10 @@ namespace PhamaceySystem.Inheratenz_Forms
         {
 
         }
+
+        public virtual void gv_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
+        {
+
+        }
     }
 }

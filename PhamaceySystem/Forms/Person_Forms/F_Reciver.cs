@@ -17,9 +17,12 @@ namespace PhamaceySystem.Forms.Person_Forms
         public F_Reciver()
         {
             InitializeComponent();
-            Title("Recivers , المستملين ");
+    
             txt.Text = "اسم المستلم ";
+            Title(tit);
+            this.Text = tit;
         }
+        public string tit = "Recivers , المستملين ";
 
 
         ClsCommander<T_Pers_Recivers> cmdReciver = new ClsCommander<T_Pers_Recivers>();

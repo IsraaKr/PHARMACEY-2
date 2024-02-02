@@ -20,9 +20,12 @@ namespace PhamaceySystem.Forms.Store_Forms
         public F_In_OP_Graid()
         {
             InitializeComponent();
-            Title("فواتير الادخال");
-
+         
+            Title(tit);
+            this.Text = tit;
         }
+        public string tit = "فواتير الادخال";
+
         ClsCommander<T_OPeration_IN> cmdINOP = new ClsCommander<T_OPeration_IN>();
 
         T_OPeration_IN TF_OPeration_IN;

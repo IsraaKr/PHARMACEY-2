@@ -17,9 +17,12 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         public F_Med_Unites()
         {
             InitializeComponent();
-            Title("Med Unites ,  وحدات الدواء ");
+
             txt.Text = "اسم الواحدة ";
+            Title(tit);
+            this.Text = tit;
         }
+        public string tit = "Med Unites ,  وحدات الدواء ";
 
         ClsCommander<T_Med_Unites> cmdMedUnites = new ClsCommander<T_Med_Unites>();
         T_Med_Unites TF_Med_unites;

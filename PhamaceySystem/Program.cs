@@ -24,7 +24,7 @@ namespace PhamaceySystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             C_SqlCon.Server_Name = Properties.Settings.Default.Server_Name.ToString(); 
-            Application.Run(new F_Main ());
+            Application.Run(new F_out_med_to_chose(1,1));
         }
     }
 }

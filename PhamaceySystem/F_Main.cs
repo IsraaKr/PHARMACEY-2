@@ -99,7 +99,7 @@ namespace PhamaceySystem
             {
                 foreach (XtraTabPage item in xtraTabControl1.TabPages)
                 {
-                    if (f.Tag == item.Name)
+                    if (f.Name == item.Name)
                     {
                         xtraTabControl1.SelectedTabPage = item;
                         Is_Opened = true;
@@ -117,7 +117,7 @@ namespace PhamaceySystem
                 xtbc.TabPages.Add();
                 var curent_page = xtbc.TabPages.Last();
                 curent_page.Text = f.Text;
-                curent_page.Name = f.Tag.ToString();
+                curent_page.Name = f.Name;
                 curent_page.Controls.Add(f);
                 xtbc.SelectedTabPage = curent_page;
                 f.Show();

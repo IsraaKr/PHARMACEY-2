@@ -17,12 +17,15 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         public F_Med_Shape()
         {
             InitializeComponent();
-            Title("Med Shape ,  شكل الدواء ");
+ 
             txt.Text = "اسم الشكل ";
-  
-        }
 
-        ClsCommander<T_Med_Shape> cmdMedSape = new ClsCommander<T_Med_Shape>();
+            Title(tit);
+            this.Text = tit;
+        }
+    public string tit = "Med Shape ,  شكل الدواء ";
+
+    ClsCommander<T_Med_Shape> cmdMedSape = new ClsCommander<T_Med_Shape>();
         T_Med_Shape TF_Med_Shape;
         Boolean Is_Double_Click = false;
 

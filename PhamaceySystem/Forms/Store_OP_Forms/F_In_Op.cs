@@ -19,16 +19,17 @@ namespace PhamaceySystem.Forms.Store_Forms
         public F_In_Op()
         {
             InitializeComponent();
-            Title("ادخال  مادة / In Operation");
-
             view_inheretanz_butomes(true, false, false, false, false, false, true);
+            Title(tit);
+            this.Text = tit;
         }
+        public string tit = "ادخال  مادة / In Operation";
         public F_In_Op(int op_id)
         {
             id_toUpdate = op_id;
             InitializeComponent();
-            Title("ادخال  مادة / In Operation");
-
+            Title(tit);
+            this.Text = tit;
             view_inheretanz_butomes(true, true, false, false, false, false, true);
         }
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();

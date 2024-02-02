@@ -27,31 +27,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.txt_shuffel = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.txt_group = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txt_shuffel = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_shuffel.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_group.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_shuffel.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // Root
             // 
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem3});
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(20, 20, 19, 19);
             this.Root.Size = new System.Drawing.Size(600, 611);
             // 
             // dataLayoutControl1
             // 
-            this.dataLayoutControl1.Controls.Add(this.txt_shuffel);
             this.dataLayoutControl1.Controls.Add(this.txt_group);
+            this.dataLayoutControl1.Controls.Add(this.txt_shuffel);
             this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(4);
             this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(690, 368, 1230, 500);
             this.dataLayoutControl1.OptionsPrint.AppearanceGroupCaption.BackColor = System.Drawing.Color.LightGray;
@@ -65,86 +68,73 @@
             this.dataLayoutControl1.Size = new System.Drawing.Size(600, 611);
             this.dataLayoutControl1.Controls.SetChildIndex(this.txt_name, 0);
             this.dataLayoutControl1.Controls.SetChildIndex(this.txt_id, 0);
-            this.dataLayoutControl1.Controls.SetChildIndex(this.txt_group, 0);
             this.dataLayoutControl1.Controls.SetChildIndex(this.txt_shuffel, 0);
+            this.dataLayoutControl1.Controls.SetChildIndex(this.txt_group, 0);
             // 
             // txt_id
             // 
-            this.txt_id.Location = new System.Drawing.Point(42, 112);
+            this.txt_id.Location = new System.Drawing.Point(30, 105);
             this.txt_id.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_id.Properties.Appearance.Options.UseFont = true;
-            this.txt_id.Size = new System.Drawing.Size(466, 22);
+            this.txt_id.Size = new System.Drawing.Size(207, 22);
             this.txt_id.TabIndex = 5;
             // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(45, 156);
+            this.txt_name.Location = new System.Drawing.Point(313, 107);
             this.txt_name.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_name.Properties.Appearance.Options.UseFont = true;
             this.txt_name.Properties.Appearance.Options.UseTextOptions = true;
             this.txt_name.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.txt_name.Size = new System.Drawing.Size(460, 22);
+            this.txt_name.Size = new System.Drawing.Size(201, 22);
             this.txt_name.TabIndex = 3;
             // 
             // txt
             // 
             this.txt.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt.AppearanceItemCaption.Options.UseFont = true;
-            this.txt.Location = new System.Drawing.Point(0, 42);
+            this.txt.Location = new System.Drawing.Point(280, 76);
             this.txt.Padding = new DevExpress.XtraLayout.Utils.Padding(13, 13, 12, 12);
-            this.txt.Size = new System.Drawing.Size(536, 46);
+            this.txt.Size = new System.Drawing.Size(280, 46);
+            this.txt.TextSize = new System.Drawing.Size(41, 18);
             // 
             // lbl_tiltle
             // 
             this.lbl_tiltle.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             // 
+            // txt_shuffel
+            // 
+            this.txt_shuffel.Location = new System.Drawing.Point(22, 71);
+            this.txt_shuffel.Name = "txt_shuffel";
+            this.txt_shuffel.Size = new System.Drawing.Size(223, 22);
+            this.txt_shuffel.StyleController = this.dataLayoutControl1;
+            this.txt_shuffel.TabIndex = 13;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.txt_shuffel;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 50);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(280, 26);
+            this.layoutControlItem3.Text = "الرف";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(41, 15);
+            // 
             // txt_group
             // 
-            this.txt_group.Location = new System.Drawing.Point(15, 203);
+            this.txt_group.Location = new System.Drawing.Point(302, 71);
             this.txt_group.Name = "txt_group";
-            this.txt_group.Properties.Appearance.Options.UseTextOptions = true;
-            this.txt_group.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.txt_group.Size = new System.Drawing.Size(457, 22);
+            this.txt_group.Size = new System.Drawing.Size(223, 22);
             this.txt_group.StyleController = this.dataLayoutControl1;
-            this.txt_group.TabIndex = 0;
+            this.txt_group.TabIndex = 14;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.txt_group;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(280, 50);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.OptionsPrint.AppearanceItem.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem1.OptionsPrint.AppearanceItem.Options.UseFont = true;
-            this.layoutControlItem1.OptionsPrint.AppearanceItemText.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem1.OptionsPrint.AppearanceItemText.Options.UseFont = true;
-            this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(13, 13, 12, 12);
-            this.layoutControlItem1.Size = new System.Drawing.Size(536, 46);
+            this.layoutControlItem1.Size = new System.Drawing.Size(280, 26);
             this.layoutControlItem1.Text = "المجموعة";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(41, 15);
-            // 
-            // txt_shuffel
-            // 
-            this.txt_shuffel.Location = new System.Drawing.Point(63, 58);
-            this.txt_shuffel.Name = "txt_shuffel";
-            this.txt_shuffel.Properties.Appearance.Options.UseTextOptions = true;
-            this.txt_shuffel.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.txt_shuffel.Size = new System.Drawing.Size(457, 22);
-            this.txt_shuffel.StyleController = this.dataLayoutControl1;
-            this.txt_shuffel.TabIndex = 2;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.txt_shuffel;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 46);
-            this.layoutControlItem2.Name = "item0";
-            this.layoutControlItem2.OptionsPrint.AppearanceItem.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem2.OptionsPrint.AppearanceItem.Options.UseFont = true;
-            this.layoutControlItem2.OptionsPrint.AppearanceItemText.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem2.OptionsPrint.AppearanceItemText.Options.UseFont = true;
-            this.layoutControlItem2.Padding = new DevExpress.XtraLayout.Utils.Padding(13, 13, 12, 12);
-            this.layoutControlItem2.Size = new System.Drawing.Size(536, 46);
-            this.layoutControlItem2.Text = "الرف";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(41, 15);
             // 
             // F_Store_Places
             // 
@@ -160,10 +150,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_shuffel.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_group.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_shuffel.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,6 +164,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraEditors.TextEdit txt_group;
         private DevExpress.XtraEditors.TextEdit txt_shuffel;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

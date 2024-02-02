@@ -21,10 +21,11 @@ namespace PhamaceySystem.Forms.Setting_Forms
             Set_Prop_Settings();
             txt_server.Text = c_db.get_server_name();
             txt_database.Text = "PHANACEY_DB";
-            Title("Server Settings \\ إعدادات السيرفر ");
             view_inheretanz_butomes(false, true, false, false, false, true, false);
-
+            Title(tit);
+            this.Text = tit;
         }
+        public string tit = "Server Settings \\ إعدادات السيرفر ";
         public F_Server_Setting()
         {
             InitializeComponent();

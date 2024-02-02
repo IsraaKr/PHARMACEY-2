@@ -248,6 +248,9 @@
     <EmbeddedResource Include="Forms\Setting_Forms\F_Server_Setting.resx">
       <DependentUpon>F_Server_Setting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setting_Forms\F_System_Setting.resx">
+      <DependentUpon>F_System_Setting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Store_OP_Forms\F_In_Op.resx">
       <DependentUpon>F_In_Op.cs</DependentUpon>
     </EmbeddedResource>

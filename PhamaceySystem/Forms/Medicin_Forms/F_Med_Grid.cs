@@ -20,9 +20,11 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         public F_Med_Grid()
         {
             InitializeComponent();
-            Title("الأدوية");
-       
+
+            Title(tit);
+            this.Text = tit;
         }
+        public string tit = "الأدوية / Medecian ";
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
 
 

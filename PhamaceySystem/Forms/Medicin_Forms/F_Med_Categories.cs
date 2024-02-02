@@ -19,9 +19,9 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         {
             InitializeComponent();
            
-            Title(tit);
+       
             txt.Text = "اسم التصنيف ";
-           
+            Title(tit);
             this.Text = tit;
         }
         public string tit = "Categoreys , تصنيفات الدواء ";

@@ -17,9 +17,12 @@ namespace PhamaceySystem.Forms.Person_Forms
         public F_Donars()
         {
             InitializeComponent();
-            Title("Donars ,  المتبرعون  ");
+     
             txt.Text = "اسم المتبرع ";
+            Title(tit);
+            this.Text = tit;
         }
+        public string tit = "Donars ,  المتبرعون  ";
 
 
         ClsCommander<T_Pers_Donars> cmdDonars = new ClsCommander<T_Pers_Donars>();

@@ -19,10 +19,12 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         public F_Store_Med_ExpDate()
         {
             InitializeComponent();
-            Title("الأدوية المنتهية الصلاحية");
+     
             view_inheretanz_butomes(true, false, false, false, false, false, true);
-
+            Title(tit);
+            this.Text = tit;
         }
+        public string tit = "الأدوية المنتهية الصلاحية";
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
         ClsCommander<T_OPeration_IN_Item> cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
      

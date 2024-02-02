@@ -19,8 +19,11 @@ namespace PhamaceySystem.Forms.Store_Forms
             InitializeComponent();
             Title("Store Places ,  مواقع التخزين ");
             txt.Text = "اسم الموقع ";
-        }
 
+            Title(tit);
+            this.Text = tit;
+        }
+        public string tit = "Store Places ,  مواقع التخزين ";
         ClsCommander<T_Store_Placees> cmdStorePalces = new ClsCommander<T_Store_Placees>();
         T_Store_Placees TF_Store_Places;
         Boolean Is_Double_Click = false;

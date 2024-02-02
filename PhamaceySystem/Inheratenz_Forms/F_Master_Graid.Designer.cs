@@ -83,7 +83,6 @@
             // 
             // gc
             // 
-            this.gc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gc.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
             this.gc.Location = new System.Drawing.Point(12, 67);
             this.gc.MainView = this.gv;
@@ -117,6 +116,7 @@
             this.gv.OptionsView.EnableAppearanceEvenRow = true;
             this.gv.OptionsView.ShowAutoFilterRow = true;
             this.gv.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gv_SelectionChanged);
+            this.gv.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gv_RowUpdated);
             this.gv.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gv_KeyDown);
             this.gv.DoubleClick += new System.EventHandler(this.gv_DoubleClick);
             // 

@@ -8,6 +8,6 @@ namespace PhamaceySystem.Classes
 {
    public class C_Exeption
     {
-        public static string FK_Exeption = "Statement conflicted with REFERENCE constraint";
+        public static string FK_Exeption = "constraint";//Statement conflicted with REFERENCE 
     }
 }
