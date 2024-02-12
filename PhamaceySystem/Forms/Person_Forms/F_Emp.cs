@@ -191,13 +191,13 @@ namespace PhamaceySystem.Forms.Person_Forms
         long id;
         if (Row_Id != 0)
         {
-            id = Convert.ToInt64(gv.GetRowCellValue(Row_Id, gv.Columns[0]));
-            TF_Pers_Emploee = cmdEmp.Get_By(c_id => c_id.Emp_id == id).FirstOrDefault();
+            id = Convert.ToInt64(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString().Replace(",", string.Empty));
+                TF_Pers_Emploee = cmdEmp.Get_By(c_id => c_id.Emp_id == id).FirstOrDefault();
         }
         else
         {
-            id = Convert.ToInt64(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]));
-            TF_Pers_Emploee = cmdEmp.Get_By(c_id => c_id.Emp_id == id).FirstOrDefault();
+            id = Convert.ToInt64(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString().Replace(",", string.Empty));
+                TF_Pers_Emploee = cmdEmp.Get_By(c_id => c_id.Emp_id == id).FirstOrDefault();
         }
     }
     public override void gv_DoubleClick(object sender, EventArgs e)

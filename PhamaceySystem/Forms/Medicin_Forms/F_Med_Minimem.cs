@@ -19,6 +19,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         public F_Med_Minimem()
         {
             InitializeComponent();
+            view_inheretanz_butomes(false, false, false, false, false, false, true);
 
             Title(tit);
             this.Text = tit;
@@ -28,7 +29,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
 
 
         T_Medician TF_Medician;
-        Boolean Is_Double_Click = false;
+        bool Is_Double_Click = false;
         int id;
         public override void Get_Data(string status_mess)
         {
@@ -93,9 +94,9 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             gv.Columns["id"].Visible = false;
             gv.Columns["code"].Caption = "الكود";
             gv.Columns["name"].Caption = "الاسم";
-            gv.Columns["min"].Caption = "الحد الأدنى ";
-            gv.Columns[4].Caption = "الكمية الموجودة في المستودع";
-            gv.Columns[5].Caption = " النقص  ";
+            gv.Columns["min"].Caption = "الحدالأدنى";
+            gv.Columns[4].Caption = "الكميةالمتوفرة";
+            gv.Columns[5].Caption = "النقص";
 
             gv.BestFitColumns();
         }
@@ -105,12 +106,12 @@ namespace PhamaceySystem.Forms.Medicin_Forms
 
             if (Row_Id != 0)
             {
-                id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]));
+                id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString().Replace(",", string.Empty));
                 TF_Medician = cmdMedician.Get_By(c_id => c_id.med_id == id).FirstOrDefault();
             }
             else
             {
-                id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]));
+                id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString().Replace(",", string.Empty));
                 TF_Medician = cmdMedician.Get_By(c_id => c_id.med_id == id).FirstOrDefault();
             }
         }

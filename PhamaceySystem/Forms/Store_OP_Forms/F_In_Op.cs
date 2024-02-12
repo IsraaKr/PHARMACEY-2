@@ -187,10 +187,10 @@ namespace PhamaceySystem.Forms.Store_Forms
             TF_OP_IN.in_op_time = (TimeSpan?)in_op_timeTimeSpanEdit.EditValue;
             TF_OP_IN.in_op_text = in_op_textTextEdit.Text;
             TF_OP_IN.in_op_state = Convert.ToBoolean(in_op_stateCheckEdit.CheckState);
-            TF_OP_IN.med_count = Convert.ToInt32(med_countTextEdit1.Text);
+            TF_OP_IN.med_count = Convert.ToInt32(med_countTextEdit1.Text.ToString().Replace(",", string.Empty));
             TF_OP_IN.donar_emp = donar_empTextEdit.Text;
-            TF_OP_IN.donar_id = Convert.ToInt32(donar_idSearchLookUpEdit.EditValue);
-            TF_OP_IN.emp_id = Convert.ToInt32(emp_idSearchLookUpEdit.EditValue);
+            TF_OP_IN.donar_id = Convert.ToInt32(donar_idSearchLookUpEdit.EditValue.ToString().Replace(",", string.Empty));
+            TF_OP_IN.emp_id = Convert.ToInt32(emp_idSearchLookUpEdit.EditValue.ToString().Replace(",", string.Empty));
             TF_OP_IN.op_type_id = Convert.ToInt32("1");
 
         }
@@ -208,15 +208,17 @@ namespace PhamaceySystem.Forms.Store_Forms
         }
         public void insert_op()
         {
-            var check = cmdOpIn.Get_All().Where(x => x.in_op_id == Convert.ToInt32(in_op_idTextEdit.Text)).FirstOrDefault();
+            var check = cmdOpIn.Get_All().Where(x => x.in_op_id == Convert.ToInt32(in_op_idTextEdit.Text.ToString().Replace(",", string.Empty))).FirstOrDefault();
             if (check == null)
             {
                 is_op_insert = 1;
                 TF_OP_IN = new T_OPeration_IN();
                 Fill_Entitey_op();
                 cmdOpIn.Insert_Data(TF_OP_IN);
-                //base.Insert_Data();
-                //Get_Data("i");
+                var max_id = cmdOpIn.Get_All().Where(c_id => c_id.in_op_id ==
+                        cmdOpIn.Get_All().Max(max => max.in_op_id)).FirstOrDefault();
+                in_op_idTextEdit.Text = max_id.in_op_id.ToString();
+
             }
         }
         private void update_op()
@@ -259,11 +261,11 @@ namespace PhamaceySystem.Forms.Store_Forms
         }
         public void Fill_Entitey_item()
         {
-            TF_OP_IN_Item.in_item_quntity = Convert.ToInt32(in_item_quntityTextEdit.Text);
+            TF_OP_IN_Item.in_item_quntity = Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
             TF_OP_IN_Item.in_item_expDate = Convert.ToDateTime(in_item_expDateDateEdit.DateTime.ToString("yyyy/MM/dd"));
             TF_OP_IN_Item.in_B_It_note = in_B_It_noteMemoEdit.Text;
-            TF_OP_IN_Item.Med_id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue);
-            TF_OP_IN_Item.store_place_id = Convert.ToInt32(med_storage_place_idSearchLookUpEdit.EditValue);
+            TF_OP_IN_Item.Med_id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue.ToString().Replace(",", string.Empty));
+            TF_OP_IN_Item.store_place_id = Convert.ToInt32(med_storage_place_idSearchLookUpEdit.EditValue.ToString().Replace(",", string.Empty));
             TF_OP_IN_Item.In_op_id = TF_OP_IN.in_op_id;
             TF_OP_IN_Item.is_out = false;
             TF_OP_IN_Item.out_item_quntitey = 0;
@@ -273,9 +275,7 @@ namespace PhamaceySystem.Forms.Store_Forms
             TF_OP_IN_Item = new T_OPeration_IN_Item();
             Fill_Entitey_item();
             cmdOpInItem.Insert_Data(TF_OP_IN_Item);
-
-            //base.Insert_Data();
-            //Get_Data("i");
+  
         }
         public void update_item()
         {
@@ -287,9 +287,7 @@ namespace PhamaceySystem.Forms.Store_Forms
                     {
 
                         Fill_Entitey_item();
-                        cmdOpInItem.Update_Data(TF_OP_IN_Item);
-                        //base.Update_Data();
-                        //Get_Data("u");
+                        cmdOpInItem.Update_Data(TF_OP_IN_Item);           
                         
                     }
                 }
@@ -315,9 +313,6 @@ namespace PhamaceySystem.Forms.Store_Forms
                                 Get_Row_ID(row_id);
                                 cmdOpInItem.Delet_Data(TF_OP_IN_Item);
                             }
-                        //base.Delete_Data();
-                        //Get_Data("d");
-     
 
                     }
                 }
@@ -397,10 +392,10 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " + id + ")");
         private void Get_Add_med_count()
         {
             TF_Medician = new T_Medician();
-            int id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue);
+            int id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue.ToString().Replace(",", string.Empty));
             TF_Medician = cmdMedician.Get_All().Where(l => l.med_id == id).FirstOrDefault();
-            TF_Medician.med_in_count = TF_Medician.med_in_count + Convert.ToInt32(in_item_quntityTextEdit.Text);
-            TF_Medician.med_total_now = TF_Medician.med_total_now + Convert.ToInt32(in_item_quntityTextEdit.Text);
+            TF_Medician.med_in_count = TF_Medician.med_in_count + Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
+            TF_Medician.med_total_now = TF_Medician.med_total_now + Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
             cmdMedician.Update_Data(TF_Medician);
         }
         private void Get_Delete_med_count()
@@ -408,18 +403,18 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " + id + ")");
             TF_Medician = new T_Medician();
          
             TF_Medician = cmdMedician.Get_All().Where(l => l.med_id == old_med_id).FirstOrDefault();
-            TF_Medician.med_in_count = TF_Medician.med_in_count - Convert.ToInt32(in_item_quntityTextEdit.Text);
-            TF_Medician.med_total_now = TF_Medician.med_total_now - Convert.ToInt32(in_item_quntityTextEdit.Text);
+            TF_Medician.med_in_count = TF_Medician.med_in_count - Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
+            TF_Medician.med_total_now = TF_Medician.med_total_now - Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
             cmdMedician.Update_Data(TF_Medician);
             old_med_id = 0;
         }
         private void Get_Update_med_count()
         {
             TF_Medician = new T_Medician();
-            int id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue);
+            int id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue.ToString().Replace(",", string.Empty));
             TF_Medician = cmdMedician.Get_All().Where(l => l.med_id == id).FirstOrDefault();
-            TF_Medician.med_in_count = TF_Medician.med_in_count -old_med_Quntitey+ Convert.ToInt32(in_item_quntityTextEdit.Text);
-            TF_Medician.med_total_now = TF_Medician.med_total_now -old_med_Quntitey + Convert.ToInt32(in_item_quntityTextEdit.Text);
+            TF_Medician.med_in_count = TF_Medician.med_in_count -old_med_Quntitey+ Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
+            TF_Medician.med_total_now = TF_Medician.med_total_now -old_med_Quntitey + Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
             cmdMedician.Update_Data(TF_Medician);
             old_med_Quntitey = 0;
         }
@@ -614,12 +609,12 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " + id + ")");
             long id;
             if (Row_Id != 0)
             {
-                id = Convert.ToInt64(gv.GetRowCellValue(Row_Id, gv.Columns[0]));
+                id = Convert.ToInt64(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString().Replace(",", string.Empty));
                 TF_OP_IN_Item = cmdOpInItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
             }
             else
             {
-                id = Convert.ToInt64(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]));
+                id = Convert.ToInt64(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString().Replace(",", string.Empty));
                 TF_OP_IN_Item = cmdOpInItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
             }
         }

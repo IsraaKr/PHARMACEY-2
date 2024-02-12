@@ -31,7 +31,10 @@
       <Value Profile="(Default)">Maroon</Value>
     </Setting>
     <Setting Name="is_first_time" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="is_med_count_show" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

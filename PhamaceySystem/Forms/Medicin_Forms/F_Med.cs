@@ -115,8 +115,9 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         }
         public override void Insert_save_Data()
         {
-            base.Insert_save_Data();
+          
             Insert_Data();
+
             F_In_Op f = new F_In_Op();
             f.ShowDialog();
         }
@@ -170,12 +171,12 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             //**********************
             TF_Medician.med_code = med_codeTextEdit.Text;
             TF_Medician.med_name = med_nameTextEdit.Text;
-            TF_Medician.med_minimum = Convert.ToInt32(med_minimumTextEdit.Text);
+            TF_Medician.med_minimum = Convert.ToInt32(med_minimumTextEdit.Text.Replace(",", string.Empty));
             TF_Medician.med_state = Convert.ToBoolean(med_stateCheckEdit.CheckState);
             TF_Medician.med_note = med_noteTextEdit.Text;
-            TF_Medician.med_cat_id = Convert.ToInt32(med_cat_idSearchLookUpEdit.EditValue);
-            TF_Medician.med_shape_id = Convert.ToInt32(med_shape_idSearchLookUpEdit.EditValue);
-            TF_Medician.med_unites_id = Convert.ToInt32(med_unite_idSearchLookUpEdit1.EditValue);
+            TF_Medician.med_cat_id = Convert.ToInt32(med_cat_idSearchLookUpEdit.EditValue.ToString().Replace(",", string.Empty));
+            TF_Medician.med_shape_id = Convert.ToInt32(med_shape_idSearchLookUpEdit.EditValue.ToString().Replace(",", string.Empty));
+            TF_Medician.med_unites_id = Convert.ToInt32(med_unite_idSearchLookUpEdit1.EditValue.ToString().Replace(",", string.Empty));
             TF_Medician.med_in_count = 0;
             TF_Medician.med_out_count = 0;
             TF_Medician.med_dam_count = 0;

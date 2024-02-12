@@ -130,13 +130,25 @@ namespace PhamaceySystem.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool is_first_time {
             get {
                 return ((bool)(this["is_first_time"]));
             }
             set {
                 this["is_first_time"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool is_med_count_show {
+            get {
+                return ((bool)(this["is_med_count_show"]));
+            }
+            set {
+                this["is_med_count_show"] = value;
             }
         }
     }

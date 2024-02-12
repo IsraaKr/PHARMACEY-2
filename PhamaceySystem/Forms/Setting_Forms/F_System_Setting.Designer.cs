@@ -37,6 +37,8 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.ch_show_med_min = new DevExpress.XtraEditors.CheckEdit();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_gc_row_count.Properties)).BeginInit();
@@ -47,6 +49,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ch_show_med_min.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_tiltle
@@ -62,6 +66,7 @@
             // 
             // dataLayoutControl1
             // 
+            this.dataLayoutControl1.Controls.Add(this.ch_show_med_min);
             this.dataLayoutControl1.Controls.Add(this.textEdit_gc_row_count);
             this.dataLayoutControl1.Controls.Add(this.colorPickEdit_master);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -81,14 +86,14 @@
             this.textEdit_gc_row_count.Name = "textEdit_gc_row_count";
             this.textEdit_gc_row_count.Properties.Mask.EditMask = "d";
             this.textEdit_gc_row_count.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.textEdit_gc_row_count.Size = new System.Drawing.Size(252, 22);
+            this.textEdit_gc_row_count.Size = new System.Drawing.Size(300, 22);
             this.textEdit_gc_row_count.StyleController = this.dataLayoutControl1;
             this.textEdit_gc_row_count.TabIndex = 8;
             // 
             // colorPickEdit_master
             // 
             this.colorPickEdit_master.EditValue = System.Drawing.Color.Empty;
-            this.colorPickEdit_master.Location = new System.Drawing.Point(274, 86);
+            this.colorPickEdit_master.Location = new System.Drawing.Point(274, 90);
             this.colorPickEdit_master.Margin = new System.Windows.Forms.Padding(2);
             this.colorPickEdit_master.MenuManager = this.barMang;
             this.colorPickEdit_master.Name = "colorPickEdit_master";
@@ -97,7 +102,7 @@
             this.colorPickEdit_master.Properties.AutomaticColor = System.Drawing.Color.Black;
             this.colorPickEdit_master.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.colorPickEdit_master.Size = new System.Drawing.Size(252, 26);
+            this.colorPickEdit_master.Size = new System.Drawing.Size(300, 26);
             this.colorPickEdit_master.StyleController = this.dataLayoutControl1;
             this.colorPickEdit_master.TabIndex = 6;
             // 
@@ -110,17 +115,18 @@
             this.layoutControlItem5,
             this.layoutControlItem3,
             this.emptySpaceItem1,
-            this.emptySpaceItem3});
-            this.col.Name = "col";
+            this.emptySpaceItem3,
+            this.layoutControlItem2});
+            this.col.Name = "Root";
             this.col.Size = new System.Drawing.Size(800, 292);
             this.col.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(260, 106);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(260, 140);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(260, 166);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(308, 132);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
@@ -131,21 +137,23 @@
             this.layoutControlItem5.Location = new System.Drawing.Point(260, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-            this.layoutControlItem5.Size = new System.Drawing.Size(260, 54);
+            this.layoutControlItem5.Size = new System.Drawing.Size(308, 54);
             this.layoutControlItem5.Text = "عدد عناصر الجداول للعرض";
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(147, 21);
             // 
             // layoutControlItem3
             // 
+            this.layoutControlItem3.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem3.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem3.Control = this.colorPickEdit_master;
             this.layoutControlItem3.Location = new System.Drawing.Point(260, 54);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-            this.layoutControlItem3.Size = new System.Drawing.Size(260, 52);
+            this.layoutControlItem3.Size = new System.Drawing.Size(308, 56);
             this.layoutControlItem3.Text = "لون العناوين";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(147, 15);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(147, 19);
             // 
             // emptySpaceItem1
             // 
@@ -158,10 +166,32 @@
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(520, 0);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(568, 0);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(260, 272);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(212, 272);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // ch_show_med_min
+            // 
+            this.ch_show_med_min.Location = new System.Drawing.Point(272, 122);
+            this.ch_show_med_min.MenuManager = this.barMang;
+            this.ch_show_med_min.Name = "ch_show_med_min";
+            this.ch_show_med_min.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ch_show_med_min.Properties.Appearance.Options.UseFont = true;
+            this.ch_show_med_min.Properties.Caption = "عرض تنبه المواد التي شارفت على الانتهاء";
+            this.ch_show_med_min.Size = new System.Drawing.Size(304, 23);
+            this.ch_show_med_min.StyleController = this.dataLayoutControl1;
+            this.ch_show_med_min.TabIndex = 10;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.ch_show_med_min;
+            this.layoutControlItem2.Location = new System.Drawing.Point(260, 110);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 5);
+            this.layoutControlItem2.Size = new System.Drawing.Size(308, 30);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
             // F_System_Setting
             // 
@@ -185,6 +215,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ch_show_med_min.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,5 +233,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
+        private DevExpress.XtraEditors.CheckEdit ch_show_med_min;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }

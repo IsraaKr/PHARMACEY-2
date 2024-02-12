@@ -156,9 +156,10 @@ namespace PhamaceySystem.Forms.Store_Forms
         }
         public void Fill_Entitey()
         {
+        
             TF_Store_Places.name = txt_name.Text.Trim();
             TF_Store_Places.groupe = txt_group.Text.Trim();
-            TF_Store_Places.shufel = txt_shuffel.Text.Trim();
+            TF_Store_Places.shufel = txt_group.Text.Trim();
         }
         private void Fill_Graid()
         {
@@ -192,12 +193,12 @@ namespace PhamaceySystem.Forms.Store_Forms
             long id;
             if (Row_Id != 0)
             {
-                id = Convert.ToInt64(gv.GetRowCellValue(Row_Id, gv.Columns[0]));
+                id = Convert.ToInt64(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString().Replace(",", string.Empty));
                 TF_Store_Places = cmdStorePalces.Get_By(c_id => c_id.id == id).FirstOrDefault();
             }
             else
             {
-                id = Convert.ToInt64(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]));
+                id = Convert.ToInt64(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString().Replace(",", string.Empty));
                 TF_Store_Places = cmdStorePalces.Get_By(c_id => c_id.id == id).FirstOrDefault();
             }
         }
@@ -218,6 +219,16 @@ namespace PhamaceySystem.Forms.Store_Forms
         public override void gv_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
             Is_Double_Click = true;
+        }
+
+        private void txt_group_EditValueChanged(object sender, EventArgs e)
+        {
+            txt_name.Text = txt_group.Text.Trim() + "-" + txt_group.Text.Trim();
+        }
+
+        private void txt_shuffel_EditValueChanged(object sender, EventArgs e)
+        {
+            txt_name.Text = txt_group.Text.Trim() + "-" + txt_group.Text.Trim();
         }
     }
 }

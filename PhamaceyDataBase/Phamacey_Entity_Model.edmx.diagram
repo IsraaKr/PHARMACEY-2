@@ -4,22 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ce145f28e2de4e0caed48c984912c00e" Name="Diagram1">
+      <Diagram DiagramId="ce145f28e2de4e0caed48c984912c00e" Name="Diagram1" ZoomLevel="18">
         <EntityTypeShape EntityType="PHANACEY_DBModel.T_Med_Category" Width="1.5" PointX="0.75" PointY="0.875" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Med_Shape" Width="1.5" PointX="0.75" PointY="7.125" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Med_Unites" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Med_Shape" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Med_Unites" Width="1.5" PointX="0.75" PointY="3.125" />
         <EntityTypeShape EntityType="PHANACEY_DBModel.T_Medician" Width="1.5" PointX="3" PointY="2.5" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_Damage" Width="1.5" PointX="6" PointY="12.625" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_Damage" Width="1.5" PointX="5.375" PointY="9.5" />
         <EntityTypeShape EntityType="PHANACEY_DBModel.T_Operation_Damage_Item" Width="1.5" PointX="8.25" PointY="3.375" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_IN" Width="1.5" PointX="3.75" PointY="12.375" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_IN" Width="1.5" PointX="3.125" PointY="9.25" />
         <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_IN_Item" Width="1.5" PointX="5.25" PointY="3" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_Out" Width="1.5" PointX="8.25" PointY="16.875" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_Out" Width="1.5" PointX="7.625" PointY="13.75" />
         <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_Out_Item" Width="1.5" PointX="10.5" PointY="3.375" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_Type" Width="1.5" PointX="1.5" PointY="10.625" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Pers_Donars" Width="1.5" PointX="1.5" PointY="13.75" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Pers_Emploee" Width="1.5" PointX="1.5" PointY="16.125" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Pers_Recivers" Width="1.5" PointX="6" PointY="18" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Store_Placees" Width="1.5" PointX="6" PointY="7.75" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_Type" Width="1.5" PointX="0.875" PointY="7.5" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Pers_Donars" Width="1.5" PointX="0.875" PointY="10.625" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Pers_Emploee" Width="1.5" PointX="0.875" PointY="13" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Pers_Recivers" Width="1.5" PointX="5.375" PointY="14.875" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Store_Placees" Width="1.5" PointX="6.75" PointY="6.625" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Category" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Shape" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Unites" />

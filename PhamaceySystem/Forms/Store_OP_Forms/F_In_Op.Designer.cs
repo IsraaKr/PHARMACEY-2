@@ -355,7 +355,7 @@
             this.in_item_quntityTextEdit.Properties.Appearance.Options.UseFont = true;
             this.in_item_quntityTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.in_item_quntityTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.in_item_quntityTextEdit.Properties.Mask.EditMask = "d";
+            this.in_item_quntityTextEdit.Properties.Mask.EditMask = "N0";
             this.in_item_quntityTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.in_item_quntityTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.in_item_quntityTextEdit.Size = new System.Drawing.Size(275, 26);
@@ -442,7 +442,7 @@
             // 
             // in_op_dateDateEdit
             // 
-            this.in_op_dateDateEdit.EditValue = new System.DateTime(2023, 12, 27, 11, 32, 23, 0);
+            this.in_op_dateDateEdit.EditValue = new System.DateTime(2024, 2, 11, 0, 0, 0, 0);
             this.in_op_dateDateEdit.Location = new System.Drawing.Point(760, 130);
             this.in_op_dateDateEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_op_dateDateEdit.MenuManager = this.barMang;
@@ -631,7 +631,7 @@
             this.med_countTextEdit1.Properties.Appearance.Options.UseForeColor = true;
             this.med_countTextEdit1.Properties.Appearance.Options.UseTextOptions = true;
             this.med_countTextEdit1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.med_countTextEdit1.Size = new System.Drawing.Size(68, 26);
+            this.med_countTextEdit1.Size = new System.Drawing.Size(95, 26);
             this.med_countTextEdit1.StyleController = this.dataLayoutControl2;
             this.med_countTextEdit1.TabIndex = 21;
             // 
@@ -931,7 +931,7 @@
             this.ItemFordonar_emp1.Location = new System.Drawing.Point(197, 204);
             this.ItemFordonar_emp1.Name = "ItemFordonar_emp1";
             this.ItemFordonar_emp1.Padding = new DevExpress.XtraLayout.Utils.Padding(7, 7, 12, 8);
-            this.ItemFordonar_emp1.Size = new System.Drawing.Size(217, 53);
+            this.ItemFordonar_emp1.Size = new System.Drawing.Size(244, 53);
             this.ItemFordonar_emp1.Text = "عدد المواد";
             this.ItemFordonar_emp1.TextSize = new System.Drawing.Size(132, 19);
             // 
@@ -956,9 +956,9 @@
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(414, 204);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(441, 204);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(142, 53);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(115, 53);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem1

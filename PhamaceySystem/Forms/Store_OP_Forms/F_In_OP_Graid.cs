@@ -39,7 +39,7 @@ namespace PhamaceySystem.Forms.Store_Forms
                 clear_data(this.Controls);
                 Is_Double_Click = false;
                 cmdINOP = new ClsCommander<T_OPeration_IN>();
-                row_to_show = Properties.Settings.Default.gc_row_count;
+              //  row_to_show = Properties.Settings.Default.gc_row_count;
                 TF_OPeration_IN = cmdINOP.Get_All().FirstOrDefault();
                 if (TF_OPeration_IN != null)
                     Fill_Graid();
@@ -193,13 +193,7 @@ namespace PhamaceySystem.Forms.Store_Forms
                 gc.DataSource = data;
 
                 gv_column_names();
-                //gc.DataSource = data.Take(row_to_show).ToList();
-
-                //gv_column_names();
-                ////اضافة عدد الصفحات الكعى الكومبو بوكس
-
-                //C_GC_Page_Nav.fill_combo_page_num(data.Count(), comb_page_num);
-
+   
             }
         }
 
@@ -224,12 +218,12 @@ namespace PhamaceySystem.Forms.Store_Forms
 
             if (Row_Id != 0)
             {
-                id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]));
+                id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString().Replace(",", string.Empty));
                 TF_OPeration_IN = cmdINOP.Get_By(c_id => c_id.in_op_id == id).FirstOrDefault();
             }
             else
             {
-                id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]));
+                id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString().Replace(",", string.Empty));
                 TF_OPeration_IN = cmdINOP.Get_By(c_id => c_id.in_op_id == id).FirstOrDefault();
             }
         }

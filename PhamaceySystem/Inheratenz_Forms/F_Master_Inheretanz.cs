@@ -69,7 +69,7 @@ namespace PhamaceySystem
         public void change_states_message(string status_mess)
         {
             bar_states.Caption = "...";
-            bar_states.ItemAppearance.Normal.BackColor = F_Master_Inheretanz.DefaultBackColor;
+            bar_states.ItemAppearance.Normal.BackColor = this.BackColor;
             if (status_mess == "")
             {
                 return;
@@ -172,7 +172,9 @@ namespace PhamaceySystem
                 foreach (Control c in controls)
                     if (c is TextBox)
                         (c as TextBox).Text = string.Empty;
-                    else if (c is DateEdit)
+                 else  if (c is TextEdit)
+                          (c as TextEdit).Text = string.Empty;
+                else if (c is DateEdit)
                         (c as DateEdit).DateTime = DateTime.Now;
                     else if (c is TimeSpanEdit)
                         (c as TimeSpanEdit).EditValue = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss"));

@@ -40,7 +40,7 @@ namespace PhamaceySystem.Forms.Setting_Forms
 
         string server_nam = "";
         string db_nam = "PHANACEY_DB";
-
+        bool run = false;
         //انشاء قاعدة البيانات
         private void create_db()
         {  // أول استدعاء من اجل انشاء قاعدة البيانات و الجداول
@@ -76,7 +76,7 @@ namespace PhamaceySystem.Forms.Setting_Forms
             //************************************************
             try//إنشاء الجداول
             {
-                bool run = c_db.runSqlScriptFile(Properties.Settings.Default.sqript_bath);
+                run = c_db.runSqlScriptFile(Properties.Settings.Default.sqript_bath);
                 MessageBox.Show("تم إنشاء كل الجداول  " + run);
             }
             catch (Exception)
@@ -105,13 +105,14 @@ namespace PhamaceySystem.Forms.Setting_Forms
                     cmdopType.Insert_Data(TF_op_type);
                 }
 
-
-
+                MessageBox.Show(" تم الادخال على جدول أنواع الفواتير ");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.InnerException.InnerException.ToString());
+                MessageBox.Show("Error in operation type  tables part");
             }
+
+       
 
         }
         private void btn_restore_database_Click(object sender, EventArgs e)
@@ -141,6 +142,7 @@ namespace PhamaceySystem.Forms.Setting_Forms
             Properties.Settings.Default.password = txt_pass.Text;
             Properties.Settings.Default.time_server = txt_time.Text;
             Properties.Settings.Default.sqript_bath = txt_sqript_bath.Text;
+            Properties.Settings.Default.is_first_time =!run;
 
             // Save Settings
             Properties.Settings.Default.Save();

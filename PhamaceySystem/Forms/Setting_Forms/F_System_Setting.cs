@@ -28,13 +28,27 @@ namespace PhamaceySystem.Forms.Setting_Forms
 
             Properties.Settings.Default.titel_master_colore = colorPickEdit_master.Color;
             Properties.Settings.Default.gc_row_count = Convert.ToInt32(textEdit_gc_row_count.Text);
-
+            Properties.Settings.Default.is_med_count_show = Convert.ToBoolean(ch_show_med_min.CheckState);
 
             // Save Settings
             Properties.Settings.Default.Save();
             MessageBox.Show("تم حفظ الاعدادات بنجاح");
 
         }
+        public override void Get_Data(string status_mess)
+        {
+            load_setting_data();
+            base.Get_Data(status_mess);
+        }
+
+        private void load_setting_data()
+        {
+            colorPickEdit_master.Color = Properties.Settings.Default.titel_master_colore ;
+            textEdit_gc_row_count.Text = Properties.Settings.Default.gc_row_count.ToString();
+            ch_show_med_min.Checked = Properties.Settings.Default.is_med_count_show;
+        }
+
+        
     }
 }
 

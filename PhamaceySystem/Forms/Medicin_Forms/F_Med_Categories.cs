@@ -190,12 +190,12 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             long id;
             if (Row_Id != 0)
             {
-                id = Convert.ToInt64(gv.GetRowCellValue(Row_Id, gv.Columns[0]));
+                id = Convert.ToInt64(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString().Replace(",", string.Empty));
                 TF_Med_Cat = cmdMedCat.Get_By(c_id => c_id.med_cat_id == id).FirstOrDefault();
             }
             else
             {
-                id = Convert.ToInt64(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]));
+                id = Convert.ToInt64(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString().Replace(",", string.Empty));
                 TF_Med_Cat = cmdMedCat.Get_By(c_id => c_id.med_cat_id == id).FirstOrDefault();
             }
         }

@@ -126,15 +126,16 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btn_add_item.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAFnRFWHRUaXRsZQBSZWRvO0Fy
-        cm93O0VkaXQ76FGvrAAAAV1JREFUWEftl7uNwkAQQF0AEu2QUMJ1QAWXAQkXgAS6Iq4KYuiEjAIIiJAu
-        M/OQjfaG9c4YlnPiYAT27sy8+e1CUZZl0aV06pzAe4A+Aw8Z+NjsioSMZG0hshU5iFwq4TvvWGNPysYf
-        n16AsRj9ETmLlIawh73oREHCsfcAfFbRWo71OllBV0Os2gB8iYFfR9RNcOhio4ZYYcsLAH3M+V7ez6pa
-        D+UToe68Y03DYANbN+deAOpHCkNjR3meiwwSTcYae9gb6p7CZ08GaCLtfJJwrOvMXg1xt2cBkE7d7USV
-        HK3IOjrR3rAAmOVQkbqm0t4E9v0sAAdKCEBztY3+3nAxCCsDuvnMk00BJp17poDjNcwAY+bNgOn83QAu
-        0HeXwISwAHI04Uu3Ya4xbISwMpDrIHoaAEV9FE9bTMLLPYCB8DJa53SOLasEdQRcocvczk2A//6X1P8s
-        7zPQeQau03XOyI/11kYAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAWdEVYdFRpdGxlAFJlZG87QXJyb3c7RWRpdDvoUa+s
+        AAABlklEQVRYR8WVsU3EQBBFrwAk2iGhBDqgAjIggYCTQBRBFcTQCRkFEBAhkZn/kLH+LONdS7b2gifd
+        jP/M89k+324YhoOSNnuSNnuSNnuSNnuSNnvyr3H28FLjRNyIZ/Emvkb4TI9jZLLZCfeFArIBcSqexKcY
+        GpAhy0y2K/hCAcnAheAbZrIazDBb7tu7L8ihCN+Kb5EJlsAsO/727YU0y06As8/kr+JKcK+PR/hMj2Nl
+        nh3s+pWD+4IcFADuX3nZ38W1OBJ+og7HyJD12Q+v3RfkoADwEPkCFp4Ll9UgW57EhPuCHBTgcpZPO9+q
+        lLRgxndMuC/IQQF+yz7Afa1d9jkehe+ZcF+QgwK8UHyAh6tc3mJ64DLcF+SgQPnwNd9sBVU5uC/IQQFe
+        rT7Az6yUzNGUg/uCHBRYcwKLcF8oQIG1t6CJ+0IBCmzxEFZxXyhAga1+hrO4LxSgwFYvolncFwoYQ+Wr
+        +FKEJWtwXyhgDPmf0f3Y2wz3hQIsyF/ondWb4b5QHIK02ZO02ZO02ZO02ZO02Y9h9wPTdc7I9loRYwAA
+        AABJRU5ErkJggg==
 </value>
   </data>
   <assembly alias="DevExpress.Data.v20.1" name="DevExpress.Data.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />

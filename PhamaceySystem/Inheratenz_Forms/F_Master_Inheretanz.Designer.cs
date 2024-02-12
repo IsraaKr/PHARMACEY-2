@@ -79,7 +79,7 @@
             this.lbl_tiltle.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbl_tiltle.Location = new System.Drawing.Point(0, 0);
             this.lbl_tiltle.Name = "lbl_tiltle";
-            this.lbl_tiltle.Size = new System.Drawing.Size(864, 60);
+            this.lbl_tiltle.Size = new System.Drawing.Size(1008, 69);
             this.lbl_tiltle.TabIndex = 5;
             this.lbl_tiltle.Text = "....";
             this.lbl_tiltle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -122,6 +122,7 @@
             this.sp_add_save});
             this.barMang.MainMenu = this.menu_bar;
             this.barMang.MaxItemId = 28;
+            this.barMang.OptionsStubGlyphs.Padding = new System.Windows.Forms.Padding(0);
             this.barMang.StatusBar = this.status_bar;
             // 
             // menu_bar
@@ -365,15 +366,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barMang;
-            this.barDockControlTop.Size = new System.Drawing.Size(864, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1008, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 316);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 381);
             this.barDockControlBottom.Manager = this.barMang;
-            this.barDockControlBottom.Size = new System.Drawing.Size(864, 109);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1008, 109);
             // 
             // barDockControlLeft
             // 
@@ -381,15 +382,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barMang;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 316);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 381);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(864, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(1008, 0);
             this.barDockControlRight.Manager = this.barMang;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 316);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 381);
             // 
             // barButtonItem6
             // 
@@ -403,9 +404,9 @@
             // 
             // F_Master_Inheretanz
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 425);
+            this.ClientSize = new System.Drawing.Size(1008, 490);
             this.Controls.Add(this.lbl_tiltle);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);

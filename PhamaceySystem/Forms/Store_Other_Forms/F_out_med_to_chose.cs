@@ -16,14 +16,15 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Store_Other_Forms
 {
-    public partial class F_out_med_to_chose : F_Master_Graid
+    public partial class F_out_med_to_chose : F_Master_Inheretanz
     {
         public F_out_med_to_chose(int med_id  , int out_op_id)
         {
             InitializeComponent();
             med_idd = med_id;       
             out_op_idd = out_op_id;
-            gv.OptionsBehavior.Editable   = true;
+            //   gv.OptionsBehavior.Editable   = true;
+            view_inheretanz_butomes(false, true, false, false, false, false, true);
 
             Title(tit);
             this.Text = tit;
@@ -48,7 +49,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         {
             try
             {
-                clear_data(this.Controls);
+//clear_data(this.Controls);
                 Is_Double_Click = false;
                 cmdMedician = new ClsCommander<T_Medician>();
                 TF_Medician = cmdMedician.Get_All().FirstOrDefault();
@@ -62,6 +63,27 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                 Get_Data(ex.InnerException.InnerException.ToString() + "/" + ex.Message);
             }
 
+        }
+        public override void Insert_Data()
+        {
+            for (int i = 0; i < gv.RowCount; i++)
+            {
+                in_item_idd = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns[0]));
+                in_op_idd = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns[2]));
+                int old_qunt = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns[6]));
+                out_item_quntity = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns["الكمية المطلوبة"]));
+                if (out_item_quntity > 0 && out_item_quntity <= old_qunt)
+                {
+                    insert_item();
+                    update_In_item();
+                    Get_Add_med_count();
+                    MessageBox.Show("تم حفظ السطر " +i+1);
+                }
+               
+
+            }
+            Get_Data("i");
+            base.Insert_Data();
         }
         private void Fill_Graid()
         {
@@ -83,32 +105,27 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             gv.Columns[1].Visible = false;
             gv.Columns[2].Visible = false;         
             gv.Columns[3].Caption = "الاسم";
+            gv.Columns[3].OptionsColumn.AllowEdit = false;
             gv.Columns[4].Caption = "تاريخ انتهاء الصلاحية";
+            gv.Columns[3].OptionsColumn.AllowEdit = false;
             gv.Columns[5].Caption = "مكان التخزين ";
+            gv.Columns[3].OptionsColumn.AllowEdit = false;
             gv.Columns[6].Caption = "الكمية المتوفرة ";
-
-            gv.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn());
-            GridColumn col = gv.Columns.AddVisible("الكمية المتوفرة 2");
-            gv.Columns[7].Caption = "الكمية المطلوبة ";
-            
-            //DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repo_sp_qun = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            //gc.RepositoryItems.Add(repo_sp_qun);
-           // gv.Columns[7].ColumnEdit = repo_sp_qun;
-
-            gv.Columns[7].Visible = true;
+            gv.Columns[3].OptionsColumn.AllowEdit = false;
+            if (gv.Columns.Count<=7)
+            {
+                gv.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn());
+                GridColumn col = gv.Columns.AddVisible("الكمية المتوفرة 2");
+                col.UnboundType = UnboundColumnType.Integer;
+                col.OptionsColumn.AllowEdit = true;
+                col.FieldName = "الكمية المطلوبة";
+                col.VisibleIndex = 7;
+            }
+           
+          
             gv.BestFitColumns();
         } 
-        public override void gv_RowUpdated(object sender, RowObjectEventArgs e)
-        {
-            in_item_idd = Convert.ToInt32(gv.GetFocusedRowCellValue(gv.Columns[0]));
-            in_op_idd = Convert.ToInt32(gv.GetFocusedRowCellValue(gv.Columns[2]));
-            out_item_quntity = Convert.ToInt32(gv.GetFocusedRowCellValue(gv.Columns[7]));
-
-            insert_item();
-            update_In_item();
-            Get_Add_med_count();
-
-        }
+       
         // ********************* اخراج المادة *******************
         public void Fill_Entitey_item()
         {
@@ -163,24 +180,58 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                 Get_Data(ex.InnerException.InnerException.ToString());
             }
         }
-      
+
+        private void gc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
+        Dictionary<int, int> dic_out = new Dictionary<int, int>();
+        private void gv_CustomUnboundColumnData(object sender, CustomColumnDataEventArgs e)
+        {
+     
+            int row_index = e.ListSourceRowIndex;
+            int outt = 0;//
+          //  Convert.ToInt32(gv.GetListSourceRowCellValue(row_index, "الكمية المطلوبة"));
+            if (e.Column.FieldName != "الكمية المطلوبة")
+                return;
+            if (e.IsGetData)
+            {
+                if (!dic_out.ContainsKey(row_index))
+                {
+                    dic_out.Add(row_index, outt);
+
+                }
+                e.Value = dic_out[row_index];
+            
+            }
+
+            if (e.IsSetData)
+            {
+                dic_out[row_index] = Convert.ToInt32(e.Value);
+              
+            }
+     
+        }
+
+         private void gv_ValidateRow(object sender, ValidateRowEventArgs e)
+        {
+            var row = e.Row;
+            int old_qunt = Convert.ToInt32(gv.GetFocusedRowCellValue( gv.Columns[6]));
+            out_item_quntity = Convert.ToInt32(gv.GetFocusedRowCellValue( gv.Columns["الكمية المطلوبة"]));
+            if (row == null)
+                return;
+            if (old_qunt < out_item_quntity || out_item_quntity <0)
+            {
+                e.Valid = false;
+                gv.SetColumnError(gv.Columns["الكمية المطلوبة"], " يجب أن تكون الكمية المطلوبة أقل من الكمية المتوفرة و أكبر من الصفر");
+            }
+        }
+        //مشان م تطلع رسالة الفاليديشن ا
+        private void gv_InvalidRowException(object sender, InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
     }
-  
-}
-//  private void gv_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
-
-//var pers_id = gv.GetFocusedRowCellValue(gv.Columns[0]);
-//var nashat_id = gv.GetFocusedRowCellValue(gv.Columns[4]);
-//var don = gv.GetFocusedRowCellValue(gv.Columns[2]);
-//var res = gv.GetFocusedRowCellValue(gv.Columns[3]);
-
-
-////            sqll = @"UPDATE       dbo.T_NASHAT_KEEP
-////SET                done = N'" + don +"'," +
-////                  "  resone  = N'" +  res+ "'    " +
-////                        "  WHERE        (nashat_id = " + id + ") AND (pers_id = " + id_doublee_click + " )";
-//sqll = @"UPDATE       dbo.T_NASHAT_KEEP
-//            SET                done = N'" + don + "'," +
-//      "  resone  = N'" + res + "'    " +
-//            "  WHERE        (nashat_id = " + nashat_id + ") AND (pers_id = " + pers_id + " )";
-//done = c_db.insert_upadte_delete(sqll);
+} 

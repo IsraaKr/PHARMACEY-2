@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_Main));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -47,7 +48,6 @@
             this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
@@ -57,6 +57,10 @@
             this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem25 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem26 = new DevExpress.XtraBars.BarButtonItem();
+            this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
+            this.skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.bar_med_min = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -81,10 +85,15 @@
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup21 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,7 +120,6 @@
             this.barButtonItem14,
             this.barButtonItem15,
             this.barButtonItem16,
-            this.barButtonItem17,
             this.barButtonItem18,
             this.barButtonItem19,
             this.barButtonItem20,
@@ -120,17 +128,26 @@
             this.barButtonItem23,
             this.barButtonItem24,
             this.barButtonItem25,
-            this.barButtonItem26});
+            this.barButtonItem26,
+            this.skinDropDownButtonItem1,
+            this.skinPaletteDropDownButtonItem1,
+            this.barStaticItem1,
+            this.bar_med_min});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbon.MaxItemId = 29;
+            this.ribbon.MaxItemId = 38;
             this.ribbon.Name = "ribbon";
+            this.ribbon.PageHeaderItemLinks.Add(this.bar_med_min);
+            this.ribbon.PageHeaderItemLinks.Add(this.barStaticItem1);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage2,
             this.ribbonPage5,
             this.ribbonPage3,
             this.ribbonPage4});
+            this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemTextEdit1,
+            this.repositoryItemTextEdit2});
             this.ribbon.Size = new System.Drawing.Size(923, 203);
             this.ribbon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ribbon_ItemClick);
             // 
@@ -261,12 +278,6 @@
             this.barButtonItem16.Id = 16;
             this.barButtonItem16.Name = "barButtonItem16";
             // 
-            // barButtonItem17
-            // 
-            this.barButtonItem17.Caption = "ألوان البرنامج";
-            this.barButtonItem17.Id = 17;
-            this.barButtonItem17.Name = "barButtonItem17";
-            // 
             // barButtonItem18
             // 
             this.barButtonItem18.Caption = "إتلاف مواد";
@@ -320,6 +331,7 @@
             this.barButtonItem24.Id = 26;
             this.barButtonItem24.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem24.ImageOptions.SvgImage")));
             this.barButtonItem24.Name = "barButtonItem24";
+            this.barButtonItem24.Tag = "F_out_op_graid";
             // 
             // barButtonItem25
             // 
@@ -335,6 +347,52 @@
             this.barButtonItem26.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem26.ImageOptions.LargeImage")));
             this.barButtonItem26.Name = "barButtonItem26";
             this.barButtonItem26.Tag = "F_Med_Minimem";
+            // 
+            // skinDropDownButtonItem1
+            // 
+            this.skinDropDownButtonItem1.Id = 29;
+            this.skinDropDownButtonItem1.Name = "skinDropDownButtonItem1";
+            // 
+            // skinPaletteDropDownButtonItem1
+            // 
+            this.skinPaletteDropDownButtonItem1.Id = 30;
+            this.skinPaletteDropDownButtonItem1.Name = "skinPaletteDropDownButtonItem1";
+            // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Caption = "الأدوية التي شارفت على الانتهاء";
+            this.barStaticItem1.Id = 36;
+            this.barStaticItem1.Name = "barStaticItem1";
+            this.barStaticItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barStaticItem1.ShowImageInToolbar = false;
+            // 
+            // bar_med_min
+            // 
+            this.bar_med_min.Caption = "...";
+            this.bar_med_min.Id = 37;
+            this.bar_med_min.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_med_min.ImageOptions.Image")));
+            this.bar_med_min.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_med_min.ImageOptions.LargeImage")));
+            this.bar_med_min.ItemAppearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bar_med_min.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bar_med_min.ItemAppearance.Normal.ForeColor = System.Drawing.Color.White;
+            this.bar_med_min.ItemAppearance.Normal.Options.UseBackColor = true;
+            this.bar_med_min.ItemAppearance.Normal.Options.UseBorderColor = true;
+            this.bar_med_min.ItemAppearance.Normal.Options.UseFont = true;
+            this.bar_med_min.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.bar_med_min.ItemAppearance.Normal.Options.UseTextOptions = true;
+            this.bar_med_min.ItemAppearance.Normal.TextOptions.HotkeyPrefix = DevExpress.Utils.HKeyPrefix.Show;
+            this.bar_med_min.ItemAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.bar_med_min.ItemInMenuAppearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bar_med_min.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bar_med_min.ItemInMenuAppearance.Normal.Options.UseBackColor = true;
+            this.bar_med_min.ItemInMenuAppearance.Normal.Options.UseBorderColor = true;
+            this.bar_med_min.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.bar_med_min.Name = "bar_med_min";
+            this.bar_med_min.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.bar_med_min.ShowImageInToolbar = false;
+            this.bar_med_min.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.bar_med_min.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_med_min_ItemClick);
+            this.bar_med_min.ItemPress += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_med_min_ItemPress);
             // 
             // ribbonPage1
             // 
@@ -364,7 +422,6 @@
             // 
             this.ribbonPageGroup20.ItemLinks.Add(this.barButtonItem26);
             this.ribbonPageGroup20.Name = "ribbonPageGroup20";
-            this.ribbonPageGroup20.Text = "ribbonPageGroup20";
             // 
             // ribbonPage2
             // 
@@ -482,6 +539,7 @@
             this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup4,
             this.ribbonPageGroup11,
+            this.ribbonPageGroup21,
             this.ribbonPageGroup12});
             this.ribbonPage4.Name = "ribbonPage4";
             this.ribbonPage4.Text = "الإعدادت";
@@ -497,16 +555,33 @@
             // ribbonPageGroup11
             // 
             this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem15);
-            this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem17);
             this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem20);
             this.ribbonPageGroup11.Name = "ribbonPageGroup11";
             this.ribbonPageGroup11.Text = "النظام";
+            // 
+            // ribbonPageGroup21
+            // 
+            this.ribbonPageGroup21.ItemLinks.Add(this.skinDropDownButtonItem1);
+            this.ribbonPageGroup21.ItemLinks.Add(this.skinPaletteDropDownButtonItem1);
+            this.ribbonPageGroup21.Name = "ribbonPageGroup21";
+            this.ribbonPageGroup21.Text = "ألوان البرنامج";
             // 
             // ribbonPageGroup12
             // 
             this.ribbonPageGroup12.ItemLinks.Add(this.barButtonItem16);
             this.ribbonPageGroup12.Name = "ribbonPageGroup12";
             this.ribbonPageGroup12.Text = "البرنامج";
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            this.repositoryItemTextEdit1.ReadOnly = true;
+            // 
+            // repositoryItemTextEdit2
+            // 
+            this.repositoryItemTextEdit2.AutoHeight = false;
+            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
             // 
             // xtraTabPage1
             // 
@@ -516,10 +591,13 @@
             // 
             // xtraTabControl1
             // 
-            this.xtraTabControl1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
+            this.xtraTabControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtraTabControl1.Appearance.Options.UseFont = true;
+            this.xtraTabControl1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeaderAndOnMouseHover;
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 203);
             this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.PageImagePosition = DevExpress.XtraTab.TabPageImagePosition.None;
             this.xtraTabControl1.ShowTabHeader = DevExpress.Utils.DefaultBoolean.True;
             this.xtraTabControl1.Size = new System.Drawing.Size(923, 419);
             this.xtraTabControl1.TabIndex = 5;
@@ -527,6 +605,8 @@
             // 
             // F_Main
             // 
+            this.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -543,7 +623,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "صيدليتي";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.F_Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -568,7 +651,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem14;
         private DevExpress.XtraBars.BarButtonItem barButtonItem15;
         private DevExpress.XtraBars.BarButtonItem barButtonItem16;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem17;
         private DevExpress.XtraBars.BarButtonItem barButtonItem18;
         private DevExpress.XtraBars.BarButtonItem barButtonItem19;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
@@ -605,5 +687,12 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup20;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         public DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
+        private DevExpress.XtraBars.SkinPaletteDropDownButtonItem skinPaletteDropDownButtonItem1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup21;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private DevExpress.XtraBars.BarStaticItem bar_med_min;
     }
 }
