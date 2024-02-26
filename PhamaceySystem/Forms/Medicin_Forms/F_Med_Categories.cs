@@ -109,7 +109,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                             foreach (int row_id in gv.GetSelectedRows())
                             {
                                 Get_Row_ID(row_id);
-                                cmdMedCat.Delet_Data(TF_Med_Cat);
+                                cmdMedCat.Delete_Data(TF_Med_Cat);
                             }
                         base.Delete_Data();
                         Get_Data("d");

@@ -1,7 +1,9 @@
 ﻿using DevExpress.Data;
 using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
-using PhamaceySystem;
+using PhamaceySystem.Forms.Medicin_Forms;
+using PhamaceySystem.Forms.Store_Forms;
+using PhamaceySystem.Forms.Store_OP_Forms;
 using PhamaceySystem.Inheratenz_Forms;
 using System;
 using System.Collections.Generic;
@@ -13,41 +15,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PhamaceySystem.Forms.Medicin_Forms
+namespace PhamaceySystem.Forms.Store_Other_Forms
 {
-    public partial class F_Med_Grid : F_Master_Graid
+    public partial class F_Store_Graid : F_Master_Graid
     {
-        public F_Med_Grid()
+        public F_Store_Graid()
         {
             InitializeComponent();
-
             Title(tit);
             this.Text = tit;
         }
+        public string tit = "الأدوية في المستودع";
 
-        public string tit = "الأدوية / Medecian ";
-        ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
+        ClsCommander<T_Medician> cmdMed = new ClsCommander<T_Medician>();
 
-        ClsCommander<T_Med_Category> cmdMedCat = new ClsCommander<T_Med_Category>();
-        ClsCommander<T_Med_Shape> cmdMedShape = new ClsCommander<T_Med_Shape>();
-        ClsCommander<T_Med_Unites> cmdMedUnite = new ClsCommander<T_Med_Unites>();
-
-        T_Medician TF_Medician;
+        T_Medician TF_Med;
         Boolean Is_Double_Click = false;
         int id;
+        int row_to_show;
         public override void Get_Data(string status_mess)
         {
             try
             {
                 clear_data(this.Controls);
                 Is_Double_Click = false;
-                cmdMedician = new ClsCommander<T_Medician>();
-                cmdMedCat = new ClsCommander<T_Med_Category>();
-                cmdMedShape = new ClsCommander<T_Med_Shape>();
-                cmdMedUnite = new ClsCommander<T_Med_Unites>();
-
-                TF_Medician = cmdMedician.Get_All().FirstOrDefault();
-                if (TF_Medician != null)
+                cmdMed = new ClsCommander<T_Medician>();
+                TF_Med = cmdMed.Get_All().FirstOrDefault();
+                if (TF_Med != null)
                     Fill_Graid();
                 base.Get_Data(status_mess);
 
@@ -64,6 +58,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             {
                 F_Med f = new F_Med();
                 f.ShowDialog();
+
                 Get_Data("");
             }
             catch (Exception ex)
@@ -105,7 +100,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                             foreach (int row_id in gv.GetSelectedRows())
                             {
                                 Get_Row_ID(row_id);
-                                cmdMedician.Delete_Data(TF_Medician);
+                                cmdMed.Delete_Data(TF_Med);
+
                             }
                             base.Delete_Data();
                             Get_Data("d");
@@ -131,7 +127,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         public override void Print_Data()
         {
             base.Print_Data();
-            C_Master.print_header("الأدوية", gc);
+            C_Master.print_header(tit, gc);
         }
 
         public override bool Validate_Data()
@@ -142,48 +138,44 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             return (number_of_errores == 0);
         }
 
+
         private void Fill_Graid()
         {
+            var data = (from med in cmdMed.Get_All()
+                        select new
+                        {
+                            id = med.med_id,
+                            code = med.med_code,
+                            name = med.med_name,
+                            min = med.med_minimum,
+                            in_count = med.med_in_count,
+                            out_count = med.med_out_count,
+                            dam_count = med.med_dam_count,
+                            total = med.med_total_now
 
-            DataTable dt = c_db.select(@"SELECT T_Medician.med_id, 
-                                            T_Medician.med_code,
-                                               T_Medician.med_name,
-                                              T_Medician.med_minimum,                                                                                    
-                                            T_Med_Category.med_cat_id, 
-                                           T_Med_Category.med_cat_name ,
-                                              T_Med_Shape.med_shape_id,
-                                           T_Med_Shape.med_shape_name,
-                                           T_Med_Unites.id,
-                                            T_Med_Unites.name
-FROM     T_Medician INNER JOIN
-                  T_Med_Unites ON T_Medician.med_unites_id = T_Med_Unites.id INNER JOIN
-                  T_Med_Shape ON T_Medician.med_shape_id = T_Med_Shape.med_shape_id INNER JOIN
-                  T_Med_Category ON T_Medician.med_cat_id = T_Med_Category.med_cat_id");
-            //var dts = (from med in cmdMedician.Get_All()
-            //                  select new
-            //                  {
-            //                      id = med.med_id,
-            //                      code = med.med_code,
-            //                      name = med.med_name,
-            //                      min = med.med_minimum,
-            //                      cat_id = med.T_Med_Category.med_cat_id,
-            //                      categorey = med.T_Med_Category.med_cat_name,
-            //                      shape_id = med.T_Med_Shape.med_shape_id,
-            //                      shape = med.T_Med_Shape.med_shape_name,
-            //                  }).OrderBy(l_id => l_id.id);
-            // gc.DataSource = dts;
+                        }).OrderBy(l_id => l_id.id).ToList();
 
-            gc.DataSource = dt;
+            //جلب جزء من البيانات
+            if (data != null && data.Count > 0)
+            {
+
+                gc.DataSource = data;
+
+                gv_column_names();
+
+            }
+        }
+
+        private void gv_column_names()
+        {
             gv.Columns[0].Visible = false;
             gv.Columns[1].Caption = "الكود";
             gv.Columns[2].Caption = "الاسم";
-            gv.Columns[3].Caption = "الحد الأدنى ";
-            gv.Columns[4].Visible = false;
-            gv.Columns[5].Caption = "التصنيف ";
-            gv.Columns[6].Visible = false;
-            gv.Columns[7].Caption = "الشكل ";
-            gv.Columns[8].Visible = false;
-            gv.Columns[9].Caption = "الوحدة ";
+            gv.Columns[3].Caption = "الحد الأدنى";
+            gv.Columns[4].Caption = "الإدخال";
+            gv.Columns[5].Caption = "الإخراج";
+            gv.Columns[6].Caption = "التالف";
+            gv.Columns[7].Caption = "الكية المتوفرة";
 
             gv.BestFitColumns();
         }
@@ -194,12 +186,12 @@ FROM     T_Medician INNER JOIN
             if (Row_Id != 0)
             {
                 id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString().Replace(",", string.Empty));
-                TF_Medician = cmdMedician.Get_By(c_id => c_id.med_id == id).FirstOrDefault();
+                TF_Med = cmdMed.Get_By(c_id => c_id.med_id == id).FirstOrDefault();
             }
             else
             {
                 id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString().Replace(",", string.Empty));
-                TF_Medician = cmdMedician.Get_By(c_id => c_id.med_id == id).FirstOrDefault();
+                TF_Med = cmdMed.Get_By(c_id => c_id.med_id == id).FirstOrDefault();
             }
         }
 
@@ -209,7 +201,7 @@ FROM     T_Medician INNER JOIN
             gv.SelectRow(gv.FocusedRowHandle);
 
             Get_Row_ID(0);
-            //  if (TF_Medician != null)
+            //  if (TF_OPeration_IN != null)
             // Fill_Controls();
         }
 
@@ -221,6 +213,30 @@ FROM     T_Medician INNER JOIN
         public override void gv_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Is_Double_Click = true;
+        }
+
+        private void barBut_in_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            F_In_Op f = new F_In_Op();
+            f.ShowDialog();
+        }
+
+        private void barBut_out_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            F_Out_Op f = new F_Out_Op();
+            f.ShowDialog();
+        }
+
+        private void barBut_dam_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            F_Dameg_Op f = new F_Dameg_Op();
+                f.Show();
+        }
+
+        private void F_Store_Graid_Load(object sender, EventArgs e)
+        {
+            view_inheretanz_butomes(true, false, false, true, true, false, true);
+
         }
     }
 }

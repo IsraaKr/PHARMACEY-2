@@ -87,5 +87,10 @@ namespace PhamaceySystem.Inheratenz_Forms
         {
 
         }
+
+        public virtual void gv_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+
+        }
     }
 }

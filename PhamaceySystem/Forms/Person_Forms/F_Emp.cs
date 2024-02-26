@@ -109,7 +109,7 @@ namespace PhamaceySystem.Forms.Person_Forms
                         foreach (int row_id in gv.GetSelectedRows())
                         {
                             Get_Row_ID(row_id);
-                            cmdEmp.Delet_Data(TF_Pers_Emploee);
+                            cmdEmp.Delete_Data(TF_Pers_Emploee);
                         }
                     base.Delete_Data();
                     Get_Data("d");

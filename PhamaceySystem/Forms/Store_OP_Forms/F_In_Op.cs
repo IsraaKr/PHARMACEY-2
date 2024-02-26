@@ -311,7 +311,7 @@ namespace PhamaceySystem.Forms.Store_Forms
                             foreach (int row_id in gv.GetSelectedRows())
                             {
                                 Get_Row_ID(row_id);
-                                cmdOpInItem.Delet_Data(TF_OP_IN_Item);
+                                cmdOpInItem.Delete_Data(TF_OP_IN_Item);
                             }
 
                     }

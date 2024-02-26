@@ -297,7 +297,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         private void btn_unite_Click(object sender, EventArgs e)
         {
             F_Med_Unites f = new F_Med_Unites();
-            f.ShowDialog();
+            f.MdiParent = this.MdiParent;
+            f.Show();
             GetUnite_Data();
         }
         

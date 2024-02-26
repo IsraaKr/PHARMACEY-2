@@ -58,18 +58,23 @@
             // 
             this.txt_id.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_id.Properties.Appearance.Options.UseFont = true;
+            this.txt_id.Size = new System.Drawing.Size(50, 22);
             this.txt_id.TabIndex = 3;
             // 
             // txt_name
             // 
+            this.txt_name.Location = new System.Drawing.Point(145, 75);
             this.txt_name.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_name.Properties.Appearance.Options.UseFont = true;
+            this.txt_name.Size = new System.Drawing.Size(380, 22);
             this.txt_name.TabIndex = 0;
             // 
             // txt
             // 
             this.txt.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt.AppearanceItemCaption.Options.UseFont = true;
+            this.txt.Location = new System.Drawing.Point(120, 50);
+            this.txt.Size = new System.Drawing.Size(450, 42);
             // 
             // lbl_tiltle
             // 

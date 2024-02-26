@@ -106,7 +106,7 @@ namespace PhamaceySystem.Forms.Store_Forms
                             foreach (int row_id in gv.GetSelectedRows())
                             {
                                 Get_Row_ID(row_id);
-                                cmdStorePalces.Delet_Data(TF_Store_Places);
+                                cmdStorePalces.Delete_Data(TF_Store_Places);
                             }
                         base.Delete_Data();
                         Get_Data("d");

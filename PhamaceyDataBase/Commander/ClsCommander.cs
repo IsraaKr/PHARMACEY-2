@@ -33,8 +33,9 @@ namespace PhamaceyDataBase.Commander
       public static  string connstr = test.connstr;
 
         public static PHANACEY_DBEntities Context = new PHANACEY_DBEntities(connstr) ;
-        public void Delet_Data(TEntity entity)
+        public void Delete_Data(TEntity entity)
         {
+           
             Context.Set<TEntity>().Remove(entity);
             Context.SaveChanges();
         }
@@ -54,7 +55,10 @@ namespace PhamaceyDataBase.Commander
         {
             return Context.Set<TEntity>().Where(p);
         }
-
+        public bool check_db_existing()
+        {
+            return Context.Database.Exists();
+        }
         public void Insert_Data(TEntity entity)
         {
             Context.Set<TEntity>().Add(entity);

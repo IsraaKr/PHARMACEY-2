@@ -1,4 +1,5 @@
 ﻿using DevExpress.Data;
+using DevExpress.XtraGrid.Views.Grid;
 using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
 using PhamaceySystem.Inheratenz_Forms;
@@ -24,6 +25,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             Title(tit);
             this.Text = tit;
         }
+
+        
         public string tit = "الأدوية التي شارفت على الانتهاء";
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
 
@@ -75,11 +78,32 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             C_Master.print_header(lbl_tiltle.Text, gc);
         }
 
-  
 
+        public override void gv_RowStyle(object sender, RowStyleEventArgs e)
+        {
+            int total = 0;
+            int min = 0;
+            GridView gv = (GridView)sender;
+            if (!gv.IsValidRowHandle(e.RowHandle)) return;
+            int parent = gv.GetParentRowHandle(e.RowHandle);
+            if (gv.IsGroupRow(parent))
+            {
+                for (int i = 0; i < gv.GetChildRowCount(parent); i++)
+                    if (gv.GetChildRowHandle(parent, i) == e.RowHandle)
+                    {
+                      //  e.Appearance.BackColor = i % 2 == 0 ? Color.White : Color.LightBlue;
+                          total =Convert.ToInt32( gv.GetRowCellValue(e.RowHandle, gv.Columns[4]).ToString());
+                        min = Convert.ToInt32(gv.GetRowCellValue(e.RowHandle, gv.Columns[3]).ToString());
+                        e.Appearance.BackColor = total < min ? Color.IndianRed : Color.White;
+
+                    }
+            }
+        //    else e.Appearance.BackColor = e.RowHandle % 2 == 0 ? Color.White : Color.LightBlue;
+
+        }
         private void Fill_Graid()
         {
-            gc.DataSource = (from med in cmdMedician.Get_All().Where(l => l.med_total_now <= l.med_minimum)
+            gc.DataSource = (from med in cmdMedician.Get_All().Where(l => l.med_total_now <= l.med_minimum+100)
                              select new
                              {
                                  id = med.med_id,
@@ -134,6 +158,12 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         public override void gv_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Is_Double_Click = true;
+        }
+
+        private void F_Med_Minimem_Load(object sender, EventArgs e)
+        {
+            view_inheretanz_butomes(false, false, false, false, false, false, true);
+
         }
     }
 }

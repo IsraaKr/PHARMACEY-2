@@ -17,6 +17,7 @@ using PhamaceySystem.Classes;
 using PhamaceySystem.Forms.Medicin_Forms;
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
+using PhamaceySystem.Forms.Collection_Forms;
 
 namespace PhamaceySystem
 {
@@ -38,9 +39,9 @@ namespace PhamaceySystem
         private void load_first_frame()
         {
             F_Quiek_Accses f = new F_Quiek_Accses();
-            open_extra(f, xtraTabControl1);
-            xtraTabControl1.TabPages[0].ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
-            xtraTabControl1.TabPages[0].Text = "الوصول السريع";
+            open_extra(f);
+            xtc.Pages[0].ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
+            xtc.Pages[0].Text = "الوصول السريع";
         }
 
         //نستدعيه عند كل فتحة فورم جديد 
@@ -62,21 +63,11 @@ namespace PhamaceySystem
             if (ins != null)
             {   //انشاء انستانس من التايب و ارجاعه على شكل فورم
                 var frm = Activator.CreateInstance(ins) as Form;
-                frm.MdiParent = this;
+                //frm.MdiParent = this;
 
-                //if (Application.OpenForms[frm.Name] != null)//التأكد إذا الفورم كان مفتوح
-                //{
-                //frm = Application.OpenForms[frm.Name];
-                //  nav(frm, pan_nav);
-                open_extra(frm, xtraTabControl1);
+  
+                open_extra(frm);
 
-                //   }
-                //    else
-                //    {
-                //        // frm.Show();
-                //      //  nav(frm, pan_nav);
-                //    }
-                //   frm.BringToFront();
             }
         }
         private void ribbon_ItemClick(object sender, ItemClickEventArgs e)
@@ -90,44 +81,46 @@ namespace PhamaceySystem
         }
         private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)
         {
-            //عدم غلق الفورم الأول
-            if (xtraTabControl1.SelectedTabPage != xtraTabControl1.TabPages[0])
-            {
-                //  xtraTabControl1.TabPages.Remove(xtraTabControl1.SelectedTabPage);
-                ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
-                XtraTabPage xtraTabPage = arg.Page as XtraTabPage;
-                xtraTabPage.Dispose();
-            }
+            ////عدم غلق الفورم الأول
+            //if (xtc.SelectedTabPage != xtc.TabPages[0])
+            //{
+            //    //  xtraTabControl1.TabPages.Remove(xtraTabControl1.SelectedTabPage);
+            //    ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
+            //    XtraTabPage xtraTabPage = arg.Page as XtraTabPage;
+            //    xtraTabPage.Dispose();
+            //}
         }
         public bool Is_Form_Activate(Form f)
         {
             bool Is_Opened = false;
-            if (xtraTabControl1.TabPages.Count() > 0)
+            if (MdiChildren.Count() > 0)
             {
-                foreach (XtraTabPage item in xtraTabControl1.TabPages)
+                foreach (var item in MdiChildren)
                 {
                     if (f.Name == item.Name)
                     {
-                        xtraTabControl1.SelectedTabPage = item;
+                        xtc.Pages[item].MdiChild.Activate();
                         Is_Opened = true;
                     }
                 }
             }
             return Is_Opened;
         }
-        public void open_extra(Form f, XtraTabControl xtbc)
+        public void open_extra(Form f)
         {
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
             if (Is_Form_Activate(f) == false)
             {
-                xtbc.TabPages.Add();
-                var curent_page = xtbc.TabPages.Last();
-                curent_page.Text = f.Text;
-                curent_page.Name = f.Name;
-                curent_page.Controls.Add(f);
-                xtbc.SelectedTabPage = curent_page;
+                f.MdiParent = this;
                 f.Show();
+                //xtbc.Pages.Add();
+                //var curent_page = xtbc.Pages.Last();
+                //curent_page.Text = f.Text;
+                //curent_page. = f.Name;
+                //curent_page..Add(f);
+                //xtbc.SelectedTabPage = curent_page;
+              
             }
         }
   
@@ -135,8 +128,8 @@ namespace PhamaceySystem
         {
             // int test = cmdOptype.Get_All().Count();
             //DataTable dt = c_db.select(@"select * from T_OPeration_Type");
-            if (Properties.Settings.Default.is_first_time == false)
-            {
+            //if (Properties.Settings.Default.is_first_time == false)
+            //{
                 bool check_show_form = Properties.Settings.Default.is_med_count_show;
              DataTable   dt = c_db.select(@"SELECT  dbo.T_Medician.med_id,
                                                  dbo.T_Medician.med_code,
@@ -146,24 +139,21 @@ namespace PhamaceySystem
                      FROM        dbo.T_Medician 
                     WHERE        (dbo.T_Medician.med_total_now <=   dbo.T_Medician.med_minimum)");
                 int count = dt.Rows.Count;
-                bar_med_min.Caption = count.ToString();
-                if (count > 0 && check_show_form)
+            bar_med_min.Caption = count.ToString();
+            Notification_Form n = new Notification_Form("الأدوية التي شارفت على الانتهاء000"+ count);
+            n.Show();
+            if (check_show_form)
+            {
+                if (count > 0 )
                 {
-                    F_Med_Minimem f = new F_Med_Minimem();
+                    F_Med_Minimem f = new F_Med_Minimem();                
                     f.ShowDialog();
                 }
+          
+
             }
-        }
-
-        private void bar_med_min_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-        }
-
-        private void bar_med_min_ItemPress(object sender, ItemClickEventArgs e)
-        {
-            F_Med_Minimem f = new F_Med_Minimem();
-            f.ShowDialog();
+                
+            
         }
 
         private void F_Main_Load(object sender, EventArgs e)
@@ -171,6 +161,22 @@ namespace PhamaceySystem
             load_first_frame();
 
              get_med_min_num();
+        }
+
+        private void close_all()
+        {
+            var f =  MdiChildren;
+            int i = 0;
+            while (i<f.Length)
+            {
+                f[i].Close();
+                i = i + 1;
+            }
+        }
+
+        private void F_Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit(); 
         }
     }
 }

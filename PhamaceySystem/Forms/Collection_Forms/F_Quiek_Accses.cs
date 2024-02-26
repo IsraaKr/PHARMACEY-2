@@ -22,12 +22,14 @@ namespace PhamaceySystem.Forms
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             F_Med f = new F_Med();
-            f.ShowDialog();
+            f.MdiParent = this.MdiParent;
+            f.Show();
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             F_In_Op f = new F_In_Op();
+            f.MdiParent = this.MdiParent;
             f.ShowDialog();
         }
 
@@ -39,6 +41,7 @@ namespace PhamaceySystem.Forms
         private void simpleButton3_Click(object sender, EventArgs e)
         {
             F_Out_Op f = new F_Out_Op();
+            f.MdiParent = this.MdiParent;
             f.ShowDialog();
         }
     }

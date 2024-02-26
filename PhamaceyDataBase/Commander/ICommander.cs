@@ -19,7 +19,7 @@ namespace PhamaceyDataBase.Commander
         //Tentity   هو نوع جدول من الانتتي
         void Insert_Data(TEntity entity);//لايعيد قيمة و نرسل له براميتر من نوع تي انتتي
         void Update_Data(TEntity entity);
-        void Delet_Data(TEntity entity);
+        void Delete_Data(TEntity entity);
         void Detached_Data(TEntity entity);//ترك الانتتي الذي كنا فيه ليمسك انتتي تاني
         IEnumerable<TEntity> Get_All();//يعيد قيمة
                                        //ايمبريل
@@ -30,6 +30,7 @@ namespace PhamaceyDataBase.Commander
         //بوليان لنرى النتيجة هل  رجع داتا او لا
         // البي هي اسم الاكسبريشن
         IEnumerable<TEntity> Max_Id(Expression<Func<TEntity, bool>> p);
+        
 
     }
     

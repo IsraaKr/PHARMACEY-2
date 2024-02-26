@@ -106,7 +106,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                             foreach (int row_id in gv.GetSelectedRows())
                             {
                                 Get_Row_ID(row_id);
-                                cmdMedUnites.Delet_Data(TF_Med_unites);
+                                cmdMedUnites.Delete_Data(TF_Med_unites);
                             }
                         base.Delete_Data();
                         Get_Data("d");
