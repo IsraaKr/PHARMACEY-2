@@ -20,7 +20,7 @@ namespace PhamaceySystem.Forms.Store_Forms
         public F_In_OP_Graid()
         {
             InitializeComponent();
-         
+
             Title(tit);
             this.Text = tit;
         }
@@ -39,7 +39,7 @@ namespace PhamaceySystem.Forms.Store_Forms
                 clear_data(this.Controls);
                 Is_Double_Click = false;
                 cmdINOP = new ClsCommander<T_OPeration_IN>();
-              //  row_to_show = Properties.Settings.Default.gc_row_count;
+                //  row_to_show = Properties.Settings.Default.gc_row_count;
                 TF_OPeration_IN = cmdINOP.Get_All().FirstOrDefault();
                 if (TF_OPeration_IN != null)
                     Fill_Graid();
@@ -160,7 +160,7 @@ namespace PhamaceySystem.Forms.Store_Forms
             if (data != null && data.Count > 0)
             {
                 gc.DataSource = data;
-                gv_column_names(); 
+                gv_column_names();
 
                 //var data_id = data.Select(x => x.id).ToArray();//مصفوفة ايديات
                 //int ind = C_GC_Page_Nav.combo_gc_data(comb_page_num);
@@ -193,7 +193,7 @@ namespace PhamaceySystem.Forms.Store_Forms
                 gc.DataSource = data;
 
                 gv_column_names();
-   
+
             }
         }
 

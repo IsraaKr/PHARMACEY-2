@@ -30,7 +30,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_Main));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -60,8 +59,8 @@
             this.barButtonItem26 = new DevExpress.XtraBars.BarButtonItem();
             this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.bar_med_min = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -92,6 +91,9 @@
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.xtc = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.barButtonItem27 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem28 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem29 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
@@ -132,13 +134,15 @@
             this.barButtonItem26,
             this.skinDropDownButtonItem1,
             this.skinPaletteDropDownButtonItem1,
-            this.barStaticItem1,
-            this.bar_med_min});
+            this.bar_med_min,
+            this.barButtonItem17,
+            this.barButtonItem27,
+            this.barButtonItem28,
+            this.barButtonItem29});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbon.MaxItemId = 39;
+            this.ribbon.MaxItemId = 43;
             this.ribbon.Name = "ribbon";
-            this.ribbon.PageHeaderItemLinks.Add(this.barStaticItem1);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage2,
@@ -349,7 +353,7 @@
             this.barButtonItem26.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem26.ImageOptions.Image")));
             this.barButtonItem26.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem26.ImageOptions.LargeImage")));
             this.barButtonItem26.Name = "barButtonItem26";
-            this.barButtonItem26.Tag = "F_Med_Minimem";
+            this.barButtonItem26.Tag = "F_Med_min";
             // 
             // skinDropDownButtonItem1
             // 
@@ -361,20 +365,12 @@
             this.skinPaletteDropDownButtonItem1.Id = 30;
             this.skinPaletteDropDownButtonItem1.Name = "skinPaletteDropDownButtonItem1";
             // 
-            // barStaticItem1
-            // 
-            this.barStaticItem1.Caption = "الأدوية التي شارفت على الانتهاء";
-            this.barStaticItem1.Id = 36;
-            this.barStaticItem1.Name = "barStaticItem1";
-            this.barStaticItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.barStaticItem1.ShowImageInToolbar = false;
-            // 
             // bar_med_min
             // 
             this.bar_med_min.Caption = "...";
             this.bar_med_min.Id = 37;
             this.bar_med_min.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_med_min.ImageOptions.LargeImage")));
-            this.bar_med_min.ItemAppearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bar_med_min.ItemAppearance.Normal.BackColor = System.Drawing.Color.IndianRed;
             this.bar_med_min.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bar_med_min.ItemAppearance.Normal.ForeColor = System.Drawing.Color.White;
             this.bar_med_min.ItemAppearance.Normal.Options.UseBackColor = true;
@@ -393,6 +389,11 @@
             this.bar_med_min.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.bar_med_min.ShowImageInToolbar = false;
             this.bar_med_min.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // barButtonItem17
+            // 
+            this.barButtonItem17.Id = 39;
+            this.barButtonItem17.Name = "barButtonItem17";
             // 
             // ribbonPage1
             // 
@@ -422,6 +423,7 @@
             // 
             this.ribbonPageGroup20.ItemLinks.Add(this.barButtonItem26);
             this.ribbonPageGroup20.ItemLinks.Add(this.bar_med_min);
+            this.ribbonPageGroup20.ItemLinks.Add(this.barButtonItem17);
             this.ribbonPageGroup20.Name = "ribbonPageGroup20";
             // 
             // ribbonPage2
@@ -447,6 +449,7 @@
             // 
             this.ribbonPageGroup18.ItemLinks.Add(this.barButtonItem6);
             this.ribbonPageGroup18.ItemLinks.Add(this.barButtonItem22);
+            this.ribbonPageGroup18.ItemLinks.Add(this.barButtonItem27);
             this.ribbonPageGroup18.Name = "ribbonPageGroup18";
             this.ribbonPageGroup18.Text = " الإدخال";
             // 
@@ -493,6 +496,7 @@
             // 
             // ribbonPageGroup7
             // 
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem29);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
             this.ribbonPageGroup7.Text = "المستودع";
             // 
@@ -508,6 +512,7 @@
             // 
             // ribbonPageGroup17
             // 
+            this.ribbonPageGroup17.ItemLinks.Add(this.barButtonItem28);
             this.ribbonPageGroup17.Name = "ribbonPageGroup17";
             this.ribbonPageGroup17.Text = "تقارير إجمالية";
             // 
@@ -598,6 +603,28 @@
             this.xtc.UseDocumentSelector = DevExpress.Utils.DefaultBoolean.False;
             this.xtc.UseFormIconAsPageImage = DevExpress.Utils.DefaultBoolean.False;
             // 
+            // barButtonItem27
+            // 
+            this.barButtonItem27.Caption = "المواد المدخلة";
+            this.barButtonItem27.Id = 40;
+            this.barButtonItem27.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem27.ImageOptions.SvgImage")));
+            this.barButtonItem27.Name = "barButtonItem27";
+            this.barButtonItem27.Tag = "F_IN_Item_Graid";
+            // 
+            // barButtonItem28
+            // 
+            this.barButtonItem28.Caption = "التقرير الشامل";
+            this.barButtonItem28.Id = 41;
+            this.barButtonItem28.Name = "barButtonItem28";
+            // 
+            // barButtonItem29
+            // 
+            this.barButtonItem29.Caption = "عملية الإدخال";
+            this.barButtonItem29.Id = 42;
+            this.barButtonItem29.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem29.ImageOptions.SvgImage")));
+            this.barButtonItem29.Name = "barButtonItem29";
+            this.barButtonItem29.Tag = "F_In_Rep";
+            // 
             // F_Main
             // 
             this.Appearance.BackColor = System.Drawing.SystemColors.Control;
@@ -686,8 +713,11 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup21;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
         private DevExpress.XtraBars.BarStaticItem bar_med_min;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtc;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem17;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem27;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem28;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem29;
     }
 }

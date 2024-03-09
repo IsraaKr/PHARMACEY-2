@@ -13,10 +13,11 @@ namespace PhamaceySystem.Forms.Collection_Forms
 {
     public partial class Notification_Form : Form
     {
-        public Notification_Form( string mess)
+        public Notification_Form(string title , string mess)
         {
             InitializeComponent();
-            lbl_note.Text = mess;
+            lbl_note.Text = title;
+            labelControl1.Text = mess;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -26,7 +27,25 @@ namespace PhamaceySystem.Forms.Collection_Forms
 
         private void lbl_note_Click(object sender, EventArgs e)
         {
-            F_Med_Minimem f = new F_Med_Minimem();
+            F_Med_min f = new F_Med_min();
+            f.ShowDialog();
+        }
+
+        private void Notification_Form_Click(object sender, EventArgs e)
+        {
+            F_Med_min f = new F_Med_min();
+            f.ShowDialog();
+        }
+
+        private void labelControl1_Click(object sender, EventArgs e)
+        {
+            F_Med_min f = new F_Med_min();
+            f.ShowDialog();
+        }
+
+        private void pictureEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            F_Med_min f = new F_Med_min();
             f.ShowDialog();
         }
     }

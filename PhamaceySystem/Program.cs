@@ -1,6 +1,7 @@
 ﻿using PhamaceyDataBase;
 using PhamaceySystem.Forms;
 using PhamaceySystem.Forms.Medicin_Forms;
+using PhamaceySystem.Forms.Report_Forms;
 using PhamaceySystem.Forms.Setting_Forms;
 using PhamaceySystem.Forms.Starts_Forms;
 using PhamaceySystem.Forms.Store_Forms;
@@ -25,7 +26,7 @@ namespace PhamaceySystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             C_SqlCon.Server_Name = Properties.Settings.Default.Server_Name.ToString(); 
-            Application.Run(new F_Start());
+            Application.Run(new F_In_Rep());
         }
     }
 }

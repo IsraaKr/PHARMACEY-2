@@ -20,13 +20,13 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         public F_Med_Minimem()
         {
             InitializeComponent();
-            view_inheretanz_butomes(false, false, false, false, false, false, true);
+            //    view_inheretanz_butomes(false, false, false, false, false, false, true);
 
             Title(tit);
             this.Text = tit;
         }
 
-        
+
         public string tit = "الأدوية التي شارفت على الانتهاء";
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
 
@@ -55,17 +55,17 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         }
         public override void neew()
         {
-          
+
         }
         public override void Update_Data()
         {
-            
+
 
         }
         public override void Delete_Data()
         {
-            
-       
+
+
         }
         public override void clear_data(Control.ControlCollection s_controls)
         {
@@ -84,45 +84,49 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             int total = 0;
             int min = 0;
             GridView gv = (GridView)sender;
-            if (!gv.IsValidRowHandle(e.RowHandle)) return;
-            int parent = gv.GetParentRowHandle(e.RowHandle);
-            if (gv.IsGroupRow(parent))
-            {
-                for (int i = 0; i < gv.GetChildRowCount(parent); i++)
-                    if (gv.GetChildRowHandle(parent, i) == e.RowHandle)
-                    {
-                      //  e.Appearance.BackColor = i % 2 == 0 ? Color.White : Color.LightBlue;
-                          total =Convert.ToInt32( gv.GetRowCellValue(e.RowHandle, gv.Columns[4]).ToString());
-                        min = Convert.ToInt32(gv.GetRowCellValue(e.RowHandle, gv.Columns[3]).ToString());
-                        e.Appearance.BackColor = total < min ? Color.IndianRed : Color.White;
+            //if (e.RowHandle >= 0)
+            //{
+                total = Convert.ToInt32(gv.GetRowCellValue(e.RowHandle, gv.Columns[4]).ToString());
+                min = Convert.ToInt32(gv.GetRowCellValue(e.RowHandle, gv.Columns[3]).ToString());
+                if (total < min)
+                {
+                    e.Appearance.BackColor = Color.FromArgb(150, Color.LightCoral);
+                    e.Appearance.BackColor2 = Color.White;
 
-                    }
-            }
-        //    else e.Appearance.BackColor = e.RowHandle % 2 == 0 ? Color.White : Color.LightBlue;
+
+                }
+
+
+        //    }
+            //    else e.Appearance.BackColor = e.RowHandle % 2 == 0 ? Color.White : Color.LightBlue;
 
         }
         private void Fill_Graid()
         {
-            gc.DataSource = (from med in cmdMedician.Get_All().Where(l => l.med_total_now <= l.med_minimum+100)
-                             select new
+            var data = (from med in cmdMedician.Get_All().Where(l => l.med_total_now <= l.med_minimum)
+                        select new
                              {
                                  id = med.med_id,
                                  code = med.med_code,
                                  name = med.med_name,
                                  min = med.med_minimum,
-                                 total = med.med_total_now,
-                                 need = med.med_minimum - med.med_total_now,
+                                 total = med.med_total_now
 
                              }).OrderBy(l_id => l_id.id);
+            if (data != null && data.Count() > 0)
+            {
 
-            gv.Columns["id"].Visible = false;
-            gv.Columns["code"].Caption = "الكود";
-            gv.Columns["name"].Caption = "الاسم";
-            gv.Columns["min"].Caption = "الحدالأدنى";
-            gv.Columns[4].Caption = "الكميةالمتوفرة";
-            gv.Columns[5].Caption = "النقص";
+                gc.DataSource = data;
 
-            gv.BestFitColumns();
+                gv.Columns["id"].Visible = false;
+                gv.Columns["code"].Caption = "الكود";
+                gv.Columns["name"].Caption = "الاسم";
+                gv.Columns["min"].Caption = "الحدالأدنى";
+                gv.Columns[4].Caption = "الكميةالمتوفرة";
+
+
+                gv.BestFitColumns();
+            }
         }
 
         private void Get_Row_ID(int Row_Id)

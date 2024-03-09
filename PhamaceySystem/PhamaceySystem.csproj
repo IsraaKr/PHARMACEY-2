@@ -111,6 +111,12 @@
     <Compile Include="Forms\Medicin_Forms\F_Med_Grid.Designer.cs">
       <DependentUpon>F_Med_Grid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Medicin_Forms\F_Med_min.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Medicin_Forms\F_Med_min.Designer.cs">
+      <DependentUpon>F_Med_min.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Medicin_Forms\F_Med_Minimem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,18 @@
     <Compile Include="Forms\Person_Forms\F_Reciver.Designer.cs">
       <DependentUpon>F_Reciver.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Report_Forms\F_All_Rep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Report_Forms\F_All_Rep.Designer.cs">
+      <DependentUpon>F_All_Rep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Report_Forms\F_In_Rep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Report_Forms\F_In_Rep.Designer.cs">
+      <DependentUpon>F_In_Rep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Setting_Forms\F_Server_Setting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +188,12 @@
     </Compile>
     <Compile Include="Forms\Store_OP_Forms\F_Dameg_Op.Designer.cs">
       <DependentUpon>F_Dameg_Op.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Store_OP_Forms\F_IN_Item_Graid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Store_OP_Forms\F_IN_Item_Graid.Designer.cs">
+      <DependentUpon>F_IN_Item_Graid.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Store_OP_Forms\F_In_Op.cs">
       <SubType>Form</SubType>
@@ -260,6 +284,9 @@
     <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_Grid.resx">
       <DependentUpon>F_Med_Grid.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_min.resx">
+      <DependentUpon>F_Med_min.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_Minimem.resx">
       <DependentUpon>F_Med_Minimem.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,6 +305,12 @@
     <EmbeddedResource Include="Forms\Person_Forms\F_Reciver.resx">
       <DependentUpon>F_Reciver.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report_Forms\F_All_Rep.resx">
+      <DependentUpon>F_All_Rep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report_Forms\F_In_Rep.resx">
+      <DependentUpon>F_In_Rep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Setting_Forms\F_Server_Setting.resx">
       <DependentUpon>F_Server_Setting.cs</DependentUpon>
     </EmbeddedResource>
@@ -286,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Collection_Forms\F_Start.resx">
       <DependentUpon>F_Start.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Store_OP_Forms\F_IN_Item_Graid.resx">
+      <DependentUpon>F_IN_Item_Graid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Store_OP_Forms\F_In_Op.resx">
       <DependentUpon>F_In_Op.cs</DependentUpon>

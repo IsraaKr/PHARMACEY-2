@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Store_OP_Forms
 {
-    public partial class F_out_op_graid :F_Master_Graid
+    public partial class F_out_op_graid : F_Master_Graid
     {
         public F_out_op_graid()
         {
@@ -23,7 +23,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             Title(tit);
             this.Text = tit;
         }
-        public string tit = "فواتير الادخال";
+        public string tit = "فواتير الإخراج";
 
         ClsCommander<T_OPeration_Out> cmdOutOp = new ClsCommander<T_OPeration_Out>();
 
@@ -38,9 +38,9 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                 clear_data(this.Controls);
                 Is_Double_Click = false;
                 cmdOutOp = new ClsCommander<T_OPeration_Out>();
-            //    row_to_show = Properties.Settings.Default.gc_row_count;
+                //    row_to_show = Properties.Settings.Default.gc_row_count;
                 TF_OPeration_out = cmdOutOp.Get_All().FirstOrDefault();
-                if (  TF_OPeration_out != null)
+                if (TF_OPeration_out != null)
                     Fill_Graid();
                 base.Get_Data(status_mess);
 
@@ -55,7 +55,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         {
             try
             {
-                F_Out_Op  f = new F_Out_Op();
+                F_Out_Op f = new F_Out_Op();
                 f.ShowDialog();
 
                 Get_Data("");
@@ -99,7 +99,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                             foreach (int row_id in gv.GetSelectedRows())
                             {
                                 Get_Row_ID(row_id);
-                                cmdOutOp.Delete_Data(  TF_OPeration_out);
+                                cmdOutOp.Delete_Data(TF_OPeration_out);
 
                             }
                             base.Delete_Data();
@@ -218,12 +218,12 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             if (Row_Id != 0)
             {
                 id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString().Replace(",", string.Empty));
-                  TF_OPeration_out = cmdOutOp.Get_By(c_id => c_id.out_op_id == id).FirstOrDefault();
+                TF_OPeration_out = cmdOutOp.Get_By(c_id => c_id.out_op_id == id).FirstOrDefault();
             }
             else
             {
                 id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString().Replace(",", string.Empty));
-                  TF_OPeration_out = cmdOutOp.Get_By(c_id => c_id.out_op_id == id).FirstOrDefault();
+                TF_OPeration_out = cmdOutOp.Get_By(c_id => c_id.out_op_id == id).FirstOrDefault();
             }
         }
 

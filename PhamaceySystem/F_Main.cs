@@ -18,6 +18,7 @@ using PhamaceySystem.Forms.Medicin_Forms;
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
 using PhamaceySystem.Forms.Collection_Forms;
+using PhamaceySystem.Forms.Setting_Forms;
 
 namespace PhamaceySystem
 {
@@ -25,17 +26,39 @@ namespace PhamaceySystem
     {
         private readonly C_Page_Maneger c_Page_Maneger;
         ClsCommander<T_OPeration_Type> cmdOptype = new ClsCommander<T_OPeration_Type>();
-   
+
         public F_Main()
         {
-            InitializeComponent();
-            c_Page_Maneger = new C_Page_Maneger(this);
+            try
+            {
+                Boolean chec = cmdOptype.check_db_existing();
+                if (chec == true)
+                {
+                    InitializeComponent();
+                }
+                else if (chec == false)
+                {
+                    var res = MessageBox.Show("خطاء في الاتصال بقاعدة البيانات !!! اختر نعم لضبط نص الاتصال أو لا للخروج من البرنامج", "تأكيد",
+                        MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (res == DialogResult.Yes)
+                    {
+                        F_Server_Setting f = new F_Server_Setting();
 
-        }
-        private bool IsFirstTime()
-        {
-            return Properties.Settings.Default.is_first_time;
-        }
+                        f.Show();
+
+                    }
+                    else
+                    {
+                        Application.Exit();
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("" + ex);
+            }
+        }       
         private void load_first_frame()
         {
             F_Quiek_Accses f = new F_Quiek_Accses();
@@ -44,52 +67,24 @@ namespace PhamaceySystem
             xtc.Pages[0].Text = "الوصول السريع";
         }
 
-        //نستدعيه عند كل فتحة فورم جديد 
-        public void nav(Form f, PanelControl p)
-        {
-            //  c_Page_Maneger.load_page( f );
-            // c_Page_Maneger.view_Child_Forem(f);
-            //f.TopLevel = false;
-            //f.Size = p.Size;
-            //f.Dock = DockStyle.Fill;
-            //p.Controls.Clear();
-            //p.Controls.Add(f);
-            //f.Show();
-        }
         //فتح الفورم عن طريق اسمه باستعمال الاسمبلي
         public void open_form_byname(string name)
         {  //الاسمبلي الذي نحنا نعمل فيه .الانواع .الاأول
             var ins = Assembly.GetExecutingAssembly().GetTypes().FirstOrDefault(x => x.Name == name);
             if (ins != null)
             {   //انشاء انستانس من التايب و ارجاعه على شكل فورم
-                var frm = Activator.CreateInstance(ins) as Form;
-                //frm.MdiParent = this;
-
-  
+                var frm = Activator.CreateInstance(ins) as Form;        
                 open_extra(frm);
-
             }
         }
         private void ribbon_ItemClick(object sender, ItemClickEventArgs e)
         {
-            // نضع التاغ من الديزايننر نوع سترينغ و القيمة اسم الفورم الذي اريد فتحه
             var tag = e.Item.Tag as string;
             if (tag != string.Empty && tag != null)
             {
                 open_form_byname(tag);
             }
-        }
-        private void xtraTabControl1_CloseButtonClick(object sender, EventArgs e)
-        {
-            ////عدم غلق الفورم الأول
-            //if (xtc.SelectedTabPage != xtc.TabPages[0])
-            //{
-            //    //  xtraTabControl1.TabPages.Remove(xtraTabControl1.SelectedTabPage);
-            //    ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
-            //    XtraTabPage xtraTabPage = arg.Page as XtraTabPage;
-            //    xtraTabPage.Dispose();
-            //}
-        }
+        }      
         public bool Is_Form_Activate(Form f)
         {
             bool Is_Opened = false;
@@ -114,22 +109,11 @@ namespace PhamaceySystem
             {
                 f.MdiParent = this;
                 f.Show();
-                //xtbc.Pages.Add();
-                //var curent_page = xtbc.Pages.Last();
-                //curent_page.Text = f.Text;
-                //curent_page. = f.Name;
-                //curent_page..Add(f);
-                //xtbc.SelectedTabPage = curent_page;
-              
+                            
             }
-        }
-  
+        }  
         private void get_med_min_num()
-        {
-            // int test = cmdOptype.Get_All().Count();
-            //DataTable dt = c_db.select(@"select * from T_OPeration_Type");
-            //if (Properties.Settings.Default.is_first_time == false)
-            //{
+        {          
                 bool check_show_form = Properties.Settings.Default.is_med_count_show;
              DataTable   dt = c_db.select(@"SELECT  dbo.T_Medician.med_id,
                                                  dbo.T_Medician.med_code,
@@ -140,13 +124,14 @@ namespace PhamaceySystem
                     WHERE        (dbo.T_Medician.med_total_now <=   dbo.T_Medician.med_minimum)");
                 int count = dt.Rows.Count;
             bar_med_min.Caption = count.ToString();
-            Notification_Form n = new Notification_Form("الأدوية التي شارفت على الانتهاء000"+ count);
-            n.Show();
+     
             if (check_show_form)
             {
+                Notification_Form n = new Notification_Form("الأدوية التي شارفت على الانتهاء", "" + count);
+                n.Show();
                 if (count > 0 )
                 {
-                    F_Med_Minimem f = new F_Med_Minimem();                
+                    F_Med_min f = new F_Med_min();                
                     f.ShowDialog();
                 }
           
@@ -155,14 +140,12 @@ namespace PhamaceySystem
                 
             
         }
-
         private void F_Main_Load(object sender, EventArgs e)
         {
             load_first_frame();
 
              get_med_min_num();
         }
-
         private void close_all()
         {
             var f =  MdiChildren;
@@ -173,10 +156,11 @@ namespace PhamaceySystem
                 i = i + 1;
             }
         }
-
         private void F_Main_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit(); 
         }
+
+
     }
 }

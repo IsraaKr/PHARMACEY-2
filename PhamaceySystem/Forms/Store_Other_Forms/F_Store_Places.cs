@@ -174,7 +174,7 @@ namespace PhamaceySystem.Forms.Store_Forms
                  }).OrderBy(c_id => c_id.name);
             gc.DataSource = x;
             gv.Columns["id"].Visible = false;
-            gv.Columns["name"].Caption = "اسم الشكل";
+            gv.Columns["name"].Caption = "الاسم";
             gv.Columns[2].Caption = "المجموعة";
             gv.Columns[3].Caption = "الرف";
 
@@ -223,12 +223,12 @@ namespace PhamaceySystem.Forms.Store_Forms
 
         private void txt_group_EditValueChanged(object sender, EventArgs e)
         {
-            txt_name.Text = txt_group.Text.Trim() + "-" + txt_group.Text.Trim();
+            txt_name.Text = txt_group.Text.Trim() + "-" + txt_shuffel.Text.Trim();
         }
 
         private void txt_shuffel_EditValueChanged(object sender, EventArgs e)
         {
-            txt_name.Text = txt_group.Text.Trim() + "-" + txt_group.Text.Trim();
+            txt_name.Text = txt_group.Text.Trim() + "-" + txt_shuffel.Text.Trim();
         }
     }
 }

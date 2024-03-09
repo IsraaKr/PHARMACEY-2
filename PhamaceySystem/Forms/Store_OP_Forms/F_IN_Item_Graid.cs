@@ -1,9 +1,6 @@
 ﻿using DevExpress.Data;
 using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
-using PhamaceySystem.Forms.Medicin_Forms;
-using PhamaceySystem.Forms.Store_Forms;
-using PhamaceySystem.Forms.Store_OP_Forms;
 using PhamaceySystem.Inheratenz_Forms;
 using System;
 using System.Collections.Generic;
@@ -15,21 +12,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PhamaceySystem.Forms.Store_Other_Forms
+namespace PhamaceySystem.Forms.Store_OP_Forms
 {
-    public partial class F_Store_Graid : F_Master_Graid
+    public partial class F_IN_Item_Graid : F_Master_Graid
+
     {
-        public F_Store_Graid()
+        public F_IN_Item_Graid()
         {
             InitializeComponent();
             Title(tit);
             this.Text = tit;
         }
-        public string tit = "الأدوية في المستودع";
+        public string tit = "فواتير الادخال";
 
-        ClsCommander<T_Medician> cmdMed = new ClsCommander<T_Medician>();
+        ClsCommander<T_OPeration_IN_Item> cmdInItem = new ClsCommander<T_OPeration_IN_Item>();
 
-        T_Medician TF_Med;
+        T_OPeration_IN_Item TF_IN_Item;
         Boolean Is_Double_Click = false;
         int id;
         int row_to_show;
@@ -39,9 +37,9 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             {
                 clear_data(this.Controls);
                 Is_Double_Click = false;
-                cmdMed = new ClsCommander<T_Medician>();
-                TF_Med = cmdMed.Get_All().FirstOrDefault();
-                if (TF_Med != null)
+                cmdInItem = new ClsCommander<T_OPeration_IN_Item>();
+                TF_IN_Item = cmdInItem.Get_All().FirstOrDefault();
+                if (TF_IN_Item != null)
                     Fill_Graid();
                 base.Get_Data(status_mess);
 
@@ -54,17 +52,17 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         }
         public override void neew()
         {
-            try
-            {
-                F_Med f = new F_Med();
-                f.ShowDialog();
+            //try
+            //{
+            //    F_In_Op f = new F_In_Op();
+            //    f.ShowDialog();
 
-                Get_Data("");
-            }
-            catch (Exception ex)
-            {
-                Get_Data(ex.InnerException.InnerException.ToString());
-            }
+            //    Get_Data("");
+            //}
+            //catch (Exception ex)
+            //{
+            //    Get_Data(ex.InnerException.InnerException.ToString());
+            //}
         }
         public override void Update_Data()
         {
@@ -72,9 +70,9 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             {
                 if (Is_Double_Click)
                 {
-                    F_Med f = new F_Med(id);
-                    f.ShowDialog();
-                    Get_Data("");
+                    //F_In_Op f = new F_In_Op(id);
+                    //f.ShowDialog();
+                    //Get_Data("");
                 }
                 else
                     C_Master.Warning_Massege_Box("الرجاء اختيار عنصر لتعديله");
@@ -100,7 +98,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                             foreach (int row_id in gv.GetSelectedRows())
                             {
                                 Get_Row_ID(row_id);
-                                cmdMed.Delete_Data(TF_Med);
+                                cmdInItem.Delete_Data(TF_IN_Item);
 
                             }
                             base.Delete_Data();
@@ -127,7 +125,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         public override void Print_Data()
         {
             base.Print_Data();
-            C_Master.print_header(tit, gc);
+            C_Master.print_header("مذكرات الادخال", gc);
         }
 
         public override bool Validate_Data()
@@ -138,44 +136,37 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             return (number_of_errores == 0);
         }
 
-
         private void Fill_Graid()
         {
-            var data = (from med in cmdMed.Get_All()
+            var data = (from med in cmdInItem.Get_All()
                         select new
                         {
-                            id = med.med_id,
-                            code = med.med_code,
-                            name = med.med_name,
-                            min = med.med_minimum,
-                            in_count = med.med_in_count,
-                            out_count = med.med_out_count,
-                            dam_count = med.med_dam_count,
-                            total = med.med_total_now
-
+                            id = med.in_item_id,
+                            med_id = med.Med_id,
+                            med_name = med.T_Medician.med_name,
+                            qun = med.in_item_quntity,
+                            place_id = med.store_place_id,
+                            pace = med.T_Store_Placees.name,
+                            is_out = med.is_out,
+                            qun_out = med.out_item_quntitey
                         }).OrderBy(l_id => l_id.id).ToList();
-
-            //جلب جزء من البيانات
             if (data != null && data.Count > 0)
             {
-
                 gc.DataSource = data;
-
                 gv_column_names();
 
             }
         }
-
         private void gv_column_names()
         {
             gv.Columns[0].Visible = false;
-            gv.Columns[1].Caption = "الكود";
-            gv.Columns[2].Caption = "الاسم";
-            gv.Columns[3].Caption = "الحد الأدنى";
-            gv.Columns[4].Caption = "الإدخال";
-            gv.Columns[5].Caption = "الإخراج";
-            gv.Columns[6].Caption = "التالف";
-            gv.Columns[7].Caption = "الكمية المتوفرة";
+            gv.Columns[1].Visible = false;
+            gv.Columns[2].Caption = "اسم الدواء";
+            gv.Columns[3].Caption = "الكمية المدخلة";
+            gv.Columns[4].Visible = false;
+            gv.Columns[5].Caption = "مكان التخزين ";
+            gv.Columns[6].Caption = "خارجة ";
+            gv.Columns[7].Caption = "الكمية الخارجة ";
 
             gv.BestFitColumns();
         }
@@ -186,12 +177,12 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             if (Row_Id != 0)
             {
                 id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString().Replace(",", string.Empty));
-                TF_Med = cmdMed.Get_By(c_id => c_id.med_id == id).FirstOrDefault();
+                TF_IN_Item = cmdInItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
             }
             else
             {
                 id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString().Replace(",", string.Empty));
-                TF_Med = cmdMed.Get_By(c_id => c_id.med_id == id).FirstOrDefault();
+                TF_IN_Item = cmdInItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
             }
         }
 
@@ -201,7 +192,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             gv.SelectRow(gv.FocusedRowHandle);
 
             Get_Row_ID(0);
-            //  if (TF_OPeration_IN != null)
+            //  if (TF_IN_Item != null)
             // Fill_Controls();
         }
 
@@ -213,30 +204,6 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         public override void gv_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Is_Double_Click = true;
-        }
-
-        private void barBut_in_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            F_In_Op f = new F_In_Op();
-            f.ShowDialog();
-        }
-
-        private void barBut_out_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            F_Out_Op f = new F_Out_Op();
-            f.ShowDialog();
-        }
-
-        private void barBut_dam_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            F_Dameg_Op f = new F_Dameg_Op();
-                f.Show();
-        }
-
-        private void F_Store_Graid_Load(object sender, EventArgs e)
-        {
-            view_inheretanz_butomes(true, false, false, true, true, false, true);
-
         }
     }
 }

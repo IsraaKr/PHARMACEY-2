@@ -54,10 +54,12 @@ namespace PhamaceySystem.Forms.Store_Forms
         {
             try
             {
-                clear_data(this.Controls);
+                //  clear_data(this.Controls);
+                Set_Auto_Id_op();
+                Set_Auto_Id_item();
                 Is_Double_Click = false;
                 btn_visible(false);
-      
+                in_op_timeTimeSpanEdit.EditValue = d.TimeOfDay;
                 cmdMedician = new ClsCommander<T_Medician>();
                 cmdEmp = new ClsCommander<T_Pers_Emploee>();
                 cmdDonars = new ClsCommander<T_Pers_Donars>();
@@ -121,27 +123,24 @@ namespace PhamaceySystem.Forms.Store_Forms
             {
                 if (id_toUpdate == 0)
                 {
-                    if (is_op_insert == 0 && Validate_Data_op())
-                        insert_op();
-
-                    if (Validate_Data_item())
-                        insert_item();
+                   
                 }
                 else
                 {
                     update_op();
+                   
                     //base.Update_Data();
                     //Get_Data("u");
                 }
 
-              
+
             }
             catch (Exception ex)
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
             }
         }
-      
+
         public override void clear_data(Control.ControlCollection s_controls)
         {
             base.clear_data(s_controls);
@@ -166,6 +165,8 @@ namespace PhamaceySystem.Forms.Store_Forms
             int number_of_errores = 0;
             number_of_errores += in_op_idTextEdit.is_text_valid() ? 0 : 1;
             number_of_errores += donar_empTextEdit.is_text_valid() ? 0 : 1;
+            number_of_errores += in_op_dateDateEdit.is_text_valid() ? 0 : 1;
+            number_of_errores += in_op_timeTimeSpanEdit.is_text_valid() ? 0 : 1;
 
             if (donar_idSearchLookUpEdit.EditValue == null)
             {
@@ -245,6 +246,7 @@ namespace PhamaceySystem.Forms.Store_Forms
             int number_of_errores = 0;
             number_of_errores += in_item_idTextEdit.is_text_valid() ? 0 : 1;
             number_of_errores += in_item_quntityTextEdit.is_text_valid() ? 0 : 1;
+            number_of_errores += in_item_expDateDateEdit.is_text_valid() ? 0 : 1;
 
             if (Med_idSearchlookupEdit.EditValue == null)
             {
@@ -275,7 +277,7 @@ namespace PhamaceySystem.Forms.Store_Forms
             TF_OP_IN_Item = new T_OPeration_IN_Item();
             Fill_Entitey_item();
             cmdOpInItem.Insert_Data(TF_OP_IN_Item);
-  
+
         }
         public void update_item()
         {
@@ -287,8 +289,8 @@ namespace PhamaceySystem.Forms.Store_Forms
                     {
 
                         Fill_Entitey_item();
-                        cmdOpInItem.Update_Data(TF_OP_IN_Item);           
-                        
+                        cmdOpInItem.Update_Data(TF_OP_IN_Item);
+
                     }
                 }
                 else
@@ -401,7 +403,7 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " + id + ")");
         private void Get_Delete_med_count()
         {
             TF_Medician = new T_Medician();
-         
+
             TF_Medician = cmdMedician.Get_All().Where(l => l.med_id == old_med_id).FirstOrDefault();
             TF_Medician.med_in_count = TF_Medician.med_in_count - Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
             TF_Medician.med_total_now = TF_Medician.med_total_now - Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
@@ -413,8 +415,8 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " + id + ")");
             TF_Medician = new T_Medician();
             int id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue.ToString().Replace(",", string.Empty));
             TF_Medician = cmdMedician.Get_All().Where(l => l.med_id == id).FirstOrDefault();
-            TF_Medician.med_in_count = TF_Medician.med_in_count -old_med_Quntitey+ Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
-            TF_Medician.med_total_now = TF_Medician.med_total_now -old_med_Quntitey + Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
+            TF_Medician.med_in_count = TF_Medician.med_in_count - old_med_Quntitey + Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
+            TF_Medician.med_total_now = TF_Medician.med_total_now - old_med_Quntitey + Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
             cmdMedician.Update_Data(TF_Medician);
             old_med_Quntitey = 0;
         }
@@ -527,7 +529,7 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " + id + ")");
         }
         private void btn_add_store_place_Click(object sender, EventArgs e)
         {
-       
+
             F_Store_Places f = new F_Store_Places();
             f.ShowDialog();
             GetStoragePlace_Data();
@@ -625,14 +627,24 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " + id + ")");
         {
             if (Validate_Data_op())
             {
-                Insert_Data();
-                Fill_Graid_item();
-                Get_Add_med_count();
-                clear_item();
-                Get_OP_Med_count_Data();
-                update_op();
-            }
+                try
+                {
+                    if (is_op_insert == 0 && Validate_Data_op())
+                        insert_op();
+                    if (Validate_Data_item())
+                        insert_item();
+                    Fill_Graid_item();
+                    Get_Add_med_count();
+                    clear_item();
+                    Get_OP_Med_count_Data();
+                    update_op();
+                }
+                catch (Exception ex)
+                {
+                    Get_Data(ex.InnerException.InnerException.ToString());
 
+                }
+            }
         }
 
         private void btn_edite_item_Click(object sender, EventArgs e)
