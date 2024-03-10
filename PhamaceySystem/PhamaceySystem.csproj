@@ -165,6 +165,12 @@
     <Compile Include="Forms\Report_Forms\F_In_Rep.Designer.cs">
       <DependentUpon>F_In_Rep.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Report_Forms\F_master_detale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Report_Forms\F_master_detale.Designer.cs">
+      <DependentUpon>F_master_detale.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Setting_Forms\F_Server_Setting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +317,9 @@
     <EmbeddedResource Include="Forms\Report_Forms\F_In_Rep.resx">
       <DependentUpon>F_In_Rep.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report_Forms\F_master_detale.resx">
+      <DependentUpon>F_master_detale.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Setting_Forms\F_Server_Setting.resx">
       <DependentUpon>F_Server_Setting.cs</DependentUpon>
     </EmbeddedResource>
@@ -366,6 +375,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\PhamaceyDataBase.T_OPeration_IN.datasource" />
     <None Include="Properties\DataSources\PhamaceyDataBase.T_test.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -30,6 +30,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_Main));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -61,6 +62,9 @@
             this.skinPaletteDropDownButtonItem1 = new DevExpress.XtraBars.SkinPaletteDropDownButtonItem();
             this.bar_med_min = new DevExpress.XtraBars.BarStaticItem();
             this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem27 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem28 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem29 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -91,9 +95,7 @@
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.xtc = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.barButtonItem27 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem28 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem29 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem30 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
@@ -138,10 +140,11 @@
             this.barButtonItem17,
             this.barButtonItem27,
             this.barButtonItem28,
-            this.barButtonItem29});
+            this.barButtonItem29,
+            this.barButtonItem30});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbon.MaxItemId = 43;
+            this.ribbon.MaxItemId = 44;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -395,6 +398,28 @@
             this.barButtonItem17.Id = 39;
             this.barButtonItem17.Name = "barButtonItem17";
             // 
+            // barButtonItem27
+            // 
+            this.barButtonItem27.Caption = "المواد المدخلة";
+            this.barButtonItem27.Id = 40;
+            this.barButtonItem27.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem27.ImageOptions.SvgImage")));
+            this.barButtonItem27.Name = "barButtonItem27";
+            this.barButtonItem27.Tag = "F_IN_Item_Graid";
+            // 
+            // barButtonItem28
+            // 
+            this.barButtonItem28.Caption = "التقرير الشامل";
+            this.barButtonItem28.Id = 41;
+            this.barButtonItem28.Name = "barButtonItem28";
+            // 
+            // barButtonItem29
+            // 
+            this.barButtonItem29.Caption = "عملية الإدخال";
+            this.barButtonItem29.Id = 42;
+            this.barButtonItem29.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem29.ImageOptions.SvgImage")));
+            this.barButtonItem29.Name = "barButtonItem29";
+            this.barButtonItem29.Tag = "F_In_Rep";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -450,6 +475,7 @@
             this.ribbonPageGroup18.ItemLinks.Add(this.barButtonItem6);
             this.ribbonPageGroup18.ItemLinks.Add(this.barButtonItem22);
             this.ribbonPageGroup18.ItemLinks.Add(this.barButtonItem27);
+            this.ribbonPageGroup18.ItemLinks.Add(this.barButtonItem30);
             this.ribbonPageGroup18.Name = "ribbonPageGroup18";
             this.ribbonPageGroup18.Text = " الإدخال";
             // 
@@ -603,27 +629,14 @@
             this.xtc.UseDocumentSelector = DevExpress.Utils.DefaultBoolean.False;
             this.xtc.UseFormIconAsPageImage = DevExpress.Utils.DefaultBoolean.False;
             // 
-            // barButtonItem27
+            // barButtonItem30
             // 
-            this.barButtonItem27.Caption = "المواد المدخلة";
-            this.barButtonItem27.Id = 40;
-            this.barButtonItem27.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem27.ImageOptions.SvgImage")));
-            this.barButtonItem27.Name = "barButtonItem27";
-            this.barButtonItem27.Tag = "F_IN_Item_Graid";
-            // 
-            // barButtonItem28
-            // 
-            this.barButtonItem28.Caption = "التقرير الشامل";
-            this.barButtonItem28.Id = 41;
-            this.barButtonItem28.Name = "barButtonItem28";
-            // 
-            // barButtonItem29
-            // 
-            this.barButtonItem29.Caption = "عملية الإدخال";
-            this.barButtonItem29.Id = 42;
-            this.barButtonItem29.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem29.ImageOptions.SvgImage")));
-            this.barButtonItem29.Name = "barButtonItem29";
-            this.barButtonItem29.Tag = "F_In_Rep";
+            this.barButtonItem30.Caption = "فواتير و تفاصيلها";
+            this.barButtonItem30.Id = 43;
+            this.barButtonItem30.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem30.ImageOptions.Image")));
+            this.barButtonItem30.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem30.ImageOptions.LargeImage")));
+            this.barButtonItem30.Name = "barButtonItem30";
+            this.barButtonItem30.Tag = "F_master_detale";
             // 
             // F_Main
             // 
@@ -719,5 +732,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem27;
         private DevExpress.XtraBars.BarButtonItem barButtonItem28;
         private DevExpress.XtraBars.BarButtonItem barButtonItem29;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem30;
     }
 }

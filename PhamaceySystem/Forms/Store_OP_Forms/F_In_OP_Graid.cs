@@ -127,7 +127,7 @@ namespace PhamaceySystem.Forms.Store_Forms
         public override void Print_Data()
         {
             base.Print_Data();
-            C_Master.print_header("مذكرات الادخال", gc);
+            C_Master.print_header(tit, gc);
         }
 
         public override bool Validate_Data()
@@ -147,10 +147,10 @@ namespace PhamaceySystem.Forms.Store_Forms
                             date = med.in_op_date,
                             time = med.in_op_time,
                             text = med.in_op_text,
-                            don_id = med.T_Pers_Donars.Donar_id,
+                            don_id = med.donar_id,
                             donar = med.T_Pers_Donars.Donar_name,
                             emp_donar = med.donar_emp,
-                            emp_id = med.T_Pers_Emploee.Emp_id,
+                            emp_id = med.emp_id,
                             emp = med.T_Pers_Emploee.Emp_name,
                             count = med.med_count
                         }).OrderBy(l_id => l_id.id).ToList();

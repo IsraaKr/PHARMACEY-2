@@ -150,7 +150,7 @@ FROM         T_OPeration_IN INNER JOIN
                 in_op_SearchlookupEdit.slkp_iniatalize_data(med_list, "id", "id");
                 in_op_SearchlookupEdit.Properties.View.Columns[0].Caption = "الرقم";
                 in_op_SearchlookupEdit.Properties.View.Columns[1].Caption = "التاريخ ";
-                in_op_SearchlookupEdit.Properties.View.Columns[3].Caption = "عدد المواد ";
+                in_op_SearchlookupEdit.Properties.View.Columns[2].Caption = "عدد المواد ";
             }
 
         }
@@ -211,6 +211,13 @@ FROM         T_OPeration_IN INNER JOIN
             emp_SearchlookupEdit21.EditValue = null;
             store_place_SearchlookupEdit2.EditValue = null;
             in_op_SearchlookupEdit.EditValue = null;
+            is_out_SearchlookupEdit1.EditValue = null;
+            Med_idSearchlookupEdit1.Text = string.Empty;
+            donar_searchLookUpEdit12.Text = string.Empty;
+            emp_SearchlookupEdit21.Text = string.Empty;
+            store_place_SearchlookupEdit2.Text = string.Empty;
+            in_op_SearchlookupEdit.Text = string.Empty;
+            is_out_SearchlookupEdit1.Text = string.Empty;
             load_gc(sqll + group + having);
             //de_month.Text = null;
             //de_month.EditValue = null;
@@ -234,128 +241,14 @@ FROM         T_OPeration_IN INNER JOIN
         }       
 
 
-        //private void lkp_evaluation_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
-        //{
-        //    ////clear(this.Controls);
-        //    ////string s = sqll + " where T_SOURA_EVALUATION.id =" + Convert.ToInt32(lkp_evaluation.EditValue) + " " + group + having;
-        //    //////string s = sqll + " and T_SOURA_EVALUATION.id =" + Convert.ToInt32(lkp_evaluation.EditValue) + "";
-
-        //    ////load_gc(s);
-        //}
-        //private void lkp_evaluation_EditValueChanged(object sender, EventArgs e)
-        //{
-        //    //clear(this.Controls);
-        //    //string s = sqll + " where T_SOURA_EVALUATION.id =" + Convert.ToInt32(lkp_evaluation.EditValue) + " " + group + having;
-        //    ////string s = sqll + " and T_SOURA_EVALUATION.id =" + Convert.ToInt32(lkp_evaluation.EditValue) + "";
-
-        //    //load_gc(s);
-        //}
-
-        //private void lkp_soura_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
-        //{
-        //    ////clear(this.Controls);
-        //    ////string s = sqll + " where T_SOURA_KEEP.soura_num  =" + Convert.ToInt32(lkp_soura.EditValue) + "" + group + having;
-
-        //    //////string s = sqll + " and  T_SOURA_KEEP.soura_num  =" + Convert.ToInt32(lkp_soura.EditValue) + "";
-        //    ////load_gc(s);
-        //}
-        //private void lkp_soura_EditValueChanged(object sender, EventArgs e)
-        //{
-        //    //clear(this.Controls);
-        //    //string s = sqll + " where T_SOURA_KEEP.soura_num  =" + Convert.ToInt32(lkp_soura.EditValue) + "" + group + having;
-
-        //    ////string s = sqll + " and  T_SOURA_KEEP.soura_num  =" + Convert.ToInt32(lkp_soura.EditValue) + "";
-        //    //load_gc(s);
-        //}
-
-
-        //private void lkp_mustalem_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
-        //{
-        //    clear(this.Controls);
-        //    //string s = sqll + " where T_SOURA_KEEP.pers_mustalem_id  =" + Convert.ToInt32(lkp_mustalem.EditValue) + "";
-
-        //    string s = sqll + " and T_SOURA_KEEP.pers_mustalem_id  =" + Convert.ToInt32(lkp_mustalem.EditValue) + "";
-        //    load_gc(s);
-        //}
-        //private void lkp_mustalem_EditValueChanged(object sender, EventArgs e)
-        //{
-        //    //clear(this.Controls);
-        //    ////string s = sqll + " where T_SOURA_KEEP.pers_mustalem_id  =" + Convert.ToInt32(lkp_mustalem.EditValue) + "";
-
-        //    //string s = sqll + " and T_SOURA_KEEP.pers_mustalem_id  =" + Convert.ToInt32(lkp_mustalem.EditValue) + "";
-        //    //load_gc(s);
-        //}
-
-        ////private void lkp_keep_type_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
-        ////{
-        ////    clear(this.Controls);
-        ////    //string s = sqll + " where T_SOURA_KEEP_TYPE.id  =" + Convert.ToInt32(lkp_keep_type.EditValue) + "";
-        ////    string s = sqll + " and T_SOURA_KEEP_TYPE.id  =" + Convert.ToInt32(lkp_keep_type.EditValue) + "";
-
-        ////    load_gc(s);
-        ////}
-        ////private void lkp_keep_type_EditValueChanged(object sender, EventArgs e)
-        ////{
-        ////    //clear(this.Controls);
-        ////    ////string s = sqll + " where T_SOURA_KEEP_TYPE.id  =" + Convert.ToInt32(lkp_keep_type.EditValue) + "";
-        ////    //string s = sqll + " and T_SOURA_KEEP_TYPE.id  =" + Convert.ToInt32(lkp_keep_type.EditValue) + "";
-
-        ////    //load_gc(s);
-        ////}
-
-
-        ////private void lkp_hafez_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
-        ////{
-        ////    clear(this.Controls);
-        ////    // string s = sqll + " where T_SOURA_KEEP.pers_hafez_id  =" + Convert.ToInt32(lkp_hafez.EditValue) + "";
-        ////    string s = sqll + " and T_SOURA_KEEP.pers_hafez_id  =" + Convert.ToInt32(lkp_hafez.EditValue) + "";
-
-        ////    load_gc(s);
-        ////}
-        ////private void lkp_hafez_EditValueChanged(object sender, EventArgs e)
-        ////{
-        ////    //clear(this.Controls);
-        ////    //// string s = sqll + " where T_SOURA_KEEP.pers_hafez_id  =" + Convert.ToInt32(lkp_hafez.EditValue) + "";
-        ////    //string s = sqll + " and T_SOURA_KEEP.pers_hafez_id  =" + Convert.ToInt32(lkp_hafez.EditValue) + "";
-
-        ////    //load_gc(s);
-        ////}
-
-        //   private void de_month_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
-        //   {
-        //       clear(this.Controls);
-        //       string s = sqll + " WHERE(month (T_SOURA_KEEP.keep_date) = N'" + de_month.DateTime.Month + "' " +
-        //       " and  year (T_SOURA_KEEP.keep_date) = N'" + de_month.DateTime.Year + "' ) ";
-        ////       string s = sqll + " and (month (T_SOURA_KEEP.keep_date) = N'" + de_month.DateTime.Month + "' " +
-        ////" and  year (T_SOURA_KEEP.keep_date) = N'" + de_month.DateTime.Year + "' ) ";
-
-
-        //       load_gc(s);
-        //   }
-        //   private void de_month_EditValueChanged(object sender, EventArgs e)
-        //   {
-        ////       clear(this.Controls);
-        ////       string s = sqll + " WHERE(month (T_SOURA_KEEP.keep_date) = N'" + de_month.DateTime.Month + "' " +
-        ////       " and  year (T_SOURA_KEEP.keep_date) = N'" + de_month.DateTime.Year + "' ) ";
-        //////       string s = sqll + " and (month (T_SOURA_KEEP.keep_date) = N'" + de_month.DateTime.Month + "' " +
-        //////" and  year (T_SOURA_KEEP.keep_date) = N'" + de_month.DateTime.Year + "' ) ";
-
-
-        ////       load_gc(s);
-        //   }
-
-              
+                      
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            //    string s = sqll + " WHERE(T_SOURA_KEEP.keep_date between N'" + dtp_from.Text + "' and N'" + dtp_to.Text + "')" + group + having;
-
-            //  load_gc(s);
-
             string s = sqll + " WHERE(T_OPeration_IN.in_op_date between N'" + from_dateTimePicker1.Text + "' and N'" + to_dateTimePicker2.Text + "')" + group + having;
             load_gc(s);
         }
 
-        private void simpleButton2_Click(object sender, EventArgs e)
+        private void btn_view_serch_Click(object sender, EventArgs e)
         {
             string s = sqll + " where ";
 
@@ -373,7 +266,19 @@ FROM         T_OPeration_IN INNER JOIN
 
             if (in_op_SearchlookupEdit.Text != string.Empty)
                 s = s + " T_OPeration_IN.in_op_id  =" + Convert.ToInt32(in_op_SearchlookupEdit.EditValue) + "  AND ";
+        
+            if (is_out_SearchlookupEdit1.Text != string.Empty)
+                if (is_out_SearchlookupEdit1.Text == "out")
+                {
+                    s = s + "  T_OPeration_IN_Item.is_out = 'true' " + "  AND ";
 
+
+                }
+                else if (is_out_SearchlookupEdit1.Text == "in")
+                {
+                    s = s+ "  where  T_OPeration_IN_Item.is_out = 'false' " + "  AND ";
+
+                }
             s = s.Substring(0, s.Length - 4);
             s = s + group + having;
             load_gc(s);
@@ -388,7 +293,7 @@ FROM         T_OPeration_IN INNER JOIN
 
         private void Med_idSearchlookupEdit1_EditValueChanged(object sender, EventArgs e)
         {
-            string s = sqll + " where T_OPeration_IN_Item.Med_id =" + Convert.ToInt32(Med_idSearchlookupEdit1.EditValue) + " " + group + having;
+            string s = sqll + " where  T_OPeration_IN_Item.Med_id =" + Convert.ToInt32(Med_idSearchlookupEdit1.EditValue) + " " + group + having;
             load_gc(s);
         }
 
@@ -471,8 +376,8 @@ FROM         T_OPeration_IN INNER JOIN
        
         private void in_op_dateDateEdit_EditValueChanged(object sender, EventArgs e)
         {
-            string s = sqll + " WHERE(month (T_SOURA_KEEP.keep_date) = N'" + in_op_dateDateEdit.DateTime.Month + "' " +
-         " and  year (T_SOURA_KEEP.keep_date) = N'" + in_op_dateDateEdit.DateTime.Year + "' ) " + group + having;
+            string s = sqll + " WHERE(month (T_OPeration_IN.in_op_date) = N'" + in_op_dateDateEdit.DateTime.Month + "' " +
+         " and  year (T_OPeration_IN.in_op_date) = N'" + in_op_dateDateEdit.DateTime.Year + "' ) " + group + having;
 
 
             load_gc(s);
@@ -482,6 +387,13 @@ FROM         T_OPeration_IN INNER JOIN
             emp_SearchlookupEdit21.EditValue = null;
             store_place_SearchlookupEdit2.EditValue = null;
             in_op_SearchlookupEdit.EditValue = null;
+            is_out_SearchlookupEdit1.EditValue = null;
+            Med_idSearchlookupEdit1.Text = string.Empty;
+            donar_searchLookUpEdit12.Text = string.Empty;
+            emp_SearchlookupEdit21.Text = string.Empty;
+            store_place_SearchlookupEdit2.Text = string.Empty;
+            in_op_SearchlookupEdit.Text = string.Empty;
+            is_out_SearchlookupEdit1.Text = string.Empty;
             //de_month.Text = null;
             //de_month.EditValue = null;
             //dtp_from.Text = null;
@@ -501,6 +413,23 @@ FROM         T_OPeration_IN INNER JOIN
 
             load_gc(s);
         }
+
+        private void is_out_SearchlookupEdit1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (is_out_SearchlookupEdit1.Text=="out")
+            {
+                string s = sqll + "  where  T_OPeration_IN_Item.is_out = 'true' " + group + having;
+
+                load_gc(s);
+            }
+            else if (is_out_SearchlookupEdit1.Text == "in")
+            {
+                string s = sqll + "  where  T_OPeration_IN_Item.is_out = 'false' " + group + having;
+                load_gc(s);
+            }
+          
+        }
+
     }
  } 
 
