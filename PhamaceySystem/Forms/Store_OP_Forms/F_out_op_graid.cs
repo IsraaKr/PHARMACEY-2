@@ -126,7 +126,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         public override void Print_Data()
         {
             base.Print_Data();
-            C_Master.print_header("مذكرات الادخال", gc);
+            C_Master.print_header(tit, gc);
         }
 
         public override bool Validate_Data()
@@ -136,39 +136,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
 
             return (number_of_errores == 0);
         }
-        public override void comb_page_num_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // base.comb_page_num_SelectedIndexChanged(sender, e);
-            var data = (from med in cmdOutOp.Get_All()
-                        select new
-                        {
-                            id = med.out_op_id,
-                            date = med.out_op_date,
-                            time = med.out_op_time,
-                            text = med.out_op_text,
-                            rec_id = med.T_Pers_Recivers.id,
-                            reciver = med.T_Pers_Recivers.name,
-                            emp_rec = med.reciver_name,
-                            emp_id = med.T_Pers_Emploee.Emp_id,
-                            emp = med.T_Pers_Emploee.Emp_name,
-                            count = med.med_count
-                        }).OrderBy(l_id => l_id.id).ToList();
-
-
-            //جلب جزء من البيانات
-            if (data != null && data.Count > 0)
-            {
-                gc.DataSource = data;
-                gv_column_names();
-
-                //var data_id = data.Select(x => x.id).ToArray();//مصفوفة ايديات
-                //int ind = C_GC_Page_Nav.combo_gc_data(comb_page_num);
-                //gc.DataSource = data.Where(x => x.id >= data_id[ind]).Take(row_to_show).ToList();
-                //gv_column_names();
-            }
-
-        }
-
+   
         private void Fill_Graid()
         {
             var data = (from med in cmdOutOp.Get_All()
@@ -178,10 +146,10 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                             date = med.out_op_date,
                             time = med.out_op_time,
                             text = med.out_op_text,
-                            rec_id = med.T_Pers_Recivers.id,
+                            rec_id = med.reciver_id,
                             reciver = med.T_Pers_Recivers.name,
                             emp_rec = med.reciver_name,
-                            emp_id = med.T_Pers_Emploee.Emp_id,
+                            emp_id = med.emp_id,
                             emp = med.T_Pers_Emploee.Emp_name,
                             count = med.med_count
                         }).OrderBy(l_id => l_id.id).ToList();

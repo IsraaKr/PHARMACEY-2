@@ -38,13 +38,13 @@
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bar_close = new DevExpress.XtraBars.BarButtonItem();
             this.bar_print = new DevExpress.XtraBars.BarButtonItem();
-            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
-            this.bar_date = new DevExpress.XtraBars.BarStaticItem();
-            this.bar_time = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.bar_time = new DevExpress.XtraBars.BarStaticItem();
+            this.bar_date = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barMang)).BeginInit();
@@ -65,6 +65,10 @@
             // 
             this.gv.GridControl = this.gc;
             this.gv.Name = "gv";
+            this.gv.OptionsPrint.AllowMultilineHeaders = true;
+            this.gv.OptionsPrint.ExpandAllDetails = true;
+            this.gv.OptionsPrint.PrintDetails = true;
+            this.gv.OptionsPrint.PrintFilterInfo = true;
             this.gv.OptionsView.ShowAutoFilterRow = true;
             this.gv.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gv_RowStyle);
             // 
@@ -141,7 +145,7 @@
             this.bar1.BarAppearance.Pressed.Options.UseForeColor = true;
             this.bar1.BarName = "Main menu";
             this.bar1.DockCol = 0;
-            this.bar1.DockRow = 1;
+            this.bar1.DockRow = 0;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
             this.bar1.FloatLocation = new System.Drawing.Point(242, 365);
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
@@ -174,33 +178,6 @@
             this.bar_print.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bar_print.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_print_ItemClick);
             // 
-            // barStaticItem3
-            // 
-            this.barStaticItem3.Caption = "..";
-            this.barStaticItem3.Id = 21;
-            this.barStaticItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.Image")));
-            this.barStaticItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.LargeImage")));
-            this.barStaticItem3.Name = "barStaticItem3";
-            this.barStaticItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // bar_date
-            // 
-            this.bar_date.Caption = "..";
-            this.bar_date.Id = 20;
-            this.bar_date.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_date.ImageOptions.Image")));
-            this.bar_date.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_date.ImageOptions.LargeImage")));
-            this.bar_date.Name = "bar_date";
-            this.bar_date.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // bar_time
-            // 
-            this.bar_time.Caption = "..";
-            this.bar_time.Id = 19;
-            this.bar_time.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_time.ImageOptions.Image")));
-            this.bar_time.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_time.ImageOptions.LargeImage")));
-            this.bar_time.Name = "bar_time";
-            this.bar_time.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
@@ -232,6 +209,33 @@
             this.barDockControlRight.Location = new System.Drawing.Point(659, 0);
             this.barDockControlRight.Manager = this.barMang;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 410);
+            // 
+            // bar_time
+            // 
+            this.bar_time.Caption = "..";
+            this.bar_time.Id = 19;
+            this.bar_time.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_time.ImageOptions.Image")));
+            this.bar_time.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_time.ImageOptions.LargeImage")));
+            this.bar_time.Name = "bar_time";
+            this.bar_time.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // bar_date
+            // 
+            this.bar_date.Caption = "..";
+            this.bar_date.Id = 20;
+            this.bar_date.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_date.ImageOptions.Image")));
+            this.bar_date.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_date.ImageOptions.LargeImage")));
+            this.bar_date.Name = "bar_date";
+            this.bar_date.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // barStaticItem3
+            // 
+            this.barStaticItem3.Caption = "..";
+            this.barStaticItem3.Id = 21;
+            this.barStaticItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.Image")));
+            this.barStaticItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.LargeImage")));
+            this.barStaticItem3.Name = "barStaticItem3";
+            this.barStaticItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // F_Med_min
             // 

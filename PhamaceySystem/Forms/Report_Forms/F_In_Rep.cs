@@ -26,30 +26,8 @@ namespace PhamaceySystem.Forms.Report_Forms
         ClsCommander<T_OPeration_IN> cmdOpIn = new ClsCommander<T_OPeration_IN>();
         ClsCommander<T_OPeration_IN_Item> cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
 
-        T_OPeration_IN TF_OP_IN;
-        T_OPeration_IN_Item TF_OP_IN_Item;
-        T_Medician TF_Medician;
-        //التقيم الوسطي
 
-        //        SELECT V_COUNT_EVALUATION_PERS_IN_KEEP.*
-
-        //FROM V_COUNT_EVALUATION_PERS_IN_KEEP
-
-
-        //        where V_COUNT_EVALUATION_PERS_IN_KEEP.couunt in (SELECT MAX(couunt) AS Expr1
-        //        FROM         V_COUNT_EVALUATION_PERS_IN_KEEP
-        //        WHERE     (soura_num = 2) AND(pers_hafez_id = 7) )
-
-        //and(soura_num = 2) AND(pers_hafez_id = 7)
         DataTable dt;
-        string from;
-        //        string sqll = @" SELECT  T_PERSONE.id AS تسلسل  , T_PERSONE.name AS الحافظ, T_SOURA_KEEP.soura_name AS [اسم السورة], T_SOURA_KEEP.aya_num AS [رقم الآية], T_SOURA_KEEP.page_num AS [رقم الصفحة], 
-        //                      T_SOURA_KEEP.keep_date AS التاريخ, T_SOURA_KEEP_TYPE.name AS [نوع الحفظ], T_SOURA_EVALUATION.name AS التقيم, T_PERSONE_1.name AS المستلم
-        //FROM         T_PERSONE INNER JOIN
-        //                      T_SOURA_KEEP ON T_PERSONE.id = T_SOURA_KEEP.pers_hafez_id INNER JOIN
-        //                      T_SOURA_KEEP_TYPE ON T_SOURA_KEEP.keep_type_id = T_SOURA_KEEP_TYPE.id INNER JOIN
-        //                      T_SOURA_EVALUATION ON T_SOURA_KEEP.evaluation_id = T_SOURA_EVALUATION.id INNER JOIN
-        //                      T_PERSONE AS T_PERSONE_1 ON T_SOURA_KEEP.pers_mustalem_id = T_PERSONE_1.id";
 
         string sqll = @"  SELECT     T_OPeration_IN.in_op_id, T_OPeration_IN.in_op_date, T_OPeration_IN.in_op_time, T_OPeration_IN.in_op_text, T_OPeration_IN.med_count, 
                       T_OPeration_IN_Item.in_item_id, T_OPeration_IN_Item.in_item_quntity, T_OPeration_IN_Item.in_item_expDate, T_OPeration_IN_Item.is_out, 

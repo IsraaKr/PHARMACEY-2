@@ -30,7 +30,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
 
         T_Medician TF_Medician;
         //   bool Is_Double_Click = false;
-        int id;
+     //   int id;
         public void Get_Data(string status_mess)
         {
             try

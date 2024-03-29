@@ -17,7 +17,6 @@ namespace PhamaceyDataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public T_Store_Placees()
         {
-            this.T_Operation_Damage_Item = new HashSet<T_Operation_Damage_Item>();
             this.T_OPeration_IN_Item = new HashSet<T_OPeration_IN_Item>();
         }
     
@@ -26,8 +25,6 @@ namespace PhamaceyDataBase
         public string groupe { get; set; }
         public string shufel { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<T_Operation_Damage_Item> T_Operation_Damage_Item { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_OPeration_IN_Item> T_OPeration_IN_Item { get; set; }
     }

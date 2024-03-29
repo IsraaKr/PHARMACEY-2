@@ -18,11 +18,13 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
 {
     public partial class F_out_med_to_chose : F_Master_Inheretanz
     {
-        public F_out_med_to_chose(int med_id  , int out_op_id)
+        public F_out_med_to_chose(int med_id  , int out_op_id , DateTime date , string timr , int op_type)
         {
             InitializeComponent();
             med_idd = med_id;       
             out_op_idd = out_op_id;
+            opp_type = op_type;
+            datee =Convert.ToDateTime( date.ToString("yyyy/MM/dd"));
             //   gv.OptionsBehavior.Editable   = true;
             view_inheretanz_butomes(false, true, false, false, false, false, true);
 
@@ -33,18 +35,24 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
         ClsCommander<T_OPeration_IN_Item> cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
         ClsCommander<T_OPeration_Out_Item> cmdOppOutItem = new ClsCommander<T_OPeration_Out_Item>();
+        ClsCommander<T_Store_Move> cmdStoreMove = new ClsCommander<T_Store_Move>();
+        ClsCommander<T_Operation_Damage_Item> cmdOppDamItem = new ClsCommander<T_Operation_Damage_Item>();
 
         T_OPeration_IN_Item TF_OPeration_IN_Item;
         T_Medician TF_Medician;
         T_OPeration_Out_Item TF_OP_Out_Item;
-
+        T_Operation_Damage_Item TF_OP_Dam_Item;
+        T_Store_Move TF_Store_Move;
         Boolean Is_Double_Click = false;
-        int id;
+        int opp_type;
         int med_idd;
         int in_item_idd;
         int out_op_idd;
         int in_op_idd;
+        int item_id;
         int out_item_quntity;
+        DateTime datee;
+        string time;
         public override void Get_Data(string status_mess)
         {
             try
@@ -66,6 +74,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         }
         public override void Insert_Data()
         {
+            int x = 0;
             for (int i = 0; i < gv.RowCount; i++)
             {
                 in_item_idd = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns[0]));
@@ -77,30 +86,67 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                     insert_item();
                     update_In_item();
                     Get_Add_med_count();
-                    MessageBox.Show("تم حفظ السطر " +i+1);
-                }
-               
-
+                    Get_Add_move();
+                    x++;
+                }             
             }
+            MessageBox.Show("تم الحفظ بنجاح!!! عدد المواد المدخلة هي  " + x);
+            this.Close();
             Get_Data("i");
             base.Insert_Data();
         }
+        private void Get_Add_move()
+        {
+            TF_Store_Move = new T_Store_Move();
+            TF_Store_Move.qunt = out_item_quntity;
+            TF_Store_Move.med_id = med_idd;
+            TF_Store_Move.item_id = item_id;
+            TF_Store_Move.op_id = out_op_idd;
+            if (opp_type == 2)
+                TF_Store_Move.op_type_id = Convert.ToInt32("2");
+            else if (opp_type == 3)
+                TF_Store_Move.op_type_id = Convert.ToInt32("3");
+
+            TF_Store_Move.date = Convert.ToDateTime(datee.ToString("yyyy/MM/dd"));
+           // TF_Store_Move.time = (TimeSpan?)out_op_timeTimeSpanEdit.EditValue;
+
+            cmdStoreMove.Insert_Data(TF_Store_Move);
+        }
         private void Fill_Graid()
         {
-            var med_list = (from Emp in cmdOpInItem.Get_All().Where(l => l.is_out == false && l.Med_id == med_idd)
-                            select new
-                            {
-                                item_id = Emp.in_item_id,
-                                med_id = Emp.Med_id,
-                                op_id = Emp.In_op_id,
-                                name = Emp.T_Medician.med_name,
-                                datee = Emp.in_item_expDate,
-                                place = Emp.T_Store_Placees.name,
-                                quntatey = Emp.in_item_quntity - Emp.out_item_quntitey,
-                            
-                            }).OrderBy(l => l.datee).Distinct();
-            gc.DataSource = med_list;
 
+            if (opp_type == 2)
+            {
+                var med_list = (from Emp in cmdOpInItem.Get_All().Where(l => l.is_out == false && l.Med_id == med_idd)
+                                select new
+                                {
+                                    item_id = Emp.in_item_id,
+                                    med_id = Emp.Med_id,
+                                    op_id = Emp.In_op_id,
+                                    name = Emp.T_Medician.med_name,
+                                    datee = Emp.in_item_expDate,
+                                    place = Emp.T_Store_Placees.name,
+                                    quntatey = Emp.in_item_quntity - Emp.out_item_quntitey,
+
+                                }).OrderBy(l => l.datee).Distinct();
+                gc.DataSource = med_list;
+            }
+            else if (opp_type == 3)
+            {
+                var med_list = (from Emp in cmdOpInItem.Get_All().Where(l => l.is_out == false && l.Med_id == med_idd && l.in_item_expDate <= DateTime.Today)
+                                select new
+                                {
+                                    item_id = Emp.in_item_id,
+                                    med_id = Emp.Med_id,
+                                    op_id = Emp.In_op_id,
+                                    name = Emp.T_Medician.med_name,
+                                    datee = Emp.in_item_expDate,
+                                    place = Emp.T_Store_Placees.name,
+                                    quntatey = Emp.in_item_quntity - Emp.out_item_quntitey,
+
+                                }).OrderBy(l => l.datee).Distinct();
+                gc.DataSource = med_list;
+            }
             gv.Columns[0].Visible = false;
             gv.Columns[1].Visible = false;
             gv.Columns[2].Visible = false;         
@@ -121,8 +167,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                 col.FieldName = "الكمية المطلوبة";
                 col.VisibleIndex = 7;
             }
-           
-          
+                    
             gv.BestFitColumns();
         } 
        
@@ -139,9 +184,37 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         }
         public void insert_item()
         {
-            TF_OP_Out_Item = new T_OPeration_Out_Item();
-            Fill_Entitey_item();
-            cmdOppOutItem.Insert_Data(TF_OP_Out_Item);
+            if (opp_type ==2)
+            {
+                TF_OP_Out_Item = new T_OPeration_Out_Item();
+                Fill_Entitey_item();
+                cmdOppOutItem.Insert_Data(TF_OP_Out_Item);
+                Set_Auto_Id_item();
+            }
+            else if (opp_type==3)
+            {
+                TF_OP_Dam_Item = new T_Operation_Damage_Item();
+
+                TF_OP_Dam_Item.dmg_item_quntity = out_item_quntity;
+                TF_OP_Dam_Item.dmg_B_It_note = null;
+                TF_OP_Dam_Item.Med_id = med_idd;
+
+                TF_OP_Dam_Item.dmg_op_id = out_op_idd;
+                TF_OP_Dam_Item.in_item_id = in_item_idd;
+                cmdOppDamItem.Insert_Data(TF_OP_Dam_Item);
+
+                var max_id = cmdOppDamItem.Get_All().Where(c_id => c_id.dmg_item_id ==
+                        cmdOppDamItem.Get_All().Max(max => max.dmg_item_id)).FirstOrDefault();
+                item_id = max_id == null ? 1 : (max_id.dmg_item_id);
+            }
+       
+           
+        }
+        private void Set_Auto_Id_item()
+        {
+            var max_id = cmdOppOutItem.Get_All().Where(c_id => c_id.out_item_id ==
+                         cmdOppOutItem.Get_All().Max(max => max.out_item_id)).FirstOrDefault();
+            item_id = max_id == null ? 1 : (max_id.out_item_id );
 
         }
         //********************* توابع جرد الدواء ****************************
@@ -150,10 +223,15 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             TF_Medician = new T_Medician();
             int id = med_idd;
             TF_Medician = cmdMedician.Get_All().Where(l => l.med_id == id).FirstOrDefault();
-            TF_Medician.med_out_count = TF_Medician.med_out_count + out_item_quntity;
+            if (opp_type == 2)
+                TF_Medician.med_dam_count = TF_Medician.med_out_count + out_item_quntity;
+            else if (opp_type == 3)
+                TF_Medician.med_dam_count = TF_Medician.med_dam_count + out_item_quntity;
+
             TF_Medician.med_total_now = TF_Medician.med_total_now -out_item_quntity;
             cmdMedician.Update_Data(TF_Medician);
         }
+   
         //*****************تعديل الإدخال*********************   
         public void Fill_Entitey_in_item()
         {

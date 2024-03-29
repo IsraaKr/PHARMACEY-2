@@ -175,7 +175,7 @@ namespace PhamaceySystem.Forms.Person_Forms
              }).OrderBy(c_id => c_id.name);
         gc.DataSource = x;
         gv.Columns["id"].Visible = false;
-        gv.Columns["name"].Caption = "اسم الشكل";
+        gv.Columns["name"].Caption = "اسم الموظف ";
         gv.BestFitColumns();
     }
     private void Set_Auto_Id()

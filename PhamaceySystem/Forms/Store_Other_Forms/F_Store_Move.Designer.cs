@@ -1,6 +1,6 @@
-﻿namespace PhamaceySystem.Forms.Medicin_Forms
+﻿namespace PhamaceySystem.Forms.Store_Other_Forms
 {
-    partial class F_Med_Minimem
+    partial class F_Store_Move
     {
         /// <summary>
         /// Required designer variable.
@@ -30,21 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // lbl_tiltle
-            // 
-            this.lbl_tiltle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_tiltle.Size = new System.Drawing.Size(665, 60);
-            // 
-            // F_Med_Minimem
+            // F_Store_Move
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 465);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "F_Med_Minimem";
-            this.Text = "F_Med_Minimem";
-            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
-            this.Load += new System.EventHandler(this.F_Med_Minimem_Load);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "F_Store_Move";
+            this.Text = "F_Store_Move";
             this.ResumeLayout(false);
             this.PerformLayout();
 

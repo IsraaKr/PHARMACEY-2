@@ -56,7 +56,6 @@
           <Property Name="med_count" Type="int" />
           <Property Name="emp_id" Type="int" />
           <Property Name="op_type_id" Type="int" />
-          <Property Name="In_op_id" Type="int" />
         </EntityType>
         <EntityType Name="T_Operation_Damage_Item">
           <Key>
@@ -64,11 +63,10 @@
           </Key>
           <Property Name="dmg_item_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="dmg_item_quntity" Type="int" />
-          <Property Name="dmg_item_expDate" Type="date" />
           <Property Name="dmg_B_It_note" Type="nvarchar(max)" />
           <Property Name="Med_id" Type="int" />
           <Property Name="dmg_op_id" Type="int" />
-          <Property Name="store_place_id" Type="int" />
+          <Property Name="in_item_id" Type="int" />
         </EntityType>
         <EntityType Name="T_OPeration_IN">
           <Key>
@@ -76,7 +74,7 @@
           </Key>
           <Property Name="in_op_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="in_op_date" Type="date" />
-          <Property Name="in_op_time" Type="time" Precision="7" />
+          <Property Name="in_op_time" Type="datetime" />
           <Property Name="in_op_text" Type="nvarchar(max)" />
           <Property Name="in_op_state" Type="bit" />
           <Property Name="med_count" Type="int" />
@@ -155,6 +153,19 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="T_Store_Move">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="qunt" Type="int" />
+          <Property Name="med_id" Type="int" />
+          <Property Name="item_id" Type="int" />
+          <Property Name="op_id" Type="int" />
+          <Property Name="op_type_id" Type="int" />
+          <Property Name="date" Type="date" />
+          <Property Name="time" Type="time" Precision="7" />
+        </EntityType>
         <EntityType Name="T_Store_Placees">
           <Key>
             <PropertyRef Name="id" />
@@ -224,27 +235,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_T_Operation_Damage_Item_T_Store_Placees">
-          <End Role="T_Store_Placees" Type="Self.T_Store_Placees" Multiplicity="0..1" />
+        <Association Name="FK_T_Operation_Damage_Item_T_OPeration_IN_Item">
+          <End Role="T_OPeration_IN_Item" Type="Self.T_OPeration_IN_Item" Multiplicity="0..1" />
           <End Role="T_Operation_Damage_Item" Type="Self.T_Operation_Damage_Item" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="T_Store_Placees">
-              <PropertyRef Name="id" />
+            <Principal Role="T_OPeration_IN_Item">
+              <PropertyRef Name="in_item_id" />
             </Principal>
             <Dependent Role="T_Operation_Damage_Item">
-              <PropertyRef Name="store_place_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_T_OPeration_Damage_T_OPeration_IN">
-          <End Role="T_OPeration_IN" Type="Self.T_OPeration_IN" Multiplicity="0..1" />
-          <End Role="T_OPeration_Damage" Type="Self.T_OPeration_Damage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_OPeration_IN">
-              <PropertyRef Name="in_op_id" />
-            </Principal>
-            <Dependent Role="T_OPeration_Damage">
-              <PropertyRef Name="In_op_id" />
+              <PropertyRef Name="in_item_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -416,6 +415,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_T_Store_Move_T_Medician">
+          <End Role="T_Medician" Type="Self.T_Medician" Multiplicity="0..1" />
+          <End Role="T_Store_Move" Type="Self.T_Store_Move" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Medician">
+              <PropertyRef Name="med_id" />
+            </Principal>
+            <Dependent Role="T_Store_Move">
+              <PropertyRef Name="med_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Store_Move_T_OPeration_Type">
+          <End Role="T_OPeration_Type" Type="Self.T_OPeration_Type" Multiplicity="0..1" />
+          <End Role="T_Store_Move" Type="Self.T_Store_Move" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OPeration_Type">
+              <PropertyRef Name="OP_type_id" />
+            </Principal>
+            <Dependent Role="T_Store_Move">
+              <PropertyRef Name="op_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="PHANACEY_DBModelStoreContainer">
           <EntitySet Name="T_Med_Category" EntityType="Self.T_Med_Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Med_Shape" EntityType="Self.T_Med_Shape" Schema="dbo" store:Type="Tables" />
@@ -431,6 +454,7 @@
           <EntitySet Name="T_Pers_Donars" EntityType="Self.T_Pers_Donars" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Pers_Emploee" EntityType="Self.T_Pers_Emploee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Pers_Recivers" EntityType="Self.T_Pers_Recivers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Store_Move" EntityType="Self.T_Store_Move" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Store_Placees" EntityType="Self.T_Store_Placees" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_T_Medician_T_Med_Category" Association="Self.FK_T_Medician_T_Med_Category">
             <End Role="T_Med_Category" EntitySet="T_Med_Category" />
@@ -452,13 +476,9 @@
             <End Role="T_OPeration_Damage" EntitySet="T_OPeration_Damage" />
             <End Role="T_Operation_Damage_Item" EntitySet="T_Operation_Damage_Item" />
           </AssociationSet>
-          <AssociationSet Name="FK_T_Operation_Damage_Item_T_Store_Placees" Association="Self.FK_T_Operation_Damage_Item_T_Store_Placees">
-            <End Role="T_Store_Placees" EntitySet="T_Store_Placees" />
+          <AssociationSet Name="FK_T_Operation_Damage_Item_T_OPeration_IN_Item" Association="Self.FK_T_Operation_Damage_Item_T_OPeration_IN_Item">
+            <End Role="T_OPeration_IN_Item" EntitySet="T_OPeration_IN_Item" />
             <End Role="T_Operation_Damage_Item" EntitySet="T_Operation_Damage_Item" />
-          </AssociationSet>
-          <AssociationSet Name="FK_T_OPeration_Damage_T_OPeration_IN" Association="Self.FK_T_OPeration_Damage_T_OPeration_IN">
-            <End Role="T_OPeration_IN" EntitySet="T_OPeration_IN" />
-            <End Role="T_OPeration_Damage" EntitySet="T_OPeration_Damage" />
           </AssociationSet>
           <AssociationSet Name="FK_T_OPeration_Damage_T_OPeration_Type" Association="Self.FK_T_OPeration_Damage_T_OPeration_Type">
             <End Role="T_OPeration_Type" EntitySet="T_OPeration_Type" />
@@ -516,6 +536,14 @@
             <End Role="T_Pers_Recivers" EntitySet="T_Pers_Recivers" />
             <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
           </AssociationSet>
+          <AssociationSet Name="FK_T_Store_Move_T_Medician" Association="Self.FK_T_Store_Move_T_Medician">
+            <End Role="T_Medician" EntitySet="T_Medician" />
+            <End Role="T_Store_Move" EntitySet="T_Store_Move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Store_Move_T_OPeration_Type" Association="Self.FK_T_Store_Move_T_OPeration_Type">
+            <End Role="T_OPeration_Type" EntitySet="T_OPeration_Type" />
+            <End Role="T_Store_Move" EntitySet="T_Store_Move" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -536,6 +564,7 @@
           <EntitySet Name="T_Pers_Donars" EntityType="PHANACEY_DBModel.T_Pers_Donars" />
           <EntitySet Name="T_Pers_Emploee" EntityType="PHANACEY_DBModel.T_Pers_Emploee" />
           <EntitySet Name="T_Pers_Recivers" EntityType="PHANACEY_DBModel.T_Pers_Recivers" />
+          <EntitySet Name="T_Store_Move" EntityType="PHANACEY_DBModel.T_Store_Move" />
           <EntitySet Name="T_Store_Placees" EntityType="PHANACEY_DBModel.T_Store_Placees" />
           <AssociationSet Name="FK_T_Medician_T_Med_Category" Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Category">
             <End Role="T_Med_Category" EntitySet="T_Med_Category" />
@@ -561,13 +590,13 @@
             <End Role="T_Medician" EntitySet="T_Medician" />
             <End Role="T_OPeration_Out_Item" EntitySet="T_OPeration_Out_Item" />
           </AssociationSet>
+          <AssociationSet Name="FK_T_Store_Move_T_Medician" Association="PHANACEY_DBModel.FK_T_Store_Move_T_Medician">
+            <End Role="T_Medician" EntitySet="T_Medician" />
+            <End Role="T_Store_Move" EntitySet="T_Store_Move" />
+          </AssociationSet>
           <AssociationSet Name="FK_T_Operation_Damage_Item_T_OPeration_Damage" Association="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_OPeration_Damage">
             <End Role="T_OPeration_Damage" EntitySet="T_OPeration_Damage" />
             <End Role="T_Operation_Damage_Item" EntitySet="T_Operation_Damage_Item" />
-          </AssociationSet>
-          <AssociationSet Name="FK_T_OPeration_Damage_T_OPeration_IN" Association="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_IN">
-            <End Role="T_OPeration_IN" EntitySet="T_OPeration_IN" />
-            <End Role="T_OPeration_Damage" EntitySet="T_OPeration_Damage" />
           </AssociationSet>
           <AssociationSet Name="FK_T_OPeration_Damage_T_OPeration_Type" Association="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_Type">
             <End Role="T_OPeration_Type" EntitySet="T_OPeration_Type" />
@@ -577,8 +606,8 @@
             <End Role="T_Pers_Emploee" EntitySet="T_Pers_Emploee" />
             <End Role="T_OPeration_Damage" EntitySet="T_OPeration_Damage" />
           </AssociationSet>
-          <AssociationSet Name="FK_T_Operation_Damage_Item_T_Store_Placees" Association="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_Store_Placees">
-            <End Role="T_Store_Placees" EntitySet="T_Store_Placees" />
+          <AssociationSet Name="FK_T_Operation_Damage_Item_T_OPeration_IN_Item" Association="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_OPeration_IN_Item">
+            <End Role="T_OPeration_IN_Item" EntitySet="T_OPeration_IN_Item" />
             <End Role="T_Operation_Damage_Item" EntitySet="T_Operation_Damage_Item" />
           </AssociationSet>
           <AssociationSet Name="FK_T_OPeration_IN_Item_T_OPeration_IN" Association="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_OPeration_IN">
@@ -620,6 +649,10 @@
           <AssociationSet Name="FK_T_OPeration_Out_T_Pers_Recivers" Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Recivers">
             <End Role="T_Pers_Recivers" EntitySet="T_Pers_Recivers" />
             <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Store_Move_T_OPeration_Type" Association="PHANACEY_DBModel.FK_T_Store_Move_T_OPeration_Type">
+            <End Role="T_OPeration_Type" EntitySet="T_OPeration_Type" />
+            <End Role="T_Store_Move" EntitySet="T_Store_Move" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="T_Med_Category">
@@ -669,6 +702,7 @@
           <NavigationProperty Name="T_Operation_Damage_Item" Relationship="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_Medician" FromRole="T_Medician" ToRole="T_Operation_Damage_Item" />
           <NavigationProperty Name="T_OPeration_IN_Item" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_Medician" FromRole="T_Medician" ToRole="T_OPeration_IN_Item" />
           <NavigationProperty Name="T_OPeration_Out_Item" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_Medician" FromRole="T_Medician" ToRole="T_OPeration_Out_Item" />
+          <NavigationProperty Name="T_Store_Move" Relationship="PHANACEY_DBModel.FK_T_Store_Move_T_Medician" FromRole="T_Medician" ToRole="T_Store_Move" />
         </EntityType>
         <EntityType Name="T_OPeration_Damage">
           <Key>
@@ -682,9 +716,7 @@
           <Property Name="med_count" Type="Int32" />
           <Property Name="emp_id" Type="Int32" />
           <Property Name="op_type_id" Type="Int32" />
-          <Property Name="In_op_id" Type="Int32" />
           <NavigationProperty Name="T_Operation_Damage_Item" Relationship="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_OPeration_Damage" FromRole="T_OPeration_Damage" ToRole="T_Operation_Damage_Item" />
-          <NavigationProperty Name="T_OPeration_IN" Relationship="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_IN" FromRole="T_OPeration_Damage" ToRole="T_OPeration_IN" />
           <NavigationProperty Name="T_OPeration_Type" Relationship="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_Type" FromRole="T_OPeration_Damage" ToRole="T_OPeration_Type" />
           <NavigationProperty Name="T_Pers_Emploee" Relationship="PHANACEY_DBModel.FK_T_OPeration_Damage_T_Pers_Emploee" FromRole="T_OPeration_Damage" ToRole="T_Pers_Emploee" />
         </EntityType>
@@ -694,14 +726,13 @@
           </Key>
           <Property Name="dmg_item_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="dmg_item_quntity" Type="Int32" />
-          <Property Name="dmg_item_expDate" Type="DateTime" Precision="0" />
           <Property Name="dmg_B_It_note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Med_id" Type="Int32" />
           <Property Name="dmg_op_id" Type="Int32" />
-          <Property Name="store_place_id" Type="Int32" />
+          <Property Name="in_item_id" Type="Int32" />
           <NavigationProperty Name="T_Medician" Relationship="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_Medician" FromRole="T_Operation_Damage_Item" ToRole="T_Medician" />
           <NavigationProperty Name="T_OPeration_Damage" Relationship="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_OPeration_Damage" FromRole="T_Operation_Damage_Item" ToRole="T_OPeration_Damage" />
-          <NavigationProperty Name="T_Store_Placees" Relationship="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_Store_Placees" FromRole="T_Operation_Damage_Item" ToRole="T_Store_Placees" />
+          <NavigationProperty Name="T_OPeration_IN_Item" Relationship="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_OPeration_IN_Item" FromRole="T_Operation_Damage_Item" ToRole="T_OPeration_IN_Item" />
         </EntityType>
         <EntityType Name="T_OPeration_IN">
           <Key>
@@ -709,7 +740,7 @@
           </Key>
           <Property Name="in_op_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="in_op_date" Type="DateTime" Precision="0" />
-          <Property Name="in_op_time" Type="Time" Precision="7" />
+          <Property Name="in_op_time" Type="DateTime" Precision="3" />
           <Property Name="in_op_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="in_op_state" Type="Boolean" />
           <Property Name="med_count" Type="Int32" />
@@ -717,7 +748,6 @@
           <Property Name="donar_id" Type="Int32" />
           <Property Name="emp_id" Type="Int32" />
           <Property Name="op_type_id" Type="Int32" />
-          <NavigationProperty Name="T_OPeration_Damage" Relationship="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_IN" FromRole="T_OPeration_IN" ToRole="T_OPeration_Damage" />
           <NavigationProperty Name="T_OPeration_IN_Item" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_OPeration_IN" FromRole="T_OPeration_IN" ToRole="T_OPeration_IN_Item" />
           <NavigationProperty Name="T_OPeration_Type" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_T_OPeration_Type" FromRole="T_OPeration_IN" ToRole="T_OPeration_Type" />
           <NavigationProperty Name="T_Pers_Donars" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_T_Pers_Donars" FromRole="T_OPeration_IN" ToRole="T_Pers_Donars" />
@@ -737,6 +767,7 @@
           <Property Name="is_out" Type="Boolean" />
           <Property Name="out_item_quntitey" Type="Int32" />
           <NavigationProperty Name="T_Medician" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_Medician" FromRole="T_OPeration_IN_Item" ToRole="T_Medician" />
+          <NavigationProperty Name="T_Operation_Damage_Item" Relationship="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_OPeration_IN_Item" FromRole="T_OPeration_IN_Item" ToRole="T_Operation_Damage_Item" />
           <NavigationProperty Name="T_OPeration_IN" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_OPeration_IN" FromRole="T_OPeration_IN_Item" ToRole="T_OPeration_IN" />
           <NavigationProperty Name="T_Store_Placees" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_Med_Storage_Shape" FromRole="T_OPeration_IN_Item" ToRole="T_Store_Placees" />
           <NavigationProperty Name="T_OPeration_Out_Item" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_OPeration_IN_Item" FromRole="T_OPeration_IN_Item" ToRole="T_OPeration_Out_Item" />
@@ -785,6 +816,7 @@
           <NavigationProperty Name="T_OPeration_Damage" Relationship="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_Type" FromRole="T_OPeration_Type" ToRole="T_OPeration_Damage" />
           <NavigationProperty Name="T_OPeration_IN" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_T_OPeration_Type" FromRole="T_OPeration_Type" ToRole="T_OPeration_IN" />
           <NavigationProperty Name="T_OPeration_Out" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_T_OPeration_Type" FromRole="T_OPeration_Type" ToRole="T_OPeration_Out" />
+          <NavigationProperty Name="T_Store_Move" Relationship="PHANACEY_DBModel.FK_T_Store_Move_T_OPeration_Type" FromRole="T_OPeration_Type" ToRole="T_Store_Move" />
         </EntityType>
         <EntityType Name="T_Pers_Donars">
           <Key>
@@ -812,6 +844,21 @@
           <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="T_OPeration_Out" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Recivers" FromRole="T_Pers_Recivers" ToRole="T_OPeration_Out" />
         </EntityType>
+        <EntityType Name="T_Store_Move">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="qunt" Type="Int32" />
+          <Property Name="med_id" Type="Int32" />
+          <Property Name="item_id" Type="Int32" />
+          <Property Name="op_id" Type="Int32" />
+          <Property Name="op_type_id" Type="Int32" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="time" Type="Time" Precision="7" />
+          <NavigationProperty Name="T_Medician" Relationship="PHANACEY_DBModel.FK_T_Store_Move_T_Medician" FromRole="T_Store_Move" ToRole="T_Medician" />
+          <NavigationProperty Name="T_OPeration_Type" Relationship="PHANACEY_DBModel.FK_T_Store_Move_T_OPeration_Type" FromRole="T_Store_Move" ToRole="T_OPeration_Type" />
+        </EntityType>
         <EntityType Name="T_Store_Placees">
           <Key>
             <PropertyRef Name="id" />
@@ -820,7 +867,6 @@
           <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="groupe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="shufel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="T_Operation_Damage_Item" Relationship="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_Store_Placees" FromRole="T_Store_Placees" ToRole="T_Operation_Damage_Item" />
           <NavigationProperty Name="T_OPeration_IN_Item" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_Med_Storage_Shape" FromRole="T_Store_Placees" ToRole="T_OPeration_IN_Item" />
         </EntityType>
         <Association Name="FK_T_Medician_T_Med_Category">
@@ -895,6 +941,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_T_Store_Move_T_Medician">
+          <End Type="PHANACEY_DBModel.T_Medician" Role="T_Medician" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_Store_Move" Role="T_Store_Move" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Medician">
+              <PropertyRef Name="med_id" />
+            </Principal>
+            <Dependent Role="T_Store_Move">
+              <PropertyRef Name="med_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_T_Operation_Damage_Item_T_OPeration_Damage">
           <End Type="PHANACEY_DBModel.T_OPeration_Damage" Role="T_OPeration_Damage" Multiplicity="0..1" />
           <End Type="PHANACEY_DBModel.T_Operation_Damage_Item" Role="T_Operation_Damage_Item" Multiplicity="*" />
@@ -904,18 +962,6 @@
             </Principal>
             <Dependent Role="T_Operation_Damage_Item">
               <PropertyRef Name="dmg_op_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_T_OPeration_Damage_T_OPeration_IN">
-          <End Type="PHANACEY_DBModel.T_OPeration_IN" Role="T_OPeration_IN" Multiplicity="0..1" />
-          <End Type="PHANACEY_DBModel.T_OPeration_Damage" Role="T_OPeration_Damage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_OPeration_IN">
-              <PropertyRef Name="in_op_id" />
-            </Principal>
-            <Dependent Role="T_OPeration_Damage">
-              <PropertyRef Name="In_op_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -943,15 +989,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_T_Operation_Damage_Item_T_Store_Placees">
-          <End Type="PHANACEY_DBModel.T_Store_Placees" Role="T_Store_Placees" Multiplicity="0..1" />
+        <Association Name="FK_T_Operation_Damage_Item_T_OPeration_IN_Item">
+          <End Type="PHANACEY_DBModel.T_OPeration_IN_Item" Role="T_OPeration_IN_Item" Multiplicity="0..1" />
           <End Type="PHANACEY_DBModel.T_Operation_Damage_Item" Role="T_Operation_Damage_Item" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="T_Store_Placees">
-              <PropertyRef Name="id" />
+            <Principal Role="T_OPeration_IN_Item">
+              <PropertyRef Name="in_item_id" />
             </Principal>
             <Dependent Role="T_Operation_Damage_Item">
-              <PropertyRef Name="store_place_id" />
+              <PropertyRef Name="in_item_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1075,6 +1121,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_T_Store_Move_T_OPeration_Type">
+          <End Type="PHANACEY_DBModel.T_OPeration_Type" Role="T_OPeration_Type" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_Store_Move" Role="T_Store_Move" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OPeration_Type">
+              <PropertyRef Name="OP_type_id" />
+            </Principal>
+            <Dependent Role="T_Store_Move">
+              <PropertyRef Name="op_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1127,7 +1185,6 @@
           <EntitySetMapping Name="T_OPeration_Damage">
             <EntityTypeMapping TypeName="PHANACEY_DBModel.T_OPeration_Damage">
               <MappingFragment StoreEntitySet="T_OPeration_Damage">
-                <ScalarProperty Name="In_op_id" ColumnName="In_op_id" />
                 <ScalarProperty Name="op_type_id" ColumnName="op_type_id" />
                 <ScalarProperty Name="emp_id" ColumnName="emp_id" />
                 <ScalarProperty Name="med_count" ColumnName="med_count" />
@@ -1142,11 +1199,10 @@
           <EntitySetMapping Name="T_Operation_Damage_Item">
             <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Operation_Damage_Item">
               <MappingFragment StoreEntitySet="T_Operation_Damage_Item">
-                <ScalarProperty Name="store_place_id" ColumnName="store_place_id" />
+                <ScalarProperty Name="in_item_id" ColumnName="in_item_id" />
                 <ScalarProperty Name="dmg_op_id" ColumnName="dmg_op_id" />
                 <ScalarProperty Name="Med_id" ColumnName="Med_id" />
                 <ScalarProperty Name="dmg_B_It_note" ColumnName="dmg_B_It_note" />
-                <ScalarProperty Name="dmg_item_expDate" ColumnName="dmg_item_expDate" />
                 <ScalarProperty Name="dmg_item_quntity" ColumnName="dmg_item_quntity" />
                 <ScalarProperty Name="dmg_item_id" ColumnName="dmg_item_id" />
               </MappingFragment>
@@ -1241,6 +1297,20 @@
             <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Pers_Recivers">
               <MappingFragment StoreEntitySet="T_Pers_Recivers">
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Store_Move">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Store_Move">
+              <MappingFragment StoreEntitySet="T_Store_Move">
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="op_type_id" ColumnName="op_type_id" />
+                <ScalarProperty Name="op_id" ColumnName="op_id" />
+                <ScalarProperty Name="item_id" ColumnName="item_id" />
+                <ScalarProperty Name="med_id" ColumnName="med_id" />
+                <ScalarProperty Name="qunt" ColumnName="qunt" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

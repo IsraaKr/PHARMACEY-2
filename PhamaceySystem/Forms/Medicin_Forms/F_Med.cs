@@ -30,7 +30,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         {
             id_toUpdate = med_id;
             InitializeComponent();
-            Title("تعريف مادة / Define Material");
+            Title(tit);
             view_inheretanz_butomes(false, true, true, false, false, true, false);
         }
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();

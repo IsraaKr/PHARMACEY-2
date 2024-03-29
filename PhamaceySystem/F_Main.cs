@@ -24,7 +24,7 @@ namespace PhamaceySystem
 {
     public partial class F_Main : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        private readonly C_Page_Maneger c_Page_Maneger;
+    //    private readonly C_Page_Maneger c_Page_Maneger;
         ClsCommander<T_OPeration_Type> cmdOptype = new ClsCommander<T_OPeration_Type>();
 
         public F_Main()
@@ -161,6 +161,9 @@ namespace PhamaceySystem
             Application.Exit(); 
         }
 
+        private void barButtonItem19_ItemClick(object sender, ItemClickEventArgs e)
+        {
 
+        }
     }
 }

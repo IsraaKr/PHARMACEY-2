@@ -39,6 +39,7 @@ namespace PhamaceyDataBase
         public virtual DbSet<T_Pers_Donars> T_Pers_Donars { get; set; }
         public virtual DbSet<T_Pers_Emploee> T_Pers_Emploee { get; set; }
         public virtual DbSet<T_Pers_Recivers> T_Pers_Recivers { get; set; }
+        public virtual DbSet<T_Store_Move> T_Store_Move { get; set; }
         public virtual DbSet<T_Store_Placees> T_Store_Placees { get; set; }
     }
 }

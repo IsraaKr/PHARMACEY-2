@@ -87,7 +87,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                              select new
                              {
                                  id = med.in_item_id,
-                                 med_id= med.T_Medician.med_id,
+                                 med_id= med.Med_id,
                                  code = med.T_Medician.med_code,
                                  name = med.T_Medician.med_name,
                                  quntetey = med.in_item_quntity,

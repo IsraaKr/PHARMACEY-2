@@ -43,19 +43,23 @@ namespace PhamaceySystem.Forms.Store_Forms
         ClsCommander<T_OPeration_Out> cmdOpOut = new ClsCommander<T_OPeration_Out>();
         ClsCommander<T_OPeration_Out_Item> cmdOppOutItem = new ClsCommander<T_OPeration_Out_Item>();
         ClsCommander<T_OPeration_IN_Item> cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
+        ClsCommander<T_Store_Move> cmdStoreMove = new ClsCommander<T_Store_Move>();
+
 
         T_OPeration_IN_Item TF_OPeration_IN_Item;
         T_OPeration_Out TF_OP_Out;
         T_OPeration_Out_Item TF_OP_Out_Item;
         T_Medician TF_Medician;
+        T_Store_Move TF_Store_Move;
 
         int is_op_insert = 0;
-        DateTime d = DateTime.Today;
+        DateTime d = DateTime.Now;
         int id_toUpdate = 0;
         Boolean Is_Double_Click = false;
         int med_id_chose = 0;
         int old_med_Quntitey;
         int old_med_id;
+        int old_item_id = 0;
         DataTable dt;
         public override void Get_Data(string status_mess)
         {
@@ -65,7 +69,10 @@ namespace PhamaceySystem.Forms.Store_Forms
 
                 Set_Auto_Id_item();
                 Set_Auto_Id_op();
-                out_op_timeTimeSpanEdit.EditValue = d.TimeOfDay;
+
+                out_op_dateDateEdit.DateTime = Convert.ToDateTime(d.ToShortDateString());
+                out_op_timeTimeSpanEdit.EditValue = Convert.ToDateTime(d.ToShortDateString());
+
                 Is_Double_Click = false;
                 btn_visible(false);
 
@@ -189,7 +196,7 @@ namespace PhamaceySystem.Forms.Store_Forms
         {
 
             TF_OP_Out.out_op_date = Convert.ToDateTime(out_op_dateDateEdit.DateTime.ToString("yyyy/MM/dd"));
-            TF_OP_Out.out_op_time = (TimeSpan?)out_op_timeTimeSpanEdit.EditValue;
+          //  TF_OP_Out.out_op_time = (TimeSpan?)out_op_timeTimeSpanEdit.EditValue;
             TF_OP_Out.out_op_text = out_op_textTextEdit.Text;
             TF_OP_Out.out_op_state = Convert.ToBoolean(out_op_stateCheckEdit.CheckState);
             TF_OP_Out.med_count = Convert.ToInt32(med_countTextEdit1.Text.ToString().Replace(",", string.Empty));
@@ -306,7 +313,7 @@ namespace PhamaceySystem.Forms.Store_Forms
 
                         Fill_Entitey_item();
                         cmdOppOutItem.Update_Data(TF_OP_Out_Item);
-
+                        old_item_id = Convert.ToInt32(out_item_idTextEdit.Text.ToString().Replace(",", string.Empty));
                     }
                 }
                 else
@@ -330,9 +337,10 @@ namespace PhamaceySystem.Forms.Store_Forms
                             {
                                 Get_Row_ID(row_id);
                                 cmdOppOutItem.Delete_Data(TF_OP_Out_Item);
+                                old_item_id = Convert.ToInt32(out_item_idTextEdit.Text.ToString().Replace(",", string.Empty));
                             }
-                        //base.Delete_Data();
-                        //Get_Data("d");
+
+
 
 
                     }
@@ -440,6 +448,42 @@ WHERE        (dbo.T_OPeration_Out_Item.out_op_id = " + id + ")");
             old_med_Quntitey = 0;
         }
 
+
+        //********************* توابع حركة المستودع ****************************
+        private void Get_Add_move()
+        {
+
+            TF_Store_Move = new T_Store_Move();
+
+            TF_Store_Move.qunt = Convert.ToInt32(out_item_quntityTextEdit1.Text.ToString().Replace(",", string.Empty));
+            TF_Store_Move.med_id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue.ToString().Replace(",", string.Empty));
+            TF_Store_Move.item_id = Convert.ToInt32(out_item_idTextEdit.Text.ToString().Replace(",", string.Empty));
+            TF_Store_Move.op_id = Convert.ToInt32(out_op_idTextEdit.Text.ToString().Replace(",", string.Empty));
+            TF_Store_Move.op_type_id = Convert.ToInt32("2");
+            TF_Store_Move.date = Convert.ToDateTime(out_op_dateDateEdit.DateTime.ToString("yyyy/MM/dd"));
+         //   TF_Store_Move.time = (TimeSpan?)out_op_timeTimeSpanEdit.EditValue;
+
+            cmdStoreMove.Insert_Data(TF_Store_Move);
+        }
+        private void Get_Delete_move()
+        {
+            TF_Store_Move = new T_Store_Move();
+
+            TF_Store_Move = cmdStoreMove.Get_By(l => l.item_id == old_item_id & l.op_type_id == 2).FirstOrDefault();
+
+            cmdStoreMove.Delete_Data(TF_Store_Move);
+        }
+        private void Get_Update_move()
+        {
+            TF_Store_Move = new T_Store_Move();
+            TF_Store_Move = cmdStoreMove.Get_By(l => l.item_id == old_item_id & l.op_type_id == 2).FirstOrDefault();
+
+            TF_Store_Move.qunt = Convert.ToInt32(out_item_quntityTextEdit1.Text.ToString().Replace(",", string.Empty));
+            TF_Store_Move.med_id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue.ToString().Replace(",", string.Empty));
+
+            cmdStoreMove.Update_Data(TF_Store_Move);
+        }
+
         //*******************تعبة الداتا***********************
 
         public void GetEmp_Data()
@@ -521,8 +565,9 @@ WHERE        (dbo.T_OPeration_Out_Item.out_op_id = " + id + ")");
 
                             //  int item_in_id = Convert.ToInt32(filter_date_searchLookUpEdit.EditValue);
                             int out_op_id = Convert.ToInt32(out_op_idTextEdit.Text);
-                            F_out_med_to_chose f = new F_out_med_to_chose(med_idd, out_op_id);
-                            f.ShowDialog();
+                        DateTime d = out_op_dateDateEdit.DateTime;
+                        F_out_med_to_chose f = new F_out_med_to_chose(med_idd, out_op_id, d, "",2);
+                        f.ShowDialog();
                             Fill_Graid_item();
                             GetMed_Data();
                             Get_OP_Med_count_Data();
@@ -535,7 +580,8 @@ WHERE        (dbo.T_OPeration_Out_Item.out_op_id = " + id + ")");
                         {
                             //  int item_in_id = Convert.ToInt32(filter_date_searchLookUpEdit.EditValue);
                             int out_op_id = Convert.ToInt32(out_op_idTextEdit.Text);
-                            F_out_med_to_chose f = new F_out_med_to_chose(med_idd, out_op_id);
+                           DateTime d = out_op_dateDateEdit.DateTime;
+                            F_out_med_to_chose f = new F_out_med_to_chose(med_idd, out_op_id, d ,"",2);
                             f.ShowDialog();
                             GetMed_Data();
                             Fill_Graid_item();
@@ -699,6 +745,7 @@ WHERE     (T_OPeration_IN_Item.is_out = 'false') AND (T_Medician.med_id = " + me
                 Fill_Graid_item();
                 update_In_item();
                 Get_Add_med_count();
+                Get_Add_move();
                 GetMed_Data();
                 clear_item();
                 Get_OP_Med_count_Data();
@@ -713,6 +760,7 @@ WHERE     (T_OPeration_IN_Item.is_out = 'false') AND (T_Medician.med_id = " + me
             update_item();
             Get_Update_med_count();
             Get_OP_Med_count_Data();
+            Get_Update_move();
             GetMed_Data();
             update_op();
             btn_visible(false);
@@ -726,6 +774,7 @@ WHERE     (T_OPeration_IN_Item.is_out = 'false') AND (T_Medician.med_id = " + me
             Get_Delete_med_count();
             Get_OP_Med_count_Data();
             GetMed_Data();
+            Get_Delete_move();
             update_op();
             btn_visible(false);
             clear_item();

@@ -30,7 +30,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         T_OPeration_IN_Item TF_IN_Item;
         Boolean Is_Double_Click = false;
         int id;
-        int row_to_show;
+      //  int row_to_show;
         public override void Get_Data(string status_mess)
         {
             try
@@ -125,7 +125,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         public override void Print_Data()
         {
             base.Print_Data();
-            C_Master.print_header("مذكرات الادخال", gc);
+            C_Master.print_header(tit, gc);
         }
 
         public override bool Validate_Data()

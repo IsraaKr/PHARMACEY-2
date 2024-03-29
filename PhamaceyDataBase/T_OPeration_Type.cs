@@ -20,6 +20,7 @@ namespace PhamaceyDataBase
             this.T_OPeration_Damage = new HashSet<T_OPeration_Damage>();
             this.T_OPeration_IN = new HashSet<T_OPeration_IN>();
             this.T_OPeration_Out = new HashSet<T_OPeration_Out>();
+            this.T_Store_Move = new HashSet<T_Store_Move>();
         }
     
         public int OP_type_id { get; set; }
@@ -33,5 +34,7 @@ namespace PhamaceyDataBase
         public virtual ICollection<T_OPeration_IN> T_OPeration_IN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_OPeration_Out> T_OPeration_Out { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_Store_Move> T_Store_Move { get; set; }
     }
 }

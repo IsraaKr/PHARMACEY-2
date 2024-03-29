@@ -117,10 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="timer_states_bar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>118, 17</value>
+  <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
-  <metadata name="timer_date.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>258, 17</value>
-  </metadata>
+  <data name="customSqlQuery1.Sql" xml:space="preserve">
+    <value>select "T_OPeration_IN"."in_op_id", "T_OPeration_IN"."in_op_date",
+       "T_OPeration_IN"."in_op_time", "T_OPeration_IN"."med_count",
+       "T_OPeration_IN"."donar_emp",
+       "T_OPeration_IN_Item"."in_item_id",
+       "T_OPeration_IN_Item"."in_item_quntity",
+       "T_OPeration_IN_Item"."in_item_expDate",
+       "T_OPeration_IN_Item"."in_B_It_note",
+       "T_OPeration_IN_Item"."is_out",
+       "T_OPeration_IN_Item"."out_item_quntitey",
+       "T_Medician"."med_name", "T_Medician"."med_minimum",
+       "T_Med_Shape"."med_shape_name",
+       "T_Med_Category"."med_cat_name", "T_Med_Unites"."name",
+       "T_Store_Placees"."name" as "T_Store_Placees_name",
+       "T_Pers_Donars"."Donar_name", "T_Pers_Emploee"."Emp_name"
+  from (((((((("dbo"."T_OPeration_IN" "T_OPeration_IN"
+  inner join "dbo"."T_OPeration_IN_Item" "T_OPeration_IN_Item"
+       on ("T_OPeration_IN_Item"."In_op_id" = "T_OPeration_IN"."in_op_id"))
+  inner join "dbo"."T_Medician" "T_Medician"
+       on ("T_Medician"."med_id" = "T_OPeration_IN_Item"."Med_id"))
+  inner join "dbo"."T_Med_Shape" "T_Med_Shape"
+       on ("T_Med_Shape"."med_shape_id" = "T_Medician"."med_shape_id"))
+  inner join "dbo"."T_Med_Category" "T_Med_Category"
+       on ("T_Med_Category"."med_cat_id" = "T_Medician"."med_cat_id"))
+  inner join "dbo"."T_Med_Unites" "T_Med_Unites"
+       on ("T_Med_Unites"."id" = "T_Medician"."med_unites_id"))
+  inner join "dbo"."T_Store_Placees" "T_Store_Placees"
+       on ("T_Store_Placees"."id" = "T_OPeration_IN_Item"."store_place_id"))
+  inner join "dbo"."T_Pers_Donars" "T_Pers_Donars"
+       on ("T_Pers_Donars"."Donar_id" = "T_OPeration_IN"."donar_id"))
+  inner join "dbo"."T_Pers_Emploee" "T_Pers_Emploee"
+       on ("T_Pers_Emploee"."Emp_id" = "T_OPeration_IN"."emp_id"))</value>
+  </data>
+  <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iaW5fb3BfaWQiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJpbl9vcF9kYXRlIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0iaW5fb3BfdGltZSIgVHlwZT0iVW5rbm93biIgLz48RmllbGQgTmFtZT0ibWVkX2NvdW50IiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0iZG9uYXJfZW1wIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImluX2l0ZW1faWQiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJpbl9pdGVtX3F1bnRpdHkiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJpbl9pdGVtX2V4cERhdGUiIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJpbl9CX0l0X25vdGUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iaXNfb3V0IiBUeXBlPSJCb29sZWFuIiAvPjxGaWVsZCBOYW1lPSJvdXRfaXRlbV9xdW50aXRleSIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9Im1lZF9uYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Im1lZF9taW5pbXVtIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0ibWVkX3NoYXBlX25hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ibWVkX2NhdF9uYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Im5hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iVF9TdG9yZV9QbGFjZWVzX25hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iRG9uYXJfbmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJFbXBfbmFtZSIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
+  </data>
 </root>

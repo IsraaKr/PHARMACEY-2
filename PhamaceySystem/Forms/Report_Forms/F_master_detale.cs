@@ -125,7 +125,7 @@ namespace PhamaceySystem.Forms.Report_Forms
         public override void Print_Data()
         {
             base.Print_Data();
-            C_Master.print_header("مذكرات الادخال", gc);
+            C_Master.print_header(tit, gc);
         }
 
         private void Fill_Graid_op()

@@ -35,17 +35,30 @@
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="DevExpress.BonusSkins.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Charts.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v20.1.Export, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Sparkline.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v20.1.UI, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpo.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v20.1.Extensions, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -171,6 +184,12 @@
     <Compile Include="Forms\Report_Forms\F_master_detale.Designer.cs">
       <DependentUpon>F_master_detale.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Report_Forms\XtraReport4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Report_Forms\XtraReport4.Designer.cs">
+      <DependentUpon>XtraReport4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Setting_Forms\F_Server_Setting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +261,12 @@
     </Compile>
     <Compile Include="Forms\Store_Other_Forms\F_Store_Med_ExpDate.Designer.cs">
       <DependentUpon>F_Store_Med_ExpDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Store_Other_Forms\F_Store_Move.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Store_Other_Forms\F_Store_Move.Designer.cs">
+      <DependentUpon>F_Store_Move.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Store_Other_Forms\F_Store_Places.cs">
       <SubType>Form</SubType>
@@ -320,6 +345,9 @@
     <EmbeddedResource Include="Forms\Report_Forms\F_master_detale.resx">
       <DependentUpon>F_master_detale.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report_Forms\XtraReport4.resx">
+      <DependentUpon>XtraReport4.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Setting_Forms\F_Server_Setting.resx">
       <DependentUpon>F_Server_Setting.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Collection_Forms\F_Start.resx">
       <DependentUpon>F_Start.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Store_OP_Forms\F_Dameg_Op.resx">
+      <DependentUpon>F_Dameg_Op.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Store_OP_Forms\F_IN_Item_Graid.resx">
       <DependentUpon>F_IN_Item_Graid.cs</DependentUpon>
@@ -349,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Store_Other_Forms\F_Store_Med_ExpDate.resx">
       <DependentUpon>F_Store_Med_ExpDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Store_Other_Forms\F_Store_Move.resx">
+      <DependentUpon>F_Store_Move.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Store_Other_Forms\F_Store_Places.resx">
       <DependentUpon>F_Store_Places.cs</DependentUpon>
@@ -390,7 +424,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\PhamaceyDataBase\PhamaceyDataBase.csproj">
       <Project>{656e5a30-aed5-4093-8f6c-e6ca5156ea03}</Project>

@@ -116,6 +116,9 @@
     <Compile Include="T_Pers_Recivers.cs">
       <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="T_Store_Move.cs">
+      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="T_Store_Placees.cs">
       <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
     </Compile>

@@ -12,17 +12,18 @@ namespace PhamaceyDataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class T_Operation_Damage_Item
+    public partial class T_Store_Move
     {
-        public int dmg_item_id { get; set; }
-        public Nullable<int> dmg_item_quntity { get; set; }
-        public string dmg_B_It_note { get; set; }
-        public Nullable<int> Med_id { get; set; }
-        public Nullable<int> dmg_op_id { get; set; }
-        public Nullable<int> in_item_id { get; set; }
+        public int id { get; set; }
+        public Nullable<int> qunt { get; set; }
+        public Nullable<int> med_id { get; set; }
+        public Nullable<int> item_id { get; set; }
+        public Nullable<int> op_id { get; set; }
+        public Nullable<int> op_type_id { get; set; }
+        public Nullable<System.DateTime> date { get; set; }
+        public Nullable<System.TimeSpan> time { get; set; }
     
         public virtual T_Medician T_Medician { get; set; }
-        public virtual T_OPeration_Damage T_OPeration_Damage { get; set; }
-        public virtual T_OPeration_IN_Item T_OPeration_IN_Item { get; set; }
+        public virtual T_OPeration_Type T_OPeration_Type { get; set; }
     }
 }

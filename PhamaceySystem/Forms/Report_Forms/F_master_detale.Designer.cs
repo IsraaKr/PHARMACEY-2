@@ -63,6 +63,10 @@
             this.gv_2.Appearance.Row.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gv_2.GridControl = this.gc;
             this.gv_2.Name = "gv_2";
+            this.gv_2.OptionsPrint.AllowMultilineHeaders = true;
+            this.gv_2.OptionsPrint.ExpandAllDetails = true;
+            this.gv_2.OptionsPrint.PrintDetails = true;
+            this.gv_2.OptionsPrint.PrintFilterInfo = true;
             this.gv_2.OptionsView.ShowAutoFilterRow = true;
             this.gv_2.OptionsView.ShowFooter = true;
             // 
@@ -96,6 +100,11 @@
             this.gv.Appearance.Row.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gv.GridControl = this.gc;
             this.gv.Name = "gv";
+            this.gv.OptionsPrint.AllowMultilineHeaders = true;
+            this.gv.OptionsPrint.EnableAppearanceEvenRow = true;
+            this.gv.OptionsPrint.ExpandAllDetails = true;
+            this.gv.OptionsPrint.PrintDetails = true;
+            this.gv.OptionsPrint.PrintFilterInfo = true;
             this.gv.OptionsView.ShowAutoFilterRow = true;
             this.gv.OptionsView.ShowFooter = true;
             this.gv.DoubleClick += new System.EventHandler(this.gv_DoubleClick);

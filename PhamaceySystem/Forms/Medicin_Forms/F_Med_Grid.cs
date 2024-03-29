@@ -145,35 +145,37 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         private void Fill_Graid()
         {
 
-            DataTable dt = c_db.select(@"SELECT T_Medician.med_id, 
-                                            T_Medician.med_code,
-                                               T_Medician.med_name,
-                                              T_Medician.med_minimum,                                                                                    
-                                            T_Med_Category.med_cat_id, 
-                                           T_Med_Category.med_cat_name ,
-                                              T_Med_Shape.med_shape_id,
-                                           T_Med_Shape.med_shape_name,
-                                           T_Med_Unites.id,
-                                            T_Med_Unites.name
-FROM     T_Medician INNER JOIN
-                  T_Med_Unites ON T_Medician.med_unites_id = T_Med_Unites.id INNER JOIN
-                  T_Med_Shape ON T_Medician.med_shape_id = T_Med_Shape.med_shape_id INNER JOIN
-                  T_Med_Category ON T_Medician.med_cat_id = T_Med_Category.med_cat_id");
-            //var dts = (from med in cmdMedician.Get_All()
-            //                  select new
-            //                  {
-            //                      id = med.med_id,
-            //                      code = med.med_code,
-            //                      name = med.med_name,
-            //                      min = med.med_minimum,
-            //                      cat_id = med.T_Med_Category.med_cat_id,
-            //                      categorey = med.T_Med_Category.med_cat_name,
-            //                      shape_id = med.T_Med_Shape.med_shape_id,
-            //                      shape = med.T_Med_Shape.med_shape_name,
-            //                  }).OrderBy(l_id => l_id.id);
-            // gc.DataSource = dts;
+            //            DataTable dt = c_db.select(@"SELECT T_Medician.med_id, 
+            //                                            T_Medician.med_code,
+            //                                               T_Medician.med_name,
+            //                                              T_Medician.med_minimum,                                                                                    
+            //                                            T_Med_Category.med_cat_id, 
+            //                                           T_Med_Category.med_cat_name ,
+            //                                              T_Med_Shape.med_shape_id,
+            //                                           T_Med_Shape.med_shape_name,
+            //                                           T_Med_Unites.id,
+            //                                            T_Med_Unites.name
+            //FROM     T_Medician INNER JOIN
+            //                  T_Med_Unites ON T_Medician.med_unites_id = T_Med_Unites.id INNER JOIN
+            //                  T_Med_Shape ON T_Medician.med_shape_id = T_Med_Shape.med_shape_id INNER JOIN
+            //                  T_Med_Category ON T_Medician.med_cat_id = T_Med_Category.med_cat_id");
+                 var dts = (from med in cmdMedician.Get_All()
+            select new
+            {
+                id = med.med_id,
+                code = med.med_code,
+                name = med.med_name,
+                min = med.med_minimum,
+                cat_id = med.med_cat_id,
+                categorey = med.T_Med_Category.med_cat_name,
+                shape_id = med.med_shape_id,
+                shape = med.T_Med_Shape.med_shape_name,
+                unit_id = med.med_unites_id,
+                unit = med.T_Med_Unites.name,
+            }).OrderBy(l_id => l_id.id);
+            gc.DataSource = dts;
 
-            gc.DataSource = dt;
+            gc.DataSource = dts;
             gv.Columns[0].Visible = false;
             gv.Columns[1].Caption = "الكود";
             gv.Columns[2].Caption = "الاسم";

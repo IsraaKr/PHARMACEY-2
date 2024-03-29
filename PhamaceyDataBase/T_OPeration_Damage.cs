@@ -28,11 +28,9 @@ namespace PhamaceyDataBase
         public Nullable<int> med_count { get; set; }
         public Nullable<int> emp_id { get; set; }
         public Nullable<int> op_type_id { get; set; }
-        public Nullable<int> In_op_id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_Operation_Damage_Item> T_Operation_Damage_Item { get; set; }
-        public virtual T_OPeration_IN T_OPeration_IN { get; set; }
         public virtual T_OPeration_Type T_OPeration_Type { get; set; }
         public virtual T_Pers_Emploee T_Pers_Emploee { get; set; }
     }

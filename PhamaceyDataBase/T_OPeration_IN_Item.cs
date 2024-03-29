@@ -17,6 +17,7 @@ namespace PhamaceyDataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public T_OPeration_IN_Item()
         {
+            this.T_Operation_Damage_Item = new HashSet<T_Operation_Damage_Item>();
             this.T_OPeration_Out_Item = new HashSet<T_OPeration_Out_Item>();
         }
     
@@ -31,6 +32,8 @@ namespace PhamaceyDataBase
         public Nullable<int> out_item_quntitey { get; set; }
     
         public virtual T_Medician T_Medician { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_Operation_Damage_Item> T_Operation_Damage_Item { get; set; }
         public virtual T_OPeration_IN T_OPeration_IN { get; set; }
         public virtual T_Store_Placees T_Store_Placees { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
