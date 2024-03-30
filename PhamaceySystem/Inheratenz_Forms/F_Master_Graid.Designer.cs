@@ -93,6 +93,8 @@
             this.gv.GridControl = this.gc;
             this.gv.Name = "gv";
             this.gv.OptionsBehavior.Editable = false;
+            this.gv.OptionsFilter.AllowFilterEditor = false;
+            this.gv.OptionsFilter.DefaultFilterEditorView = DevExpress.XtraEditors.FilterEditorViewMode.VisualAndText;
             this.gv.OptionsFind.AlwaysVisible = true;
             this.gv.OptionsPrint.AllowMultilineHeaders = true;
             this.gv.OptionsPrint.EnableAppearanceEvenRow = true;

@@ -34,9 +34,9 @@ namespace PhamaceyDataBase
         public virtual T_Medician T_Medician { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_Operation_Damage_Item> T_Operation_Damage_Item { get; set; }
-        public virtual T_OPeration_IN T_OPeration_IN { get; set; }
         public virtual T_Store_Placees T_Store_Placees { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_OPeration_Out_Item> T_OPeration_Out_Item { get; set; }
+        public virtual T_OPeration_IN T_OPeration_IN { get; set; }
     }
 }

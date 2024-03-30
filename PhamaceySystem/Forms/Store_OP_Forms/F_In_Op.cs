@@ -62,14 +62,13 @@ namespace PhamaceySystem.Forms.Store_Forms
             {
                 //  clear_data(this.Controls);
                 Set_Auto_Id_op();
-                Set_Auto_Id_item();
-
+                Set_Auto_Id_item();           
                 in_op_dateDateEdit.DateTime = Convert.ToDateTime(d.ToShortDateString());
                 in_item_expDateDateEdit.DateTime = Convert.ToDateTime(d.ToShortDateString());
                  in_op_timeTimeSpanEdit.EditValue =Convert.ToDateTime( d.ToString("HH:mm:ss"));
                 dateTimePicker1.Value = Convert.ToDateTime(d.ToShortTimeString());
-                dateEdit1.EditValue = d.ToString("yyyy/MM/dd HH:mm:ss ");
-                dateTimePicker3.CustomFormat = "HH:mm";
+                //dateEdit1.EditValue = d.ToString("yyyy/MM/dd HH:mm:ss ");
+                //dateTimePicker3.CustomFormat = "HH:mm";
                 Is_Double_Click = false;
                 btn_visible(false);
                 //  in_op_timeTimeSpanEdit.EditValue = d.TimeOfDay;
@@ -199,7 +198,7 @@ namespace PhamaceySystem.Forms.Store_Forms
             //   TF_OP_IN.in_op_time = (TimeSpan?)(in_op_timeTimeSpanEdit.EditValue);
             //  TF_OP_IN.in_op_time = Convert.ToDateTime(dateTimePicker1.Value);
             //  TF_OP_IN.in_op_time = Convert.ToDateTime(dateEdit1.DateTime.ToString("yyyy/MM/dd HH: mm:ss"));
-            TF_OP_IN.in_op_time = dateTimePicker3.Value;
+          //  TF_OP_IN.in_op_time = null;
 
             TF_OP_IN.in_op_text = in_op_textTextEdit.Text;
             TF_OP_IN.in_op_state = Convert.ToBoolean(in_op_stateCheckEdit.CheckState);
@@ -474,7 +473,7 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
             TF_Store_Move.op_id = Convert.ToInt32(in_op_idTextEdit.Text.ToString().Replace(",", string.Empty));
             TF_Store_Move.op_type_id = Convert.ToInt32("1");
             TF_Store_Move.date = Convert.ToDateTime(in_op_dateDateEdit.DateTime.ToString("yyyy/MM/dd"));
-            TF_Store_Move.time = (TimeSpan?)in_op_timeTimeSpanEdit.EditValue;
+           // TF_Store_Move.time = (TimeSpan?)in_op_timeTimeSpanEdit.EditValue;
 
             cmdStoreMove.Insert_Data(TF_Store_Move);
         }
@@ -764,7 +763,12 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
 
         private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
         {
-            dateTimePicker3.CustomFormat = "HH:mm";
+           // dateTimePicker3.CustomFormat = "HH:mm";
+        }
+
+        private void dateTimePicker1_ValueChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

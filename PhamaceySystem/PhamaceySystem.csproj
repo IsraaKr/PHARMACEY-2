@@ -184,6 +184,12 @@
     <Compile Include="Forms\Report_Forms\F_master_detale.Designer.cs">
       <DependentUpon>F_master_detale.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Report_Forms\F_Viewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Report_Forms\F_Viewer.Designer.cs">
+      <DependentUpon>F_Viewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Report_Forms\XtraReport4.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -344,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Report_Forms\F_master_detale.resx">
       <DependentUpon>F_master_detale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report_Forms\F_Viewer.resx">
+      <DependentUpon>F_Viewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Report_Forms\XtraReport4.resx">
       <DependentUpon>XtraReport4.cs</DependentUpon>

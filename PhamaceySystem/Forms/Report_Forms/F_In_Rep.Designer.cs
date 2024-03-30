@@ -147,7 +147,7 @@
             // simpleButton1
             // 
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(638, 515);
+            this.simpleButton1.Location = new System.Drawing.Point(638, 349);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(121, 36);
             this.simpleButton1.StyleController = this.layoutControl1;
@@ -156,7 +156,7 @@
             // 
             // chb_from_to
             // 
-            this.chb_from_to.Location = new System.Drawing.Point(638, 443);
+            this.chb_from_to.Location = new System.Drawing.Point(638, 277);
             this.chb_from_to.Name = "chb_from_to";
             this.chb_from_to.Size = new System.Drawing.Size(121, 20);
             this.chb_from_to.TabIndex = 113;
@@ -165,8 +165,8 @@
             // 
             // btn_view_serch
             // 
-            this.btn_view_serch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.btn_view_serch.Location = new System.Drawing.Point(638, 325);
+            this.btn_view_serch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_view_serch.ImageOptions.Image")));
+            this.btn_view_serch.Location = new System.Drawing.Point(638, 183);
             this.btn_view_serch.Name = "btn_view_serch";
             this.btn_view_serch.Size = new System.Drawing.Size(121, 36);
             this.btn_view_serch.StyleController = this.layoutControl1;
@@ -177,7 +177,7 @@
             // btn_refresh
             // 
             this.btn_refresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_refresh.ImageOptions.Image")));
-            this.btn_refresh.Location = new System.Drawing.Point(638, 105);
+            this.btn_refresh.Location = new System.Drawing.Point(638, -61);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(121, 36);
             this.btn_refresh.StyleController = this.layoutControl1;
@@ -188,7 +188,7 @@
             // to_dateTimePicker2
             // 
             this.to_dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.to_dateTimePicker2.Location = new System.Drawing.Point(638, 491);
+            this.to_dateTimePicker2.Location = new System.Drawing.Point(638, 325);
             this.to_dateTimePicker2.Name = "to_dateTimePicker2";
             this.to_dateTimePicker2.Size = new System.Drawing.Size(50, 20);
             this.to_dateTimePicker2.TabIndex = 106;
@@ -197,7 +197,7 @@
             // from_dateTimePicker1
             // 
             this.from_dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.from_dateTimePicker1.Location = new System.Drawing.Point(638, 467);
+            this.from_dateTimePicker1.Location = new System.Drawing.Point(638, 301);
             this.from_dateTimePicker1.Name = "from_dateTimePicker1";
             this.from_dateTimePicker1.Size = new System.Drawing.Size(50, 20);
             this.from_dateTimePicker1.TabIndex = 105;
@@ -205,7 +205,7 @@
             // 
             // in_op_SearchlookupEdit
             // 
-            this.in_op_SearchlookupEdit.Location = new System.Drawing.Point(638, 145);
+            this.in_op_SearchlookupEdit.Location = new System.Drawing.Point(638, -21);
             this.in_op_SearchlookupEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_op_SearchlookupEdit.MenuManager = this.barMang;
             this.in_op_SearchlookupEdit.Name = "in_op_SearchlookupEdit";
@@ -223,6 +223,7 @@
             this.in_op_SearchlookupEdit.TabIndex = 104;
             this.in_op_SearchlookupEdit.EditValueChanged += new System.EventHandler(this.in_op_SearchlookupEdit_EditValueChanged);
             this.in_op_SearchlookupEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.in_op_SearchlookupEdit_CustomDisplayText);
+            this.in_op_SearchlookupEdit.TextChanged += new System.EventHandler(this.in_op_SearchlookupEdit_TextChanged);
             // 
             // gridView5
             // 
@@ -233,7 +234,7 @@
             // 
             // gc
             // 
-            this.gc.Location = new System.Drawing.Point(12, 72);
+            this.gc.Location = new System.Drawing.Point(12, -94);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
             this.gc.Size = new System.Drawing.Size(610, 491);
@@ -262,7 +263,7 @@
             // 
             // Med_idSearchlookupEdit1
             // 
-            this.Med_idSearchlookupEdit1.Location = new System.Drawing.Point(638, 175);
+            this.Med_idSearchlookupEdit1.Location = new System.Drawing.Point(638, 9);
             this.Med_idSearchlookupEdit1.Margin = new System.Windows.Forms.Padding(2);
             this.Med_idSearchlookupEdit1.Name = "Med_idSearchlookupEdit1";
             this.Med_idSearchlookupEdit1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
@@ -279,6 +280,7 @@
             this.Med_idSearchlookupEdit1.TabIndex = 104;
             this.Med_idSearchlookupEdit1.EditValueChanged += new System.EventHandler(this.Med_idSearchlookupEdit1_EditValueChanged);
             this.Med_idSearchlookupEdit1.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.Med_idSearchlookupEdit1_CustomDisplayText);
+            this.Med_idSearchlookupEdit1.TextChanged += new System.EventHandler(this.Med_idSearchlookupEdit1_TextChanged);
             // 
             // gridView51
             // 
@@ -289,7 +291,7 @@
             // 
             // store_place_SearchlookupEdit2
             // 
-            this.store_place_SearchlookupEdit2.Location = new System.Drawing.Point(638, 205);
+            this.store_place_SearchlookupEdit2.Location = new System.Drawing.Point(638, 39);
             this.store_place_SearchlookupEdit2.Margin = new System.Windows.Forms.Padding(2);
             this.store_place_SearchlookupEdit2.Name = "store_place_SearchlookupEdit2";
             this.store_place_SearchlookupEdit2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
@@ -306,6 +308,7 @@
             this.store_place_SearchlookupEdit2.TabIndex = 104;
             this.store_place_SearchlookupEdit2.EditValueChanged += new System.EventHandler(this.store_place_SearchlookupEdit2_EditValueChanged);
             this.store_place_SearchlookupEdit2.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.store_place_SearchlookupEdit2_CustomDisplayText);
+            this.store_place_SearchlookupEdit2.TextChanged += new System.EventHandler(this.store_place_SearchlookupEdit2_TextChanged);
             // 
             // gridView52
             // 
@@ -316,7 +319,7 @@
             // 
             // donar_searchLookUpEdit12
             // 
-            this.donar_searchLookUpEdit12.Location = new System.Drawing.Point(638, 295);
+            this.donar_searchLookUpEdit12.Location = new System.Drawing.Point(638, 129);
             this.donar_searchLookUpEdit12.Margin = new System.Windows.Forms.Padding(2);
             this.donar_searchLookUpEdit12.Name = "donar_searchLookUpEdit12";
             this.donar_searchLookUpEdit12.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
@@ -333,6 +336,7 @@
             this.donar_searchLookUpEdit12.TabIndex = 110;
             this.donar_searchLookUpEdit12.EditValueChanged += new System.EventHandler(this.donar_searchLookUpEdit12_EditValueChanged);
             this.donar_searchLookUpEdit12.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.donar_searchLookUpEdit12_CustomDisplayText);
+            this.donar_searchLookUpEdit12.TextChanged += new System.EventHandler(this.donar_searchLookUpEdit12_TextChanged);
             // 
             // gridView12
             // 
@@ -344,7 +348,7 @@
             // date_dateTimePicker21
             // 
             this.date_dateTimePicker21.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date_dateTimePicker21.Location = new System.Drawing.Point(638, 365);
+            this.date_dateTimePicker21.Location = new System.Drawing.Point(638, 223);
             this.date_dateTimePicker21.Name = "date_dateTimePicker21";
             this.date_dateTimePicker21.Size = new System.Drawing.Size(50, 20);
             this.date_dateTimePicker21.TabIndex = 106;
@@ -352,14 +356,14 @@
             // exp_dateTimePicker22
             // 
             this.exp_dateTimePicker22.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.exp_dateTimePicker22.Location = new System.Drawing.Point(638, 419);
+            this.exp_dateTimePicker22.Location = new System.Drawing.Point(638, 159);
             this.exp_dateTimePicker22.Name = "exp_dateTimePicker22";
             this.exp_dateTimePicker22.Size = new System.Drawing.Size(50, 20);
             this.exp_dateTimePicker22.TabIndex = 106;
             // 
             // emp_SearchlookupEdit21
             // 
-            this.emp_SearchlookupEdit21.Location = new System.Drawing.Point(638, 235);
+            this.emp_SearchlookupEdit21.Location = new System.Drawing.Point(638, 69);
             this.emp_SearchlookupEdit21.Margin = new System.Windows.Forms.Padding(2);
             this.emp_SearchlookupEdit21.Name = "emp_SearchlookupEdit21";
             this.emp_SearchlookupEdit21.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
@@ -376,6 +380,7 @@
             this.emp_SearchlookupEdit21.TabIndex = 104;
             this.emp_SearchlookupEdit21.EditValueChanged += new System.EventHandler(this.emp_SearchlookupEdit21_EditValueChanged);
             this.emp_SearchlookupEdit21.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.emp_SearchlookupEdit21_CustomDisplayText);
+            this.emp_SearchlookupEdit21.TextChanged += new System.EventHandler(this.emp_SearchlookupEdit21_TextChanged);
             // 
             // gridView521
             // 
@@ -387,7 +392,7 @@
             // in_op_dateDateEdit
             // 
             this.in_op_dateDateEdit.EditValue = new System.DateTime(2024, 2, 28, 0, 0, 0, 0);
-            this.in_op_dateDateEdit.Location = new System.Drawing.Point(638, 389);
+            this.in_op_dateDateEdit.Location = new System.Drawing.Point(638, 247);
             this.in_op_dateDateEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_op_dateDateEdit.Name = "in_op_dateDateEdit";
             this.in_op_dateDateEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
@@ -404,7 +409,7 @@
             // 
             // is_out_SearchlookupEdit1
             // 
-            this.is_out_SearchlookupEdit1.Location = new System.Drawing.Point(638, 265);
+            this.is_out_SearchlookupEdit1.Location = new System.Drawing.Point(638, 99);
             this.is_out_SearchlookupEdit1.Margin = new System.Windows.Forms.Padding(2);
             this.is_out_SearchlookupEdit1.Name = "is_out_SearchlookupEdit1";
             this.is_out_SearchlookupEdit1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
@@ -422,6 +427,7 @@
             this.is_out_SearchlookupEdit1.StyleController = this.layoutControl1;
             this.is_out_SearchlookupEdit1.TabIndex = 104;
             this.is_out_SearchlookupEdit1.SelectedIndexChanged += new System.EventHandler(this.is_out_SearchlookupEdit1_SelectedIndexChanged);
+            this.is_out_SearchlookupEdit1.TextChanged += new System.EventHandler(this.is_out_SearchlookupEdit1_TextChanged);
             // 
             // Root
             // 
@@ -469,11 +475,11 @@
             this.layoutControlItem10,
             this.layoutControlItem13,
             this.layoutControlItem7,
-            this.layoutControlItem8,
             this.layoutControlItem11,
             this.layoutControlItem14,
             this.ItemForin_op_date,
-            this.layoutControlItem15});
+            this.layoutControlItem15,
+            this.layoutControlItem8});
             this.layoutControlGroup1.Location = new System.Drawing.Point(614, 60);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(149, 495);
@@ -549,7 +555,7 @@
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.btn_view_serch;
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 220);
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 244);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Size = new System.Drawing.Size(125, 40);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
@@ -571,7 +577,7 @@
             this.layoutControlItem7.Control = this.date_dateTimePicker21;
             this.layoutControlItem7.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem7.CustomizationFormText = "إلى";
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 260);
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 284);
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(125, 24);
             this.layoutControlItem7.Text = "بتاريخ";
@@ -582,7 +588,7 @@
             this.layoutControlItem8.Control = this.exp_dateTimePicker22;
             this.layoutControlItem8.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem8.CustomizationFormText = "إلى";
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 314);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 220);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Size = new System.Drawing.Size(125, 24);
             this.layoutControlItem8.Text = "انتهاء الصلاحية";
@@ -613,7 +619,7 @@
             this.ItemForin_op_date.Control = this.in_op_dateDateEdit;
             this.ItemForin_op_date.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.ItemForin_op_date.CustomizationFormText = "تاريخ الادخال";
-            this.ItemForin_op_date.Location = new System.Drawing.Point(0, 284);
+            this.ItemForin_op_date.Location = new System.Drawing.Point(0, 308);
             this.ItemForin_op_date.Name = "ItemForin_op_date";
             this.ItemForin_op_date.Size = new System.Drawing.Size(125, 30);
             this.ItemForin_op_date.Text = "بتاريخ";

@@ -64,28 +64,10 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         private void Fill_Graid_op()
         {
 
-            dt_op = c_db.select(@"SELECT     T_OPeration_Type.OP_type_name AS Expr2, T_Store_Move.id AS move_id, T_Store_Move.qunt AS Expr4, T_Store_Move.op_id AS Expr5, 
-                      T_Store_Move.op_type_id AS Expr3, T_Store_Move.date AS Expr6, T_Store_Move.time AS Expr7, T_OPeration_IN_Item.in_item_quntity AS Expr9, 
-                      T_OPeration_IN_Item.is_out AS Expr13, T_OPeration_IN_Item.out_item_quntitey AS Expr14, T_Medician.med_code AS Expr16, T_Medician.med_name AS Expr17, 
-                      T_Medician.med_minimum AS Expr18, T_Medician.med_total_now AS Expr24, T_OPeration_IN.med_count AS Expr29, T_OPeration_IN.donar_emp AS Expr30, 
-                      T_Pers_Donars.Donar_name AS Expr32, T_Pers_Emploee.Emp_name AS Expr31, T_Store_Placees.name AS place_name, T_Med_Category.med_cat_name AS Expr1, 
-                      T_Med_Shape.med_shape_name, T_Med_Unites.name AS unit_name, T_Med_Category.med_cat_name, T_Med_Unites.name, T_OPeration_Type.OP_type_name, 
-                      T_Store_Move.id AS Expr33, T_Store_Move.qunt, T_Store_Move.med_id, T_Store_Move.item_id, T_Store_Move.op_id AS Expr34, 
-                      T_Store_Move.op_type_id AS Expr35, T_Store_Move.date, T_Store_Move.time, T_OPeration_IN_Item.in_item_quntity, T_OPeration_IN_Item.is_out, 
-                      T_OPeration_IN_Item.out_item_quntitey, T_Medician.med_code, T_Medician.med_name, T_Medician.med_minimum, T_Medician.med_total_now, 
-                      T_OPeration_IN.med_count, T_OPeration_IN.donar_emp, T_OPeration_IN.donar_id, T_OPeration_IN.emp_id, T_OPeration_IN.op_type_id AS Expr40, 
-                      T_Pers_Emploee.Emp_name, T_Store_Placees.name AS Expr43, T_Pers_Donars.Donar_name
+            dt_op = c_db.select(@"SELECT     T_OPeration_Type.OP_type_name, T_Medician.med_name, T_Store_Move.qunt, T_Store_Move.op_id, T_Store_Move.date, T_Store_Move.time
 FROM         T_Store_Move INNER JOIN
-                      T_Medician ON T_Store_Move.med_id = T_Medician.med_id INNER JOIN
-                      T_OPeration_IN_Item ON T_Store_Move.item_id = T_OPeration_IN_Item.in_item_id INNER JOIN
-                      T_OPeration_IN ON T_Store_Move.op_id = T_OPeration_IN.in_op_id INNER JOIN
-                      T_Med_Category ON T_Medician.med_cat_id = T_Med_Category.med_cat_id INNER JOIN
-                      T_Med_Shape ON T_Medician.med_shape_id = T_Med_Shape.med_shape_id INNER JOIN
-                      T_Med_Unites ON T_Medician.med_unites_id = T_Med_Unites.id INNER JOIN
                       T_OPeration_Type ON T_Store_Move.op_type_id = T_OPeration_Type.OP_type_id INNER JOIN
-                      T_Store_Placees ON T_OPeration_IN_Item.store_place_id = T_Store_Placees.id INNER JOIN
-                      T_Pers_Emploee ON T_OPeration_IN.emp_id = T_Pers_Emploee.Emp_id INNER JOIN
-                      T_Pers_Donars ON T_OPeration_IN.donar_id = T_Pers_Donars.Donar_id");
+                      T_Medician ON T_Store_Move.med_id = T_Medician.med_id");
 
 
         }

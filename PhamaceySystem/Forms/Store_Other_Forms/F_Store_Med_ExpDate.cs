@@ -83,7 +83,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
 
         private void Fill_Graid()
         {
-            gc.DataSource = (from med in cmdOpInItem.Get_All().Where(l => l.in_item_expDate <= DateTime.Today)
+            gc.DataSource = (from med in cmdOpInItem.Get_All().Where(l => l.in_item_expDate <= DateTime.Today && l.is_out != true)
                              select new
                              {
                                  id = med.in_item_id,

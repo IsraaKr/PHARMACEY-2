@@ -312,6 +312,7 @@
             this.out_item_idTextEdit.Size = new System.Drawing.Size(567, 26);
             this.out_item_idTextEdit.StyleController = this.dataLayoutControl2;
             this.out_item_idTextEdit.TabIndex = 4;
+            this.out_item_idTextEdit.EditValueChanged += new System.EventHandler(this.out_item_idTextEdit_EditValueChanged);
             // 
             // all_in_item_quntityTextEdit
             // 
@@ -485,6 +486,7 @@
             this.med_countTextEdit1.Size = new System.Drawing.Size(50, 26);
             this.med_countTextEdit1.StyleController = this.dataLayoutControl2;
             this.med_countTextEdit1.TabIndex = 21;
+            this.med_countTextEdit1.EditValueChanged += new System.EventHandler(this.med_countTextEdit1_EditValueChanged);
             // 
             // out_item_quntityTextEdit1
             // 

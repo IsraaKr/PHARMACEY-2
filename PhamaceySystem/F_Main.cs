@@ -19,6 +19,7 @@ using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
 using PhamaceySystem.Forms.Collection_Forms;
 using PhamaceySystem.Forms.Setting_Forms;
+using PhamaceySystem.Forms.Report_Forms;
 
 namespace PhamaceySystem
 {
@@ -26,7 +27,7 @@ namespace PhamaceySystem
     {
     //    private readonly C_Page_Maneger c_Page_Maneger;
         ClsCommander<T_OPeration_Type> cmdOptype = new ClsCommander<T_OPeration_Type>();
-
+        public static string static_med_min;
         public F_Main()
         {
             try
@@ -123,8 +124,9 @@ namespace PhamaceySystem
                      FROM        dbo.T_Medician 
                     WHERE        (dbo.T_Medician.med_total_now <=   dbo.T_Medician.med_minimum)");
                 int count = dt.Rows.Count;
-            bar_med_min.Caption = count.ToString();
-     
+           
+            static_med_min = count.ToString();
+            bar_med_min.Caption = static_med_min;
             if (check_show_form)
             {
                 Notification_Form n = new Notification_Form("الأدوية التي شارفت على الانتهاء", "" + count);
@@ -162,6 +164,18 @@ namespace PhamaceySystem
         }
 
         private void barButtonItem19_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void barButtonItem31_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //XtraReport4 rep4 = new XtraReport4();
+            //F_Viewer f = new F_Viewer(rep4);
+            //f.ShowDialog();
+        }
+
+        private void barButtonItem18_ItemClick(object sender, ItemClickEventArgs e)
         {
 
         }

@@ -169,7 +169,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
 
         }
 
-        //*****************عملية الإخراج*********************
+        //*****************عملية الإتلاف*********************
         public bool Validate_Data_op()
         {
             int number_of_errores = 0;
@@ -570,7 +570,10 @@ WHERE        (dbo.T_Operation_Damage_Item.dmg_op_id = " + id + ")");
 FROM         T_OPeration_IN_Item INNER JOIN
                       T_Medician ON T_OPeration_IN_Item.Med_id = T_Medician.med_id INNER JOIN
                       T_Store_Placees ON T_OPeration_IN_Item.store_place_id = T_Store_Placees.id
-WHERE     (T_OPeration_IN_Item.is_out = 'false') AND (T_Medician.med_id = " + med_idd + ") AND (T_OPeration_IN_Item.in_item_expDate= " + DateTime.Today + ")");
+WHERE     (T_OPeration_IN_Item.is_out = 'false')
+         AND (T_Medician.med_id = " + med_idd + ")" +
+         "   AND ( MONTH( T_OPeration_IN_Item.in_item_expDate) = " + d.Month + " )" +
+         "  AND(year(T_OPeration_IN_Item.in_item_expDate) = " + d.Year + ") ");
 
             if (dt.Rows.Count == 1)
             {
@@ -597,10 +600,9 @@ WHERE     (T_OPeration_IN_Item.is_out = 'false') AND (T_Medician.med_id = " + me
             else
             {
                 int op_id = Convert.ToInt32(out_op_idTextEdit.Text.ToString().Replace(",", string.Empty));
-                var count = cmdOppDamItem.Get_All().Where(x => x.dmg_item_id == op_id).Count().ToString();
+                var count = cmdOppDamItem.Get_All().Where(x => x.dmg_op_id == op_id).Count().ToString();
                 med_countTextEdit1.Text = count;
             }
-
 
         }
 
@@ -780,5 +782,14 @@ WHERE     (T_OPeration_IN_Item.is_out = 'false') AND (T_Medician.med_id = " + me
             // Get_Store_med();
         }
 
+        private void med_countTextEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void out_item_idTextEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

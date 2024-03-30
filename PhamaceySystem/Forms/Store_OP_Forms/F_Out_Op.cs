@@ -270,7 +270,7 @@ namespace PhamaceySystem.Forms.Store_Forms
             if (out_item_quntityTextEdit1.Text != string.Empty)
             {
                 int out_item_qun = Convert.ToInt32(out_item_quntityTextEdit1.Text.Replace(",", string.Empty));
-                int all_in_qun = Convert.ToInt32(all_in_item_quntityTextEdit.Text.Replace(",", string.Empty));
+                int all_in_qun = all_in_item_quntityTextEdit.Text == null ? 0: Convert.ToInt32(all_in_item_quntityTextEdit.Text.Replace(",", string.Empty));
 
                 if (out_item_qun > all_in_qun || out_item_qun < 0)
                 {
@@ -628,9 +628,11 @@ WHERE     (T_OPeration_IN_Item.is_out = 'false') AND (T_Medician.med_id = " + me
             if (out_op_idTextEdit.Text == string.Empty || out_op_idTextEdit.Text == null)
             {
                 med_countTextEdit1.Text = "0";
+
             }
             else
             {
+             
                 int op_id = Convert.ToInt32(out_op_idTextEdit.Text.ToString().Replace(",", string.Empty));
                 var count = cmdOppOutItem.Get_All().Where(x => x.out_op_id == op_id).Count().ToString();
                 med_countTextEdit1.Text = count;

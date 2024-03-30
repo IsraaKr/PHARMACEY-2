@@ -264,36 +264,36 @@ FROM         T_OPeration_IN INNER JOIN
 
         private void in_op_SearchlookupEdit_EditValueChanged(object sender, EventArgs e)
         {
-            string s = sqll + "  where  T_OPeration_IN.in_op_id = " + Convert.ToInt32(in_op_SearchlookupEdit.EditValue) + " " + group + having ;
+            //string s = sqll + "  where  T_OPeration_IN.in_op_id = " + Convert.ToInt32(in_op_SearchlookupEdit.EditValue) + " " + group + having ;
 
-            load_gc(s);
+            //load_gc(s);
         }
 
         private void Med_idSearchlookupEdit1_EditValueChanged(object sender, EventArgs e)
         {
-            string s = sqll + " where  T_OPeration_IN_Item.Med_id =" + Convert.ToInt32(Med_idSearchlookupEdit1.EditValue) + " " + group + having;
-            load_gc(s);
+            //string s = sqll + " where  T_OPeration_IN_Item.Med_id =" + Convert.ToInt32(Med_idSearchlookupEdit1.EditValue) + " " + group + having;
+            //load_gc(s);
         }
 
         private void store_place_SearchlookupEdit2_EditValueChanged(object sender, EventArgs e)
         {
-            string s = sqll + " where   T_OPeration_IN_Item.store_place_id  =" + Convert.ToInt32(store_place_SearchlookupEdit2.EditValue) + " " + group + having;
+            //string s = sqll + " where   T_OPeration_IN_Item.store_place_id  =" + Convert.ToInt32(store_place_SearchlookupEdit2.EditValue) + " " + group + having;
 
-            load_gc(s);
+            //load_gc(s);
         }
 
         private void emp_SearchlookupEdit21_EditValueChanged(object sender, EventArgs e)
         {
-            string s = sqll + " where  T_OPeration_IN.emp_id =" + Convert.ToInt32(emp_SearchlookupEdit21.EditValue) + " " + group + having;
+            //string s = sqll + " where  T_OPeration_IN.emp_id =" + Convert.ToInt32(emp_SearchlookupEdit21.EditValue) + " " + group + having;
 
-            load_gc(s);
+            //load_gc(s);
         }
 
         private void donar_searchLookUpEdit12_EditValueChanged(object sender, EventArgs e)
         {
-            string s = sqll + " where T_OPeration_IN.donar_id  =" + Convert.ToInt32(donar_searchLookUpEdit12.EditValue) + " " + group + having;
+            //string s = sqll + " where T_OPeration_IN.donar_id  =" + Convert.ToInt32(donar_searchLookUpEdit12.EditValue) + " " + group + having;
 
-            load_gc(s);
+            //load_gc(s);
         }
 
         private void in_op_SearchlookupEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
@@ -394,7 +394,50 @@ FROM         T_OPeration_IN INNER JOIN
 
         private void is_out_SearchlookupEdit1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (is_out_SearchlookupEdit1.Text=="out")
+            //if (is_out_SearchlookupEdit1.Text=="out")
+            //{
+            //    string s = sqll + "  where  T_OPeration_IN_Item.is_out = 'true' " + group + having;
+
+            //    load_gc(s);
+            //}
+            //else if (is_out_SearchlookupEdit1.Text == "in")
+            //{
+            //    string s = sqll + "  where  T_OPeration_IN_Item.is_out = 'false' " + group + having;
+            //    load_gc(s);
+            //}
+          
+        }
+
+        private void in_op_SearchlookupEdit_TextChanged(object sender, EventArgs e)
+        {
+            string s = sqll + "  where  T_OPeration_IN.in_op_id = " + Convert.ToInt32(in_op_SearchlookupEdit.EditValue) + " " + group + having;
+
+            load_gc(s);
+        }
+
+        private void Med_idSearchlookupEdit1_TextChanged(object sender, EventArgs e)
+        {
+            string s = sqll + " where  T_OPeration_IN_Item.Med_id =" + Convert.ToInt32(Med_idSearchlookupEdit1.EditValue) + " " + group + having;
+            load_gc(s);
+        }
+
+        private void store_place_SearchlookupEdit2_TextChanged(object sender, EventArgs e)
+        {
+            string s = sqll + " where   T_OPeration_IN_Item.store_place_id  =" + Convert.ToInt32(store_place_SearchlookupEdit2.EditValue) + " " + group + having;
+
+            load_gc(s);
+        }
+
+        private void emp_SearchlookupEdit21_TextChanged(object sender, EventArgs e)
+        {
+            string s = sqll + " where  T_OPeration_IN.emp_id =" + Convert.ToInt32(emp_SearchlookupEdit21.EditValue) + " " + group + having;
+
+            load_gc(s);
+        }
+
+        private void is_out_SearchlookupEdit1_TextChanged(object sender, EventArgs e)
+        {
+            if (is_out_SearchlookupEdit1.Text == "out")
             {
                 string s = sqll + "  where  T_OPeration_IN_Item.is_out = 'true' " + group + having;
 
@@ -405,9 +448,14 @@ FROM         T_OPeration_IN INNER JOIN
                 string s = sqll + "  where  T_OPeration_IN_Item.is_out = 'false' " + group + having;
                 load_gc(s);
             }
-          
         }
 
+        private void donar_searchLookUpEdit12_TextChanged(object sender, EventArgs e)
+        {
+            string s = sqll + " where T_OPeration_IN.donar_id  =" + Convert.ToInt32(donar_searchLookUpEdit12.EditValue) + " " + group + having;
+
+            load_gc(s);
+        }
     }
  } 
 

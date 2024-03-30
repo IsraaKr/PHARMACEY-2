@@ -31,7 +31,6 @@ namespace PhamaceyDataBase
         public virtual DbSet<T_Medician> T_Medician { get; set; }
         public virtual DbSet<T_OPeration_Damage> T_OPeration_Damage { get; set; }
         public virtual DbSet<T_Operation_Damage_Item> T_Operation_Damage_Item { get; set; }
-        public virtual DbSet<T_OPeration_IN> T_OPeration_IN { get; set; }
         public virtual DbSet<T_OPeration_IN_Item> T_OPeration_IN_Item { get; set; }
         public virtual DbSet<T_OPeration_Out> T_OPeration_Out { get; set; }
         public virtual DbSet<T_OPeration_Out_Item> T_OPeration_Out_Item { get; set; }
@@ -41,5 +40,6 @@ namespace PhamaceyDataBase
         public virtual DbSet<T_Pers_Recivers> T_Pers_Recivers { get; set; }
         public virtual DbSet<T_Store_Move> T_Store_Move { get; set; }
         public virtual DbSet<T_Store_Placees> T_Store_Placees { get; set; }
+        public virtual DbSet<T_OPeration_IN> T_OPeration_IN { get; set; }
     }
 }

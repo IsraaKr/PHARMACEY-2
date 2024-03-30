@@ -30,12 +30,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_In_Op));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.dataLayoutControl2 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.in_op_timeTimeSpanEdit = new DevExpress.XtraEditors.TimeSpanEdit();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btn_delet_item = new DevExpress.XtraEditors.SimpleButton();
@@ -83,8 +81,6 @@
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForMed_id = new DevExpress.XtraLayout.LayoutControlItem();
@@ -98,14 +94,10 @@
             this.ItemForin_B_It_note = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForin_item_quntity = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).BeginInit();
             this.dataLayoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_op_timeTimeSpanEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).BeginInit();
@@ -147,8 +139,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMed_id)).BeginInit();
@@ -162,7 +152,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_B_It_note)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_quntity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_tiltle
@@ -194,9 +183,6 @@
             // 
             // dataLayoutControl2
             // 
-            this.dataLayoutControl2.Controls.Add(this.dateTimePicker3);
-            this.dataLayoutControl2.Controls.Add(this.dateEdit1);
-            this.dataLayoutControl2.Controls.Add(this.dateTimePicker2);
             this.dataLayoutControl2.Controls.Add(this.in_op_timeTimeSpanEdit);
             this.dataLayoutControl2.Controls.Add(this.dateTimePicker1);
             this.dataLayoutControl2.Controls.Add(this.btn_delet_item);
@@ -232,33 +218,11 @@
             this.dataLayoutControl2.TabIndex = 11;
             this.dataLayoutControl2.Text = "dataLayoutControl2";
             // 
-            // dateEdit1
-            // 
-            this.dateEdit1.EditValue = new System.DateTime(2024, 3, 16, 10, 3, 50, 113);
-            this.dateEdit1.Location = new System.Drawing.Point(424, 208);
-            this.dateEdit1.MenuManager = this.barMang;
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(427, 22);
-            this.dateEdit1.StyleController = this.dataLayoutControl2;
-            this.dateEdit1.TabIndex = 35;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(424, 184);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(427, 20);
-            this.dateTimePicker2.TabIndex = 34;
-            // 
             // in_op_timeTimeSpanEdit
             // 
             this.in_op_timeTimeSpanEdit.EditValue = System.TimeSpan.Parse("00:00:00");
             this.in_op_timeTimeSpanEdit.EnterMoveNextControl = true;
-            this.in_op_timeTimeSpanEdit.Location = new System.Drawing.Point(424, 258);
+            this.in_op_timeTimeSpanEdit.Location = new System.Drawing.Point(424, 184);
             this.in_op_timeTimeSpanEdit.MenuManager = this.barMang;
             this.in_op_timeTimeSpanEdit.Name = "in_op_timeTimeSpanEdit";
             this.in_op_timeTimeSpanEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -272,18 +236,19 @@
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(424, 234);
+            this.dateTimePicker1.Location = new System.Drawing.Point(424, 160);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.ShowUpDown = true;
             this.dateTimePicker1.Size = new System.Drawing.Size(427, 23);
             this.dateTimePicker1.TabIndex = 32;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged_1);
             // 
             // btn_delet_item
             // 
             this.btn_delet_item.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delet_item.Appearance.Options.UseFont = true;
             this.btn_delet_item.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_delet_item.ImageOptions.Image")));
-            this.btn_delet_item.Location = new System.Drawing.Point(23, 446);
+            this.btn_delet_item.Location = new System.Drawing.Point(23, 372);
             this.btn_delet_item.Name = "btn_delet_item";
             this.btn_delet_item.Size = new System.Drawing.Size(125, 24);
             this.btn_delet_item.StyleController = this.dataLayoutControl2;
@@ -296,7 +261,7 @@
             this.btn_edite_item.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_edite_item.Appearance.Options.UseFont = true;
             this.btn_edite_item.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_edite_item.ImageOptions.Image")));
-            this.btn_edite_item.Location = new System.Drawing.Point(23, 418);
+            this.btn_edite_item.Location = new System.Drawing.Point(23, 344);
             this.btn_edite_item.Name = "btn_edite_item";
             this.btn_edite_item.Size = new System.Drawing.Size(125, 24);
             this.btn_edite_item.StyleController = this.dataLayoutControl2;
@@ -311,7 +276,7 @@
             this.btn_add_item.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_add_item.ImageOptions.Image")));
             this.btn_add_item.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn_add_item.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btn_add_item.Location = new System.Drawing.Point(152, 418);
+            this.btn_add_item.Location = new System.Drawing.Point(152, 344);
             this.btn_add_item.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_item.Name = "btn_add_item";
             this.btn_add_item.Size = new System.Drawing.Size(246, 52);
@@ -323,7 +288,7 @@
             // btn_add_emp
             // 
             this.btn_add_emp.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_add_emp.ImageOptions.SvgImage")));
-            this.btn_add_emp.Location = new System.Drawing.Point(424, 389);
+            this.btn_add_emp.Location = new System.Drawing.Point(424, 315);
             this.btn_add_emp.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_emp.Name = "btn_add_emp";
             this.btn_add_emp.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
@@ -347,7 +312,7 @@
             // btn_add_donar
             // 
             this.btn_add_donar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_add_donar.ImageOptions.SvgImage")));
-            this.btn_add_donar.Location = new System.Drawing.Point(424, 350);
+            this.btn_add_donar.Location = new System.Drawing.Point(424, 276);
             this.btn_add_donar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_donar.Name = "btn_add_donar";
             this.btn_add_donar.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
@@ -359,10 +324,10 @@
             // gc
             // 
             this.gc.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.gc.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
-            this.gc.Location = new System.Drawing.Point(12, 485);
+            gridLevelNode1});
+            this.gc.Location = new System.Drawing.Point(12, 411);
             this.gc.MainView = this.gv;
             this.gc.Margin = new System.Windows.Forms.Padding(2);
             this.gc.MinimumSize = new System.Drawing.Size(600, 245);
@@ -461,7 +426,7 @@
             this.in_B_It_noteMemoEdit.Name = "in_B_It_noteMemoEdit";
             this.in_B_It_noteMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.in_B_It_noteMemoEdit.Properties.Appearance.Options.UseFont = true;
-            this.in_B_It_noteMemoEdit.Size = new System.Drawing.Size(226, 139);
+            this.in_B_It_noteMemoEdit.Size = new System.Drawing.Size(226, 65);
             this.in_B_It_noteMemoEdit.StyleController = this.dataLayoutControl2;
             this.in_B_It_noteMemoEdit.TabIndex = 11;
             // 
@@ -532,7 +497,7 @@
             // 
             // in_op_textTextEdit
             // 
-            this.in_op_textTextEdit.Location = new System.Drawing.Point(424, 284);
+            this.in_op_textTextEdit.Location = new System.Drawing.Point(424, 210);
             this.in_op_textTextEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_op_textTextEdit.MenuManager = this.barMang;
             this.in_op_textTextEdit.Name = "in_op_textTextEdit";
@@ -562,7 +527,7 @@
             // 
             // donar_empTextEdit
             // 
-            this.donar_empTextEdit.Location = new System.Drawing.Point(427, 317);
+            this.donar_empTextEdit.Location = new System.Drawing.Point(427, 243);
             this.donar_empTextEdit.Margin = new System.Windows.Forms.Padding(2);
             this.donar_empTextEdit.MenuManager = this.barMang;
             this.donar_empTextEdit.Name = "donar_empTextEdit";
@@ -576,7 +541,7 @@
             // 
             // donar_idSearchLookUpEdit
             // 
-            this.donar_idSearchLookUpEdit.Location = new System.Drawing.Point(467, 353);
+            this.donar_idSearchLookUpEdit.Location = new System.Drawing.Point(467, 279);
             this.donar_idSearchLookUpEdit.Margin = new System.Windows.Forms.Padding(2);
             this.donar_idSearchLookUpEdit.MenuManager = this.barMang;
             this.donar_idSearchLookUpEdit.Name = "donar_idSearchLookUpEdit";
@@ -604,7 +569,7 @@
             // 
             // emp_idSearchLookUpEdit
             // 
-            this.emp_idSearchLookUpEdit.Location = new System.Drawing.Point(467, 392);
+            this.emp_idSearchLookUpEdit.Location = new System.Drawing.Point(467, 318);
             this.emp_idSearchLookUpEdit.Margin = new System.Windows.Forms.Padding(2);
             this.emp_idSearchLookUpEdit.MenuManager = this.barMang;
             this.emp_idSearchLookUpEdit.Name = "emp_idSearchLookUpEdit";
@@ -673,7 +638,7 @@
             // 
             this.med_countTextEdit1.EditValue = "0";
             this.med_countTextEdit1.Enabled = false;
-            this.med_countTextEdit1.Location = new System.Drawing.Point(623, 438);
+            this.med_countTextEdit1.Location = new System.Drawing.Point(623, 364);
             this.med_countTextEdit1.Margin = new System.Windows.Forms.Padding(2);
             this.med_countTextEdit1.Name = "med_countTextEdit1";
             this.med_countTextEdit1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -696,7 +661,7 @@
             this.layoutControlGroup2,
             this.layoutControlItem2});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1023, 742);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1023, 668);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlGroup2
@@ -709,7 +674,7 @@
             this.layoutControlGroup3});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(1003, 473);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1003, 399);
             // 
             // emptySpaceItem1
             // 
@@ -745,15 +710,12 @@
             this.ItemFordonar_emp,
             this.emptySpaceItem3,
             this.layoutControlItem11,
-            this.layoutControlItem10,
-            this.layoutControlItem12,
-            this.layoutControlItem13,
-            this.layoutControlItem14});
+            this.layoutControlItem10});
             this.layoutControlGroup4.Location = new System.Drawing.Point(401, 55);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlGroup4.ShowTabPageCloseButton = true;
-            this.layoutControlGroup4.Size = new System.Drawing.Size(602, 418);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(602, 344);
             this.layoutControlGroup4.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlGroup4.Text = " إدخال فاتورة  إلى المستودع";
             // 
@@ -769,7 +731,7 @@
             // ItemForin_op_text
             // 
             this.ItemForin_op_text.Control = this.in_op_textTextEdit;
-            this.ItemForin_op_text.Location = new System.Drawing.Point(0, 184);
+            this.ItemForin_op_text.Location = new System.Drawing.Point(0, 110);
             this.ItemForin_op_text.Name = "ItemForin_op_text";
             this.ItemForin_op_text.Size = new System.Drawing.Size(580, 30);
             this.ItemForin_op_text.Text = "البيان";
@@ -787,7 +749,7 @@
             // ItemFordonar_id
             // 
             this.ItemFordonar_id.Control = this.donar_idSearchLookUpEdit;
-            this.ItemFordonar_id.Location = new System.Drawing.Point(40, 250);
+            this.ItemFordonar_id.Location = new System.Drawing.Point(40, 176);
             this.ItemFordonar_id.Name = "ItemFordonar_id";
             this.ItemFordonar_id.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.ItemFordonar_id.Size = new System.Drawing.Size(540, 39);
@@ -797,7 +759,7 @@
             // ItemForemp_id
             // 
             this.ItemForemp_id.Control = this.emp_idSearchLookUpEdit;
-            this.ItemForemp_id.Location = new System.Drawing.Point(40, 289);
+            this.ItemForemp_id.Location = new System.Drawing.Point(40, 215);
             this.ItemForemp_id.Name = "ItemForemp_id";
             this.ItemForemp_id.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.ItemForemp_id.Size = new System.Drawing.Size(540, 39);
@@ -817,7 +779,7 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btn_add_donar;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 250);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 176);
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(40, 39);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(40, 39);
             this.layoutControlItem3.Name = "layoutControlItem3";
@@ -829,7 +791,7 @@
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btn_add_emp;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 289);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 215);
             this.layoutControlItem6.MaxSize = new System.Drawing.Size(40, 39);
             this.layoutControlItem6.MinSize = new System.Drawing.Size(40, 39);
             this.layoutControlItem6.Name = "layoutControlItem6";
@@ -843,7 +805,7 @@
             this.ItemFordonar_emp1.Control = this.med_countTextEdit1;
             this.ItemFordonar_emp1.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.ItemFordonar_emp1.CustomizationFormText = "المسلم";
-            this.ItemFordonar_emp1.Location = new System.Drawing.Point(194, 328);
+            this.ItemFordonar_emp1.Location = new System.Drawing.Point(194, 254);
             this.ItemFordonar_emp1.Name = "ItemFordonar_emp1";
             this.ItemFordonar_emp1.Padding = new DevExpress.XtraLayout.Utils.Padding(7, 7, 12, 8);
             this.ItemFordonar_emp1.Size = new System.Drawing.Size(213, 46);
@@ -853,7 +815,7 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 328);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 254);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(194, 46);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
@@ -861,7 +823,7 @@
             // ItemFordonar_emp
             // 
             this.ItemFordonar_emp.Control = this.donar_empTextEdit;
-            this.ItemFordonar_emp.Location = new System.Drawing.Point(0, 214);
+            this.ItemFordonar_emp.Location = new System.Drawing.Point(0, 140);
             this.ItemFordonar_emp.Name = "ItemFordonar_emp";
             this.ItemFordonar_emp.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.ItemFordonar_emp.Size = new System.Drawing.Size(580, 36);
@@ -871,7 +833,7 @@
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(407, 328);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(407, 254);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
             this.emptySpaceItem3.Size = new System.Drawing.Size(173, 46);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
@@ -879,7 +841,7 @@
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.in_op_timeTimeSpanEdit;
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 158);
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 84);
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.Size = new System.Drawing.Size(580, 26);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(146, 19);
@@ -887,27 +849,11 @@
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.dateTimePicker1;
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 134);
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 60);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Size = new System.Drawing.Size(580, 24);
             this.layoutControlItem10.Text = "وقت الادخال";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(146, 19);
-            // 
-            // layoutControlItem12
-            // 
-            this.layoutControlItem12.Control = this.dateTimePicker2;
-            this.layoutControlItem12.Location = new System.Drawing.Point(0, 84);
-            this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(580, 24);
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(146, 19);
-            // 
-            // layoutControlItem13
-            // 
-            this.layoutControlItem13.Control = this.dateEdit1;
-            this.layoutControlItem13.Location = new System.Drawing.Point(0, 108);
-            this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(580, 26);
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(146, 19);
             // 
             // layoutControlGroup3
             // 
@@ -933,14 +879,14 @@
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 55);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlGroup3.Size = new System.Drawing.Size(401, 418);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(401, 344);
             this.layoutControlGroup3.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlGroup3.Text = "ادخال المواد إلى الفاتورة";
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.btn_add_item;
-            this.layoutControlItem7.Location = new System.Drawing.Point(129, 318);
+            this.layoutControlItem7.Location = new System.Drawing.Point(129, 244);
             this.layoutControlItem7.MinSize = new System.Drawing.Size(250, 40);
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(250, 56);
@@ -1016,7 +962,7 @@
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.btn_edite_item;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 318);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 244);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Size = new System.Drawing.Size(129, 28);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
@@ -1026,7 +972,7 @@
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.btn_delet_item;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 346);
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 272);
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.Size = new System.Drawing.Size(129, 28);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
@@ -1038,7 +984,7 @@
             this.ItemForin_B_It_note.Control = this.in_B_It_noteMemoEdit;
             this.ItemForin_B_It_note.Location = new System.Drawing.Point(0, 175);
             this.ItemForin_B_It_note.Name = "ItemForin_B_It_note";
-            this.ItemForin_B_It_note.Size = new System.Drawing.Size(379, 143);
+            this.ItemForin_B_It_note.Size = new System.Drawing.Size(379, 69);
             this.ItemForin_B_It_note.StartNewLine = true;
             this.ItemForin_B_It_note.Text = "ملاحظات المادة";
             this.ItemForin_B_It_note.TextSize = new System.Drawing.Size(146, 19);
@@ -1056,29 +1002,11 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.gc;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 473);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 399);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(1003, 249);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker3.Location = new System.Drawing.Point(424, 160);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.ShowUpDown = true;
-            this.dateTimePicker3.Size = new System.Drawing.Size(427, 20);
-            this.dateTimePicker3.TabIndex = 36;
-            this.dateTimePicker3.ValueChanged += new System.EventHandler(this.dateTimePicker3_ValueChanged);
-            // 
-            // layoutControlItem14
-            // 
-            this.layoutControlItem14.Control = this.dateTimePicker3;
-            this.layoutControlItem14.Location = new System.Drawing.Point(0, 60);
-            this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(580, 24);
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(146, 19);
             // 
             // F_In_Op
             // 
@@ -1098,8 +1026,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).EndInit();
             this.dataLayoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_op_timeTimeSpanEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).EndInit();
@@ -1141,8 +1067,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMed_id)).EndInit();
@@ -1156,7 +1080,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_B_It_note)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_quntity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1227,11 +1150,5 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraEditors.TimeSpanEdit in_op_timeTimeSpanEdit;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
     }
 }
