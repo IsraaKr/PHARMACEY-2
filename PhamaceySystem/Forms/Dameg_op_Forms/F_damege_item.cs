@@ -12,34 +12,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PhamaceySystem.Forms.Store_OP_Forms
+namespace PhamaceySystem.Forms.Dameg_op_Forms
 {
-    public partial class F_IN_Item_Graid : F_Master_Graid
-
+    public partial class F_damege_item : F_Master_Graid
     {
-        public F_IN_Item_Graid()
+        public F_damege_item()
         {
             InitializeComponent();
             Title(tit);
             this.Text = tit;
         }
-        public string tit = "فواتير الادخال";
+        public string tit = "مواد فواتير الإتلاف";
 
-        ClsCommander<T_OPeration_IN_Item> cmdInItem = new ClsCommander<T_OPeration_IN_Item>();
+        ClsCommander<T_Operation_Damage_Item> cmdDamegeItem = new ClsCommander<T_Operation_Damage_Item>();
 
-        T_OPeration_IN_Item TF_IN_Item;
+        T_Operation_Damage_Item TF_damege_Item;
         Boolean Is_Double_Click = false;
         int id;
-      //  int row_to_show;
+        //  int row_to_show;
         public override void Get_Data(string status_mess)
         {
             try
             {
                 clear_data(this.Controls);
                 Is_Double_Click = false;
-                cmdInItem = new ClsCommander<T_OPeration_IN_Item>();
-                TF_IN_Item = cmdInItem.Get_All().FirstOrDefault();
-                if (TF_IN_Item != null)
+                cmdDamegeItem = new ClsCommander<T_Operation_Damage_Item>();
+                TF_damege_Item = cmdDamegeItem.Get_All().FirstOrDefault();
+                if (TF_damege_Item != null)
                     Fill_Graid();
                 base.Get_Data(status_mess);
 
@@ -98,7 +97,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                             foreach (int row_id in gv.GetSelectedRows())
                             {
                                 Get_Row_ID(row_id);
-                                cmdInItem.Delete_Data(TF_IN_Item);
+                                cmdDamegeItem.Delete_Data(TF_damege_Item);
 
                             }
                             base.Delete_Data();
@@ -138,17 +137,15 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
 
         private void Fill_Graid()
         {
-            var data = (from med in cmdInItem.Get_All()
+            var data = (from med in cmdDamegeItem.Get_All()
                         select new
                         {
                             id = med.in_item_id,
                             med_id = med.Med_id,
                             med_name = med.T_Medician.med_name,
-                            qun = med.in_item_quntity,
-                            place_id = med.store_place_id,
-                            pace = med.T_Store_Placees.name,
-                            is_out = med.is_out,
-                            qun_out = med.out_item_quntitey
+                            qun = med.dmg_item_quntity,
+                            in_item_id = med.in_item_id,
+
                         }).OrderBy(l_id => l_id.id).ToList();
             if (data != null && data.Count > 0)
             {
@@ -160,13 +157,11 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         private void gv_column_names()
         {
             gv.Columns[0].Visible = false;
-            gv.Columns[1].Visible = false;
+            gv.Columns[1].Caption = "رقم الدواء";
             gv.Columns[2].Caption = "اسم الدواء";
-            gv.Columns[3].Caption = "الكمية المدخلة";
+            gv.Columns[3].Caption = "الكمية التالفة";
             gv.Columns[4].Visible = false;
-            gv.Columns[5].Caption = "مكان التخزين ";
-            gv.Columns[6].Caption = "خارجة ";
-            gv.Columns[7].Caption = "الكمية الخارجة ";
+
 
             gv.BestFitColumns();
         }
@@ -177,12 +172,12 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             if (Row_Id != 0)
             {
                 id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString().Replace(",", string.Empty));
-                TF_IN_Item = cmdInItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
+                TF_damege_Item = cmdDamegeItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
             }
             else
             {
                 id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString().Replace(",", string.Empty));
-                TF_IN_Item = cmdInItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
+                TF_damege_Item = cmdDamegeItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
             }
         }
 
@@ -192,7 +187,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             gv.SelectRow(gv.FocusedRowHandle);
 
             Get_Row_ID(0);
-            //  if (TF_IN_Item != null)
+            //  if (TF_out_Item != null)
             // Fill_Controls();
         }
 

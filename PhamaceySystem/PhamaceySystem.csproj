@@ -106,6 +106,18 @@
     <Compile Include="Forms\Collection_Forms\Notification_Form.Designer.cs">
       <DependentUpon>Notification_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dameg_op_Forms\F_damege_item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dameg_op_Forms\F_damege_item.Designer.cs">
+      <DependentUpon>F_damege_item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dameg_op_Forms\F_dame_op_gride.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dameg_op_Forms\F_dame_op_gride.Designer.cs">
+      <DependentUpon>F_dame_op_gride.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Medicin_Forms\F_Med.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +159,12 @@
     </Compile>
     <Compile Include="Forms\Medicin_Forms\F_Med_Unites.Designer.cs">
       <DependentUpon>F_Med_Unites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Out_op_Forms\F_out_item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Out_op_Forms\F_out_item.Designer.cs">
+      <DependentUpon>F_out_item.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Person_Forms\F_Donars.cs">
       <SubType>Form</SubType>
@@ -214,40 +232,46 @@
     <Compile Include="Forms\Collection_Forms\F_Start.Designer.cs">
       <DependentUpon>F_Start.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Store_OP_Forms\F_Dameg_Op.cs">
+    <Compile Include="Forms\Dameg_op_Forms\F_Dameg_Op.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Store_OP_Forms\F_Dameg_Op.Designer.cs">
+    <Compile Include="Forms\Dameg_op_Forms\F_Dameg_Op.Designer.cs">
       <DependentUpon>F_Dameg_Op.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Store_OP_Forms\F_IN_Item_Graid.cs">
+    <Compile Include="Forms\In_op_Forms\F_IN_Item_Graid.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Store_OP_Forms\F_IN_Item_Graid.Designer.cs">
+    <Compile Include="Forms\In_op_Forms\F_IN_Item_Graid.Designer.cs">
       <DependentUpon>F_IN_Item_Graid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Store_OP_Forms\F_In_Op.cs">
+    <Compile Include="Forms\In_op_Forms\F_in_master_detail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Store_OP_Forms\F_In_Op.Designer.cs">
+    <Compile Include="Forms\In_op_Forms\F_in_master_detail.Designer.cs">
+      <DependentUpon>F_in_master_detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\In_op_Forms\F_In_Op.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\In_op_Forms\F_In_Op.Designer.cs">
       <DependentUpon>F_In_Op.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Store_OP_Forms\F_In_OP_Graid.cs">
+    <Compile Include="Forms\In_op_Forms\F_In_OP_Graid.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Store_OP_Forms\F_In_OP_Graid.Designer.cs">
+    <Compile Include="Forms\In_op_Forms\F_In_OP_Graid.Designer.cs">
       <DependentUpon>F_In_OP_Graid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Store_OP_Forms\F_Out_Op.cs">
+    <Compile Include="Forms\Out_op_Forms\F_Out_Op.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Store_OP_Forms\F_Out_Op.Designer.cs">
+    <Compile Include="Forms\Out_op_Forms\F_Out_Op.Designer.cs">
       <DependentUpon>F_Out_Op.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Store_OP_Forms\F_out_op_graid.cs">
+    <Compile Include="Forms\Out_op_Forms\F_out_op_graid.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Store_OP_Forms\F_out_op_graid.Designer.cs">
+    <Compile Include="Forms\Out_op_Forms\F_out_op_graid.Designer.cs">
       <DependentUpon>F_out_op_graid.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Store_Other_Forms\F_out_med_to_chose.cs">
@@ -312,6 +336,12 @@
     <EmbeddedResource Include="Forms\Collection_Forms\Notification_Form.resx">
       <DependentUpon>Notification_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dameg_op_Forms\F_damege_item.resx">
+      <DependentUpon>F_damege_item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dameg_op_Forms\F_dame_op_gride.resx">
+      <DependentUpon>F_dame_op_gride.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Medicin_Forms\F_Med.resx">
       <DependentUpon>F_Med.cs</DependentUpon>
     </EmbeddedResource>
@@ -332,6 +362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_Unites.resx">
       <DependentUpon>F_Med_Unites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Out_op_Forms\F_out_item.resx">
+      <DependentUpon>F_out_item.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Person_Forms\F_Donars.resx">
       <DependentUpon>F_Donars.cs</DependentUpon>
@@ -366,19 +399,22 @@
     <EmbeddedResource Include="Forms\Collection_Forms\F_Start.resx">
       <DependentUpon>F_Start.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Store_OP_Forms\F_Dameg_Op.resx">
+    <EmbeddedResource Include="Forms\Dameg_op_Forms\F_Dameg_Op.resx">
       <DependentUpon>F_Dameg_Op.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Store_OP_Forms\F_IN_Item_Graid.resx">
+    <EmbeddedResource Include="Forms\In_op_Forms\F_IN_Item_Graid.resx">
       <DependentUpon>F_IN_Item_Graid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Store_OP_Forms\F_In_Op.resx">
+    <EmbeddedResource Include="Forms\In_op_Forms\F_in_master_detail.resx">
+      <DependentUpon>F_in_master_detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\In_op_Forms\F_In_Op.resx">
       <DependentUpon>F_In_Op.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Store_OP_Forms\F_In_OP_Graid.resx">
+    <EmbeddedResource Include="Forms\In_op_Forms\F_In_OP_Graid.resx">
       <DependentUpon>F_In_OP_Graid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Store_OP_Forms\F_Out_Op.resx">
+    <EmbeddedResource Include="Forms\Out_op_Forms\F_Out_Op.resx">
       <DependentUpon>F_Out_Op.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Store_Other_Forms\F_out_med_to_chose.resx">

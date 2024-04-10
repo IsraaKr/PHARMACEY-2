@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_Quiek_Accses));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
@@ -41,7 +42,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
@@ -78,9 +78,25 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(928, 191);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.simpleButton5.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton5.Appearance.Options.UseBackColor = true;
+            this.simpleButton5.Appearance.Options.UseFont = true;
+            this.simpleButton5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.simpleButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton5.ImageOptions.SvgImage")));
+            this.simpleButton5.Location = new System.Drawing.Point(693, 30);
+            this.simpleButton5.Margin = new System.Windows.Forms.Padding(10);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(185, 139);
+            this.simpleButton5.TabIndex = 4;
+            this.simpleButton5.Text = "ادخال بطاقة مادة";
+            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
+            // 
             // simpleButton2
             // 
-            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.simpleButton2.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton2.Appearance.Options.UseBackColor = true;
             this.simpleButton2.Appearance.Options.UseFont = true;
@@ -96,7 +112,7 @@
             // 
             // simpleButton3
             // 
-            this.simpleButton3.Appearance.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.simpleButton3.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.simpleButton3.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton3.Appearance.Options.UseBackColor = true;
             this.simpleButton3.Appearance.Options.UseFont = true;
@@ -112,7 +128,7 @@
             // 
             // simpleButton4
             // 
-            this.simpleButton4.Appearance.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.simpleButton4.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.simpleButton4.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton4.Appearance.Options.UseBackColor = true;
             this.simpleButton4.Appearance.Options.UseFont = true;
@@ -124,6 +140,7 @@
             this.simpleButton4.Size = new System.Drawing.Size(180, 139);
             this.simpleButton4.TabIndex = 3;
             this.simpleButton4.Text = "اتلاف مواد";
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // label1
             // 
@@ -199,22 +216,6 @@
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(305, 144);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Appearance.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.simpleButton5.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton5.Appearance.Options.UseBackColor = true;
-            this.simpleButton5.Appearance.Options.UseFont = true;
-            this.simpleButton5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.simpleButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton5.ImageOptions.SvgImage")));
-            this.simpleButton5.Location = new System.Drawing.Point(693, 30);
-            this.simpleButton5.Margin = new System.Windows.Forms.Padding(10);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(185, 139);
-            this.simpleButton5.TabIndex = 4;
-            this.simpleButton5.Text = "ادخال بطاقة مادة";
-            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
             // 
             // F_Quiek_Accses
             // 

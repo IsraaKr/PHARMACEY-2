@@ -133,7 +133,10 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             }
             else if (opp_type == 3)
             {
-                var med_list = (from Emp in cmdOpInItem.Get_All().Where(l => l.is_out == false && l.Med_id == med_idd && l.in_item_expDate <= DateTime.Today)
+                var med_list = (from Emp in cmdOpInItem.Get_All().Where(l => l.is_out == false
+                                                                        && l.Med_id == med_idd
+                                                                         && l.in_item_expDate.Value.Month < DateTime.Today.Month
+                                                                         && l.in_item_expDate.Value.Year <= DateTime.Today.Year)
                                 select new
                                 {
                                     item_id = Emp.in_item_id,

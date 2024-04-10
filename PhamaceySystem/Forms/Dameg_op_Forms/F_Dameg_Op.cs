@@ -26,7 +26,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             Title(tit);
             this.Text = tit;
         }
-        public string tit = "اخراج  مادة / Out Operation";
+        public string tit = "اتلاف  مادة / damage Operation";
         public F_Dameg_Op(int op_id)
         {
             id_toUpdate = op_id;
@@ -484,15 +484,24 @@ WHERE        (dbo.T_Operation_Damage_Item.dmg_op_id = " + id + ")");
 
         public void GetMed_Data()
         {//جلب الدواء من جدول الأدوية بحيث كميته اكبر من 0
-            var med_list = (from Emp in cmdMedician.Get_All().Where(l => l.med_total_now > 0)
-                            select new
-                            {
-                                id = Emp.med_id,
-                                name = Emp.med_name
-                            }).OrderBy(id => id.id);
-            if (med_list != null && med_list.Count() > 0)
+            //var med_list = (from Emp in cmdMedician.Get_All().Where(l => l.med_total_now > 0)
+            //                select new
+            //                {
+            //                    id = Emp.med_id,
+            //                    name = Emp.med_name
+            //                }).OrderBy(id => id.id);
+
+           DataTable med_list = c_db.select(@"SELECT     T_OPeration_IN_Item.Med_id, T_Medician.med_name, T_Medician.med_total_now, T_OPeration_IN_Item.in_item_expDate
+FROM         T_OPeration_IN_Item INNER JOIN
+                      T_Medician ON T_OPeration_IN_Item.Med_id = T_Medician.med_id
+WHERE     (T_OPeration_IN_Item.is_out = 'false') " +
+         "   AND ( MONTH( T_OPeration_IN_Item.in_item_expDate) < " + d.Month + " )" +
+       "   AND(T_Medician.med_total_now > 0) "+
+         "  AND(year(T_OPeration_IN_Item.in_item_expDate) <= " + d.Year + ") ");
+
+            if (med_list != null && med_list.Rows.Count > 0)
             {
-                Med_idSearchlookupEdit.slkp_iniatalize_data(med_list, "name", "id");
+                Med_idSearchlookupEdit.slkp_iniatalize_data(med_list, "med_name", "Med_id");
                 Med_idSearchlookupEdit.Properties.View.Columns[0].Caption = "الرقم";
                 Med_idSearchlookupEdit.Properties.View.Columns[1].Caption = "الاسم ";
             }
@@ -503,7 +512,10 @@ WHERE        (dbo.T_Operation_Damage_Item.dmg_op_id = " + id + ")");
             int med_idd = Convert.ToInt32(Med_idSearchlookupEdit.EditValue);
             if (med_idd > 0)
             {
-                var med_list = (from Emp in cmdOpInItem.Get_All().Where(l => l.is_out == false && l.Med_id == med_idd &&  l.in_item_expDate <= DateTime.Today)
+                var med_list = (from Emp in cmdOpInItem.Get_All().Where(l => l.is_out == false  
+                                                                        && l.Med_id == med_idd 
+                                                                         &&  l.in_item_expDate.Value.Month < DateTime.Today.Month
+                                                                         && l.in_item_expDate.Value.Year <= DateTime.Today.Year)
                                 select new
                                 {
                                     item_id = Emp.in_item_id,
@@ -572,8 +584,8 @@ FROM         T_OPeration_IN_Item INNER JOIN
                       T_Store_Placees ON T_OPeration_IN_Item.store_place_id = T_Store_Placees.id
 WHERE     (T_OPeration_IN_Item.is_out = 'false')
          AND (T_Medician.med_id = " + med_idd + ")" +
-         "   AND ( MONTH( T_OPeration_IN_Item.in_item_expDate) = " + d.Month + " )" +
-         "  AND(year(T_OPeration_IN_Item.in_item_expDate) = " + d.Year + ") ");
+         "   AND ( MONTH( T_OPeration_IN_Item.in_item_expDate) < " + d.Month + " )" +
+         "  AND(year(T_OPeration_IN_Item.in_item_expDate) <= " + d.Year + ") ");
 
             if (dt.Rows.Count == 1)
             {

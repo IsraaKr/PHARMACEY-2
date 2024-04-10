@@ -1,6 +1,6 @@
-﻿namespace PhamaceySystem.Forms.Report_Forms
+﻿namespace PhamaceySystem.Forms.Store_OP_Forms
 {
-    partial class F_master_detale
+    partial class F_in_master_detail
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            this.gv_2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gc = new DevExpress.XtraGrid.GridControl();
+            this.gv_2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gv = new DevExpress.XtraGrid.Views.Grid.GridView();
-            ((System.ComponentModel.ISupportInitialize)(this.gv_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,6 +46,23 @@
             // timer_date
             // 
             this.timer_date.Enabled = true;
+            // 
+            // gc
+            // 
+            this.gc.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridLevelNode1.LevelTemplate = this.gv_2;
+            gridLevelNode1.RelationName = "gv_item";
+            this.gc.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
+            this.gc.Location = new System.Drawing.Point(0, 60);
+            this.gc.MainView = this.gv;
+            this.gc.MenuManager = this.barMang;
+            this.gc.Name = "gc";
+            this.gc.Size = new System.Drawing.Size(800, 281);
+            this.gc.TabIndex = 11;
+            this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gv_2,
+            this.gv});
             // 
             // gv_2
             // 
@@ -70,23 +87,6 @@
             this.gv_2.OptionsView.ShowAutoFilterRow = true;
             this.gv_2.OptionsView.ShowFooter = true;
             // 
-            // gc
-            // 
-            this.gc.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.LevelTemplate = this.gv_2;
-            gridLevelNode1.RelationName = "gv_item";
-            this.gc.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
-            this.gc.Location = new System.Drawing.Point(0, 60);
-            this.gc.MainView = this.gv;
-            this.gc.MenuManager = this.barMang;
-            this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(800, 281);
-            this.gc.TabIndex = 10;
-            this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gv,
-            this.gv_2});
-            // 
             // gv
             // 
             this.gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -109,21 +109,20 @@
             this.gv.OptionsPrint.PrintFooter = false;
             this.gv.OptionsPrint.PrintGroupFooter = false;
             this.gv.OptionsView.ShowAutoFilterRow = true;
-            this.gv.DoubleClick += new System.EventHandler(this.gv_DoubleClick);
             // 
-            // F_master_detale
+            // F_in_master_detail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.gc);
             this.Location = new System.Drawing.Point(0, 0);
-            this.Name = "F_master_detale";
-            this.Text = "F_master_detale";
+            this.Name = "F_in_master_detail";
+            this.Text = "F_in_master_detail";
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             this.Controls.SetChildIndex(this.gc, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.gv_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

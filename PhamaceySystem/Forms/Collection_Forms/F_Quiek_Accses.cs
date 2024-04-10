@@ -1,5 +1,6 @@
 ﻿using PhamaceySystem.Forms.Medicin_Forms;
 using PhamaceySystem.Forms.Store_Forms;
+using PhamaceySystem.Forms.Store_OP_Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,7 +49,14 @@ namespace PhamaceySystem.Forms
         private void simpleButton5_Click(object sender, EventArgs e)
         {
             F_Med f = new F_Med();
-            f.MdiParent = this.MdiParent;
+          //  f.MdiParent = this.MdiParent;
+            f.Show();
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            F_Dameg_Op f = new F_Dameg_Op();
+           // f.MdiParent = this.MdiParent;
             f.Show();
         }
     }
