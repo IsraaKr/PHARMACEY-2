@@ -96,6 +96,8 @@
             this.gv.OptionsFilter.AllowFilterEditor = false;
             this.gv.OptionsFilter.DefaultFilterEditorView = DevExpress.XtraEditors.FilterEditorViewMode.VisualAndText;
             this.gv.OptionsFind.AlwaysVisible = true;
+            this.gv.OptionsHint.ShowFooterHints = false;
+            this.gv.OptionsMenu.EnableFooterMenu = false;
             this.gv.OptionsPrint.AllowMultilineHeaders = true;
             this.gv.OptionsPrint.EnableAppearanceEvenRow = true;
             this.gv.OptionsPrint.ExpandAllDetails = true;
@@ -103,7 +105,6 @@
             this.gv.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gv.OptionsView.EnableAppearanceEvenRow = true;
             this.gv.OptionsView.ShowAutoFilterRow = true;
-            this.gv.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.ShowAlways;
             this.gv.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gv_RowStyle);
             this.gv.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gv_SelectionChanged);
             this.gv.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gv_RowUpdated);

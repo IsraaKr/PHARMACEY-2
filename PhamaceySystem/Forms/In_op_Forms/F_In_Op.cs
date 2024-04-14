@@ -65,13 +65,9 @@ namespace PhamaceySystem.Forms.Store_Forms
                 Set_Auto_Id_item();           
                 in_op_dateDateEdit.DateTime = Convert.ToDateTime(d.ToShortDateString());
                 in_item_expDateDateEdit.DateTime = Convert.ToDateTime(d.ToShortDateString());
-                 in_op_timeTimeSpanEdit.EditValue =Convert.ToDateTime( d.ToString("HH:mm:ss"));
-                dateTimePicker1.Value = Convert.ToDateTime(d.ToShortTimeString());
-                //dateEdit1.EditValue = d.ToString("yyyy/MM/dd HH:mm:ss ");
-                //dateTimePicker3.CustomFormat = "HH:mm";
+                dtp_op_time.Value = Convert.ToDateTime(d.ToShortTimeString());
                 Is_Double_Click = false;
                 btn_visible(false);
-                //  in_op_timeTimeSpanEdit.EditValue = d.TimeOfDay;
                 cmdMedician = new ClsCommander<T_Medician>();
                 cmdEmp = new ClsCommander<T_Pers_Emploee>();
                 cmdDonars = new ClsCommander<T_Pers_Donars>();
@@ -195,11 +191,7 @@ namespace PhamaceySystem.Forms.Store_Forms
         public void Fill_Entitey_op()
         {
             TF_OP_IN.in_op_date = Convert.ToDateTime(in_op_dateDateEdit.DateTime.ToString("yyyy/MM/dd"));
-            //   TF_OP_IN.in_op_time = (TimeSpan?)(in_op_timeTimeSpanEdit.EditValue);
-            //  TF_OP_IN.in_op_time = Convert.ToDateTime(dateTimePicker1.Value);
-            //  TF_OP_IN.in_op_time = Convert.ToDateTime(dateEdit1.DateTime.ToString("yyyy/MM/dd HH: mm:ss"));
-          //  TF_OP_IN.in_op_time = null;
-
+            TF_OP_IN.in_op_time = dtp_op_time.Text;
             TF_OP_IN.in_op_text = in_op_textTextEdit.Text;
             TF_OP_IN.in_op_state = Convert.ToBoolean(in_op_stateCheckEdit.CheckState);
             TF_OP_IN.med_count = Convert.ToInt32(med_countTextEdit1.Text.ToString().Replace(",", string.Empty));
@@ -214,8 +206,8 @@ namespace PhamaceySystem.Forms.Store_Forms
         {
             in_op_idTextEdit.Text = TF_OP_IN.in_op_id.ToString();
             in_op_dateDateEdit.DateTime = Convert.ToDateTime(TF_OP_IN.in_op_date);
-            in_op_timeTimeSpanEdit.EditValue = TF_OP_IN.in_op_time;
             in_op_textTextEdit.Text = TF_OP_IN.in_op_text;
+            dtp_op_time.Text = TF_OP_IN.in_op_time.ToString();
             in_op_stateCheckEdit.Checked = Convert.ToBoolean(TF_OP_IN.in_op_state);
             donar_empTextEdit.Text = TF_OP_IN.donar_emp;
             donar_idSearchLookUpEdit.EditValue = TF_OP_IN.donar_id;
@@ -473,7 +465,7 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
             TF_Store_Move.op_id = Convert.ToInt32(in_op_idTextEdit.Text.ToString().Replace(",", string.Empty));
             TF_Store_Move.op_type_id = Convert.ToInt32("1");
             TF_Store_Move.date = Convert.ToDateTime(in_op_dateDateEdit.DateTime.ToString("yyyy/MM/dd"));
-           // TF_Store_Move.time = (TimeSpan?)in_op_timeTimeSpanEdit.EditValue;
+            TF_Store_Move.time = dtp_op_time.Text;
 
             cmdStoreMove.Insert_Data(TF_Store_Move);
         }

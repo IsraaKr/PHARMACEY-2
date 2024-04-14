@@ -22,7 +22,7 @@ namespace PhamaceyDataBase
     
         public int dam_OP_id { get; set; }
         public Nullable<System.DateTime> dam_op_date { get; set; }
-        public Nullable<System.TimeSpan> dam_op_time { get; set; }
+        public string dam_op_time { get; set; }
         public string dam_op_text { get; set; }
         public Nullable<bool> dam_op_state { get; set; }
         public Nullable<int> med_count { get; set; }

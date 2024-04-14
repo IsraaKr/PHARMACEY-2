@@ -21,7 +21,7 @@ namespace PhamaceyDataBase
         public Nullable<int> op_id { get; set; }
         public Nullable<int> op_type_id { get; set; }
         public Nullable<System.DateTime> date { get; set; }
-        public Nullable<System.TimeSpan> time { get; set; }
+        public string time { get; set; }
     
         public virtual T_Medician T_Medician { get; set; }
         public virtual T_OPeration_Type T_OPeration_Type { get; set; }

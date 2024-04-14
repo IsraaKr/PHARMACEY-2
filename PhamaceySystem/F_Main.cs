@@ -20,6 +20,7 @@ using DevExpress.XtraTab.ViewInfo;
 using PhamaceySystem.Forms.Collection_Forms;
 using PhamaceySystem.Forms.Setting_Forms;
 using PhamaceySystem.Forms.Report_Forms;
+using PhamaceySystem.Forms.Store_Other_Forms;
 
 namespace PhamaceySystem
 {
@@ -27,7 +28,9 @@ namespace PhamaceySystem
     {
     //    private readonly C_Page_Maneger c_Page_Maneger;
         ClsCommander<T_OPeration_Type> cmdOptype = new ClsCommander<T_OPeration_Type>();
+        ClsCommander<T_OPeration_IN_Item> cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
         public static string static_med_min;
+        public static string static_date_exp;
         public F_Main()
         {
             try
@@ -115,8 +118,10 @@ namespace PhamaceySystem
         }  
         private void get_med_min_num()
         {          
-                bool check_show_form = Properties.Settings.Default.is_med_count_show;
-             DataTable   dt = c_db.select(@"SELECT  dbo.T_Medician.med_id,
+                bool check_show_not = Properties.Settings.Default.is_med_count_not_show;
+            bool check_show_form = Properties.Settings.Default.is_med_count_form_show;
+
+            DataTable dt = c_db.select(@"SELECT  dbo.T_Medician.med_id,
                                                  dbo.T_Medician.med_code,
                                                 dbo.T_Medician.med_name,
                                                 dbo.T_Medician.med_minimum,
@@ -127,11 +132,12 @@ namespace PhamaceySystem
            
             static_med_min = count.ToString();
             bar_med_min.Caption = static_med_min;
-            if (check_show_form)
+            if (check_show_not && count > 0)
             {
                 Notification_Form n = new Notification_Form("الأدوية التي شارفت على الانتهاء", "" + count);
                 n.Show();
-                if (count > 0 )
+            }
+                if (check_show_form && count > 0 )
                 {
                     F_Med_min f = new F_Med_min();                
                     f.ShowDialog();
@@ -139,14 +145,56 @@ namespace PhamaceySystem
           
 
             }
-                
-            
+
+        private void get_med_exp_date()
+        {
+            bool check_date_exp_not = Properties.Settings.Default.is_expdate_not_show;
+            bool check_date_exp_form = Properties.Settings.Default.is_expdate_form_show;
+
+            //DataTable dt = c_db.select(@"SELECT  dbo.T_Medician.med_id,
+            //                                     dbo.T_Medician.med_code,
+            //                                    dbo.T_Medician.med_name,
+            //                                    dbo.T_Medician.med_minimum,
+            //                                    dbo.T_Medician.med_total_now                 
+            //         FROM        dbo.T_Medician 
+            //        WHERE        (dbo.T_Medician.med_total_now <=   dbo.T_Medician.med_minimum)");
+
+            var dt= (from med in cmdOpInItem.Get_All().Where(l => l.in_item_expDate.Value.Month < DateTime.Today.Month
+                             && l.in_item_expDate.Value.Year <= DateTime.Today.Year
+                             && l.is_out != true)
+                     select new
+                     {
+                         id = med.in_item_id,
+                         med_id = med.Med_id,
+                         code = med.T_Medician.med_code,
+                         name = med.T_Medician.med_name,
+                         quntetey = med.in_item_quntity,
+                         datee = med.in_item_expDate,
+
+                     }).OrderBy(l_id => l_id.id).ToList();
+            int count =  dt.Count;
+
+            static_date_exp = count.ToString();
+            bar_exp_date.Caption = static_date_exp;
+            if (check_date_exp_not && count > 0)
+            {
+                F_exp_date_notification n = new F_exp_date_notification("الأدوية المنتهية الصلاحية", "" + count);
+                n.Show();
+            }
+            if (check_date_exp_form && count > 0)
+            {
+                F_Store_Med_ExpDate f = new F_Store_Med_ExpDate();
+                f.ShowDialog();
+            }
+
+
         }
         private void F_Main_Load(object sender, EventArgs e)
         {
             load_first_frame();
 
              get_med_min_num();
+            get_med_exp_date();
         }
         private void close_all()
         {
@@ -163,21 +211,6 @@ namespace PhamaceySystem
             Application.Exit(); 
         }
 
-        private void barButtonItem19_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-        }
-
-        private void barButtonItem31_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //XtraReport4 rep4 = new XtraReport4();
-            //F_Viewer f = new F_Viewer(rep4);
-            //f.ShowDialog();
-        }
-
-        private void barButtonItem18_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-        }
+ 
     }
 }

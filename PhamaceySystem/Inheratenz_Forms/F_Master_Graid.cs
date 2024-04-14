@@ -60,7 +60,7 @@ namespace PhamaceySystem.Inheratenz_Forms
         public override void Title(string s_title)
         {
             lbl_tiltle.Text = s_title;
-           // lbl_tiltle.BackColor = Properties.Settings.Default.titel_graid_colore;
+            lbl_tiltle.BackColor = Properties.Settings.Default.titel_master_colore;
 
         }
         public virtual void gv_DoubleClick(object sender, EventArgs e)

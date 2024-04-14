@@ -94,6 +94,12 @@
     <Compile Include="Classes\C_GC_Page_Nav.cs" />
     <Compile Include="Classes\C_Master.cs" />
     <Compile Include="Classes\C_Page_Maneger.cs" />
+    <Compile Include="Forms\Collection_Forms\F_exp_date_notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Collection_Forms\F_exp_date_notification.Designer.cs">
+      <DependentUpon>F_exp_date_notification.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Collection_Forms\F_Quiek_Accses.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,12 @@
     </Compile>
     <Compile Include="Forms\Dameg_op_Forms\F_dame_op_gride.Designer.cs">
       <DependentUpon>F_dame_op_gride.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dameg_op_Forms\F_dam_master_detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dameg_op_Forms\F_dam_master_detail.Designer.cs">
+      <DependentUpon>F_dam_master_detail.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Medicin_Forms\F_Med.cs">
       <SubType>Form</SubType>
@@ -142,12 +154,6 @@
     <Compile Include="Forms\Medicin_Forms\F_Med_min.Designer.cs">
       <DependentUpon>F_Med_min.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Medicin_Forms\F_Med_Minimem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Medicin_Forms\F_Med_Minimem.Designer.cs">
-      <DependentUpon>F_Med_Minimem.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Medicin_Forms\F_Med_Shape.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,12 @@
     </Compile>
     <Compile Include="Forms\Out_op_Forms\F_out_item.Designer.cs">
       <DependentUpon>F_out_item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Out_op_Forms\F_out_master_detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Out_op_Forms\F_out_master_detail.Designer.cs">
+      <DependentUpon>F_out_master_detail.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Person_Forms\F_Donars.cs">
       <SubType>Form</SubType>
@@ -330,6 +342,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Collection_Forms\F_exp_date_notification.resx">
+      <DependentUpon>F_exp_date_notification.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Collection_Forms\F_Quiek_Accses.resx">
       <DependentUpon>F_Quiek_Accses.cs</DependentUpon>
     </EmbeddedResource>
@@ -341,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dameg_op_Forms\F_dame_op_gride.resx">
       <DependentUpon>F_dame_op_gride.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dameg_op_Forms\F_dam_master_detail.resx">
+      <DependentUpon>F_dam_master_detail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Medicin_Forms\F_Med.resx">
       <DependentUpon>F_Med.cs</DependentUpon>
@@ -354,9 +372,6 @@
     <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_min.resx">
       <DependentUpon>F_Med_min.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_Minimem.resx">
-      <DependentUpon>F_Med_Minimem.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_Shape.resx">
       <DependentUpon>F_Med_Shape.cs</DependentUpon>
     </EmbeddedResource>
@@ -365,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Out_op_Forms\F_out_item.resx">
       <DependentUpon>F_out_item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Out_op_Forms\F_out_master_detail.resx">
+      <DependentUpon>F_out_master_detail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Person_Forms\F_Donars.resx">
       <DependentUpon>F_Donars.cs</DependentUpon>

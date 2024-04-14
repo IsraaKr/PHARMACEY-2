@@ -66,6 +66,11 @@
             this.barButtonItem29 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem30 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem31 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem32 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem33 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem34 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem35 = new DevExpress.XtraBars.BarButtonItem();
+            this.bar_exp_date = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -95,6 +100,9 @@
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.xtc = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem36 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
@@ -141,10 +149,16 @@
             this.barButtonItem28,
             this.barButtonItem29,
             this.barButtonItem30,
-            this.barButtonItem31});
+            this.barButtonItem31,
+            this.barButtonItem32,
+            this.barButtonItem33,
+            this.barButtonItem34,
+            this.barButtonItem35,
+            this.bar_exp_date,
+            this.barButtonItem36});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbon.MaxItemId = 45;
+            this.ribbon.MaxItemId = 52;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -155,7 +169,7 @@
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1,
             this.repositoryItemTextEdit2});
-            this.ribbon.Size = new System.Drawing.Size(923, 162);
+            this.ribbon.Size = new System.Drawing.Size(1131, 162);
             this.ribbon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ribbon_ItemClick);
             // 
             // barButtonItem1
@@ -295,7 +309,6 @@
             this.barButtonItem18.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem18.ImageOptions.SvgImage")));
             this.barButtonItem18.Name = "barButtonItem18";
             this.barButtonItem18.Tag = "F_Dameg_Op";
-            this.barButtonItem18.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem18_ItemClick);
             // 
             // barButtonItem19
             // 
@@ -305,7 +318,6 @@
             this.barButtonItem19.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem19.ImageOptions.LargeImage")));
             this.barButtonItem19.Name = "barButtonItem19";
             this.barButtonItem19.Tag = "F_Store_Move";
-            this.barButtonItem19.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem19_ItemClick);
             // 
             // barButtonItem20
             // 
@@ -354,7 +366,10 @@
             // 
             this.barButtonItem25.Caption = "فواتير الإتلاف";
             this.barButtonItem25.Id = 27;
+            this.barButtonItem25.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem25.ImageOptions.Image")));
+            this.barButtonItem25.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem25.ImageOptions.LargeImage")));
             this.barButtonItem25.Name = "barButtonItem25";
+            this.barButtonItem25.Tag = "F_dame_op_gride";
             // 
             // barButtonItem26
             // 
@@ -431,12 +446,12 @@
             // 
             // barButtonItem30
             // 
-            this.barButtonItem30.Caption = "فواتير و تفاصيلها";
+            this.barButtonItem30.Caption = "فواتير الإدخال و تفاصيلها";
             this.barButtonItem30.Id = 43;
             this.barButtonItem30.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem30.ImageOptions.Image")));
             this.barButtonItem30.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem30.ImageOptions.LargeImage")));
             this.barButtonItem30.Name = "barButtonItem30";
-            this.barButtonItem30.Tag = "F_master_detale";
+            this.barButtonItem30.Tag = "F_in_master_detail";
             // 
             // barButtonItem31
             // 
@@ -445,7 +460,65 @@
             this.barButtonItem31.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem31.ImageOptions.Image")));
             this.barButtonItem31.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem31.ImageOptions.LargeImage")));
             this.barButtonItem31.Name = "barButtonItem31";
-            this.barButtonItem31.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem31_ItemClick);
+            // 
+            // barButtonItem32
+            // 
+            this.barButtonItem32.Caption = "المواد الخارجة";
+            this.barButtonItem32.Id = 45;
+            this.barButtonItem32.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem32.ImageOptions.Image")));
+            this.barButtonItem32.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem32.ImageOptions.LargeImage")));
+            this.barButtonItem32.Name = "barButtonItem32";
+            this.barButtonItem32.Tag = "F_out_item";
+            // 
+            // barButtonItem33
+            // 
+            this.barButtonItem33.Caption = "فواتير الإخراج  و تفاصيلها";
+            this.barButtonItem33.Id = 46;
+            this.barButtonItem33.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem33.ImageOptions.Image")));
+            this.barButtonItem33.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem33.ImageOptions.LargeImage")));
+            this.barButtonItem33.Name = "barButtonItem33";
+            this.barButtonItem33.Tag = "F_out_master_detail";
+            // 
+            // barButtonItem34
+            // 
+            this.barButtonItem34.Caption = "المواد التالفة";
+            this.barButtonItem34.Id = 47;
+            this.barButtonItem34.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem34.ImageOptions.Image")));
+            this.barButtonItem34.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem34.ImageOptions.LargeImage")));
+            this.barButtonItem34.Name = "barButtonItem34";
+            this.barButtonItem34.Tag = "F_damege_item";
+            // 
+            // barButtonItem35
+            // 
+            this.barButtonItem35.Caption = "فواتير الإتلاف و تفاصيلها";
+            this.barButtonItem35.Id = 48;
+            this.barButtonItem35.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem35.ImageOptions.Image")));
+            this.barButtonItem35.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem35.ImageOptions.LargeImage")));
+            this.barButtonItem35.Name = "barButtonItem35";
+            this.barButtonItem35.Tag = "F_dam_master_detail";
+            // 
+            // bar_exp_date
+            // 
+            this.bar_exp_date.Caption = "...";
+            this.bar_exp_date.Id = 50;
+            this.bar_exp_date.ItemAppearance.Normal.BackColor = System.Drawing.Color.IndianRed;
+            this.bar_exp_date.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bar_exp_date.ItemAppearance.Normal.ForeColor = System.Drawing.Color.White;
+            this.bar_exp_date.ItemAppearance.Normal.Options.UseBackColor = true;
+            this.bar_exp_date.ItemAppearance.Normal.Options.UseBorderColor = true;
+            this.bar_exp_date.ItemAppearance.Normal.Options.UseFont = true;
+            this.bar_exp_date.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.bar_exp_date.ItemAppearance.Normal.Options.UseTextOptions = true;
+            this.bar_exp_date.ItemAppearance.Normal.TextOptions.HotkeyPrefix = DevExpress.Utils.HKeyPrefix.Show;
+            this.bar_exp_date.ItemAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.bar_exp_date.ItemInMenuAppearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bar_exp_date.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bar_exp_date.ItemInMenuAppearance.Normal.Options.UseBackColor = true;
+            this.bar_exp_date.ItemInMenuAppearance.Normal.Options.UseBorderColor = true;
+            this.bar_exp_date.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.bar_exp_date.Name = "bar_exp_date";
+            this.bar_exp_date.ShowImageInToolbar = false;
+            this.bar_exp_date.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // ribbonPage1
             // 
@@ -510,6 +583,8 @@
             // 
             this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem7);
             this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem24);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem32);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem33);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "الإخراج";
             // 
@@ -517,12 +592,16 @@
             // 
             this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem18);
             this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem25);
+            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem34);
+            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem35);
             this.ribbonPageGroup15.Name = "ribbonPageGroup15";
             this.ribbonPageGroup15.Text = "الإتلاف";
             // 
             // ribbonPageGroup8
             // 
             this.ribbonPageGroup8.ItemLinks.Add(this.barButtonItem8);
+            this.ribbonPageGroup8.ItemLinks.Add(this.bar_exp_date);
+            this.ribbonPageGroup8.ItemLinks.Add(this.barButtonItem36);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
             // 
             // ribbonPage5
@@ -651,6 +730,59 @@
             this.xtc.UseDocumentSelector = DevExpress.Utils.DefaultBoolean.False;
             this.xtc.UseFormIconAsPageImage = DevExpress.Utils.DefaultBoolean.False;
             // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Caption = "...";
+            this.barStaticItem1.Id = 37;
+            this.barStaticItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem1.ImageOptions.LargeImage")));
+            this.barStaticItem1.ItemAppearance.Normal.BackColor = System.Drawing.Color.IndianRed;
+            this.barStaticItem1.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barStaticItem1.ItemAppearance.Normal.ForeColor = System.Drawing.Color.White;
+            this.barStaticItem1.ItemAppearance.Normal.Options.UseBackColor = true;
+            this.barStaticItem1.ItemAppearance.Normal.Options.UseBorderColor = true;
+            this.barStaticItem1.ItemAppearance.Normal.Options.UseFont = true;
+            this.barStaticItem1.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.barStaticItem1.ItemAppearance.Normal.Options.UseTextOptions = true;
+            this.barStaticItem1.ItemAppearance.Normal.TextOptions.HotkeyPrefix = DevExpress.Utils.HKeyPrefix.Show;
+            this.barStaticItem1.ItemAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.barStaticItem1.ItemInMenuAppearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.barStaticItem1.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barStaticItem1.ItemInMenuAppearance.Normal.Options.UseBackColor = true;
+            this.barStaticItem1.ItemInMenuAppearance.Normal.Options.UseBorderColor = true;
+            this.barStaticItem1.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.barStaticItem1.Name = "barStaticItem1";
+            this.barStaticItem1.ShowImageInToolbar = false;
+            this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // barStaticItem2
+            // 
+            this.barStaticItem2.Caption = "...";
+            this.barStaticItem2.Id = 37;
+            this.barStaticItem2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem2.ImageOptions.LargeImage")));
+            this.barStaticItem2.ItemAppearance.Normal.BackColor = System.Drawing.Color.IndianRed;
+            this.barStaticItem2.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barStaticItem2.ItemAppearance.Normal.ForeColor = System.Drawing.Color.White;
+            this.barStaticItem2.ItemAppearance.Normal.Options.UseBackColor = true;
+            this.barStaticItem2.ItemAppearance.Normal.Options.UseBorderColor = true;
+            this.barStaticItem2.ItemAppearance.Normal.Options.UseFont = true;
+            this.barStaticItem2.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.barStaticItem2.ItemAppearance.Normal.Options.UseTextOptions = true;
+            this.barStaticItem2.ItemAppearance.Normal.TextOptions.HotkeyPrefix = DevExpress.Utils.HKeyPrefix.Show;
+            this.barStaticItem2.ItemAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.barStaticItem2.ItemInMenuAppearance.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.barStaticItem2.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barStaticItem2.ItemInMenuAppearance.Normal.Options.UseBackColor = true;
+            this.barStaticItem2.ItemInMenuAppearance.Normal.Options.UseBorderColor = true;
+            this.barStaticItem2.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.barStaticItem2.Name = "barStaticItem2";
+            this.barStaticItem2.ShowImageInToolbar = false;
+            this.barStaticItem2.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // barButtonItem36
+            // 
+            this.barButtonItem36.Id = 51;
+            this.barButtonItem36.Name = "barButtonItem36";
+            // 
             // F_Main
             // 
             this.Appearance.BackColor = System.Drawing.SystemColors.Control;
@@ -658,7 +790,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 622);
+            this.ClientSize = new System.Drawing.Size(1131, 622);
             this.Controls.Add(this.ribbon);
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IsMdiContainer = true;
@@ -746,5 +878,13 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem30;
         private DevExpress.XtraBars.BarButtonItem barButtonItem31;
         public DevExpress.XtraBars.BarStaticItem bar_med_min;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem32;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem33;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem34;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem35;
+        private DevExpress.XtraBars.BarStaticItem bar_exp_date;
+        public DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        public DevExpress.XtraBars.BarStaticItem barStaticItem2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem36;
     }
 }

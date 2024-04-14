@@ -1,9 +1,4 @@
-﻿using DevExpress.Data;
-using PhamaceyDataBase;
-using PhamaceyDataBase.Commander;
-using PhamaceySystem.Forms.Store_Forms;
-using PhamaceySystem.Forms.Store_OP_Forms;
-using PhamaceySystem.Inheratenz_Forms;
+﻿using PhamaceySystem.Forms.Store_OP_Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,41 +11,41 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Dameg_op_Forms
 {
-    public partial class F_dame_op_gride : F_Master_Graid
+    public partial class F_dam_master_detail : F_Master_Inheretanz
     {
-        public F_dame_op_gride()
+        public F_dam_master_detail()
         {
             InitializeComponent();
+            view_inheretanz_butomes(true, false, false, true, true, false, true);
+
             Title(tit);
             this.Text = tit;
         }
         public string tit = "فواتير الإتلاف";
-
-        ClsCommander<T_OPeration_Damage> cmdDamOP = new ClsCommander<T_OPeration_Damage>();
-
-        T_OPeration_Damage TF_OPeration_IN;
         Boolean Is_Double_Click = false;
+        DataTable dt_op;
+        DataTable dt_item;
+        DataSet ds;
         int id;
-        int row_to_show;
+
         public override void Get_Data(string status_mess)
         {
-            try
-            {
-                clear_data(this.Controls);
-                Is_Double_Click = false;
-                cmdDamOP = new ClsCommander<T_OPeration_Damage>();
-                //  row_to_show = Properties.Settings.Default.gc_row_count;
-                TF_OPeration_IN = cmdDamOP.Get_All().FirstOrDefault();
-                if (TF_OPeration_IN != null)
-                    Fill_Graid();
-                base.Get_Data(status_mess);
+            ds = new DataSet();
+            Is_Double_Click = false;
+            Fill_Graid_op();
+            Fill_Graid_item();
+            dt_op.TableName = "T_OPeration_Damage";
+            dt_item.TableName = "T_Operation_Damage_Item";
+            ds.Tables.Add(dt_op);
+            ds.Tables.Add(dt_item);
+            ds.Relations.Add("rel", dt_op.Columns["dam_OP_id"], dt_item.Columns["dmg_op_id"]);
+            gc.DataSource = ds;
+            gc.DataMember = "T_OPeration_Damage";
 
-            }
-            catch (Exception ex)
-            {
-                Get_Data(ex.InnerException.InnerException.ToString() + "/" + ex.Message);
-            }
-
+            gv_column_names_op();
+            gv_column_names_item();
+            //get_op(status_mess);
+            //get_item(status_mess);
         }
         public override void neew()
         {
@@ -100,7 +95,7 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
                             foreach (int row_id in gv.GetSelectedRows())
                             {
                                 Get_Row_ID(row_id);
-                                cmdDamOP.Delete_Data(TF_OPeration_IN);
+                                //   cmdINOP.Delete_Data(TF_OPeration_IN);
 
                             }
                             base.Delete_Data();
@@ -130,69 +125,81 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
             C_Master.print_header(tit, gc);
         }
 
-        public override bool Validate_Data()
+        private void Fill_Graid_op()
         {
-            int number_of_errores = 0;
 
+            dt_op = c_db.select(@"SELECT     T_OPeration_Damage.dam_OP_id,
+T_OPeration_Damage.dam_op_date,
+T_OPeration_Damage.dam_op_time,
+T_OPeration_Damage.dam_op_text, 
+                      T_OPeration_Damage.dam_op_state,
+T_OPeration_Damage.emp_id, 
+T_Pers_Emploee.Emp_name,
+T_OPeration_Damage.med_count
+FROM         T_OPeration_Damage INNER JOIN
+                      T_Pers_Emploee ON T_OPeration_Damage.emp_id = T_Pers_Emploee.Emp_id");
+            // if (dt_op != null && dt_op.Rows.Count > 0)
+            //       gv_column_names_op();
 
-            return (number_of_errores == 0);
         }
-
-
-        private void Fill_Graid()
+        private void gv_column_names_op()
         {
-            var data = (from med in cmdDamOP.Get_All()
-                        select new
-                        {
-                            id = med.dam_OP_id,
-                            date = med.dam_op_date,
-                            time = med.dam_op_time,
-                            text = med.dam_op_text,                                          
-                            emp_id = med.emp_id,
-                            emp = med.T_Pers_Emploee.Emp_name,
-                            count = med.med_count
-                        }).OrderBy(l_id => l_id.id).ToList();
-            //جلب جزء من البيانات
-            if (data != null && data.Count > 0)
-            {
-
-                gc.DataSource = data;
-
-                gv_column_names();
-
-            }
-        }
-
-        private void gv_column_names()
-        {
-            gv.Columns[0].Visible = false;
+            gv.Columns[0].Caption = "الرقم";
             gv.Columns[1].Caption = "التاريخ";
             gv.Columns[2].Caption = "الوقت";
-            gv.Columns[3].Caption = "البيان";
-
+            gv.Columns[3].Caption = "سبب الإتلاف";
             gv.Columns[4].Visible = false;
-            gv.Columns[5].Caption = "الموظف ";
-            gv.Columns[6].Caption = "عدد المواد  ";
+            gv.Columns[5].Visible = false;
+            gv.Columns[6].Caption = "الموظف ";
+            gv.Columns[7].Caption = "عدد المواد  ";
 
             gv.BestFitColumns();
         }
 
+        private void Fill_Graid_item()
+        {
+            dt_item = c_db.select(@" SELECT   T_Operation_Damage_Item.dmg_item_id,  T_Medician.med_name,
+T_Operation_Damage_Item.dmg_item_quntity,
+T_Store_Placees.name
+FROM         T_Operation_Damage_Item INNER JOIN
+                      T_OPeration_Damage ON T_Operation_Damage_Item.dmg_op_id = T_OPeration_Damage.dam_OP_id INNER JOIN
+                      T_Medician ON T_Operation_Damage_Item.Med_id = T_Medician.med_id INNER JOIN
+                      T_OPeration_IN_Item ON T_Operation_Damage_Item.in_item_id = T_OPeration_IN_Item.in_item_id INNER JOIN
+                      T_Store_Placees ON T_OPeration_IN_Item.store_place_id = T_Store_Placees.id");
+
+
+            if (dt_item != null && dt_item.Rows.Count > 0)
+            {
+
+                gv_column_names_item();
+
+            }
+        }
+        private void gv_column_names_item()
+        {
+
+            dt_item.Columns[1].Caption = "اسم الدواء";
+            dt_item.Columns[2].Caption = "الكمية المتلفة";
+            dt_item.Columns[3].Caption = "مكان التخزين ";
+           
+            gv.BestFitColumns();
+        }
         private void Get_Row_ID(int Row_Id)
         {
 
             if (Row_Id != 0)
             {
                 id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString().Replace(",", string.Empty));
-                TF_OPeration_IN = cmdDamOP.Get_By(c_id => c_id.dam_OP_id == id).FirstOrDefault();
+                //  TF_OPeration_IN = cmdINOP.Get_By(c_id => c_id.in_op_id == id).FirstOrDefault();
             }
             else
             {
                 id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString().Replace(",", string.Empty));
-                TF_OPeration_IN = cmdDamOP.Get_By(c_id => c_id.dam_OP_id == id).FirstOrDefault();
+                //  TF_OPeration_IN = cmdINOP.Get_By(c_id => c_id.in_op_id == id).FirstOrDefault();
             }
         }
 
-        public override void gv_DoubleClick(object sender, EventArgs e)
+        private void gv_DoubleClick(object sender, EventArgs e)
         {
             Is_Double_Click = true;
             gv.SelectRow(gv.FocusedRowHandle);
@@ -200,16 +207,6 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
             Get_Row_ID(0);
             //  if (TF_OPeration_IN != null)
             // Fill_Controls();
-        }
-
-        public override void gv_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Delete && gv.RowCount > 0)
-                Delete_Data();
-        }
-        public override void gv_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Is_Double_Click = true;
         }
     }
 }

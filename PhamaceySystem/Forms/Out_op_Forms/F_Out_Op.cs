@@ -71,7 +71,7 @@ namespace PhamaceySystem.Forms.Store_Forms
                 Set_Auto_Id_op();
 
                 out_op_dateDateEdit.DateTime = Convert.ToDateTime(d.ToShortDateString());
-                out_op_timeTimeSpanEdit.EditValue = Convert.ToDateTime(d.ToShortDateString());
+                dtp_op_time.Value = Convert.ToDateTime(d.ToShortTimeString());
 
                 Is_Double_Click = false;
                 btn_visible(false);
@@ -196,7 +196,7 @@ namespace PhamaceySystem.Forms.Store_Forms
         {
 
             TF_OP_Out.out_op_date = Convert.ToDateTime(out_op_dateDateEdit.DateTime.ToString("yyyy/MM/dd"));
-          //  TF_OP_Out.out_op_time = (TimeSpan?)out_op_timeTimeSpanEdit.EditValue;
+            TF_OP_Out.out_op_time = dtp_op_time.Text;
             TF_OP_Out.out_op_text = out_op_textTextEdit.Text;
             TF_OP_Out.out_op_state = Convert.ToBoolean(out_op_stateCheckEdit.CheckState);
             TF_OP_Out.med_count = Convert.ToInt32(med_countTextEdit1.Text.ToString().Replace(",", string.Empty));
@@ -210,7 +210,7 @@ namespace PhamaceySystem.Forms.Store_Forms
         {
             out_op_idTextEdit.Text = TF_OP_Out.out_op_id.ToString();
             out_op_dateDateEdit.DateTime = Convert.ToDateTime(TF_OP_Out.out_op_date);
-            out_op_timeTimeSpanEdit.EditValue = TF_OP_Out.out_op_time;
+            dtp_op_time.Text = TF_OP_Out.out_op_time;
             out_op_textTextEdit.Text = TF_OP_Out.out_op_text;
             out_op_stateCheckEdit.Checked = Convert.ToBoolean(TF_OP_Out.out_op_state);
             reciver_empTextEdit.Text = TF_OP_Out.reciver_name;
@@ -461,7 +461,7 @@ WHERE        (dbo.T_OPeration_Out_Item.out_op_id = " + id + ")");
             TF_Store_Move.op_id = Convert.ToInt32(out_op_idTextEdit.Text.ToString().Replace(",", string.Empty));
             TF_Store_Move.op_type_id = Convert.ToInt32("2");
             TF_Store_Move.date = Convert.ToDateTime(out_op_dateDateEdit.DateTime.ToString("yyyy/MM/dd"));
-         //   TF_Store_Move.time = (TimeSpan?)out_op_timeTimeSpanEdit.EditValue;
+            TF_Store_Move.time = dtp_op_time.Text;
 
             cmdStoreMove.Insert_Data(TF_Store_Move);
         }

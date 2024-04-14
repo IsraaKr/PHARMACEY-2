@@ -106,13 +106,13 @@ namespace PhamaceySystem.Forms.Medicin_Forms
 
 
                 }
-                else if (total < per && total > min)
-                {
-                    e.Appearance.BackColor = Color.FromArgb(150, Color.LightYellow);
-                    e.Appearance.BackColor2 = Color.White;
+                //else if (total < per && total > min)
+                //{
+                //    e.Appearance.BackColor = Color.FromArgb(150, Color.LightYellow);
+                //    e.Appearance.BackColor2 = Color.White;
 
 
-                }
+                //}
             }
         }
 

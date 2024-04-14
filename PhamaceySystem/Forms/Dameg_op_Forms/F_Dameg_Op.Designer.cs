@@ -32,6 +32,7 @@
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.dataLayoutControl2 = new DevExpress.XtraDataLayout.DataLayoutControl();
+            this.dtp_op_time = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btn_delet_item = new DevExpress.XtraEditors.SimpleButton();
             this.btn_edite_item = new DevExpress.XtraEditors.SimpleButton();
@@ -53,7 +54,6 @@
             this.med_countTextEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.out_item_quntityTextEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.placeTextEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.out_op_timeTimeSpanEdit = new DevExpress.XtraEditors.TimeEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -74,13 +74,12 @@
             this.ItemForemp_id = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForin_op_state = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemForin_op_time = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemFordonar_emp1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.realTimeSource1 = new DevExpress.Data.RealTimeSource();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).BeginInit();
@@ -102,7 +101,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.med_countTextEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.out_item_quntityTextEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeTextEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.out_op_timeTimeSpanEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
@@ -123,10 +121,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForemp_id)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_state)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_time)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemFordonar_emp1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
@@ -160,6 +158,7 @@
             // 
             // dataLayoutControl2
             // 
+            this.dataLayoutControl2.Controls.Add(this.dtp_op_time);
             this.dataLayoutControl2.Controls.Add(this.dateTimePicker1);
             this.dataLayoutControl2.Controls.Add(this.btn_delet_item);
             this.dataLayoutControl2.Controls.Add(this.btn_edite_item);
@@ -178,7 +177,6 @@
             this.dataLayoutControl2.Controls.Add(this.med_countTextEdit1);
             this.dataLayoutControl2.Controls.Add(this.out_item_quntityTextEdit1);
             this.dataLayoutControl2.Controls.Add(this.placeTextEdit2);
-            this.dataLayoutControl2.Controls.Add(this.out_op_timeTimeSpanEdit);
             this.dataLayoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl2.Location = new System.Drawing.Point(0, 0);
             this.dataLayoutControl2.Margin = new System.Windows.Forms.Padding(2);
@@ -190,12 +188,23 @@
             this.dataLayoutControl2.TabIndex = 11;
             this.dataLayoutControl2.Text = "dataLayoutControl2";
             // 
+            // dtp_op_time
+            // 
+            this.dtp_op_time.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_op_time.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtp_op_time.Location = new System.Drawing.Point(768, 130);
+            this.dtp_op_time.Name = "dtp_op_time";
+            this.dtp_op_time.ShowUpDown = true;
+            this.dtp_op_time.Size = new System.Drawing.Size(77, 23);
+            this.dtp_op_time.TabIndex = 34;
+            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.CustomFormat = "MM/yyyy";
             this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(23, 166);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(100, 27);
@@ -522,28 +531,6 @@
             this.placeTextEdit2.StyleController = this.dataLayoutControl2;
             this.placeTextEdit2.TabIndex = 9;
             // 
-            // out_op_timeTimeSpanEdit
-            // 
-            this.out_op_timeTimeSpanEdit.EditValue = System.TimeSpan.Parse("00:00:00");
-            this.out_op_timeTimeSpanEdit.Location = new System.Drawing.Point(768, 130);
-            this.out_op_timeTimeSpanEdit.Margin = new System.Windows.Forms.Padding(2);
-            this.out_op_timeTimeSpanEdit.MenuManager = this.barMang;
-            this.out_op_timeTimeSpanEdit.Name = "out_op_timeTimeSpanEdit";
-            this.out_op_timeTimeSpanEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.out_op_timeTimeSpanEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.out_op_timeTimeSpanEdit.Properties.Appearance.Options.UseFont = true;
-            this.out_op_timeTimeSpanEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.out_op_timeTimeSpanEdit.Properties.DisplayFormat.FormatString = "t";
-            this.out_op_timeTimeSpanEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.out_op_timeTimeSpanEdit.Properties.EditFormat.FormatString = "t";
-            this.out_op_timeTimeSpanEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.out_op_timeTimeSpanEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
-            this.out_op_timeTimeSpanEdit.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
-            this.out_op_timeTimeSpanEdit.Size = new System.Drawing.Size(77, 26);
-            this.out_op_timeTimeSpanEdit.StyleController = this.dataLayoutControl2;
-            this.out_op_timeTimeSpanEdit.TabIndex = 2;
-            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -730,10 +717,10 @@
             this.ItemForemp_id,
             this.ItemForin_op_state,
             this.layoutControlItem6,
-            this.ItemForin_op_time,
             this.ItemFordonar_emp1,
             this.emptySpaceItem2,
-            this.emptySpaceItem3});
+            this.emptySpaceItem3,
+            this.layoutControlItem3});
             this.layoutControlGroup4.Location = new System.Drawing.Point(745, 55);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
@@ -801,15 +788,6 @@
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
-            // ItemForin_op_time
-            // 
-            this.ItemForin_op_time.Control = this.out_op_timeTimeSpanEdit;
-            this.ItemForin_op_time.Location = new System.Drawing.Point(0, 30);
-            this.ItemForin_op_time.Name = "ItemForin_op_time";
-            this.ItemForin_op_time.Size = new System.Drawing.Size(233, 30);
-            this.ItemForin_op_time.Text = "وقت الإتلاف";
-            this.ItemForin_op_time.TextSize = new System.Drawing.Size(149, 19);
-            // 
             // ItemFordonar_emp1
             // 
             this.ItemFordonar_emp1.Control = this.med_countTextEdit1;
@@ -838,6 +816,15 @@
             this.emptySpaceItem3.Size = new System.Drawing.Size(95, 87);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.dtp_op_time;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 30);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(233, 30);
+            this.layoutControlItem3.Text = "وقت الاتلاف";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(149, 19);
+            // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
@@ -857,10 +844,6 @@
             this.layoutControlItem2.Size = new System.Drawing.Size(1233, 249);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
-            // 
-            // realTimeSource1
-            // 
-            this.realTimeSource1.DisplayableProperties = null;
             // 
             // F_Dameg_Op
             // 
@@ -898,7 +881,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.med_countTextEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.out_item_quntityTextEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.placeTextEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.out_op_timeTimeSpanEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
@@ -919,10 +901,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForemp_id)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_state)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_time)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemFordonar_emp1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
@@ -952,7 +934,6 @@
         private DevExpress.XtraLayout.LayoutControlItem ItemForMed_id;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem ItemForin_op_date;
-        private DevExpress.XtraLayout.LayoutControlItem ItemForin_op_time;
         private DevExpress.XtraLayout.LayoutControlItem ItemForin_op_text;
         private DevExpress.XtraLayout.LayoutControlItem ItemForin_op_state;
         private DevExpress.XtraLayout.LayoutControlItem ItemForemp_id;
@@ -982,7 +963,7 @@
         private DevExpress.XtraLayout.LayoutControlItem ItemForin_item_quntity3;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
-        private DevExpress.XtraEditors.TimeEdit out_op_timeTimeSpanEdit;
-        private DevExpress.Data.RealTimeSource realTimeSource1;
+        private System.Windows.Forms.DateTimePicker dtp_op_time;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

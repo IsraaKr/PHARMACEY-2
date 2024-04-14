@@ -1,4 +1,5 @@
 ﻿using DevExpress.Data;
+using DevExpress.XtraGrid.Views.Grid;
 using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
 using PhamaceySystem.Inheratenz_Forms;
@@ -14,30 +15,29 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Store_Other_Forms
 {
-    public partial class F_Store_Med_ExpDate : F_Master_Graid
+    public partial class F_Store_Med_ExpDate : Form
     {
         public F_Store_Med_ExpDate()
         {
             InitializeComponent();
-     
-            view_inheretanz_butomes(true, false, false, false, false, false, true);
-            Title(tit);
+            Get_Data("");
             this.Text = tit;
+            lbl_tiltle.Text = tit;
         }
         public string tit = "الأدوية المنتهية الصلاحية";
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
         ClsCommander<T_OPeration_IN_Item> cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
-     
+
         T_OPeration_IN_Item TF_OP_IN_Item;
 
         T_Medician TF_Medician;
         Boolean Is_Double_Click = false;
         int id;
-        public override void Get_Data(string status_mess)
+        public void Get_Data(string status_mess)
         {
             try
             {
-                clear_data(this.Controls);
+
                 Is_Double_Click = false;
                 cmdMedician = new ClsCommander<T_Medician>();
                 cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
@@ -45,7 +45,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                 TF_OP_IN_Item = cmdOpInItem.Get_All().FirstOrDefault();
                 if (TF_OP_IN_Item != null)
                     Fill_Graid();
-                base.Get_Data(status_mess);
+
 
             }
             catch (Exception ex)
@@ -54,28 +54,13 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             }
 
         }
-        public override void neew()
+
+
+
+
+        public void Print_Data()
         {
 
-        }
-        public override void Update_Data()
-        {
-
-
-        }
-        public override void Delete_Data()
-        {
-
-
-        }
-        public override void clear_data(Control.ControlCollection s_controls)
-        {
-            base.clear_data(s_controls);
-
-        }
-        public override void Print_Data()
-        {
-            base.Print_Data();
             C_Master.print_header(lbl_tiltle.Text, gc);
         }
 
@@ -83,25 +68,41 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
 
         private void Fill_Graid()
         {
-            gc.DataSource = (from med in cmdOpInItem.Get_All().Where(l => l.in_item_expDate <= DateTime.Today && l.is_out != true)
+            int year = DateTime.Today.Year;
+            int month = DateTime.Today.Month;
+            if (month != 12)
+            {
+                month = month+1;
+              
+            }
+           else if (month ==12)
+            {
+                month = 1;
+                year = year + 1;
+
+            }
+          
+            gc.DataSource = (from med in cmdOpInItem.Get_All().Where(l => l.in_item_expDate.Value.Month < month
+                             && l.in_item_expDate.Value.Year <=year
+                             && l.is_out != true)
                              select new
                              {
                                  id = med.in_item_id,
-                                 med_id= med.Med_id,
+                                 med_id = med.Med_id,
                                  code = med.T_Medician.med_code,
                                  name = med.T_Medician.med_name,
                                  quntetey = med.in_item_quntity,
                                  datee = med.in_item_expDate,
-                                 
+
                              }).OrderBy(l_id => l_id.id);
 
             gv.Columns["id"].Visible = false;
-            gv.Columns[2].Visible = false;
+            gv.Columns[1].Visible = false;
 
             gv.Columns["code"].Caption = "الكود";
             gv.Columns["name"].Caption = "الاسم";
-            gv.Columns[3].Caption = "الكمية ";
-            gv.Columns[4].Caption = "تاريخ انتهاء الصلاحية";
+            gv.Columns[4].Caption = "الكمية ";
+            gv.Columns[5].Caption = "تاريخ انتهاء الصلاحية";
 
             gv.BestFitColumns();
         }
@@ -121,7 +122,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             }
         }
 
-        public override void gv_DoubleClick(object sender, EventArgs e)
+        public void gv_DoubleClick(object sender, EventArgs e)
         {
             Is_Double_Click = true;
             gv.SelectRow(gv.FocusedRowHandle);
@@ -131,14 +132,30 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             // Fill_Controls();
         }
 
-        public override void gv_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Delete && gv.RowCount > 0)
-                Delete_Data();
-        }
-        public override void gv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    
+        public void gv_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Is_Double_Click = true;
+        }
+
+        private void gv_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            DateTime exp_date ;
+            DateTime d = DateTime.Today;
+            int yeare = d.Year;
+            int month = d.Month;
+            GridView gv = (GridView)sender;
+            if (e.RowHandle >= 0)
+            {
+                exp_date = Convert.ToDateTime(gv.GetRowCellValue(e.RowHandle, gv.Columns[5]).ToString());
+               
+                if (exp_date.Month < month && exp_date.Year <= yeare)
+                {
+                    e.Appearance.BackColor = Color.FromArgb(150, Color.IndianRed);
+                    e.Appearance.BackColor2 = Color.White;
+
+                }
+            }
         }
     }
 }

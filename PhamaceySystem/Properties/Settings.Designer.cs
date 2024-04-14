@@ -143,12 +143,48 @@ namespace PhamaceySystem.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool is_med_count_show {
+        public bool is_med_count_not_show {
             get {
-                return ((bool)(this["is_med_count_show"]));
+                return ((bool)(this["is_med_count_not_show"]));
             }
             set {
-                this["is_med_count_show"] = value;
+                this["is_med_count_not_show"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool is_med_count_form_show {
+            get {
+                return ((bool)(this["is_med_count_form_show"]));
+            }
+            set {
+                this["is_med_count_form_show"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool is_expdate_form_show {
+            get {
+                return ((bool)(this["is_expdate_form_show"]));
+            }
+            set {
+                this["is_expdate_form_show"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool is_expdate_not_show {
+            get {
+                return ((bool)(this["is_expdate_not_show"]));
+            }
+            set {
+                this["is_expdate_not_show"] = value;
             }
         }
     }
