@@ -23,6 +23,8 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             Get_Data("");
             this.Text = tit;
             lbl_tiltle.Text = tit;
+            lbl_tiltle.BackColor = Properties.Settings.Default.titel_master_colore;
+
         }
         public string tit = "الأدوية المنتهية الصلاحية";
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
@@ -81,17 +83,20 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                 year = year + 1;
 
             }
-          
+            cmdMedician = new ClsCommander<T_Medician>();
             gc.DataSource = (from med in cmdOpInItem.Get_All().Where(l => l.in_item_expDate.Value.Month < month
                              && l.in_item_expDate.Value.Year <=year
                              && l.is_out != true)
+                             join xxx in cmdMedician.Get_All()
+                             on med.Med_id equals xxx.med_id into list
+                             from yyy in list.DefaultIfEmpty()
                              select new
                              {
                                  id = med.in_item_id,
                                  med_id = med.Med_id,
-                                 code = med.T_Medician.med_code,
-                                 name = med.T_Medician.med_name,
-                                 quntetey = med.in_item_quntity,
+                                 code =yyy.med_code,
+                                 name = yyy.med_name,
+                                 quntetey =yyy.med_total_now,
                                  datee = med.in_item_expDate,
 
                              }).OrderBy(l_id => l_id.id);
@@ -101,7 +106,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
 
             gv.Columns["code"].Caption = "الكود";
             gv.Columns["name"].Caption = "الاسم";
-            gv.Columns[4].Caption = "الكمية ";
+            gv.Columns[4].Caption = " الكمية الموجودة ";
             gv.Columns[5].Caption = "تاريخ انتهاء الصلاحية";
 
             gv.BestFitColumns();
@@ -156,6 +161,26 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
 
                 }
             }
+        }
+
+        private void gc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bar_print_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Print_Data();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Get_Data("");
+        }
+
+        private void bar_close_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
         }
     }
 }

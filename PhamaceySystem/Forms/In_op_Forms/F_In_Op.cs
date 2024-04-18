@@ -19,7 +19,7 @@ namespace PhamaceySystem.Forms.Store_Forms
         public F_In_Op()
         {
             InitializeComponent();
-            view_inheretanz_butomes(true, false, false, false, false, false, true);
+            view_inheretanz_butomes(true, false, false, false, false, false, true ,true);
             Title(tit);
             this.Text = tit;
         }
@@ -32,7 +32,7 @@ namespace PhamaceySystem.Forms.Store_Forms
             InitializeComponent();
             Title(tit);
             this.Text = tit;
-            view_inheretanz_butomes(true, true, false, false, false, false, true);
+            view_inheretanz_butomes(true, true, false, false, false, false, true,true);
         }
 
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
@@ -197,8 +197,8 @@ namespace PhamaceySystem.Forms.Store_Forms
             TF_OP_IN.med_count = Convert.ToInt32(med_countTextEdit1.Text.ToString().Replace(",", string.Empty));
             TF_OP_IN.donar_emp = donar_empTextEdit.Text;
             TF_OP_IN.donar_id = Convert.ToInt32(
-                donar_idSearchLookUpEdit.EditValue.ToString().Replace(",", string.Empty));
-            TF_OP_IN.emp_id = Convert.ToInt32(emp_idSearchLookUpEdit.EditValue.ToString().Replace(",", string.Empty));
+                donar_idSearchLookUpEdit.EditValue.ToString());
+            TF_OP_IN.emp_id = Convert.ToInt32(emp_idSearchLookUpEdit.EditValue.ToString());
             TF_OP_IN.op_type_id = Convert.ToInt32("1");
         }
 
@@ -281,9 +281,9 @@ namespace PhamaceySystem.Forms.Store_Forms
             TF_OP_IN_Item.in_item_expDate = Convert.ToDateTime(in_item_expDateDateEdit.DateTime.ToString("yyyy/MM/dd"));
             TF_OP_IN_Item.in_B_It_note = in_B_It_noteMemoEdit.Text;
             TF_OP_IN_Item.Med_id = Convert.ToInt32(
-                Med_idSearchlookupEdit.EditValue.ToString().Replace(",", string.Empty));
+                Med_idSearchlookupEdit.EditValue.ToString());
             TF_OP_IN_Item.store_place_id = Convert.ToInt32(
-                med_storage_place_idSearchLookUpEdit.EditValue.ToString().Replace(",", string.Empty));
+                med_storage_place_idSearchLookUpEdit.EditValue.ToString());
             TF_OP_IN_Item.In_op_id = TF_OP_IN.in_op_id;
             TF_OP_IN_Item.is_out = false;
             TF_OP_IN_Item.out_item_quntitey = 0;
@@ -415,7 +415,8 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
         private void Get_Add_med_count()
         {
             TF_Medician = new T_Medician();
-            int id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue.ToString().Replace(",", string.Empty));
+            int id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue);
+
             TF_Medician = cmdMedician.Get_All().Where(l => l.med_id == id).FirstOrDefault();
             TF_Medician.med_in_count = TF_Medician.med_in_count +
                 Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
@@ -440,7 +441,7 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
         private void Get_Update_med_count()
         {
             TF_Medician = new T_Medician();
-            int id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue.ToString().Replace(",", string.Empty));
+            int id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue.ToString());
             TF_Medician = cmdMedician.Get_All().Where(l => l.med_id == id).FirstOrDefault();
             TF_Medician.med_in_count = TF_Medician.med_in_count -
                 old_med_Quntitey +
@@ -460,13 +461,16 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
 
             TF_Store_Move.qunt = Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
             TF_Store_Move.med_id = Convert.ToInt32(
-                Med_idSearchlookupEdit.EditValue.ToString().Replace(",", string.Empty));
+                Med_idSearchlookupEdit.EditValue.ToString());
             TF_Store_Move.item_id = Convert.ToInt32(in_item_idTextEdit.Text.ToString().Replace(",", string.Empty));
             TF_Store_Move.op_id = Convert.ToInt32(in_op_idTextEdit.Text.ToString().Replace(",", string.Empty));
             TF_Store_Move.op_type_id = Convert.ToInt32("1");
             TF_Store_Move.date = Convert.ToDateTime(in_op_dateDateEdit.DateTime.ToString("yyyy/MM/dd"));
             TF_Store_Move.time = dtp_op_time.Text;
-
+            TF_Store_Move.emp_id = Convert.ToInt32(emp_idSearchLookUpEdit.EditValue.ToString());
+            TF_Store_Move.reciver_id = null;
+            TF_Store_Move.donar_id = Convert.ToInt32( donar_idSearchLookUpEdit.EditValue.ToString());
+            TF_Store_Move.place_id = Convert.ToInt32(   med_storage_place_idSearchLookUpEdit.EditValue.ToString());
             cmdStoreMove.Insert_Data(TF_Store_Move);
         }
 
@@ -486,7 +490,11 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
 
             TF_Store_Move.qunt = Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
             TF_Store_Move.med_id = Convert.ToInt32(
-                Med_idSearchlookupEdit.EditValue.ToString().Replace(",", string.Empty));
+                Med_idSearchlookupEdit.EditValue.ToString());
+            TF_Store_Move.emp_id = Convert.ToInt32(emp_idSearchLookUpEdit.EditValue.ToString());
+            TF_Store_Move.reciver_id = null;
+            TF_Store_Move.donar_id = Convert.ToInt32(donar_idSearchLookUpEdit.EditValue.ToString());
+            TF_Store_Move.place_id = Convert.ToInt32(med_storage_place_idSearchLookUpEdit.EditValue.ToString());
 
             cmdStoreMove.Update_Data(TF_Store_Move);
         }
@@ -669,12 +677,12 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
             long id;
             if(Row_Id != 0)
             {
-                id = Convert.ToInt64(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString().Replace(",", string.Empty));
+                id = Convert.ToInt64(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString());
                 TF_OP_IN_Item = cmdOpInItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
             } else
             {
                 id = Convert.ToInt64(
-                    gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString().Replace(",", string.Empty));
+                    gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString());
                 TF_OP_IN_Item = cmdOpInItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
             }
         }
@@ -728,39 +736,5 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
             Fill_Graid_item();
         }
 
-        private void in_op_stateCheckEdit_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void in_op_timeTimeSpanEdit_EditValueChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void in_op_dateDateEdit_EditValueChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void in_op_dateDateEdit1_EditValueChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void in_op_timeTimeSpanEdit_EditValueChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
-        {
-           // dateTimePicker3.CustomFormat = "HH:mm";
-        }
-
-        private void dateTimePicker1_ValueChanged_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

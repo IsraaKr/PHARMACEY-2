@@ -36,10 +36,8 @@
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbl_tiltle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_tiltle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_tiltle.Size = new System.Drawing.Size(720, 49);
+            this.lbl_tiltle.Size = new System.Drawing.Size(720, 50);
             // 
             // timer_date
             // 
@@ -49,11 +47,11 @@
             // 
             this.gc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gc.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.gc.Location = new System.Drawing.Point(0, 49);
+            this.gc.Location = new System.Drawing.Point(0, 50);
             this.gc.MainView = this.gv;
             this.gc.Margin = new System.Windows.Forms.Padding(2);
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(720, 562);
+            this.gc.Size = new System.Drawing.Size(720, 561);
             this.gc.TabIndex = 26;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});

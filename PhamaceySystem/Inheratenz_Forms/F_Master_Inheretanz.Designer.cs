@@ -50,6 +50,8 @@
             this.sp_clear = new DevExpress.XtraBars.BarButtonItem();
             this.bar_print = new DevExpress.XtraBars.BarButtonItem();
             this.sp_print = new DevExpress.XtraBars.BarButtonItem();
+            this.bar_refresh = new DevExpress.XtraBars.BarButtonItem();
+            this.sp_refresh = new DevExpress.XtraBars.BarButtonItem();
             this.status_bar = new DevExpress.XtraBars.Bar();
             this.bar_states = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
@@ -60,6 +62,9 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barMang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,20 +75,20 @@
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_tiltle.BackColor = System.Drawing.Color.DarkSlateGray;
             this.lbl_tiltle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbl_tiltle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_tiltle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbl_tiltle.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_tiltle.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_tiltle.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbl_tiltle.Location = new System.Drawing.Point(0, 0);
+            this.lbl_tiltle.MaximumSize = new System.Drawing.Size(3000, 50);
+            this.lbl_tiltle.MinimumSize = new System.Drawing.Size(0, 50);
             this.lbl_tiltle.Name = "lbl_tiltle";
-            this.lbl_tiltle.Size = new System.Drawing.Size(1008, 69);
+            this.lbl_tiltle.Size = new System.Drawing.Size(864, 50);
             this.lbl_tiltle.TabIndex = 5;
             this.lbl_tiltle.Text = "....";
             this.lbl_tiltle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_tiltle.Click += new System.EventHandler(this.lbl_tiltle_Click);
             // 
             // timer_date
             // 
@@ -119,9 +124,11 @@
             this.sp_new,
             this.sp_print,
             this.bar_add_save,
-            this.sp_add_save});
+            this.sp_add_save,
+            this.bar_refresh,
+            this.sp_refresh});
             this.barMang.MainMenu = this.menu_bar;
-            this.barMang.MaxItemId = 28;
+            this.barMang.MaxItemId = 30;
             this.barMang.OptionsStubGlyphs.Padding = new System.Windows.Forms.Padding(0);
             this.barMang.StatusBar = this.status_bar;
             // 
@@ -159,7 +166,9 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_clear),
             new DevExpress.XtraBars.LinkPersistInfo(this.sp_clear),
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_print),
-            new DevExpress.XtraBars.LinkPersistInfo(this.sp_print)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.sp_print),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_refresh),
+            new DevExpress.XtraBars.LinkPersistInfo(this.sp_refresh)});
             this.menu_bar.OptionsBar.MultiLine = true;
             this.menu_bar.OptionsBar.UseWholeRow = true;
             this.menu_bar.Text = "Main menu";
@@ -238,6 +247,7 @@
             // bar_close
             // 
             this.bar_close.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bar_close.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.bar_close.Caption = "خروج";
             this.bar_close.Id = 11;
             this.bar_close.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_close.ImageOptions.Image")));
@@ -299,6 +309,24 @@
             this.sp_print.Id = 25;
             this.sp_print.Name = "sp_print";
             this.sp_print.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // bar_refresh
+            // 
+            this.bar_refresh.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.bar_refresh.Caption = "تحديث";
+            this.bar_refresh.Id = 28;
+            this.bar_refresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_refresh.ImageOptions.Image")));
+            this.bar_refresh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_refresh.ImageOptions.LargeImage")));
+            this.bar_refresh.Name = "bar_refresh";
+            this.bar_refresh.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.bar_refresh.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bar_refresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_refresh_ItemClick);
+            // 
+            // sp_refresh
+            // 
+            this.sp_refresh.Id = 29;
+            this.sp_refresh.Name = "sp_refresh";
+            this.sp_refresh.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // status_bar
             // 
@@ -366,15 +394,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barMang;
-            this.barDockControlTop.Size = new System.Drawing.Size(1008, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(864, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 381);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 316);
             this.barDockControlBottom.Manager = this.barMang;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1008, 109);
+            this.barDockControlBottom.Size = new System.Drawing.Size(864, 109);
             // 
             // barDockControlLeft
             // 
@@ -382,15 +410,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barMang;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 381);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 316);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1008, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(864, 0);
             this.barDockControlRight.Manager = this.barMang;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 381);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 316);
             // 
             // barButtonItem6
             // 
@@ -402,11 +430,41 @@
             this.barButtonItem6.Name = "barButtonItem6";
             this.barButtonItem6.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.barButtonItem1.Caption = "جديد";
+            this.barButtonItem1.Id = 23;
+            this.barButtonItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonItem1.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.barButtonItem2.Caption = "جديد";
+            this.barButtonItem2.Id = 23;
+            this.barButtonItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
+            this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonItem2.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.barButtonItem3.Caption = "جديد";
+            this.barButtonItem3.Id = 23;
+            this.barButtonItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem3.ImageOptions.SvgImage")));
+            this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonItem3.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
             // F_Master_Inheretanz
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 490);
+            this.ClientSize = new System.Drawing.Size(864, 425);
             this.Controls.Add(this.lbl_tiltle);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -458,5 +516,10 @@
         public DevExpress.XtraBars.BarStaticItem bar_time;
         public DevExpress.XtraBars.BarButtonItem bar_add_save;
         public DevExpress.XtraBars.BarButtonItem sp_add_save;
+        private DevExpress.XtraBars.BarButtonItem bar_refresh;
+        private DevExpress.XtraBars.BarButtonItem sp_refresh;
+        public DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        public DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        public DevExpress.XtraBars.BarButtonItem barButtonItem3;
     }
 }

@@ -38,6 +38,7 @@
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bar_close = new DevExpress.XtraBars.BarButtonItem();
             this.bar_print = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -53,18 +54,28 @@
             // gc
             // 
             this.gc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc.Location = new System.Drawing.Point(0, 60);
+            this.gc.Location = new System.Drawing.Point(0, 50);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(800, 350);
+            this.gc.Size = new System.Drawing.Size(800, 360);
             this.gc.TabIndex = 7;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
+            this.gc.Click += new System.EventHandler(this.gc_Click);
             // 
             // gv
             // 
+            this.gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gv.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gv.Appearance.Row.Options.UseFont = true;
+            this.gv.Appearance.Row.Options.UseTextOptions = true;
+            this.gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gv.GridControl = this.gc;
             this.gv.Name = "gv";
+            this.gv.OptionsFind.AlwaysVisible = true;
             this.gv.OptionsPrint.AllowMultilineHeaders = true;
             this.gv.OptionsPrint.ExpandAllDetails = true;
             this.gv.OptionsPrint.PrintDetails = true;
@@ -80,11 +91,11 @@
             this.lbl_tiltle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_tiltle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_tiltle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbl_tiltle.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_tiltle.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_tiltle.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbl_tiltle.Location = new System.Drawing.Point(0, 0);
             this.lbl_tiltle.Name = "lbl_tiltle";
-            this.lbl_tiltle.Size = new System.Drawing.Size(800, 60);
+            this.lbl_tiltle.Size = new System.Drawing.Size(800, 50);
             this.lbl_tiltle.TabIndex = 8;
             this.lbl_tiltle.Text = "....";
             this.lbl_tiltle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -126,9 +137,10 @@
             this.bar_print,
             this.bar_time,
             this.bar_date,
-            this.barStaticItem3});
+            this.barStaticItem3,
+            this.barButtonItem1});
             this.barMang.MainMenu = this.bar1;
-            this.barMang.MaxItemId = 28;
+            this.barMang.MaxItemId = 29;
             this.barMang.OptionsStubGlyphs.Padding = new System.Windows.Forms.Padding(0);
             // 
             // bar1
@@ -152,7 +164,8 @@
             this.bar1.FloatLocation = new System.Drawing.Point(242, 365);
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_close),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bar_print)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_print),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
             this.bar1.OptionsBar.MultiLine = true;
             this.bar1.OptionsBar.UseWholeRow = true;
             this.bar1.Text = "Main menu";
@@ -160,12 +173,14 @@
             // bar_close
             // 
             this.bar_close.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bar_close.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.bar_close.Caption = "خروج";
             this.bar_close.Id = 11;
             this.bar_close.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_close.ImageOptions.Image")));
             this.bar_close.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_close.ImageOptions.LargeImage")));
             this.bar_close.Name = "bar_close";
             this.bar_close.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.bar_close.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_close_ItemClick);
             // 
             // bar_print
             // 
@@ -177,6 +192,18 @@
             this.bar_print.Name = "bar_print";
             this.bar_print.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.bar_print.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bar_print.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_print_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.barButtonItem1.Caption = "تحديث";
+            this.barButtonItem1.Id = 28;
+            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -278,5 +305,6 @@
         public DevExpress.XtraBars.BarStaticItem bar_time;
         public DevExpress.XtraBars.BarStaticItem bar_date;
         public DevExpress.XtraBars.BarStaticItem barStaticItem3;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }

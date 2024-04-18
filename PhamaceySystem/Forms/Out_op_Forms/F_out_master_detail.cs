@@ -17,7 +17,7 @@ namespace PhamaceySystem.Forms.Out_op_Forms
         {
            
                 InitializeComponent();
-                view_inheretanz_butomes(true, false, false, true, true, false, true);
+                view_inheretanz_butomes(true, false, false, true, true, false, true,true);
 
                 Title(tit);
                 this.Text = tit;
@@ -41,7 +41,7 @@ namespace PhamaceySystem.Forms.Out_op_Forms
                 ds.Tables.Add(dt_item);
             ds.Relations.Add("rel", dt_op.Columns["out_op_id"], dt_item.Columns["out_op_id"]);
             gc.DataSource = ds;
-                gc.DataMember = "T_OPeration_Damage";
+                gc.DataMember = "T_OPeration_Out";
 
                 gv_column_names_op();
                 gv_column_names_item();
@@ -167,15 +167,11 @@ FROM         T_OPeration_Out INNER JOIN
 
             private void Fill_Graid_item()
             {
-                dt_item = c_db.select(@" SELECT     T_OPeration_Out_Item.out_item_id,
-T_Medician.med_name,
-T_OPeration_Out_Item.out_item_quntity, 
-T_Store_Placees.name
-
+                dt_item = c_db.select(@" SELECT     T_OPeration_Out_Item.out_item_id, T_Medician.med_name, T_OPeration_Out_Item.out_item_quntity, T_Store_Placees.name, T_OPeration_Out_Item.out_op_id
 FROM         T_OPeration_Out_Item INNER JOIN
                       T_OPeration_Out ON T_OPeration_Out_Item.out_op_id = T_OPeration_Out.out_op_id INNER JOIN
                       T_Medician ON T_OPeration_Out_Item.Med_id = T_Medician.med_id INNER JOIN
-                      T_OPeration_IN_Item ON T_OPeration_Out_Item.in_item_id = T_OPeration_IN_Item.in_item_id  INNER JOIN
+                      T_OPeration_IN_Item ON T_OPeration_Out_Item.in_item_id = T_OPeration_IN_Item.in_item_id INNER JOIN
                       T_Store_Placees ON T_OPeration_IN_Item.store_place_id = T_Store_Placees.id");
 
 

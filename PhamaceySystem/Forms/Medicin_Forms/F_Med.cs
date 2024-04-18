@@ -20,7 +20,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         {
             InitializeComponent();
     
-            view_inheretanz_butomes(true, true, true, false, false, true, false);
+            view_inheretanz_butomes(true, true, true, false, false, true, false,true);
             Title(tit);
             this.Text = tit;
         }
@@ -31,7 +31,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             id_toUpdate = med_id;
             InitializeComponent();
             Title(tit);
-            view_inheretanz_butomes(false, true, true, false, false, true, false);
+            view_inheretanz_butomes(false, true, true, false, false, true, false, true);
         }
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
         ClsCommander<T_Med_Category> cmdMedCat = new ClsCommander<T_Med_Category>();

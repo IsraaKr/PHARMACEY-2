@@ -38,12 +38,13 @@
             // 
             // Root
             // 
-            this.Root.Size = new System.Drawing.Size(600, 611);
+            this.Root.Size = new System.Drawing.Size(600, 521);
             // 
             // dataLayoutControl1
             // 
+            this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(647, 70, 650, 400);
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(600, 611);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(600, 521);
             this.dataLayoutControl1.Controls.SetChildIndex(this.txt_name, 0);
             this.dataLayoutControl1.Controls.SetChildIndex(this.txt_id, 0);
             // 
@@ -51,16 +52,21 @@
             // 
             this.txt_id.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_id.Properties.Appearance.Options.UseFont = true;
+            this.txt_id.Size = new System.Drawing.Size(50, 22);
             // 
             // txt_name
             // 
+            this.txt_name.Location = new System.Drawing.Point(112, 29);
             this.txt_name.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_name.Properties.Appearance.Options.UseFont = true;
+            this.txt_name.Size = new System.Drawing.Size(430, 22);
             // 
             // txt
             // 
             this.txt.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt.AppearanceItemCaption.Options.UseFont = true;
+            this.txt.Location = new System.Drawing.Point(104, 0);
+            this.txt.Size = new System.Drawing.Size(484, 26);
             // 
             // F_Med_Unites
             // 

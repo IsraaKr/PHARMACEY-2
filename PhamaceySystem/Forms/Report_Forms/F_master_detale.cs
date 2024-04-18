@@ -19,7 +19,7 @@ namespace PhamaceySystem.Forms.Report_Forms
         public F_master_detale()
         {
             InitializeComponent();
-            view_inheretanz_butomes(true, false, false, true, true, false, true);
+            view_inheretanz_butomes(true, false, false, true, true, false, true, true);
 
             Title(tit);
             this.Text = tit;

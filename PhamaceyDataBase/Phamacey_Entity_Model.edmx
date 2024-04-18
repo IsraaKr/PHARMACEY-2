@@ -165,6 +165,10 @@
           <Property Name="op_type_id" Type="int" />
           <Property Name="date" Type="date" />
           <Property Name="time" Type="nvarchar" MaxLength="50" />
+          <Property Name="place_id" Type="int" />
+          <Property Name="reciver_id" Type="int" />
+          <Property Name="donar_id" Type="int" />
+          <Property Name="emp_id" Type="int" />
         </EntityType>
         <EntityType Name="T_Store_Placees">
           <Key>
@@ -564,7 +568,6 @@
           <EntitySet Name="T_Pers_Donars" EntityType="PHANACEY_DBModel.T_Pers_Donars" />
           <EntitySet Name="T_Pers_Emploee" EntityType="PHANACEY_DBModel.T_Pers_Emploee" />
           <EntitySet Name="T_Pers_Recivers" EntityType="PHANACEY_DBModel.T_Pers_Recivers" />
-          <EntitySet Name="T_Store_Move" EntityType="PHANACEY_DBModel.T_Store_Move" />
           <EntitySet Name="T_Store_Placees" EntityType="PHANACEY_DBModel.T_Store_Placees" />
           <AssociationSet Name="FK_T_Medician_T_Med_Category" Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Category">
             <End Role="T_Med_Category" EntitySet="T_Med_Category" />
@@ -589,10 +592,6 @@
           <AssociationSet Name="FK_T_OPeration_Out_Item_T_Medician" Association="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_Medician">
             <End Role="T_Medician" EntitySet="T_Medician" />
             <End Role="T_OPeration_Out_Item" EntitySet="T_OPeration_Out_Item" />
-          </AssociationSet>
-          <AssociationSet Name="FK_T_Store_Move_T_Medician" Association="PHANACEY_DBModel.FK_T_Store_Move_T_Medician">
-            <End Role="T_Medician" EntitySet="T_Medician" />
-            <End Role="T_Store_Move" EntitySet="T_Store_Move" />
           </AssociationSet>
           <AssociationSet Name="FK_T_Operation_Damage_Item_T_OPeration_Damage" Association="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_OPeration_Damage">
             <End Role="T_OPeration_Damage" EntitySet="T_OPeration_Damage" />
@@ -649,6 +648,11 @@
           <AssociationSet Name="FK_T_OPeration_Out_T_Pers_Recivers" Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Recivers">
             <End Role="T_Pers_Recivers" EntitySet="T_Pers_Recivers" />
             <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
+          </AssociationSet>
+          <EntitySet Name="T_Store_Move" EntityType="PHANACEY_DBModel.T_Store_Move" />
+          <AssociationSet Name="FK_T_Store_Move_T_Medician" Association="PHANACEY_DBModel.FK_T_Store_Move_T_Medician">
+            <End Role="T_Medician" EntitySet="T_Medician" />
+            <End Role="T_Store_Move" EntitySet="T_Store_Move" />
           </AssociationSet>
           <AssociationSet Name="FK_T_Store_Move_T_OPeration_Type" Association="PHANACEY_DBModel.FK_T_Store_Move_T_OPeration_Type">
             <End Role="T_OPeration_Type" EntitySet="T_OPeration_Type" />
@@ -844,21 +848,6 @@
           <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="T_OPeration_Out" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Recivers" FromRole="T_Pers_Recivers" ToRole="T_OPeration_Out" />
         </EntityType>
-        <EntityType Name="T_Store_Move">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="qunt" Type="Int32" />
-          <Property Name="med_id" Type="Int32" />
-          <Property Name="item_id" Type="Int32" />
-          <Property Name="op_id" Type="Int32" />
-          <Property Name="op_type_id" Type="Int32" />
-          <Property Name="date" Type="DateTime" Precision="0" />
-          <Property Name="time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="T_Medician" Relationship="PHANACEY_DBModel.FK_T_Store_Move_T_Medician" FromRole="T_Store_Move" ToRole="T_Medician" />
-          <NavigationProperty Name="T_OPeration_Type" Relationship="PHANACEY_DBModel.FK_T_Store_Move_T_OPeration_Type" FromRole="T_Store_Move" ToRole="T_OPeration_Type" />
-        </EntityType>
         <EntityType Name="T_Store_Placees">
           <Key>
             <PropertyRef Name="id" />
@@ -938,18 +927,6 @@
             </Principal>
             <Dependent Role="T_OPeration_Out_Item">
               <PropertyRef Name="Med_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_T_Store_Move_T_Medician">
-          <End Type="PHANACEY_DBModel.T_Medician" Role="T_Medician" Multiplicity="0..1" />
-          <End Type="PHANACEY_DBModel.T_Store_Move" Role="T_Store_Move" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_Medician">
-              <PropertyRef Name="med_id" />
-            </Principal>
-            <Dependent Role="T_Store_Move">
-              <PropertyRef Name="med_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1118,6 +1095,37 @@
             </Principal>
             <Dependent Role="T_OPeration_Out">
               <PropertyRef Name="reciver_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="T_Store_Move">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="qunt" Type="Int32" />
+          <Property Name="med_id" Type="Int32" />
+          <Property Name="item_id" Type="Int32" />
+          <Property Name="op_id" Type="Int32" />
+          <Property Name="op_type_id" Type="Int32" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="place_id" Type="Int32" />
+          <Property Name="reciver_id" Type="Int32" />
+          <Property Name="donar_id" Type="Int32" />
+          <Property Name="emp_id" Type="Int32" />
+          <NavigationProperty Name="T_Medician" Relationship="PHANACEY_DBModel.FK_T_Store_Move_T_Medician" FromRole="T_Store_Move" ToRole="T_Medician" />
+          <NavigationProperty Name="T_OPeration_Type" Relationship="PHANACEY_DBModel.FK_T_Store_Move_T_OPeration_Type" FromRole="T_Store_Move" ToRole="T_OPeration_Type" />
+        </EntityType>
+        <Association Name="FK_T_Store_Move_T_Medician">
+          <End Type="PHANACEY_DBModel.T_Medician" Role="T_Medician" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_Store_Move" Role="T_Store_Move" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Medician">
+              <PropertyRef Name="med_id" />
+            </Principal>
+            <Dependent Role="T_Store_Move">
+              <PropertyRef Name="med_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1301,9 +1309,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="T_Store_Placees">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Store_Placees">
+              <MappingFragment StoreEntitySet="T_Store_Placees">
+                <ScalarProperty Name="shufel" ColumnName="shufel" />
+                <ScalarProperty Name="groupe" ColumnName="groupe" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="T_Store_Move">
             <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Store_Move">
               <MappingFragment StoreEntitySet="T_Store_Move">
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="donar_id" ColumnName="donar_id" />
+                <ScalarProperty Name="reciver_id" ColumnName="reciver_id" />
+                <ScalarProperty Name="place_id" ColumnName="place_id" />
                 <ScalarProperty Name="time" ColumnName="time" />
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="op_type_id" ColumnName="op_type_id" />
@@ -1311,16 +1333,6 @@
                 <ScalarProperty Name="item_id" ColumnName="item_id" />
                 <ScalarProperty Name="med_id" ColumnName="med_id" />
                 <ScalarProperty Name="qunt" ColumnName="qunt" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="T_Store_Placees">
-            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Store_Placees">
-              <MappingFragment StoreEntitySet="T_Store_Placees">
-                <ScalarProperty Name="shufel" ColumnName="shufel" />
-                <ScalarProperty Name="groupe" ColumnName="groupe" />
-                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

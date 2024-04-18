@@ -18,15 +18,19 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
 {
     public partial class F_out_med_to_chose : F_Master_Inheretanz
     {
-        public F_out_med_to_chose(int med_id  , int out_op_id , DateTime date , string timr , int op_type)
+        public F_out_med_to_chose(int med_id  , int out_op_id , DateTime date , string timr , int op_type , int emp_id , int reciver_id )
         {
             InitializeComponent();
             med_idd = med_id;       
             out_op_idd = out_op_id;
             opp_type = op_type;
             datee =Convert.ToDateTime( date.ToString("yyyy/MM/dd"));
+            time = timr;
+             emp_f_id = emp_id;
+             reciver_f_id = reciver_id;
+     
             //   gv.OptionsBehavior.Editable   = true;
-            view_inheretanz_butomes(false, true, false, false, false, false, true);
+            view_inheretanz_butomes(false, true, false, false, false, false, true, true);
 
             Title(tit);
             this.Text = tit;
@@ -37,7 +41,8 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         ClsCommander<T_OPeration_Out_Item> cmdOppOutItem = new ClsCommander<T_OPeration_Out_Item>();
         ClsCommander<T_Store_Move> cmdStoreMove = new ClsCommander<T_Store_Move>();
         ClsCommander<T_Operation_Damage_Item> cmdOppDamItem = new ClsCommander<T_Operation_Damage_Item>();
-
+        ClsCommander<T_Store_Placees> cmdStorageplace = new ClsCommander<T_Store_Placees>();
+ 
         T_OPeration_IN_Item TF_OPeration_IN_Item;
         T_Medician TF_Medician;
         T_OPeration_Out_Item TF_OP_Out_Item;
@@ -50,6 +55,10 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         int out_op_idd;
         int in_op_idd;
         int item_id;
+        int emp_f_id;
+        int reciver_f_id;
+
+
         int out_item_quntity;
         DateTime datee;
         string time;
@@ -102,13 +111,19 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             TF_Store_Move.med_id = med_idd;
             TF_Store_Move.item_id = item_id;
             TF_Store_Move.op_id = out_op_idd;
+            TF_Store_Move.op_id = emp_f_id;
+
             if (opp_type == 2)
+            {
                 TF_Store_Move.op_type_id = Convert.ToInt32("2");
+                TF_Store_Move.reciver_id = reciver_f_id;
+
+            }
             else if (opp_type == 3)
                 TF_Store_Move.op_type_id = Convert.ToInt32("3");
 
             TF_Store_Move.date = Convert.ToDateTime(datee.ToString("yyyy/MM/dd"));
-           // TF_Store_Move.time = (TimeSpan?)out_op_timeTimeSpanEdit.EditValue;
+            TF_Store_Move.time = time;
 
             cmdStoreMove.Insert_Data(TF_Store_Move);
         }
@@ -118,14 +133,21 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             if (opp_type == 2)
             {
                 var med_list = (from Emp in cmdOpInItem.Get_All().Where(l => l.is_out == false && l.Med_id == med_idd)
+                                join xxx in cmdMedician.Get_All()
+                                on Emp.Med_id equals xxx.med_id into list
+                                from yyy in list.DefaultIfEmpty()
+                                join place in cmdStorageplace.Get_All()
+ on Emp.store_place_id equals place.id into plist
+                                
+                                from ppp in plist.DefaultIfEmpty()
                                 select new
                                 {
                                     item_id = Emp.in_item_id,
                                     med_id = Emp.Med_id,
                                     op_id = Emp.In_op_id,
-                                    name = Emp.T_Medician.med_name,
+                                    name = yyy.med_name,
                                     datee = Emp.in_item_expDate,
-                                    place = Emp.T_Store_Placees.name,
+                                    place = ppp.name,
                                     quntatey = Emp.in_item_quntity - Emp.out_item_quntitey,
 
                                 }).OrderBy(l => l.datee).Distinct();
@@ -137,14 +159,22 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                                                                         && l.Med_id == med_idd
                                                                          && l.in_item_expDate.Value.Month < DateTime.Today.Month
                                                                          && l.in_item_expDate.Value.Year <= DateTime.Today.Year)
+
+                                join xxx in cmdMedician.Get_All()
+                         on Emp.Med_id equals xxx.med_id into list
+                                from yyy in list.DefaultIfEmpty()
+                                join place in cmdStorageplace.Get_All()
+                         on Emp.store_place_id equals place.id into plist
+
+                                from ppp in plist.DefaultIfEmpty()
                                 select new
                                 {
                                     item_id = Emp.in_item_id,
                                     med_id = Emp.Med_id,
                                     op_id = Emp.In_op_id,
-                                    name = Emp.T_Medician.med_name,
-                                    datee = Emp.in_item_expDate,
-                                    place = Emp.T_Store_Placees.name,
+                                    name = yyy.med_name,
+                                    datee =Convert.ToDateTime( Emp.in_item_expDate.Value.ToString("MM/yyyy")),
+                                    place = ppp.name,
                                     quntatey = Emp.in_item_quntity - Emp.out_item_quntitey,
 
                                 }).OrderBy(l => l.datee).Distinct();
@@ -156,6 +186,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             gv.Columns[3].Caption = "الاسم";
             gv.Columns[3].OptionsColumn.AllowEdit = false;
             gv.Columns[4].Caption = "تاريخ انتهاء الصلاحية";
+
             gv.Columns[3].OptionsColumn.AllowEdit = false;
             gv.Columns[5].Caption = "مكان التخزين ";
             gv.Columns[3].OptionsColumn.AllowEdit = false;

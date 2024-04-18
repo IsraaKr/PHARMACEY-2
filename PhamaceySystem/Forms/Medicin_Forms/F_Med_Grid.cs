@@ -160,18 +160,28 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             //                  T_Med_Shape ON T_Medician.med_shape_id = T_Med_Shape.med_shape_id INNER JOIN
             //                  T_Med_Category ON T_Medician.med_cat_id = T_Med_Category.med_cat_id");
                  var dts = (from med in cmdMedician.Get_All()
-            select new
+                            join cat in cmdMedCat.Get_All()
+                         on med.med_cat_id equals cat.med_cat_id into list
+                            from catlist in list.DefaultIfEmpty()
+                            join place in cmdMedShape.Get_All()
+    on med.med_shape_id equals place.med_shape_id into plist
+                            from ppp in plist.DefaultIfEmpty()
+                            join un in cmdMedUnite.Get_All()
+                         on med.med_unites_id equals un.id into unlist
+                            from yyy in unlist.DefaultIfEmpty()
+                           
+                            select new
             {
                 id = med.med_id,
                 code = med.med_code,
                 name = med.med_name,
                 min = med.med_minimum,
                 cat_id = med.med_cat_id,
-                categorey = med.T_Med_Category.med_cat_name,
+                categorey = catlist.med_cat_name,
                 shape_id = med.med_shape_id,
-                shape = med.T_Med_Shape.med_shape_name,
+                shape = ppp.med_shape_name,
                 unit_id = med.med_unites_id,
-                unit = med.T_Med_Unites.name,
+                unit = yyy.name,
             }).OrderBy(l_id => l_id.id);
             gc.DataSource = dts;
 

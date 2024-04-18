@@ -38,12 +38,13 @@
             // 
             // Root
             // 
-            this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(20, 20, 18, 18);
-            this.Root.Size = new System.Drawing.Size(600, 531);
+            this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.Root.Size = new System.Drawing.Size(600, 441);
             // 
             // dataLayoutControl1
             // 
-            this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(647, 70, 650, 400);
             this.dataLayoutControl1.OptionsPrint.AppearanceGroupCaption.BackColor = System.Drawing.Color.LightGray;
             this.dataLayoutControl1.OptionsPrint.AppearanceGroupCaption.Font = new System.Drawing.Font("Tahoma", 10.25F);
             this.dataLayoutControl1.OptionsPrint.AppearanceGroupCaption.Options.UseBackColor = true;
@@ -52,45 +53,44 @@
             this.dataLayoutControl1.OptionsPrint.AppearanceGroupCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.dataLayoutControl1.OptionsPrint.AppearanceGroupCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(600, 531);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(600, 441);
             this.dataLayoutControl1.Controls.SetChildIndex(this.txt_id, 0);
             this.dataLayoutControl1.Controls.SetChildIndex(this.txt_name, 0);
             // 
             // txt_id
             // 
-            this.txt_id.Location = new System.Drawing.Point(27, 67);
+            this.txt_id.Location = new System.Drawing.Point(477, 28);
             this.txt_id.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_id.Properties.Appearance.Options.UseFont = true;
-            this.txt_id.Size = new System.Drawing.Size(50, 22);
+            this.txt_id.Size = new System.Drawing.Size(66, 22);
             this.txt_id.TabIndex = 3;
             // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(142, 71);
+            this.txt_name.Location = new System.Drawing.Point(18, 38);
             this.txt_name.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_name.Properties.Appearance.Options.UseFont = true;
-            this.txt_name.Size = new System.Drawing.Size(380, 22);
+            this.txt_name.Size = new System.Drawing.Size(394, 22);
             this.txt_name.TabIndex = 0;
             // 
             // txt
             // 
             this.txt.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt.AppearanceItemCaption.Options.UseFont = true;
-            this.txt.Location = new System.Drawing.Point(109, 41);
+            this.txt.Location = new System.Drawing.Point(0, 0);
             this.txt.Padding = new DevExpress.XtraLayout.Utils.Padding(13, 13, 12, 12);
-            this.txt.Size = new System.Drawing.Size(451, 46);
+            this.txt.Size = new System.Drawing.Size(470, 46);
             // 
             // lbl_tiltle
             // 
             this.lbl_tiltle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_tiltle.Size = new System.Drawing.Size(600, 59);
             // 
             // F_Med_Categories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 640);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "F_Med_Categories";
             this.Text = "F_Med_Categories";
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();

@@ -45,5 +45,8 @@
     <Setting Name="is_expdate_not_show" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="theme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">...</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

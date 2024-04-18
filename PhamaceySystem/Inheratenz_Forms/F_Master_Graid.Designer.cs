@@ -45,9 +45,7 @@
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbl_tiltle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl_tiltle.Size = new System.Drawing.Size(800, 60);
+            this.lbl_tiltle.Size = new System.Drawing.Size(800, 50);
             // 
             // timer_date
             // 
@@ -59,6 +57,7 @@
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(0, 0);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
+            this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(716, 72, 650, 400);
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.dataLayoutControl1.Root = this.Root;
             this.dataLayoutControl1.Size = new System.Drawing.Size(800, 341);
@@ -68,12 +67,12 @@
             // gc
             // 
             this.gc.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.gc.Location = new System.Drawing.Point(12, 67);
+            this.gc.Location = new System.Drawing.Point(6, 51);
             this.gc.MainView = this.gv;
             this.gc.Margin = new System.Windows.Forms.Padding(2);
             this.gc.Name = "gc";
             this.gc.Padding = new System.Windows.Forms.Padding(10);
-            this.gc.Size = new System.Drawing.Size(776, 262);
+            this.gc.Size = new System.Drawing.Size(788, 284);
             this.gc.TabIndex = 19;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -82,10 +81,12 @@
             // 
             this.gv.Appearance.EvenRow.BackColor = System.Drawing.Color.WhiteSmoke;
             this.gv.Appearance.EvenRow.Options.UseBackColor = true;
-            this.gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gv.Appearance.HeaderPanel.Options.UseFont = true;
             this.gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
             this.gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gv.Appearance.Row.Options.UseFont = true;
             this.gv.Appearance.Row.Options.UseTextOptions = true;
             this.gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gv.DetailHeight = 239;
@@ -119,15 +120,17 @@
             this.layoutControlItem1,
             this.emptySpaceItem1});
             this.Root.Name = "Root";
+            this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.Root.Size = new System.Drawing.Size(800, 341);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gc;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 55);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 45);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(780, 266);
+            this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
+            this.layoutControlItem1.Size = new System.Drawing.Size(790, 286);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -135,10 +138,10 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 0);
-            this.emptySpaceItem1.MaxSize = new System.Drawing.Size(0, 55);
-            this.emptySpaceItem1.MinSize = new System.Drawing.Size(10, 55);
+            this.emptySpaceItem1.MaxSize = new System.Drawing.Size(0, 45);
+            this.emptySpaceItem1.MinSize = new System.Drawing.Size(10, 45);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(780, 55);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(790, 45);
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 

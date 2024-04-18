@@ -235,7 +235,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
 
         private void F_Store_Graid_Load(object sender, EventArgs e)
         {
-            view_inheretanz_butomes(true, false, false, true, true, false, true);
+            view_inheretanz_butomes(true, false, false, true, true, false, true ,true);
 
         }
     }

@@ -20,6 +20,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             InitializeComponent();
             lbl_tiltle.Text = tit;
             this.Text = tit;
+            lbl_tiltle.BackColor = Properties.Settings.Default.titel_master_colore;
 
         }
 
@@ -124,6 +125,11 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         private void bar_print_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Print_Data();
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Get_Data("");
         }
     }
 }

@@ -21,7 +21,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         {
             InitializeComponent();
 
-            view_inheretanz_butomes(true, false, false, false, false, false, true);
+            view_inheretanz_butomes(true, false, false, false, false, false, true,true);
 
             Title(tit);
             this.Text = tit;
@@ -33,12 +33,10 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             InitializeComponent();
             Title(tit);
             this.Text = tit;
-            view_inheretanz_butomes(true, true, false, false, false, false, true);
+            view_inheretanz_butomes(true, true, false, false, false, false, true,true);
         }
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
         ClsCommander<T_Pers_Emploee> cmdEmp = new ClsCommander<T_Pers_Emploee>();
-        ClsCommander<T_Pers_Recivers> cmdReciver = new ClsCommander<T_Pers_Recivers>();
-        ClsCommander<T_Store_Placees> cmdStorageplace = new ClsCommander<T_Store_Placees>();
         ClsCommander<T_OPeration_Damage> cmdOpDam = new ClsCommander<T_OPeration_Damage>();
         ClsCommander<T_Operation_Damage_Item> cmdOppDamItem = new ClsCommander<T_Operation_Damage_Item>();
         ClsCommander<T_OPeration_IN_Item> cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
@@ -71,6 +69,8 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
 
                 out_op_dateDateEdit.DateTime = Convert.ToDateTime(d.ToShortDateString());
                 dtp_op_time.Value = Convert.ToDateTime(d.ToShortTimeString());
+               dtp_op_time.CalendarTitleBackColor = out_op_dateDateEdit.BackColor;
+                dtp_op_time.CalendarMonthBackground = out_op_dateDateEdit.BackColor;
 
                 Is_Double_Click = false;
                 btn_visible(false);
@@ -78,8 +78,6 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                 cmdMedician = new ClsCommander<T_Medician>();
                 cmdMedician = new ClsCommander<T_Medician>();
                 cmdEmp = new ClsCommander<T_Pers_Emploee>();
-                cmdReciver = new ClsCommander<T_Pers_Recivers>();
-                cmdStorageplace = new ClsCommander<T_Store_Placees>();
                 cmdOpDam = new ClsCommander<T_OPeration_Damage>();
                 cmdOppDamItem = new ClsCommander<T_Operation_Damage_Item>();
                 cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
@@ -174,7 +172,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         {
             int number_of_errores = 0;
             number_of_errores += out_op_idTextEdit.is_text_valid() ? 0 : 1;
-            //   number_of_errores += reciver_empTextEdit.is_text_valid() ? 0 : 1;
+            number_of_errores += out_op_textTextEdit.is_text_valid() ? 0 : 1;
 
 
             if (emp_idSearchLookUpEdit.EditValue == null)
@@ -436,13 +434,16 @@ WHERE        (dbo.T_Operation_Damage_Item.dmg_op_id = " + id + ")");
             TF_Store_Move = new T_Store_Move();
 
             TF_Store_Move.qunt = Convert.ToInt32(out_item_quntityTextEdit1.Text.ToString().Replace(",", string.Empty));
-            TF_Store_Move.med_id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue.ToString().Replace(",", string.Empty));
+            TF_Store_Move.med_id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue.ToString());
             TF_Store_Move.item_id = Convert.ToInt32(out_item_idTextEdit.Text.ToString().Replace(",", string.Empty));
             TF_Store_Move.op_id = Convert.ToInt32(out_op_idTextEdit.Text.ToString().Replace(",", string.Empty));
             TF_Store_Move.op_type_id = Convert.ToInt32("3");
             TF_Store_Move.date = Convert.ToDateTime(out_op_dateDateEdit.DateTime.ToString("yyyy/MM/dd"));
             TF_Store_Move.time = dtp_op_time.Text;
-
+            TF_Store_Move.emp_id = Convert.ToInt32(emp_idSearchLookUpEdit.EditValue.ToString());
+            TF_Store_Move.reciver_id = null;
+            TF_Store_Move.donar_id = null;
+            TF_Store_Move.place_id = null;
             cmdStoreMove.Insert_Data(TF_Store_Move);
         }
         private void Get_Delete_move()
@@ -459,7 +460,8 @@ WHERE        (dbo.T_Operation_Damage_Item.dmg_op_id = " + id + ")");
             TF_Store_Move = cmdStoreMove.Get_By(l => l.item_id == old_item_id & l.op_type_id == 3).FirstOrDefault();
 
             TF_Store_Move.qunt = Convert.ToInt32(out_item_quntityTextEdit1.Text.ToString().Replace(",", string.Empty));
-            TF_Store_Move.med_id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue.ToString().Replace(",", string.Empty));
+            TF_Store_Move.med_id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue.ToString());
+            TF_Store_Move.emp_id = Convert.ToInt32(emp_idSearchLookUpEdit.EditValue.ToString());
 
             cmdStoreMove.Update_Data(TF_Store_Move);
         }
@@ -543,7 +545,9 @@ WHERE     (T_OPeration_IN_Item.is_out = 'false') " +
                         //  int item_in_id = Convert.ToInt32(filter_date_searchLookUpEdit.EditValue);
                         int out_op_id = Convert.ToInt32(out_op_idTextEdit.Text);
                         DateTime d = out_op_dateDateEdit.DateTime;
-                        F_out_med_to_chose f = new F_out_med_to_chose(med_idd, out_op_id, d, "", 3);
+                        string t = dtp_op_time.Text;
+                        int emp= Convert.ToInt32(emp_idSearchLookUpEdit.EditValue);
+                        F_out_med_to_chose f = new F_out_med_to_chose(med_idd, out_op_id, d,t, 3 , emp ,0);
                         f.ShowDialog();
                         Fill_Graid_item();
                         GetMed_Data();
@@ -558,7 +562,9 @@ WHERE     (T_OPeration_IN_Item.is_out = 'false') " +
                         //  int item_in_id = Convert.ToInt32(filter_date_searchLookUpEdit.EditValue);
                         int out_op_id = Convert.ToInt32(out_op_idTextEdit.Text);
                         DateTime d = out_op_dateDateEdit.DateTime;
-                        F_out_med_to_chose f = new F_out_med_to_chose(med_idd, out_op_id, d, "", 3);
+                        string t = dtp_op_time.Text;
+                        int emp = Convert.ToInt32(emp_idSearchLookUpEdit.EditValue);
+                        F_out_med_to_chose f = new F_out_med_to_chose(med_idd, out_op_id, d,t, 3, emp ,0);
                         f.ShowDialog();
                         GetMed_Data();
                         Fill_Graid_item();
@@ -642,16 +648,7 @@ WHERE     (T_OPeration_IN_Item.is_out = 'false')
             else
                 e.DisplayText = "";
         }
-        private void donar_idSearchLookUpEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
-        {
-            if (e.Value != null && e.Value.ToString() != string.Empty)
-            {
-                long e_id = Convert.ToInt64(e.Value);
-                e.DisplayText = cmdReciver.Get_By(id => id.id == e_id).FirstOrDefault().name;
-            }
-            else
-                e.DisplayText = "";
-        }
+  
         private void emp_idSearchLookUpEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
             if (e.Value != null && e.Value.ToString() != string.Empty)

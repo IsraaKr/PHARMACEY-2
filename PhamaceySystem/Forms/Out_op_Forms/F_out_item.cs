@@ -25,6 +25,7 @@ namespace PhamaceySystem.Forms.Out_op_Forms
         public string tit = "مواد فواتير الإخراج"  ;
 
         ClsCommander<T_OPeration_Out_Item> cmdOutItem = new ClsCommander<T_OPeration_Out_Item>();
+        ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
 
         T_OPeration_Out_Item TF_out_Item;
         Boolean Is_Double_Click = false;
@@ -138,11 +139,15 @@ namespace PhamaceySystem.Forms.Out_op_Forms
         private void Fill_Graid()
         {
             var data = (from med in cmdOutItem.Get_All()
+                        join xxx in cmdMedician.Get_All()
+                         on med.Med_id equals xxx.med_id into list
+                        from yyy in list.DefaultIfEmpty()
+                       
                         select new
                         {
                             id = med.in_item_id,
                             med_id = med.Med_id,
-                            med_name = med.T_Medician.med_name,
+                            med_name = yyy.med_name,
                             qun = med.out_item_quntity,
                            in_item_id = med.in_item_id,
                 

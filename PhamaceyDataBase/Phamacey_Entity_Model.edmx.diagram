@@ -19,7 +19,6 @@
         <EntityTypeShape EntityType="PHANACEY_DBModel.T_Pers_Donars" Width="1.5" PointX="3.75" PointY="12.125" />
         <EntityTypeShape EntityType="PHANACEY_DBModel.T_Pers_Emploee" Width="1.5" PointX="6" PointY="19.375" />
         <EntityTypeShape EntityType="PHANACEY_DBModel.T_Pers_Recivers" Width="1.5" PointX="9" PointY="1.75" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Store_Move" Width="1.5" PointX="5.25" PointY="6.125" />
         <EntityTypeShape EntityType="PHANACEY_DBModel.T_Store_Placees" Width="1.5" PointX="6" PointY="3.375" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Category" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Shape" />
@@ -27,7 +26,6 @@
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_Medician" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_Medician" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_Medician" />
-        <AssociationConnector Association="PHANACEY_DBModel.FK_T_Store_Move_T_Medician" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_Operation_Damage_Item_T_OPeration_Damage" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_Type" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Damage_T_Pers_Emploee" />
@@ -42,6 +40,8 @@
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_OPeration_Type" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Emploee" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Recivers" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Store_Move" Width="1.5" PointX="8.25" PointY="11" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_Store_Move_T_Medician" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_Store_Move_T_OPeration_Type" />
       </Diagram>
     </edmx:Diagrams>

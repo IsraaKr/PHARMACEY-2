@@ -26,6 +26,8 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         public string tit = "مواد فواتير الادخال";
 
         ClsCommander<T_OPeration_IN_Item> cmdInItem = new ClsCommander<T_OPeration_IN_Item>();
+        ClsCommander<T_Store_Placees> cmdStorageplace = new ClsCommander<T_Store_Placees>();
+        ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
 
         T_OPeration_IN_Item TF_IN_Item;
         Boolean Is_Double_Click = false;
@@ -139,14 +141,21 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         private void Fill_Graid()
         {
             var data = (from med in cmdInItem.Get_All()
+                        join xxx in cmdMedician.Get_All()
+                         on med.Med_id equals xxx.med_id into list
+                        from yyy in list.DefaultIfEmpty()
+                        join place in cmdStorageplace.Get_All()
+on med.store_place_id equals place.id into plist
+
+                        from ppp in plist.DefaultIfEmpty()
                         select new
                         {
                             id = med.in_item_id,
                             med_id = med.Med_id,
-                            med_name = med.T_Medician.med_name,
+                            med_name = yyy.med_name,
                             qun = med.in_item_quntity,
                             place_id = med.store_place_id,
-                            pace = med.T_Store_Placees.name,
+                            pace = ppp.name,
                             is_out = med.is_out,
                             qun_out = med.out_item_quntitey
                         }).OrderBy(l_id => l_id.id).ToList();

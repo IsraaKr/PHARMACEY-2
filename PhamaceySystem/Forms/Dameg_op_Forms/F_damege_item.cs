@@ -25,6 +25,7 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
         public string tit = "مواد فواتير الإتلاف";
 
         ClsCommander<T_Operation_Damage_Item> cmdDamegeItem = new ClsCommander<T_Operation_Damage_Item>();
+        ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
 
         T_Operation_Damage_Item TF_damege_Item;
         Boolean Is_Double_Click = false;
@@ -138,11 +139,15 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
         private void Fill_Graid()
         {
             var data = (from med in cmdDamegeItem.Get_All()
+                        join xxx in cmdMedician.Get_All()
+                        on med.Med_id equals xxx.med_id into list
+                        from yyy in list.DefaultIfEmpty()
+                       
                         select new
                         {
                             id = med.in_item_id,
                             med_id = med.Med_id,
-                            med_name = med.T_Medician.med_name,
+                            med_name = yyy.med_name,
                             qun = med.dmg_item_quntity,
                             in_item_id = med.in_item_id,
 

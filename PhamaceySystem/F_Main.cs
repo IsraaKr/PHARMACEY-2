@@ -29,6 +29,8 @@ namespace PhamaceySystem
     //    private readonly C_Page_Maneger c_Page_Maneger;
         ClsCommander<T_OPeration_Type> cmdOptype = new ClsCommander<T_OPeration_Type>();
         ClsCommander<T_OPeration_IN_Item> cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
+
+        C_Regestery reg = new C_Regestery();
         public static string static_med_min;
         public static string static_date_exp;
         public F_Main()
@@ -84,7 +86,7 @@ namespace PhamaceySystem
         private void ribbon_ItemClick(object sender, ItemClickEventArgs e)
         {
             var tag = e.Item.Tag as string;
-            if (tag != string.Empty && tag != null)
+            if (tag != string.Empty && tag != null && tag!= "F_Viewer")
             {
                 open_form_byname(tag);
             }
@@ -100,6 +102,7 @@ namespace PhamaceySystem
                     {
                         xtc.Pages[item].MdiChild.Activate();
                         Is_Opened = true;
+                     //   xtc.AppearancePage.HeaderActive.BackColor= Properties.Settings.Default.titel_master_colore;
                     }
                 }
             }
@@ -113,7 +116,8 @@ namespace PhamaceySystem
             {
                 f.MdiParent = this;
                 f.Show();
-                            
+              //  xtc.AppearancePage.HeaderActive.BackColor = Properties.Settings.Default.titel_master_colore;
+
             }
         }  
         private void get_med_min_num()
@@ -195,6 +199,7 @@ namespace PhamaceySystem
 
              get_med_min_num();
             get_med_exp_date();
+            reg.get_reg_key_value();
         }
         private void close_all()
         {
@@ -211,6 +216,30 @@ namespace PhamaceySystem
             Application.Exit(); 
         }
 
- 
+        private void xtc_SelectedPageChanged(object sender, EventArgs e)
+        {
+              xtc.AppearancePage.HeaderActive.BackColor = Properties.Settings.Default.titel_master_colore;
+
+        }
+
+
+
+        private void F_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            reg.make_reg_key();
+        }
+
+        private void barButtonItem31_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var x = new XtraReport4();
+            F_Viewer f = new F_Viewer(x);
+            f.ShowDialog();
+        }
+
+        private void barButtonItem26_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
     }
 }
+

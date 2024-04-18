@@ -230,5 +230,10 @@ namespace PhamaceySystem.Forms.Store_Forms
         {
             txt_name.Text = txt_group.Text.Trim() + "-" + txt_shuffel.Text.Trim();
         }
+
+        private void txt_name_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

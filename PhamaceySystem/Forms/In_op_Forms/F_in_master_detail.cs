@@ -16,7 +16,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         public F_in_master_detail()
         {
             InitializeComponent();
-            view_inheretanz_butomes(true, false, false, true, true, false, true);
+            view_inheretanz_butomes(true, false, false, true, true, false, true, true);
 
             Title(tit);
             this.Text = tit;
@@ -161,10 +161,10 @@ FROM         T_OPeration_IN INNER JOIN
         private void Fill_Graid_item()
         {
             dt_item = c_db.select(@" SELECT     T_OPeration_IN_Item.in_item_id,
-T_OPeration_IN_Item.Med_id,
+
 T_Medician.med_name, 
 T_OPeration_IN_Item.in_item_quntity,
-T_OPeration_IN_Item.store_place_id, 
+
                       T_Store_Placees.name,
 T_OPeration_IN_Item.is_out,
 T_OPeration_IN_Item.out_item_quntitey,
@@ -185,14 +185,14 @@ FROM         T_OPeration_IN_Item INNER JOIN
         private void gv_column_names_item()
         {
             dt_item.Columns[0].Caption = "رقم المادة";
-            // dt_item.Columns[1].Visible = false;
-            dt_item.Columns[2].Caption = "اسم الدواء";
-            dt_item.Columns[3].Caption = "الكمية المدخلة";
-            // dt_item.Columns[4].Visible = false;
-            dt_item.Columns[5].Caption = "مكان التخزين ";
-            dt_item.Columns[6].Caption = "خارجة ";
-            dt_item.Columns[7].Caption = "الكمية الخارجة ";
-            dt_item.Columns[8].Caption = "رقم فاتورة الادخال ";
+
+            dt_item.Columns[1].Caption = "اسم الدواء";
+            dt_item.Columns[2].Caption = "الكمية المدخلة";
+        
+            dt_item.Columns[3].Caption = "مكان التخزين ";
+            dt_item.Columns[4].Caption = "خارجة ";
+            dt_item.Columns[5].Caption = "الكمية الخارجة ";
+            dt_item.Columns[6].Caption = "رقم فاتورة الادخال ";
 
             gv.BestFitColumns();
         }

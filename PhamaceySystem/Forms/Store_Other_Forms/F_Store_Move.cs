@@ -64,9 +64,14 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         private void Fill_Graid_op()
         {
 
-            dt_op = c_db.select(@"SELECT     T_OPeration_Type.OP_type_name, T_Medician.med_name, T_Store_Move.qunt, T_Store_Move.op_id, T_Store_Move.date, T_Store_Move.time
-FROM         T_Store_Move INNER JOIN
-                      T_OPeration_Type ON T_Store_Move.op_type_id = T_OPeration_Type.OP_type_id INNER JOIN
+            dt_op = c_db.select(@"SELECT     T_Store_Move.id, T_OPeration_Type.OP_type_name, T_Store_Move.date, T_Store_Move.time, T_Medician.med_name, T_Store_Move.qunt, 
+                      T_Pers_Recivers.name AS reciver_name, T_Pers_Emploee.Emp_name, T_Pers_Donars.Donar_name, T_Store_Placees.name AS place_name
+FROM         T_Store_Move LEFT OUTER JOIN
+                      T_Store_Placees ON T_Store_Move.place_id = T_Store_Placees.id LEFT OUTER JOIN
+                      T_Pers_Recivers ON T_Store_Move.reciver_id = T_Pers_Recivers.id LEFT OUTER JOIN
+                      T_Pers_Emploee ON T_Store_Move.emp_id = T_Pers_Emploee.Emp_id LEFT OUTER JOIN
+                      T_Pers_Donars ON T_Store_Move.donar_id = T_Pers_Donars.Donar_id LEFT OUTER JOIN
+                      T_OPeration_Type ON T_Store_Move.op_type_id = T_OPeration_Type.OP_type_id LEFT OUTER JOIN
                       T_Medician ON T_Store_Move.med_id = T_Medician.med_id");
 
 

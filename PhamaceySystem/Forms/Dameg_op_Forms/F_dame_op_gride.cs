@@ -27,6 +27,7 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
         public string tit = "فواتير الإتلاف";
 
         ClsCommander<T_OPeration_Damage> cmdDamOP = new ClsCommander<T_OPeration_Damage>();
+        ClsCommander<T_Pers_Emploee> cmdEmp = new ClsCommander<T_Pers_Emploee>();
 
         T_OPeration_Damage TF_OPeration_IN;
         Boolean Is_Double_Click = false;
@@ -142,6 +143,9 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
         private void Fill_Graid()
         {
             var data = (from med in cmdDamOP.Get_All()
+                        join xxx in cmdEmp.Get_All()
+                            on med.emp_id equals xxx.Emp_id into list
+                        from yyy in list.DefaultIfEmpty()
                         select new
                         {
                             id = med.dam_OP_id,
@@ -149,7 +153,7 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
                             time = med.dam_op_time,
                             text = med.dam_op_text,                                          
                             emp_id = med.emp_id,
-                            emp = med.T_Pers_Emploee.Emp_name,
+                            emp = yyy.Emp_name,
                             count = med.med_count
                         }).OrderBy(l_id => l_id.id).ToList();
             //جلب جزء من البيانات

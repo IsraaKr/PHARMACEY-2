@@ -16,7 +16,7 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
         public F_dam_master_detail()
         {
             InitializeComponent();
-            view_inheretanz_butomes(true, false, false, true, true, false, true);
+            view_inheretanz_butomes(true, false, false, true, true, false, true,true);
 
             Title(tit);
             this.Text = tit;
@@ -158,9 +158,8 @@ FROM         T_OPeration_Damage INNER JOIN
 
         private void Fill_Graid_item()
         {
-            dt_item = c_db.select(@" SELECT   T_Operation_Damage_Item.dmg_item_id,  T_Medician.med_name,
-T_Operation_Damage_Item.dmg_item_quntity,
-T_Store_Placees.name
+            dt_item = c_db.select(@" SELECT     T_Operation_Damage_Item.dmg_item_id, T_Medician.med_name, T_Operation_Damage_Item.dmg_item_quntity, T_Store_Placees.name, 
+                      T_Operation_Damage_Item.dmg_op_id
 FROM         T_Operation_Damage_Item INNER JOIN
                       T_OPeration_Damage ON T_Operation_Damage_Item.dmg_op_id = T_OPeration_Damage.dam_OP_id INNER JOIN
                       T_Medician ON T_Operation_Damage_Item.Med_id = T_Medician.med_id INNER JOIN

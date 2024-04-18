@@ -27,6 +27,8 @@ namespace PhamaceySystem.Forms.Store_Forms
         public string tit = "فواتير الادخال";
 
         ClsCommander<T_OPeration_IN> cmdINOP = new ClsCommander<T_OPeration_IN>();
+        ClsCommander<T_Pers_Emploee> cmdEmp = new ClsCommander<T_Pers_Emploee>();
+        ClsCommander<T_Pers_Donars> cmdDonars = new ClsCommander<T_Pers_Donars>();
 
         T_OPeration_IN TF_OPeration_IN;
         Boolean Is_Double_Click = false;
@@ -142,6 +144,13 @@ namespace PhamaceySystem.Forms.Store_Forms
         private void Fill_Graid()
         {
             var data = (from med in cmdINOP.Get_All()
+                        join xxx in cmdDonars.Get_All()
+                         on med.donar_id equals xxx.Donar_id into list
+                        from yyy in list.DefaultIfEmpty()
+                        join place in cmdEmp.Get_All()
+on med.emp_id equals place.Emp_id into plist
+
+                        from ppp in plist.DefaultIfEmpty()
                         select new
                         {
                             id = med.in_op_id,
@@ -149,10 +158,10 @@ namespace PhamaceySystem.Forms.Store_Forms
                             time = med.in_op_time,
                             text = med.in_op_text,
                             don_id = med.donar_id,
-                            donar = med.T_Pers_Donars.Donar_name,
+                            donar = yyy.Donar_name,
                             emp_donar = med.donar_emp,
                             emp_id = med.emp_id,
-                            emp = med.T_Pers_Emploee.Emp_name,
+                            emp = ppp.Emp_name,
                             count = med.med_count
                         }).OrderBy(l_id => l_id.id).ToList();
             //جلب جزء من البيانات

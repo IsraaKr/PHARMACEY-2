@@ -10,17 +10,28 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Report_Forms
 {
-    public partial class F_Viewer : Form
+    public partial class F_Viewer : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public F_Viewer(Form f)
+        public F_Viewer(object f)
         {
             Form = f;
             InitializeComponent();
         }
-        Form Form;
+        public F_Viewer()
+        {
+          
+            InitializeComponent();
+        }
+        object Form;
         private void F_Viewer_Load(object sender, EventArgs e)
         {
-            documentViewer1.DocumentSource = Form;
+            //var x = new XtraReporttest();
+            //documentViewer1.DocumentSource = x;
+        }
+
+        private void documentViewer1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

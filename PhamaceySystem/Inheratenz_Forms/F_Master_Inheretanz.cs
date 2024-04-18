@@ -20,7 +20,7 @@ namespace PhamaceySystem
             // view_inheretanz_butomes(true,false, true, true, true, true);
         }
        //عرض و إخفاء الأزرار
-        public virtual void view_inheretanz_butomes(bool neew ,bool add , bool add_save , bool edite , bool delete , bool clear , bool print)
+        public virtual void view_inheretanz_butomes(bool neew ,bool add , bool add_save , bool edite , bool delete , bool clear , bool print , bool refresh)
         {
             if (neew)
             {
@@ -57,7 +57,12 @@ namespace PhamaceySystem
                 bar_print.Visibility = 0;
                 sp_print.Visibility = 0;
             }
-            
+            if (refresh)
+            {
+                bar_refresh.Visibility = 0;
+                sp_refresh.Visibility = 0;
+            }
+
         }
         private void F_Master_Inheretanz_Load(object sender, EventArgs e)
         {
@@ -69,7 +74,7 @@ namespace PhamaceySystem
         public void change_states_message(string status_mess)
         {
             bar_states.Caption = "...";
-            bar_states.ItemAppearance.Normal.BackColor = this.BackColor;
+            bar_states.ItemAppearance.Normal.BackColor = status_bar.Appearance.BackColor; 
             if (status_mess == "")
             {
                 return;
@@ -267,15 +272,17 @@ namespace PhamaceySystem
             Insert_save_Data();
         }
 
-        private void lbl_tiltle_Click(object sender, EventArgs e)
-        {
-
-        }
+  
 
         private void bar_neew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             neew();
             //    timer_states_bar.Enabled = true;
+        }
+
+        private void bar_refresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Get_Data("");
         }
     }
 }

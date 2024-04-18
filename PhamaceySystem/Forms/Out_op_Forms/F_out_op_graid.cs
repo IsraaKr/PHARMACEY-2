@@ -26,6 +26,8 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         public string tit = "فواتير الإخراج";
 
         ClsCommander<T_OPeration_Out> cmdOutOp = new ClsCommander<T_OPeration_Out>();
+        ClsCommander<T_Pers_Emploee> cmdEmp = new ClsCommander<T_Pers_Emploee>();
+        ClsCommander<T_Pers_Recivers> cmdReciver = new ClsCommander<T_Pers_Recivers>();
 
         T_OPeration_Out TF_OPeration_out;
         Boolean Is_Double_Click = false;
@@ -140,6 +142,13 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         private void Fill_Graid()
         {
             var data = (from med in cmdOutOp.Get_All()
+                        join xxx in cmdReciver.Get_All()
+                         on med.reciver_id equals xxx.id into list
+                        from yyy in list.DefaultIfEmpty()
+                        join place in cmdEmp.Get_All()
+on med.emp_id equals place.Emp_id into plist
+
+                        from ppp in plist.DefaultIfEmpty()
                         select new
                         {
                             id = med.out_op_id,
@@ -147,10 +156,10 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                             time = med.out_op_time,
                             text = med.out_op_text,
                             rec_id = med.reciver_id,
-                            reciver = med.T_Pers_Recivers.name,
+                            reciver = yyy.name,
                             emp_rec = med.reciver_name,
                             emp_id = med.emp_id,
-                            emp = med.T_Pers_Emploee.Emp_name,
+                            emp = ppp.Emp_name,
                             count = med.med_count
                         }).OrderBy(l_id => l_id.id).ToList();
             //جلب جزء من البيانات
