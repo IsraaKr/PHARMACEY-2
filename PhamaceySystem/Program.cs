@@ -27,10 +27,7 @@ namespace PhamaceySystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             C_SqlCon.Server_Name = Properties.Settings.Default.Server_Name.ToString();
-
-
-            var x = new XtraReport4();
-            Application.Run(new F_Main());
+            Application.Run(new F_Dameg_Op());
         }
     }
 }

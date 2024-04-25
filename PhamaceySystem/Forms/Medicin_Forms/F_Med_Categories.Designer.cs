@@ -59,27 +59,27 @@
             // 
             // txt_id
             // 
-            this.txt_id.Location = new System.Drawing.Point(477, 28);
+            this.txt_id.Location = new System.Drawing.Point(7, 28);
             this.txt_id.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_id.Properties.Appearance.Options.UseFont = true;
-            this.txt_id.Size = new System.Drawing.Size(66, 22);
+            this.txt_id.Size = new System.Drawing.Size(536, 22);
             this.txt_id.TabIndex = 3;
             // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(18, 38);
+            this.txt_name.Location = new System.Drawing.Point(5, 52);
             this.txt_name.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_name.Properties.Appearance.Options.UseFont = true;
-            this.txt_name.Size = new System.Drawing.Size(394, 22);
+            this.txt_name.Size = new System.Drawing.Size(540, 22);
             this.txt_name.TabIndex = 0;
             // 
             // txt
             // 
             this.txt.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt.AppearanceItemCaption.Options.UseFont = true;
-            this.txt.Location = new System.Drawing.Point(0, 0);
-            this.txt.Padding = new DevExpress.XtraLayout.Utils.Padding(13, 13, 12, 12);
-            this.txt.Size = new System.Drawing.Size(470, 46);
+            this.txt.Location = new System.Drawing.Point(0, 26);
+            this.txt.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.txt.Size = new System.Drawing.Size(590, 22);
             // 
             // lbl_tiltle
             // 

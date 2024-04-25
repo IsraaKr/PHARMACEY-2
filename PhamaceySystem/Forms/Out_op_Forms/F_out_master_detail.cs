@@ -167,13 +167,17 @@ FROM         T_OPeration_Out INNER JOIN
 
             private void Fill_Graid_item()
             {
-                dt_item = c_db.select(@" SELECT     T_OPeration_Out_Item.out_item_id, T_Medician.med_name, T_OPeration_Out_Item.out_item_quntity, T_Store_Placees.name, T_OPeration_Out_Item.out_op_id
+                dt_item = c_db.select(@" SELECT     T_OPeration_Out_Item.out_item_id,
+T_Medician.med_name,
+T_OPeration_Out_Item.out_item_quntity,
+T_Store_Placees.name, 
+T_OPeration_Out_Item.out_op_id
 FROM         T_OPeration_Out_Item INNER JOIN
                       T_OPeration_Out ON T_OPeration_Out_Item.out_op_id = T_OPeration_Out.out_op_id INNER JOIN
-                      T_Medician ON T_OPeration_Out_Item.Med_id = T_Medician.med_id INNER JOIN
+                      T_Medician ON T_OPeration_Out_Item.Med_id = T_Medician.med_id 
+INNER JOIN
                       T_OPeration_IN_Item ON T_OPeration_Out_Item.in_item_id = T_OPeration_IN_Item.in_item_id INNER JOIN
                       T_Store_Placees ON T_OPeration_IN_Item.store_place_id = T_Store_Placees.id");
-
 
                 if (dt_item != null && dt_item.Rows.Count > 0)
                 {
@@ -184,12 +188,14 @@ FROM         T_OPeration_Out_Item INNER JOIN
             }
             private void gv_column_names_item()
             {
+            dt_item.Columns[0].Caption = "الرقم ";
+            dt_item.Columns[1].Caption = "اسم الدواء";
+                dt_item.Columns[2].Caption = "الكمية الخارجة";
+                dt_item.Columns[3].Caption = "مكان التخزين ";
+            dt_item.Columns[4].Caption = "رقم عملية الإخراج ";
 
-                dt_item.Columns[0].Caption = "اسم الدواء";
-                dt_item.Columns[1].Caption = "الكمية الخارجة";
-                dt_item.Columns[2].Caption = "مكان التخزين ";
 
-                gv.BestFitColumns();
+            gv.BestFitColumns();
             }
             private void Get_Row_ID(int Row_Id)
             {

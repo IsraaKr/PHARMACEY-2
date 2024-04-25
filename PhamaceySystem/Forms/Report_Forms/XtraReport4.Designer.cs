@@ -31,9 +31,6 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraReport4));
-            DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings1 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
-            DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings2 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
-            DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings3 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
@@ -85,9 +82,6 @@
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.op_id = new DevExpress.XtraReports.Parameters.Parameter();
-            this.date = new DevExpress.XtraReports.Parameters.Parameter();
-            this.med = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorTable)).BeginInit();
@@ -614,47 +608,6 @@
             this.xrPageInfo1.StylePriority.UseTextAlignment = false;
             this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
-            // op_id
-            // 
-            this.op_id.Description = "op_id";
-            this.op_id.MultiValue = true;
-            this.op_id.Name = "op_id";
-            this.op_id.Type = typeof(int);
-            dynamicListLookUpSettings1.DataMember = "Query";
-            dynamicListLookUpSettings1.DataSource = this.sqlDataSource1;
-            dynamicListLookUpSettings1.DisplayMember = "in_op_id";
-            dynamicListLookUpSettings1.FilterString = null;
-            dynamicListLookUpSettings1.SortMember = null;
-            dynamicListLookUpSettings1.ValueMember = "in_op_id";
-            this.op_id.ValueSourceSettings = dynamicListLookUpSettings1;
-            // 
-            // date
-            // 
-            this.date.Description = "date";
-            this.date.MultiValue = true;
-            this.date.Name = "date";
-            this.date.Type = typeof(int);
-            dynamicListLookUpSettings2.DataMember = "Query";
-            dynamicListLookUpSettings2.DataSource = this.sqlDataSource1;
-            dynamicListLookUpSettings2.DisplayMember = "in_op_date";
-            dynamicListLookUpSettings2.FilterString = null;
-            dynamicListLookUpSettings2.SortMember = null;
-            dynamicListLookUpSettings2.ValueMember = "in_op_id";
-            this.date.ValueSourceSettings = dynamicListLookUpSettings2;
-            // 
-            // med
-            // 
-            this.med.Description = "med";
-            this.med.MultiValue = true;
-            this.med.Name = "med";
-            dynamicListLookUpSettings3.DataMember = "Query";
-            dynamicListLookUpSettings3.DataSource = this.sqlDataSource1;
-            dynamicListLookUpSettings3.DisplayMember = "med_name";
-            dynamicListLookUpSettings3.FilterString = null;
-            dynamicListLookUpSettings3.SortMember = null;
-            dynamicListLookUpSettings3.ValueMember = "med_name";
-            this.med.ValueSourceSettings = dynamicListLookUpSettings3;
-            // 
             // XtraReport4
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -670,10 +623,6 @@
             this.DataSource = this.sqlDataSource1;
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Margins = new System.Drawing.Printing.Margins(100, 100, 21, 28);
-            this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.op_id,
-            this.date,
-            this.med});
             this.RightToLeft = DevExpress.XtraReports.UI.RightToLeft.Yes;
             this.RightToLeftLayout = DevExpress.XtraReports.UI.RightToLeftLayout.Yes;
             this.Version = "20.1";
@@ -739,8 +688,5 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell26;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell27;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell28;
-        private DevExpress.XtraReports.Parameters.Parameter op_id;
-        private DevExpress.XtraReports.Parameters.Parameter date;
-        private DevExpress.XtraReports.Parameters.Parameter med;
     }
 }

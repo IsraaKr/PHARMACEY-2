@@ -75,7 +75,7 @@
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.lbl_tiltle.BackColor = System.Drawing.Color.Maroon;
             this.lbl_tiltle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_tiltle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_tiltle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

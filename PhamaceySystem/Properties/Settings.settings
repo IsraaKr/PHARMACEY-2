@@ -46,7 +46,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="theme" Type="System.String" Scope="User">
-      <Value Profile="(Default)">...</Value>
+      <Value Profile="(Default)">Basic</Value>
     </Setting>
   </Settings>
 </SettingsFile>

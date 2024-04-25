@@ -16,7 +16,9 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         public F_Store_Move()
         {
             InitializeComponent();
+             view_inheretanz_butomes(false, true, false, true, true, true, false, true);
             this.Text = tit;
+            Title(tit);
         }
         public string tit = "حركة المستودع";
         Boolean Is_Double_Click = false;
@@ -30,12 +32,10 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             ds = new DataSet();
             Is_Double_Click = false;
             Fill_Graid_op();
-
             gc.DataSource = dt_op;
-       //     gc.DataMember = "T_OPeration_IN";
 
             gv_column_names_op();
-  
+
         }
         public override void neew()
         {
@@ -64,8 +64,16 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         private void Fill_Graid_op()
         {
 
-            dt_op = c_db.select(@"SELECT     T_Store_Move.id, T_OPeration_Type.OP_type_name, T_Store_Move.date, T_Store_Move.time, T_Medician.med_name, T_Store_Move.qunt, 
-                      T_Pers_Recivers.name AS reciver_name, T_Pers_Emploee.Emp_name, T_Pers_Donars.Donar_name, T_Store_Placees.name AS place_name
+            dt_op = c_db.select(@"SELECT     T_Store_Move.id,
+T_OPeration_Type.OP_type_name ,
+T_Store_Move.date, 
+T_Store_Move.time, 
+T_Medician.med_name,
+T_Store_Move.qunt, 
+                      T_Pers_Recivers.name AS reciver_name,
+T_Pers_Emploee.Emp_name,
+T_Pers_Donars.Donar_name, 
+T_Store_Placees.name AS place_name
 FROM         T_Store_Move LEFT OUTER JOIN
                       T_Store_Placees ON T_Store_Move.place_id = T_Store_Placees.id LEFT OUTER JOIN
                       T_Pers_Recivers ON T_Store_Move.reciver_id = T_Pers_Recivers.id LEFT OUTER JOIN
@@ -73,25 +81,33 @@ FROM         T_Store_Move LEFT OUTER JOIN
                       T_Pers_Donars ON T_Store_Move.donar_id = T_Pers_Donars.Donar_id LEFT OUTER JOIN
                       T_OPeration_Type ON T_Store_Move.op_type_id = T_OPeration_Type.OP_type_id LEFT OUTER JOIN
                       T_Medician ON T_Store_Move.med_id = T_Medician.med_id");
-
-
         }
         private void gv_column_names_op()
         {
-            //gv.Columns[0].Caption = "الرقم";
-            //gv.Columns[1].Caption = "التاريخ";
-            //gv.Columns[2].Caption = "الوقت";
-            //gv.Columns[3].Caption = "البيان";
-            //gv.Columns[4].Visible = false;
-            //gv.Columns[5].Caption = "المتبرع ";
-            //gv.Columns[6].Caption = "المسلم ";
-            //gv.Columns[7].Visible = false;
-            //gv.Columns[8].Caption = "الموظف ";
-            //gv.Columns[9].Caption = "عدد المواد  ";
+            gv.Columns[0].Caption = "الرقم";
+            gv.Columns[1].Caption = "اسم العملية";
+            gv.Columns[2].Caption = "التاريخ";
+            gv.Columns[3].Caption = "الوقت";
+            gv.Columns[4].Caption = "الدواء";
+            gv.Columns[5].Caption = "الكمية ";
+            gv.Columns[6].Caption = "المستلم ";
+            gv.Columns[7].Caption = "الموظف ";
+            gv.Columns[8].Caption = "المتبرع ";
+            gv.Columns[9].Caption = "مكان التخزين";
 
             gv.BestFitColumns();
         }
-
+        public  void txt_name_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Insert_Data();
+            //if (e.KeyCode == Keys.F2)
+            //    new();
+            if (e.KeyCode == Keys.Delete)
+                Delete_Data();
+            if (e.KeyCode == Keys.Escape)
+                clear_data(this.Controls);
+        }
         private void Get_Row_ID(int Row_Id)
         {
 

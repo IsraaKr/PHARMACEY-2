@@ -1,32 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraBars;
-using System.Reflection;
-using DevExpress.XtraEditors;
-using PhamaceySystem.Forms;
+﻿using DevExpress.XtraBars;
+using Microsoft.Win32;
 using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
 using PhamaceySystem.Classes;
-using PhamaceySystem.Forms.Medicin_Forms;
-using DevExpress.XtraTab;
-using DevExpress.XtraTab.ViewInfo;
+using PhamaceySystem.Forms;
 using PhamaceySystem.Forms.Collection_Forms;
-using PhamaceySystem.Forms.Setting_Forms;
+using PhamaceySystem.Forms.Medicin_Forms;
 using PhamaceySystem.Forms.Report_Forms;
+using PhamaceySystem.Forms.Setting_Forms;
 using PhamaceySystem.Forms.Store_Other_Forms;
+using System;
+using System.Data;
+using System.Linq;
+using System.Reflection;
+using System.Windows.Forms;
 
 namespace PhamaceySystem
 {
     public partial class F_Main : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-    //    private readonly C_Page_Maneger c_Page_Maneger;
+        //    private readonly C_Page_Maneger c_Page_Maneger;
         ClsCommander<T_OPeration_Type> cmdOptype = new ClsCommander<T_OPeration_Type>();
         ClsCommander<T_OPeration_IN_Item> cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
 
@@ -37,11 +30,10 @@ namespace PhamaceySystem
         {
             try
             {
+                DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = Properties.Settings.Default.theme;
                 Boolean chec = cmdOptype.check_db_existing();
                 if (chec == true)
-                {
                     InitializeComponent();
-                }
                 else if (chec == false)
                 {
                     var res = MessageBox.Show("خطاء في الاتصال بقاعدة البيانات !!! اختر نعم لضبط نص الاتصال أو لا للخروج من البرنامج", "تأكيد",
@@ -49,22 +41,32 @@ namespace PhamaceySystem
                     if (res == DialogResult.Yes)
                     {
                         F_Server_Setting f = new F_Server_Setting();
-
                         f.Show();
-
                     }
                     else
-                    {
                         Application.Exit();
-                    }
-
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("" + ex);
             }
-        }       
+        }
+        private void F_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.theme = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName.ToString();
+            Properties.Settings.Default.Save();
+        }
+        private void F_Main_Load(object sender, EventArgs e)
+        {
+            load_first_frame();
+            get_med_min_num();
+            get_med_exp_date();
+        }
+        private void F_Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
         private void load_first_frame()
         {
             F_Quiek_Accses f = new F_Quiek_Accses();
@@ -79,18 +81,18 @@ namespace PhamaceySystem
             var ins = Assembly.GetExecutingAssembly().GetTypes().FirstOrDefault(x => x.Name == name);
             if (ins != null)
             {   //انشاء انستانس من التايب و ارجاعه على شكل فورم
-                var frm = Activator.CreateInstance(ins) as Form;        
+                var frm = Activator.CreateInstance(ins) as Form;
                 open_extra(frm);
             }
         }
         private void ribbon_ItemClick(object sender, ItemClickEventArgs e)
         {
             var tag = e.Item.Tag as string;
-            if (tag != string.Empty && tag != null && tag!= "F_Viewer")
+            if (tag != string.Empty && tag != null && tag != "F_Viewer")
             {
                 open_form_byname(tag);
             }
-        }      
+        }
         public bool Is_Form_Activate(Form f)
         {
             bool Is_Opened = false;
@@ -102,7 +104,6 @@ namespace PhamaceySystem
                     {
                         xtc.Pages[item].MdiChild.Activate();
                         Is_Opened = true;
-                     //   xtc.AppearancePage.HeaderActive.BackColor= Properties.Settings.Default.titel_master_colore;
                     }
                 }
             }
@@ -116,13 +117,27 @@ namespace PhamaceySystem
             {
                 f.MdiParent = this;
                 f.Show();
-              //  xtc.AppearancePage.HeaderActive.BackColor = Properties.Settings.Default.titel_master_colore;
-
             }
-        }  
+        }
+        private void close_all()
+        {
+            var f = MdiChildren;
+            int i = 0;
+            while (i < f.Length)
+            {
+                f[i].Close();
+                i = i + 1;
+            }
+        }
+        private void xtc_SelectedPageChanged(object sender, EventArgs e)
+        {
+            xtc.AppearancePage.HeaderActive.BackColor = Properties.Settings.Default.titel_master_colore;
+            xtc.AppearancePage.PageClient.BackColor = this.BackColor;
+
+        }
         private void get_med_min_num()
-        {          
-                bool check_show_not = Properties.Settings.Default.is_med_count_not_show;
+        {
+            bool check_show_not = Properties.Settings.Default.is_med_count_not_show;
             bool check_show_form = Properties.Settings.Default.is_med_count_form_show;
 
             DataTable dt = c_db.select(@"SELECT  dbo.T_Medician.med_id,
@@ -132,8 +147,8 @@ namespace PhamaceySystem
                                                 dbo.T_Medician.med_total_now                 
                      FROM        dbo.T_Medician 
                     WHERE        (dbo.T_Medician.med_total_now <=   dbo.T_Medician.med_minimum)");
-                int count = dt.Rows.Count;
-           
+            int count = dt.Rows.Count;
+
             static_med_min = count.ToString();
             bar_med_min.Caption = static_med_min;
             if (check_show_not && count > 0)
@@ -141,15 +156,14 @@ namespace PhamaceySystem
                 Notification_Form n = new Notification_Form("الأدوية التي شارفت على الانتهاء", "" + count);
                 n.Show();
             }
-                if (check_show_form && count > 0 )
-                {
-                    F_Med_min f = new F_Med_min();                
-                    f.ShowDialog();
-                }
-          
-
+            if (check_show_form && count > 0)
+            {
+                F_Med_min f = new F_Med_min();
+                f.ShowDialog();
             }
 
+
+        }
         private void get_med_exp_date()
         {
             bool check_date_exp_not = Properties.Settings.Default.is_expdate_not_show;
@@ -163,20 +177,20 @@ namespace PhamaceySystem
             //         FROM        dbo.T_Medician 
             //        WHERE        (dbo.T_Medician.med_total_now <=   dbo.T_Medician.med_minimum)");
 
-            var dt= (from med in cmdOpInItem.Get_All().Where(l => l.in_item_expDate.Value.Month < DateTime.Today.Month
-                             && l.in_item_expDate.Value.Year <= DateTime.Today.Year
-                             && l.is_out != true)
-                     select new
-                     {
-                         id = med.in_item_id,
-                         med_id = med.Med_id,
-                         code = med.T_Medician.med_code,
-                         name = med.T_Medician.med_name,
-                         quntetey = med.in_item_quntity,
-                         datee = med.in_item_expDate,
+            var dt = (from med in cmdOpInItem.Get_All().Where(l => l.in_item_expDate.Value.Month < DateTime.Today.Month
+                              && l.in_item_expDate.Value.Year <= DateTime.Today.Year
+                              && l.is_out != true)
+                      select new
+                      {
+                          id = med.in_item_id,
+                          med_id = med.Med_id,
+                          code = med.T_Medician.med_code,
+                          name = med.T_Medician.med_name,
+                          quntetey = med.in_item_quntity,
+                          datee = med.in_item_expDate,
 
-                     }).OrderBy(l_id => l_id.id).ToList();
-            int count =  dt.Count;
+                      }).OrderBy(l_id => l_id.id).ToList();
+            int count = dt.Count;
 
             static_date_exp = count.ToString();
             bar_exp_date.Caption = static_date_exp;
@@ -193,41 +207,6 @@ namespace PhamaceySystem
 
 
         }
-        private void F_Main_Load(object sender, EventArgs e)
-        {
-            load_first_frame();
-
-             get_med_min_num();
-            get_med_exp_date();
-            reg.get_reg_key_value();
-        }
-        private void close_all()
-        {
-            var f =  MdiChildren;
-            int i = 0;
-            while (i<f.Length)
-            {
-                f[i].Close();
-                i = i + 1;
-            }
-        }
-        private void F_Main_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit(); 
-        }
-
-        private void xtc_SelectedPageChanged(object sender, EventArgs e)
-        {
-              xtc.AppearancePage.HeaderActive.BackColor = Properties.Settings.Default.titel_master_colore;
-
-        }
-
-
-
-        private void F_Main_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            reg.make_reg_key();
-        }
 
         private void barButtonItem31_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -236,10 +215,6 @@ namespace PhamaceySystem
             f.ShowDialog();
         }
 
-        private void barButtonItem26_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-        }
     }
 }
 

@@ -667,16 +667,16 @@
             // 
             // printPreviewBarItem18
             // 
-            this.printPreviewBarItem18.Caption = "Last  Page ";
-            this.printPreviewBarItem18.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ShowLastPage;
+            this.printPreviewBarItem18.Caption = "First Page";
+            this.printPreviewBarItem18.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ShowFirstPage;
             this.printPreviewBarItem18.ContextSpecifier = this.documentViewerRibbonController1;
             this.printPreviewBarItem18.Enabled = false;
             this.printPreviewBarItem18.Id = 18;
             this.printPreviewBarItem18.Name = "printPreviewBarItem18";
             superToolTip18.FixedTooltipWidth = true;
-            toolTipTitleItem18.Text = "Last Page (End)";
+            toolTipTitleItem18.Text = "First Page (Home)";
             toolTipItem18.LeftIndent = 6;
-            toolTipItem18.Text = "Navigate to the last page of the document.";
+            toolTipItem18.Text = "Navigate to the first page of the document.";
             superToolTip18.Items.Add(toolTipTitleItem18);
             superToolTip18.Items.Add(toolTipItem18);
             superToolTip18.MaxWidth = 210;
@@ -684,16 +684,16 @@
             // 
             // printPreviewBarItem19
             // 
-            this.printPreviewBarItem19.Caption = "Next  Page ";
-            this.printPreviewBarItem19.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ShowNextPage;
+            this.printPreviewBarItem19.Caption = "Previous Page";
+            this.printPreviewBarItem19.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ShowPrevPage;
             this.printPreviewBarItem19.ContextSpecifier = this.documentViewerRibbonController1;
             this.printPreviewBarItem19.Enabled = false;
             this.printPreviewBarItem19.Id = 19;
             this.printPreviewBarItem19.Name = "printPreviewBarItem19";
             superToolTip19.FixedTooltipWidth = true;
-            toolTipTitleItem19.Text = "Next Page (Right Arrow)";
+            toolTipTitleItem19.Text = "Previous Page (Left Arrow)";
             toolTipItem19.LeftIndent = 6;
-            toolTipItem19.Text = "Navigate to the next page of the document.";
+            toolTipItem19.Text = "Navigate to the previous page of the document.";
             superToolTip19.Items.Add(toolTipTitleItem19);
             superToolTip19.Items.Add(toolTipItem19);
             superToolTip19.MaxWidth = 210;
@@ -701,16 +701,16 @@
             // 
             // printPreviewBarItem20
             // 
-            this.printPreviewBarItem20.Caption = "Previous Page";
-            this.printPreviewBarItem20.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ShowPrevPage;
+            this.printPreviewBarItem20.Caption = "Next  Page ";
+            this.printPreviewBarItem20.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ShowNextPage;
             this.printPreviewBarItem20.ContextSpecifier = this.documentViewerRibbonController1;
             this.printPreviewBarItem20.Enabled = false;
             this.printPreviewBarItem20.Id = 20;
             this.printPreviewBarItem20.Name = "printPreviewBarItem20";
             superToolTip20.FixedTooltipWidth = true;
-            toolTipTitleItem20.Text = "Previous Page (Left Arrow)";
+            toolTipTitleItem20.Text = "Next Page (Right Arrow)";
             toolTipItem20.LeftIndent = 6;
-            toolTipItem20.Text = "Navigate to the previous page of the document.";
+            toolTipItem20.Text = "Navigate to the next page of the document.";
             superToolTip20.Items.Add(toolTipTitleItem20);
             superToolTip20.Items.Add(toolTipItem20);
             superToolTip20.MaxWidth = 210;
@@ -718,16 +718,16 @@
             // 
             // printPreviewBarItem21
             // 
-            this.printPreviewBarItem21.Caption = "First Page";
-            this.printPreviewBarItem21.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ShowFirstPage;
+            this.printPreviewBarItem21.Caption = "Last  Page ";
+            this.printPreviewBarItem21.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ShowLastPage;
             this.printPreviewBarItem21.ContextSpecifier = this.documentViewerRibbonController1;
             this.printPreviewBarItem21.Enabled = false;
             this.printPreviewBarItem21.Id = 21;
             this.printPreviewBarItem21.Name = "printPreviewBarItem21";
             superToolTip21.FixedTooltipWidth = true;
-            toolTipTitleItem21.Text = "First Page (Home)";
+            toolTipTitleItem21.Text = "Last Page (End)";
             toolTipItem21.LeftIndent = 6;
-            toolTipItem21.Text = "Navigate to the first page of the document.";
+            toolTipItem21.Text = "Navigate to the last page of the document.";
             superToolTip21.Items.Add(toolTipTitleItem21);
             superToolTip21.Items.Add(toolTipItem21);
             superToolTip21.MaxWidth = 210;
@@ -1471,7 +1471,7 @@
             this.RightToLeftLayout = true;
             this.StatusBar = this.ribbonStatusBar1;
             this.Text = "F_Viewer";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.F_Viewer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.documentViewerRibbonController1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();

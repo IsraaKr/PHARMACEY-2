@@ -215,12 +215,6 @@
     <Compile Include="Forms\Report_Forms\F_In_Rep.Designer.cs">
       <DependentUpon>F_In_Rep.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Report_Forms\F_master_detale.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Report_Forms\F_master_detale.Designer.cs">
-      <DependentUpon>F_master_detale.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Report_Forms\F_out_rep.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +299,12 @@
     <Compile Include="Forms\Store_Other_Forms\F_out_med_to_chose.Designer.cs">
       <DependentUpon>F_out_med_to_chose.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Store_Other_Forms\F_place_store.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Store_Other_Forms\F_place_store.Designer.cs">
+      <DependentUpon>F_place_store.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Store_Other_Forms\F_Store_Graid.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,12 +322,6 @@
     </Compile>
     <Compile Include="Forms\Store_Other_Forms\F_Store_Move.Designer.cs">
       <DependentUpon>F_Store_Move.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Store_Other_Forms\F_Store_Places.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Store_Other_Forms\F_Store_Places.Designer.cs">
-      <DependentUpon>F_Store_Places.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\XtraReporttest.cs">
       <SubType>Component</SubType>
@@ -418,9 +412,6 @@
     <EmbeddedResource Include="Forms\Report_Forms\F_In_Rep.resx">
       <DependentUpon>F_In_Rep.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Report_Forms\F_master_detale.resx">
-      <DependentUpon>F_master_detale.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Report_Forms\F_Viewer.resx">
       <DependentUpon>F_Viewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -457,6 +448,9 @@
     <EmbeddedResource Include="Forms\Store_Other_Forms\F_out_med_to_chose.resx">
       <DependentUpon>F_out_med_to_chose.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Store_Other_Forms\F_place_store.resx">
+      <DependentUpon>F_place_store.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Store_Other_Forms\F_Store_Graid.resx">
       <DependentUpon>F_Store_Graid.cs</DependentUpon>
     </EmbeddedResource>
@@ -465,9 +459,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Store_Other_Forms\F_Store_Move.resx">
       <DependentUpon>F_Store_Move.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Store_Other_Forms\F_Store_Places.resx">
-      <DependentUpon>F_Store_Places.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\XtraReporttest.resx">
       <DependentUpon>XtraReporttest.cs</DependentUpon>

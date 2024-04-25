@@ -59,6 +59,16 @@ namespace PhamaceySystem.Forms
            // f.MdiParent = this.MdiParent;
             f.Show();
         }
+
+        private void pictureEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

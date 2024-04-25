@@ -283,7 +283,7 @@
             this.xrTable2.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.xrTable2.BorderWidth = 3F;
             this.xrTable2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(77.11855F, 185.25F);
+            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(81.11855F, 185.25F);
             this.xrTable2.Name = "xrTable2";
             this.xrTable2.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 5, 0, 100F);
             this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -313,7 +313,7 @@
             this.xrTableCell22.Multiline = true;
             this.xrTableCell22.Name = "xrTableCell22";
             this.xrTableCell22.StylePriority.UseTextAlignment = false;
-            this.xrTableCell22.Text = "xrTableCell3";
+            this.xrTableCell22.Text = "\r\n";
             this.xrTableCell22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.xrTableCell22.Weight = 0.40990579427752155D;
             // 
@@ -386,7 +386,7 @@
             // 
             this.vendorTable.AnchorHorizontal = DevExpress.XtraReports.UI.HorizontalAnchorStyles.Right;
             this.vendorTable.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.vendorTable.LocationFloat = new DevExpress.Utils.PointFloat(375.5209F, 40.20834F);
+            this.vendorTable.LocationFloat = new DevExpress.Utils.PointFloat(379.5209F, 40.20834F);
             this.vendorTable.Name = "vendorTable";
             this.vendorTable.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.vendorNameRow,
@@ -468,7 +468,7 @@
             this.invoiceDate.AnchorHorizontal = DevExpress.XtraReports.UI.HorizontalAnchorStyles.Right;
             this.invoiceDate.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[in_op_date]")});
-            this.invoiceDate.LocationFloat = new DevExpress.Utils.PointFloat(28.53546F, 107.2917F);
+            this.invoiceDate.LocationFloat = new DevExpress.Utils.PointFloat(32.53546F, 107.2917F);
             this.invoiceDate.Name = "invoiceDate";
             this.invoiceDate.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.invoiceDate.SizeF = new System.Drawing.SizeF(189.3593F, 22.99996F);
@@ -532,7 +532,7 @@
             this.totalTable.Borders = DevExpress.XtraPrinting.BorderSide.Top;
             this.totalTable.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.totalTable.ForeColor = System.Drawing.Color.Black;
-            this.totalTable.LocationFloat = new DevExpress.Utils.PointFloat(313.5417F, 0F);
+            this.totalTable.LocationFloat = new DevExpress.Utils.PointFloat(317.5417F, 0F);
             this.totalTable.Name = "totalTable";
             this.totalTable.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 5, 0, 100F);
             this.totalTable.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -622,7 +622,7 @@
             this.DataMember = "Query";
             this.DataSource = this.sqlDataSource1;
             this.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.Margins = new System.Drawing.Printing.Margins(100, 100, 21, 28);
+            this.Margins = new System.Drawing.Printing.Margins(96, 100, 21, 28);
             this.RightToLeft = DevExpress.XtraReports.UI.RightToLeft.Yes;
             this.RightToLeftLayout = DevExpress.XtraReports.UI.RightToLeftLayout.Yes;
             this.Version = "20.1";

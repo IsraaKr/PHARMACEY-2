@@ -22,7 +22,7 @@ namespace PhamaceySystem.Classes
             RegistryKey skin_name = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\WINREGISTRY");
             if (skin_name != null)
             {
-                DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = skin_name.GetValue("skin_name").ToString();
+               DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = skin_name.GetValue("skin_name").ToString();
             }
             if (Properties.Settings.Default.theme !="...")
             {

@@ -10,15 +10,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PhamaceySystem.Forms.Store_Forms
+namespace PhamaceySystem.Forms.Store_Other_Forms
 {
-    public partial class F_Store_Places : F_Master_List
+    public partial class F_place_store : F_Master_Inheretanz
     {
-        public F_Store_Places()
+        public F_place_store()
         {
             InitializeComponent();
             Title("Store Places ,  مواقع التخزين ");
-            txt.Text = "اسم الموقع ";
+            txt_name.Text = "اسم الموقع ";
+            view_inheretanz_butomes(false, true, false, true, true, true, false, true);
 
             Title(tit);
             this.Text = tit;
@@ -156,7 +157,7 @@ namespace PhamaceySystem.Forms.Store_Forms
         }
         public void Fill_Entitey()
         {
-        
+
             TF_Store_Places.name = txt_name.Text.Trim();
             TF_Store_Places.groupe = txt_group.Text.Trim();
             TF_Store_Places.shufel = txt_group.Text.Trim();
@@ -202,7 +203,7 @@ namespace PhamaceySystem.Forms.Store_Forms
                 TF_Store_Places = cmdStorePalces.Get_By(c_id => c_id.id == id).FirstOrDefault();
             }
         }
-        public override void gv_DoubleClick(object sender, EventArgs e)
+        public  void gv_DoubleClick(object sender, EventArgs e)
         {
             Is_Double_Click = true;
             gv.SelectRow(gv.FocusedRowHandle);
@@ -210,13 +211,13 @@ namespace PhamaceySystem.Forms.Store_Forms
             if (TF_Store_Places != null)
                 Fill_Controls();
         }
-        public override void gv_KeyDown(object sender, KeyEventArgs e)
+        public  void gv_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Delete && gv.RowCount > 0)
                 Delete_Data();
         }
 
-        public override void gv_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
+        public void gv_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
             Is_Double_Click = true;
         }
@@ -234,6 +235,23 @@ namespace PhamaceySystem.Forms.Store_Forms
         private void txt_name_EditValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txt_name_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Insert_Data();
+            //if (e.KeyCode == Keys.F2)
+            //    new();
+            if (e.KeyCode == Keys.Delete)
+                Delete_Data();
+            if (e.KeyCode == Keys.Escape)
+                clear_data(this.Controls);
+        }
+
+        private void F_place_store_Load(object sender, EventArgs e)
+        {
+            Get_Data("");
         }
     }
 }

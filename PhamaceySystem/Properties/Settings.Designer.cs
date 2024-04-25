@@ -190,7 +190,7 @@ namespace PhamaceySystem.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("...")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Basic")]
         public string theme {
             get {
                 return ((string)(this["theme"]));

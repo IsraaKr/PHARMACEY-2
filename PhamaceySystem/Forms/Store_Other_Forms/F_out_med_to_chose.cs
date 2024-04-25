@@ -111,7 +111,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             TF_Store_Move.med_id = med_idd;
             TF_Store_Move.item_id = item_id;
             TF_Store_Move.op_id = out_op_idd;
-            TF_Store_Move.op_id = emp_f_id;
+            TF_Store_Move.emp_id = emp_f_id;
 
             if (opp_type == 2)
             {

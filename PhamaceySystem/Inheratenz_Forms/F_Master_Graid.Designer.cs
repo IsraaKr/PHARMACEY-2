@@ -45,6 +45,7 @@
             // 
             // lbl_tiltle
             // 
+            this.lbl_tiltle.BackColor = System.Drawing.Color.Maroon;
             this.lbl_tiltle.Size = new System.Drawing.Size(800, 50);
             // 
             // timer_date
