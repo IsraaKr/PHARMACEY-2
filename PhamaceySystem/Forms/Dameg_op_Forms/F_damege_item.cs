@@ -1,6 +1,8 @@
 ﻿using DevExpress.Data;
 using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
+using PhamaceySystem.Forms.Store_Forms;
+using PhamaceySystem.Forms.Store_OP_Forms;
 using PhamaceySystem.Inheratenz_Forms;
 using System;
 using System.Collections.Generic;
@@ -30,6 +32,7 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
         T_Operation_Damage_Item TF_damege_Item;
         Boolean Is_Double_Click = false;
         int id;
+        int op_id;
         //  int row_to_show;
         public override void Get_Data(string status_mess)
         {
@@ -70,9 +73,9 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
             {
                 if (Is_Double_Click)
                 {
-                    //F_In_Op f = new F_In_Op(id);
-                    //f.ShowDialog();
-                    //Get_Data("");
+                    F_Dameg_Op f = new F_Dameg_Op(op_id);
+                    f.ShowDialog();
+                    Get_Data("");
                 }
                 else
                     C_Master.Warning_Massege_Box("الرجاء اختيار عنصر لتعديله");
@@ -150,7 +153,7 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
                             med_name = yyy.med_name,
                             qun = med.dmg_item_quntity,
                             in_item_id = med.in_item_id,
-
+                            opi=med.dmg_op_id
                         }).OrderBy(l_id => l_id.id).ToList();
             if (data != null && data.Count > 0)
             {
@@ -166,6 +169,7 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
             gv.Columns[2].Caption = "اسم الدواء";
             gv.Columns[3].Caption = "الكمية التالفة";
             gv.Columns[4].Visible = false;
+            gv.Columns[5].Visible = false;
 
 
             gv.BestFitColumns();
@@ -176,13 +180,17 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
 
             if (Row_Id != 0)
             {
-                id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString().Replace(",", string.Empty));
+                id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString());
                 TF_damege_Item = cmdDamegeItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
+                op_id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[5]).ToString());
+
             }
             else
             {
-                id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString().Replace(",", string.Empty));
+                id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString());
                 TF_damege_Item = cmdDamegeItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
+                op_id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[5]).ToString());
+
             }
         }
 

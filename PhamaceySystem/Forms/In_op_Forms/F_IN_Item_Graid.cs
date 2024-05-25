@@ -1,6 +1,7 @@
 ﻿using DevExpress.Data;
 using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
+using PhamaceySystem.Forms.Store_Forms;
 using PhamaceySystem.Inheratenz_Forms;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         T_OPeration_IN_Item TF_IN_Item;
         Boolean Is_Double_Click = false;
         int id;
+        int op_id;
       //  int row_to_show;
         public override void Get_Data(string status_mess)
         {
@@ -72,9 +74,9 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             {
                 if (Is_Double_Click)
                 {
-                    //F_In_Op f = new F_In_Op(id);
-                    //f.ShowDialog();
-                    //Get_Data("");
+                    F_In_Op f = new F_In_Op(op_id);
+                    f.ShowDialog();
+                    Get_Data("");
                 }
                 else
                     C_Master.Warning_Massege_Box("الرجاء اختيار عنصر لتعديله");
@@ -157,7 +159,8 @@ on med.store_place_id equals place.id into plist
                             place_id = med.store_place_id,
                             pace = ppp.name,
                             is_out = med.is_out,
-                            qun_out = med.out_item_quntitey
+                            qun_out = med.out_item_quntitey,
+                            op_id =med.In_op_id
                         }).OrderBy(l_id => l_id.id).ToList();
             if (data != null && data.Count > 0)
             {
@@ -176,6 +179,7 @@ on med.store_place_id equals place.id into plist
             gv.Columns[5].Caption = "مكان التخزين ";
             gv.Columns[6].Caption = "خارجة ";
             gv.Columns[7].Caption = "الكمية الخارجة ";
+            gv.Columns[8].Visible = false;
 
             gv.BestFitColumns();
         }
@@ -185,13 +189,17 @@ on med.store_place_id equals place.id into plist
 
             if (Row_Id != 0)
             {
-                id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString().Replace(",", string.Empty));
+                id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString());
                 TF_IN_Item = cmdInItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
+        op_id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[8]).ToString());
+
             }
             else
             {
-                id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString().Replace(",", string.Empty));
+                id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString());
                 TF_IN_Item = cmdInItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
+                op_id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[8]).ToString());
+
             }
         }
 

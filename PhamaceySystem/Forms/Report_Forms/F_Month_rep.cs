@@ -1,20 +1,14 @@
 ﻿using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Report_Forms
 {
-    public partial class F_In_Rep :F_Master_Inheretanz
+    public partial class F_Month_rep : F_Master_Inheretanz
     {
-        public F_In_Rep()
+        public F_Month_rep()
         {
             InitializeComponent();
             view_inheretanz_butomes(false, false, false, false, false, true, false);
@@ -23,7 +17,7 @@ namespace PhamaceySystem.Forms.Report_Forms
             Title(tit);
             this.Text = tit;
         }
-        public string tit = "تقرير الإدخال";
+        public string tit = "التقرير الشهري/ حركة المستودع ";
 
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
         ClsCommander<T_Pers_Emploee> cmdEmp = new ClsCommander<T_Pers_Emploee>();
@@ -32,46 +26,52 @@ namespace PhamaceySystem.Forms.Report_Forms
         ClsCommander<T_OPeration_IN> cmdOpIn = new ClsCommander<T_OPeration_IN>();
         ClsCommander<T_OPeration_IN_Item> cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
 
+        ClsCommander<T_Pers_Recivers> cmdReciver = new ClsCommander<T_Pers_Recivers>();
 
         DataTable dt;
 
-        string sqll = @"  SELECT     T_OPeration_IN.in_op_id,
-T_OPeration_IN.in_op_date,
-T_OPeration_IN.in_op_time,
-T_OPeration_IN.in_op_text,
-T_OPeration_IN.med_count, 
-                      T_OPeration_IN_Item.in_item_id,
-T_Medician.med_code,
-T_Medician.med_name, 
-T_OPeration_IN_Item.in_item_quntity,
-T_OPeration_IN_Item.in_item_expDate,
-T_OPeration_IN_Item.is_out, 
-                      T_OPeration_IN_Item.out_item_quntitey, 
-T_Pers_Donars.Donar_name, 
+        string sqll = @" SELECT    
+T_Store_Move.id, 
+T_Store_Move.item_id,
+T_OPeration_Type.OP_type_name,
+T_Store_Move.op_id,
+T_Store_Move.date,
+T_Store_Move.time,
+T_Store_Move.med_id, 
+ T_Medician.med_code,
+                      T_Medician.med_name, 
+T_Med_Shape.med_shape_name,
+T_Store_Move.qunt,
+T_Pers_Recivers.name AS reciver_name,
 T_Pers_Emploee.Emp_name, 
-                      T_Store_Placees.name AS place_name
-FROM         T_OPeration_IN INNER JOIN
-                      T_Pers_Emploee ON T_OPeration_IN.emp_id = T_Pers_Emploee.Emp_id INNER JOIN
-                      T_Pers_Donars ON T_OPeration_IN.donar_id = T_Pers_Donars.Donar_id INNER JOIN
-                      T_OPeration_IN_Item ON T_OPeration_IN.in_op_id = T_OPeration_IN_Item.In_op_id INNER JOIN
-                      T_Medician ON T_OPeration_IN_Item.Med_id = T_Medician.med_id INNER JOIN
-                      T_Store_Placees ON T_OPeration_IN_Item.store_place_id = T_Store_Placees.id  ";
+                      T_Pers_Donars.Donar_name,
+T_Store_Placees.name AS place_name
+
+FROM         T_Store_Move left JOIN
+                      T_Store_Placees ON T_Store_Move.place_id = T_Store_Placees.id left JOIN
+                      T_Pers_Recivers ON T_Store_Move.reciver_id = T_Pers_Recivers.id left JOIN
+                      T_Pers_Emploee ON T_Store_Move.emp_id = T_Pers_Emploee.Emp_id left JOIN
+                      T_Pers_Donars ON T_Store_Move.donar_id = T_Pers_Donars.Donar_id left JOIN
+                      T_OPeration_Type ON T_Store_Move.op_type_id = T_OPeration_Type.OP_type_id left JOIN
+                    T_Medician  ON T_Store_Move.med_id = T_Medician.med_id   left  JOIN
+                      T_Med_Shape ON   T_Medician.med_shape_id =T_Med_Shape.med_shape_id
+                      ";
         private void gv_column_names()
         {
-            gv.Columns[0].Caption = "الرقم";
-            gv.Columns[1].Caption = "التاريخ";
-            gv.Columns[2].Caption = "الوقت";
+            gv.Columns[0].Visible = false;
+            gv.Columns[1].Visible = false;
+            gv.Columns[2].Caption = "نوع العملية";
             gv.Columns[3].Visible = false;
-            gv.Columns[4].Visible = false;
-            gv.Columns[5].Visible=false;
-            gv.Columns[6].Caption = "الكود";
-            gv.Columns[7].Caption = "الاسم";
-            gv.Columns[8].Caption="الكمية";
-            gv.Columns[9].Caption = "انتهاءالصلاحية";
-            gv.Columns[10].Caption = "خارجة";
-            gv.Columns[11].Visible = false;
-            gv.Columns[12].Caption = "المتبرع";
-            gv.Columns[13].Caption = "الموظف";
+            gv.Columns[4].Caption = "التاريخ";
+            gv.Columns[5].Caption = "الوقت";
+            gv.Columns[6].Visible = false;
+            gv.Columns[7].Caption = "الكود";
+            gv.Columns[8].Caption = "الاسم";
+            gv.Columns[9].Caption = "الشكل";
+            gv.Columns[10].Caption = "الكمية";
+            gv.Columns[11].Caption = "المستلم";
+            gv.Columns[12].Caption = "الموظف";
+            gv.Columns[13].Caption = "المتبرع";
             gv.Columns[14].Caption = "التخزين";
             gv.BestFitColumns();
         }
@@ -101,6 +101,22 @@ FROM         T_OPeration_IN INNER JOIN
 
             }
         }
+        public void GetReciver_Data()
+        {
+            var Donar_list = (from Emp in cmdReciver.Get_All()
+                              select new
+                              {
+                                  id = Emp.id,
+                                  name = Emp.name
+                              }).OrderBy(id => id.id);
+            if (Donar_list != null && Donar_list.Count() > 0)
+            {
+                reciver_searchLookUpEdit12.slkp_iniatalize_data(Donar_list, "name", "id");
+                reciver_searchLookUpEdit12.Properties.View.Columns[0].Caption = "الرقم";
+                reciver_searchLookUpEdit12.Properties.View.Columns[1].Caption = "الاسم ";
+            }
+
+        }
         public void GetEmp_Data()
         {
             var emp_list = (from Emp in cmdEmp.Get_All()
@@ -110,7 +126,7 @@ FROM         T_OPeration_IN INNER JOIN
                                 name = Emp.Emp_name
                             }).OrderBy(id => id.id);
             if (emp_list != null && emp_list.Count() > 0)
-            {         
+            {
                 emp_SearchlookupEdit21.slkp_iniatalize_data(emp_list, "name", "id");
                 emp_SearchlookupEdit21.Properties.View.Columns[0].Caption = "الرقم";
                 emp_SearchlookupEdit21.Properties.View.Columns[1].Caption = "الاسم ";
@@ -149,34 +165,16 @@ FROM         T_OPeration_IN INNER JOIN
             }
 
         }
-        public void GetIn_op_Data()
-        {
-            var med_list = (from Emp in cmdOpIn.Get_All()
-                            select new
-                            {
-                                id = Emp.in_op_id,
-                                date = Emp.in_op_date,
-                                count = Emp.med_count
-
-                            }).OrderBy(id => id.id);
-            if (med_list != null && med_list.Count() > 0)
-            {
-                in_op_SearchlookupEdit.slkp_iniatalize_data(med_list, "id", "id");
-                in_op_SearchlookupEdit.Properties.View.Columns[0].Caption = "الرقم";
-                in_op_SearchlookupEdit.Properties.View.Columns[1].Caption = "التاريخ ";
-                in_op_SearchlookupEdit.Properties.View.Columns[2].Caption = "عدد المواد ";
-            }
-
-        }
     
+
         public override void Get_Data(string status_mess)
         {
             GetDonars_Data();
             GetEmp_Data();
             GetMed_Data();
             GetStoragePlace_Data();
-            GetIn_op_Data();
-
+            GetReciver_Data();
+            Month_DateDateEdit.DateTime = Convert.ToDateTime(DateTime.Today.ToShortDateString());
 
             base.Get_Data("");
         }
@@ -200,28 +198,30 @@ FROM         T_OPeration_IN INNER JOIN
         {
             clear_data(this.Controls);
             chb_from_to.Checked = false;
+
             Med_idSearchlookupEdit1.EditValue = null;
             donar_searchLookUpEdit12.EditValue = null;
+            reciver_searchLookUpEdit12.EditValue = null;
             emp_SearchlookupEdit21.EditValue = null;
             store_place_SearchlookupEdit2.EditValue = null;
-            in_op_SearchlookupEdit.EditValue = null;
-            is_out_SearchlookupEdit1.EditValue = null;
+            op_type_SearchlookupEdit1.EditValue = null;
             Med_idSearchlookupEdit1.Text = string.Empty;
             donar_searchLookUpEdit12.Text = string.Empty;
+            reciver_searchLookUpEdit12.Text = string.Empty;
+            Month_DateDateEdit.DateTime = Convert.ToDateTime(DateTime.Today.ToShortDateString());
+
             emp_SearchlookupEdit21.Text = string.Empty;
             store_place_SearchlookupEdit2.Text = string.Empty;
-            //  in_op_SearchlookupEdit.Text = string.Empty;
-            is_out_SearchlookupEdit1.Text = string.Empty;
-           
-            exp_date.Text =string.Empty;
+            op_type_SearchlookupEdit1.Text = string.Empty;
+
 
             from_dateTimePicker1.Text = DateTime.Today.ToShortDateString();
-            to_dateTimePicker2.Text = DateTime.Today.ToShortDateString(); 
+            to_dateTimePicker2.Text = DateTime.Today.ToShortDateString();
         }
 
         private void chb_from_to_CheckedChanged(object sender, EventArgs e)
         {
-          //  clear_data(this.Controls);
+            //  clear_data(this.Controls);
             if (chb_from_to.Checked)
             {
                 from_dateTimePicker1.Enabled = true;
@@ -232,48 +232,45 @@ FROM         T_OPeration_IN INNER JOIN
                 from_dateTimePicker1.Enabled = false;
                 to_dateTimePicker2.Enabled = false;
             }
-        }       
+        }
 
         private void btn_view_serch_Click(object sender, EventArgs e)
         {
             string s = sqll + " where ";
 
-            if (in_op_SearchlookupEdit.Text != string.Empty)
-                s = s + " T_OPeration_IN.in_op_id  =" + Convert.ToInt32(in_op_SearchlookupEdit.EditValue) + "    AND";
+            if (reciver_searchLookUpEdit12.Text != string.Empty)
+                s = s + "  T_Store_Move.reciver_id  =" + Convert.ToInt32(reciver_searchLookUpEdit12.EditValue) + "    AND";
 
             if (Med_idSearchlookupEdit1.Text != string.Empty)
-                s = s + "  T_OPeration_IN_Item.Med_id  =" + Convert.ToInt32(Med_idSearchlookupEdit1.EditValue) + "    AND";
+                s = s + "  T_Store_Move.med_id  =" + Convert.ToInt32(Med_idSearchlookupEdit1.EditValue) + "    AND";
 
             if (store_place_SearchlookupEdit2.Text != string.Empty)
-                s = s + "   T_OPeration_IN_Item.store_place_id =" + Convert.ToInt32(store_place_SearchlookupEdit2.EditValue) + "   AND ";
+                s = s + "   T_Store_Move.place_id =" + Convert.ToInt32(store_place_SearchlookupEdit2.EditValue) + "   AND ";
 
             if (emp_SearchlookupEdit21.Text != string.Empty)
-                s = s + " T_OPeration_IN.emp_id =" + Convert.ToInt32(emp_SearchlookupEdit21.EditValue) + "   AND";
+                s = s + "  T_Store_Move.emp_id =" + Convert.ToInt32(emp_SearchlookupEdit21.EditValue) + "   AND";
 
-            if (is_out_SearchlookupEdit1.Text != string.Empty)
-                {
-                if (is_out_SearchlookupEdit1.Text == "out")
-                    s = s + "  T_OPeration_IN_Item.is_out = 'true' " + "    AND";
-
-                else if (is_out_SearchlookupEdit1.Text == "in")
-                    s = s + "  T_OPeration_IN_Item.is_out = 'false' " + "    AND";
+            if (op_type_SearchlookupEdit1.Text != string.Empty)
+            {
+                if (op_type_SearchlookupEdit1.Text == "إدخال")
+                    s = s + "  T_Store_Move.op_type_id = 1 " + "    AND";
+                else if (op_type_SearchlookupEdit1.Text == "إخراج")
+                    s = s + " T_Store_Move.op_type_id = 2 " + "    AND";
+                else if (op_type_SearchlookupEdit1.Text == "إتلاف")
+                    s = s + "  T_Store_Move.op_type_id =3 " + "    AND";
             }
             if (donar_searchLookUpEdit12.Text != string.Empty)
-                s = s + "T_OPeration_IN.donar_id =" + Convert.ToInt32(donar_searchLookUpEdit12.EditValue) + "    AND ";
+                s = s + "   T_Store_Move.donar_id =" + Convert.ToInt32(donar_searchLookUpEdit12.EditValue) + "    AND ";
 
-            if (exp_date.Text != string.Empty)
-                s = s + " ( month (T_OPeration_IN_Item.in_item_expDate) = " + exp_date.DateTime.Month + " " +
-                   " and  year (T_OPeration_IN_Item.in_item_expDate) = " + exp_date.DateTime.Year + "  ) " + "    AND ";
-
+      
             if (chb_from_to.Checked == true &&
                 from_dateTimePicker1.Value.ToShortDateString() != DateTime.Today.ToShortDateString())
-                s = s + "  (T_OPeration_IN_Item.in_item_expDate between N'" + from_dateTimePicker1.Text + "' and N'" + to_dateTimePicker2.Text + "')" + "   AND ";
+                s = s + "  ( T_Store_Move.date between N'" + from_dateTimePicker1.Text + "' and N'" + to_dateTimePicker2.Text + "')" + "   AND ";
 
-            if (in_op_dateDateEdit.Value.ToShortDateString() != DateTime.Today.ToShortDateString())
-                s = s + " ( month (T_OPeration_IN.in_op_date) = " + in_op_dateDateEdit.Value.Month + " " +
-                " and  year (T_OPeration_IN.in_op_date) = " + in_op_dateDateEdit.Value.Year + " "+
-                 " and DAY(T_OPeration_IN.in_op_date)=  " + in_op_dateDateEdit.Value.Day + " ) " + "    AND ";
-         
+            if ( Month_DateDateEdit.DateTime.Month != DateTime.Today.Month && Month_DateDateEdit.DateTime.Year != DateTime.Today.Year)
+                s = s + " ( month (T_Store_Move.date) = " + Month_DateDateEdit.DateTime.Month + " " +
+                 " and  year (T_Store_Move.date) = " + Month_DateDateEdit.DateTime.Year + " ) " + "    AND ";
+
             s = s.Substring(0, s.Length - 6);
             s = s + group + having;
             load_gc(s);
@@ -314,6 +311,16 @@ FROM         T_OPeration_IN INNER JOIN
                 e.DisplayText = "";
         }
 
+        private void reciver_searchLookUpEdit12_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            if (e.Value != null && e.Value.ToString() != string.Empty)
+            {
+                long e_id = Convert.ToInt64(e.Value);
+                e.DisplayText = cmdReciver.Get_By(id => id.id == e_id).FirstOrDefault().name;
+            }
+            else
+                e.DisplayText = "";
+        }
         private void exp_date_searchLookUpEdit121_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
             if (e.Value != null && e.Value.ToString() != string.Empty)
@@ -345,33 +352,7 @@ FROM         T_OPeration_IN INNER JOIN
             else
                 e.DisplayText = "";
         }
-       
-        private void in_op_dateDateEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            string s = sqll + " WHERE(month (T_OPeration_IN.in_op_date) = N'" + in_op_dateDateEdit.Value.Month + "' " +
-         " and  year (T_OPeration_IN.in_op_date) = N'" + in_op_dateDateEdit.Value.Year + "' ) " + group + having;
 
-
-            load_gc(s);
-
-            Med_idSearchlookupEdit1.EditValue = null;
-            donar_searchLookUpEdit12.EditValue = null;
-            emp_SearchlookupEdit21.EditValue = null;
-            store_place_SearchlookupEdit2.EditValue = null;
-            in_op_SearchlookupEdit.EditValue = null;
-            is_out_SearchlookupEdit1.EditValue = null;
-            Med_idSearchlookupEdit1.Text = string.Empty;
-            donar_searchLookUpEdit12.Text = string.Empty;
-            emp_SearchlookupEdit21.Text = string.Empty;
-            store_place_SearchlookupEdit2.Text = string.Empty;
-            in_op_SearchlookupEdit.Text = string.Empty;
-            is_out_SearchlookupEdit1.Text = string.Empty;
-            ////de_month.Text = DateTime.Today.ToShortDateString(); ;
-            //////de_month.EditValue = null;
-            ////dtp_from.Text = null;
-            ////dtp_to.Text = null;
-        }
 
     }
- } 
-
+}

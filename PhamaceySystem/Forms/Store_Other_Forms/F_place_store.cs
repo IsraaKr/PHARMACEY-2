@@ -19,7 +19,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             InitializeComponent();
             Title("Store Places ,  مواقع التخزين ");
             txt_name.Text = "اسم الموقع ";
-            view_inheretanz_butomes(false, true, false, true, true, true, false, true);
+            view_inheretanz_butomes(false, true, false, true, true, false, true);
 
             Title(tit);
             this.Text = tit;

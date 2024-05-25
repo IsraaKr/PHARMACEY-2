@@ -16,7 +16,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         public F_Store_Move()
         {
             InitializeComponent();
-             view_inheretanz_butomes(false, true, false, true, true, true, false, true);
+             view_inheretanz_butomes(false,false, false, false, false, false, true);
             this.Text = tit;
             Title(tit);
         }
@@ -131,6 +131,11 @@ FROM         T_Store_Move LEFT OUTER JOIN
             Get_Row_ID(0);
             //  if (TF_OPeration_IN != null)
             // Fill_Controls();
+        }
+
+        private void F_Store_Move_Load(object sender, EventArgs e)
+        {
+            view_inheretanz_butomes(false, false, false, false, false, false, true);
         }
     }
 }

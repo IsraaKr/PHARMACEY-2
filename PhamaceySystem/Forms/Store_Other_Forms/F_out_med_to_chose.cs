@@ -30,7 +30,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
              reciver_f_id = reciver_id;
      
             //   gv.OptionsBehavior.Editable   = true;
-            view_inheretanz_butomes(false, true, false, false, false, false, true, true);
+            view_inheretanz_butomes(false, true, false, false, false, true, true);
 
             Title(tit);
             this.Text = tit;

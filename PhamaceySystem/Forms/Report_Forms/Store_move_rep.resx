@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="timer_states_bar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>118, 17</value>
+  <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
-  <metadata name="timer_date.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>258, 17</value>
-  </metadata>
+  <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlRfU3RvcmVfTW92ZV8xIj48RmllbGQgTmFtZT0iaWQiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJpdGVtX2lkIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0ib3BfaWQiIFR5cGU9IkludDMyIiAvPjxGaWVsZCBOYW1lPSJPUF90eXBlX25hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iZGF0ZSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9InRpbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ibWVkX2lkIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0ibWVkX2NvZGUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ibWVkX25hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ibWVkX3NoYXBlX25hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0icGxhY2VfbmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJyZWNpdmVyX25hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iRW1wX25hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iRG9uYXJfbmFtZSIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
+  </data>
 </root>

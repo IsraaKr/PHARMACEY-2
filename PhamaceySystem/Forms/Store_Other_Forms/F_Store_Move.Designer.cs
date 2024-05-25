@@ -32,12 +32,13 @@
             // 
             // F_Store_Move
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "F_Store_Move";
             this.Text = "F_Store_Move";
+            this.Load += new System.EventHandler(this.F_Store_Move_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

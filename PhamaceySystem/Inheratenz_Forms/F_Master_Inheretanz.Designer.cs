@@ -46,8 +46,6 @@
             this.bar_close = new DevExpress.XtraBars.BarButtonItem();
             this.bar_delete = new DevExpress.XtraBars.BarButtonItem();
             this.sp_delete = new DevExpress.XtraBars.BarButtonItem();
-            this.bar_clear = new DevExpress.XtraBars.BarButtonItem();
-            this.sp_clear = new DevExpress.XtraBars.BarButtonItem();
             this.bar_print = new DevExpress.XtraBars.BarButtonItem();
             this.sp_print = new DevExpress.XtraBars.BarButtonItem();
             this.bar_refresh = new DevExpress.XtraBars.BarButtonItem();
@@ -112,14 +110,12 @@
             this.bar_close,
             this.sp_edite,
             this.sp_add,
-            this.sp_clear,
             this.sp_delete,
             this.bar_edit,
             this.bar_print,
             this.bar_time,
             this.bar_date,
             this.barStaticItem3,
-            this.bar_clear,
             this.bar_neew,
             this.sp_new,
             this.sp_print,
@@ -163,8 +159,6 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_close),
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_delete),
             new DevExpress.XtraBars.LinkPersistInfo(this.sp_delete),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bar_clear),
-            new DevExpress.XtraBars.LinkPersistInfo(this.sp_clear),
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_print),
             new DevExpress.XtraBars.LinkPersistInfo(this.sp_print),
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_refresh),
@@ -273,24 +267,6 @@
             this.sp_delete.Id = 16;
             this.sp_delete.Name = "sp_delete";
             this.sp_delete.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
-            // bar_clear
-            // 
-            this.bar_clear.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.bar_clear.Caption = "مسح";
-            this.bar_clear.Id = 22;
-            this.bar_clear.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_clear.ImageOptions.Image")));
-            this.bar_clear.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_clear.ImageOptions.LargeImage")));
-            this.bar_clear.Name = "bar_clear";
-            this.bar_clear.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.bar_clear.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.bar_clear.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_clear_ItemClick);
-            // 
-            // sp_clear
-            // 
-            this.sp_clear.Id = 15;
-            this.sp_clear.Name = "sp_clear";
-            this.sp_clear.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // bar_print
             // 
@@ -502,8 +478,6 @@
         public DevExpress.XtraBars.BarButtonItem bar_edit;
         public DevExpress.XtraBars.BarButtonItem sp_edite;
         public DevExpress.XtraBars.BarButtonItem sp_delete;
-        public DevExpress.XtraBars.BarButtonItem bar_clear;
-        public DevExpress.XtraBars.BarButtonItem sp_clear;
         public DevExpress.XtraBars.BarButtonItem bar_close;
         public DevExpress.XtraBars.BarButtonItem bar_print;
         public DevExpress.XtraBars.BarButtonItem sp_print;

@@ -16,7 +16,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         public F_in_master_detail()
         {
             InitializeComponent();
-            view_inheretanz_butomes(true, false, false, true, true, false, true, true);
+            view_inheretanz_butomes(true, false, false, true, true,  true, true);
 
             Title(tit);
             this.Text = tit;

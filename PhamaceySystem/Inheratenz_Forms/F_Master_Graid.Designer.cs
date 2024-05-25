@@ -45,7 +45,6 @@
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.BackColor = System.Drawing.Color.Maroon;
             this.lbl_tiltle.Size = new System.Drawing.Size(800, 50);
             // 
             // timer_date
@@ -100,11 +99,9 @@
             this.gv.OptionsFind.AlwaysVisible = true;
             this.gv.OptionsHint.ShowFooterHints = false;
             this.gv.OptionsMenu.EnableFooterMenu = false;
-            this.gv.OptionsPrint.AllowMultilineHeaders = true;
             this.gv.OptionsPrint.EnableAppearanceEvenRow = true;
             this.gv.OptionsPrint.ExpandAllDetails = true;
             this.gv.OptionsPrint.PrintDetails = true;
-            this.gv.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gv.OptionsView.EnableAppearanceEvenRow = true;
             this.gv.OptionsView.ShowAutoFilterRow = true;
             this.gv.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gv_RowStyle);

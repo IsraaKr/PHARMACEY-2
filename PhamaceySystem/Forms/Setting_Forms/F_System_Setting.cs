@@ -17,7 +17,7 @@ namespace PhamaceySystem.Forms.Setting_Forms
         {
             InitializeComponent();
 
-            view_inheretanz_butomes(false, true, false, false, false, true, false , true);
+            view_inheretanz_butomes(false, true, false, false, false, false , true);
             Title(tit);
             this.Text = tit;
         }

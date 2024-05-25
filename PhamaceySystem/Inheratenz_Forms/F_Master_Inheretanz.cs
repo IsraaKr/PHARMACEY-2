@@ -20,7 +20,7 @@ namespace PhamaceySystem
             // view_inheretanz_butomes(true,false, true, true, true, true);
         }
        //عرض و إخفاء الأزرار
-        public virtual void view_inheretanz_butomes(bool neew ,bool add , bool add_save , bool edite , bool delete , bool clear , bool print , bool refresh)
+        public virtual void view_inheretanz_butomes(bool neew ,bool add , bool add_save , bool edite , bool delete  , bool print , bool refresh)
         {
             if (neew)
             {
@@ -47,11 +47,7 @@ namespace PhamaceySystem
                 bar_delete.Visibility = 0;
                 sp_delete.Visibility = 0;
             }
-            if (clear)
-            {
-                bar_clear.Visibility = 0;
-                sp_clear.Visibility = 0;
-            }
+
             if (print)
             {
                 bar_print.Visibility = 0;
@@ -282,7 +278,14 @@ namespace PhamaceySystem
 
         private void bar_refresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            clear_data(this.Controls);
             Get_Data("");
+            timer_states_bar.Enabled = true;
+        }
+
+        private void sp_clear_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 }

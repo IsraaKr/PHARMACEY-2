@@ -215,6 +215,12 @@
     <Compile Include="Forms\Report_Forms\F_In_Rep.Designer.cs">
       <DependentUpon>F_In_Rep.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Report_Forms\F_Month_rep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Report_Forms\F_Month_rep.Designer.cs">
+      <DependentUpon>F_Month_rep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Report_Forms\F_out_rep.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +232,12 @@
     </Compile>
     <Compile Include="Forms\Report_Forms\F_Viewer.Designer.cs">
       <DependentUpon>F_Viewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Report_Forms\Store_move_rep.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Report_Forms\Store_move_rep.Designer.cs">
+      <DependentUpon>Store_move_rep.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Report_Forms\XtraReport4.cs">
       <SubType>Component</SubType>
@@ -409,11 +421,23 @@
     <EmbeddedResource Include="Forms\Report_Forms\F_All_Rep.resx">
       <DependentUpon>F_All_Rep.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report_Forms\F_damege_rep.resx">
+      <DependentUpon>F_damege_rep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Report_Forms\F_In_Rep.resx">
       <DependentUpon>F_In_Rep.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report_Forms\F_Month_rep.resx">
+      <DependentUpon>F_Month_rep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report_Forms\F_out_rep.resx">
+      <DependentUpon>F_out_rep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Report_Forms\F_Viewer.resx">
       <DependentUpon>F_Viewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report_Forms\Store_move_rep.resx">
+      <DependentUpon>Store_move_rep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Report_Forms\XtraReport4.resx">
       <DependentUpon>XtraReport4.cs</DependentUpon>

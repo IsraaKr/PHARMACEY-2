@@ -21,7 +21,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         {
             InitializeComponent();
 
-            view_inheretanz_butomes(true, false, false, false, false, false, true,true);
+            view_inheretanz_butomes(true, false, false, false, false, true,true);
 
             Title(tit);
             this.Text = tit;
@@ -33,7 +33,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             InitializeComponent();
             Title(tit);
             this.Text = tit;
-            view_inheretanz_butomes(true, true, false, false, false, false, true,true);
+            view_inheretanz_butomes(true, true, false, false, false, true,true);
         }
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
         ClsCommander<T_Pers_Emploee> cmdEmp = new ClsCommander<T_Pers_Emploee>();
@@ -115,12 +115,12 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         {
             if (states)
             {
-                layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+             //   layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                 layoutControlItem9.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
             }
             else
             {
-                layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+             //   layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 layoutControlItem9.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             }
 
@@ -827,6 +827,11 @@ WHERE     (T_OPeration_IN_Item.is_out = 'false')
             }
         }
 
-
+        private void F_Dameg_Op_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            F_Main m = new F_Main();
+            C_Master.get_med_exp_date(m);
+            C_Master.get_med_min_num(m);
+        }
     }
 }

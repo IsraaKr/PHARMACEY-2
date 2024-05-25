@@ -16,7 +16,7 @@ namespace PhamaceySystem
         public F_Master_List()
         {
             InitializeComponent();
-             view_inheretanz_butomes(false,true,false , true, true, true, false,true);
+             view_inheretanz_butomes(false,true,false , true, true, false,true);
         }
   
         public virtual void gv_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)

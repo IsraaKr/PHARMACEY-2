@@ -1,7 +1,13 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraPrinting;
+using PhamaceyDataBase;
+using PhamaceyDataBase.Commander;
+using PhamaceySystem.Forms.Collection_Forms;
+using PhamaceySystem.Forms.Medicin_Forms;
+using PhamaceySystem.Forms.Store_Other_Forms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -202,8 +208,90 @@ namespace PhamaceySystem
             slkp.Properties.PopulateViewColumns();
             // lkp.Properties.Columns[ValueMember].Visible = false;
         }
-
         #endregion
+
+        static ClsCommander<T_OPeration_IN_Item> cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
+        static ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
+        public static string static_med_min;
+        public static string static_date_exp;
+        public static void get_med_exp_date(F_Main m)
+        {
+            bool check_date_exp_not = Properties.Settings.Default.is_expdate_not_show;
+            bool check_date_exp_form = Properties.Settings.Default.is_expdate_form_show;
+
+            //DataTable dt = c_db.select(@"SELECT  dbo.T_Medician.med_id,
+            //                                     dbo.T_Medician.med_code,
+            //                                    dbo.T_Medician.med_name,
+            //                                    dbo.T_Medician.med_minimum,
+            //                                    dbo.T_Medician.med_total_now                 
+            //         FROM        dbo.T_Medician 
+            //        WHERE        (dbo.T_Medician.med_total_now <=   dbo.T_Medician.med_minimum)");
+
+            var dt = (from med in cmdOpInItem.Get_All().Where(l => l.in_item_expDate.Value.Month < DateTime.Today.Month
+                              && l.in_item_expDate.Value.Year <= DateTime.Today.Year
+                              && l.is_out != true)
+                      join xxx in cmdMedician.Get_All()
+                          on med.Med_id equals xxx.med_id into list
+                      from yyy in list.DefaultIfEmpty()
+                      select new
+                      {
+                          id = med.in_item_id,
+                          med_id = med.Med_id,
+                          code = yyy.med_code,
+                          name = yyy.med_name,
+                          quntetey = med.in_item_quntity,
+                          datee = med.in_item_expDate,
+
+                      }).OrderBy(l_id => l_id.id).ToList();
+            int count = dt.Count;
+
+            static_date_exp = count.ToString();
+           m. bar_exp_date.Caption = static_date_exp;
+            if (check_date_exp_not && count > 0)
+            {
+                F_exp_date_notification n = new F_exp_date_notification("الأدوية المنتهية الصلاحية", "" + count);
+                n.Show();
+            }
+            if (check_date_exp_form && count > 0)
+            {
+                F_Store_Med_ExpDate f = new F_Store_Med_ExpDate();
+                f.ShowDialog();
+            }
+
+
+        }
+
+        public static void get_med_min_num(F_Main m)
+        {
+            bool check_show_not = Properties.Settings.Default.is_med_count_not_show;
+            bool check_show_form = Properties.Settings.Default.is_med_count_form_show;
+
+            DataTable dt = c_db.select(@"SELECT  dbo.T_Medician.med_id,
+                                                 dbo.T_Medician.med_code,
+                                                dbo.T_Medician.med_name,
+                                                dbo.T_Medician.med_minimum,
+                                                dbo.T_Medician.med_total_now                 
+                     FROM        dbo.T_Medician 
+                    WHERE        (dbo.T_Medician.med_total_now <=   dbo.T_Medician.med_minimum)");
+            int count = dt.Rows.Count;
+
+           static_med_min = count.ToString();
+          m.  bar_med_min.Caption = static_med_min;
+            if (check_show_not && count > 0)
+            {
+                Notification_Form n = new Notification_Form("الأدوية التي شارفت على الانتهاء", "" + count);
+                n.Show();
+            }
+            if (check_show_form && count > 0)
+            {
+                F_Med_min f = new F_Med_min();
+                f.ShowDialog();
+            }
+
+
+        }
+
+
     }
 
     /*

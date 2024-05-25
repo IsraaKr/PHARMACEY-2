@@ -20,7 +20,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         {
             InitializeComponent();
     
-            view_inheretanz_butomes(true, true, true, false, false, true, false,true);
+            view_inheretanz_butomes(true, true, true, false, false, false,true);
             Title(tit);
             this.Text = tit;
         }
@@ -31,7 +31,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             id_toUpdate = med_id;
             InitializeComponent();
             Title(tit);
-            view_inheretanz_butomes(false, true, true, false, false, true, false, true);
+            view_inheretanz_butomes(false, true, true, false, false, false, true);
         }
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
         ClsCommander<T_Med_Category> cmdMedCat = new ClsCommander<T_Med_Category>();
@@ -115,11 +115,20 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         }
         public override void Insert_save_Data()
         {
-          
-            Insert_Data();
+            try
+            {
+                if (Validate_Data())
+                {
+                    Insert_Data();
 
-            F_In_Op f = new F_In_Op();
-            f.ShowDialog();
+                    F_In_Op f = new F_In_Op();
+                    f.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                Get_Data(ex.InnerException.InnerException.ToString());
+            }
         }
 
         public override void clear_data(Control.ControlCollection s_controls)
@@ -134,17 +143,17 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             number_of_errores += med_codeTextEdit.is_text_valid() ? 0 : 1;
             number_of_errores += med_nameTextEdit.is_text_valid() ? 0 : 1;
             number_of_errores += med_minimumTextEdit.is_text_valid() ? 0 : 1;
-            if (med_cat_idSearchLookUpEdit.EditValue == null)
+            if (med_cat_idSearchLookUpEdit.Text == string.Empty)
             {
                 number_of_errores += 1;
                 med_cat_idSearchLookUpEdit.ErrorText = "هذا الحقل مطلوب";
             }
-            if (med_shape_idSearchLookUpEdit.EditValue == null)
+            if (med_shape_idSearchLookUpEdit.Text == string.Empty)
             {
                 number_of_errores += 1;
                 med_shape_idSearchLookUpEdit.ErrorText = "هذا الحقل مطلوب";
             }
-            if (med_unite_idSearchLookUpEdit1.EditValue == null)
+            if (med_unite_idSearchLookUpEdit1.Text == string.Empty)
             {
                 number_of_errores += 1;
                 med_unite_idSearchLookUpEdit1.ErrorText = "هذا الحقل مطلوب";

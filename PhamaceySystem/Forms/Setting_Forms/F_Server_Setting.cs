@@ -21,7 +21,7 @@ namespace PhamaceySystem.Forms.Setting_Forms
             Set_Prop_Settings();
             txt_server.Text = c_db.get_server_name();
             txt_database.Text = "PHANACEY_DB";
-            view_inheretanz_butomes(false, true, false, false, false, true, false,true);
+            view_inheretanz_butomes(false, true, false, false, false, false,true);
             Title(tit);
             this.Text = tit;
         }
@@ -33,7 +33,7 @@ namespace PhamaceySystem.Forms.Setting_Forms
             Set_Prop_Settings();
             txt_server.Text = c_db.get_server_name();
             txt_database.Text = "PHANACEY_DB";
-            view_inheretanz_butomes(false, true, false, false, false, true, false, true);
+            view_inheretanz_butomes(false, true, false, false, false, false, true);
             Title(tit);
             this.Text = tit;
         }

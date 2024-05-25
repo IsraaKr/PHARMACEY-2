@@ -53,7 +53,6 @@
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.BackColor = System.Drawing.Color.Maroon;
             this.lbl_tiltle.MaximumSize = new System.Drawing.Size(1000, 50);
             this.lbl_tiltle.Size = new System.Drawing.Size(600, 50);
             this.lbl_tiltle.TabIndex = 0;
@@ -76,7 +75,7 @@
             this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(647, 70, 650, 400);
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(600, 289);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(600, 329);
             this.dataLayoutControl1.TabIndex = 11;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
@@ -85,7 +84,7 @@
             this.gc.Location = new System.Drawing.Point(2, 81);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(596, 206);
+            this.gc.Size = new System.Drawing.Size(596, 246);
             this.gc.TabIndex = 12;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -109,8 +108,6 @@
             this.gv.OptionsPrint.EnableAppearanceOddRow = true;
             this.gv.OptionsPrint.ExpandAllDetails = true;
             this.gv.OptionsPrint.PrintDetails = true;
-            this.gv.OptionsSelection.MultiSelect = true;
-            this.gv.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gv.OptionsView.EnableAppearanceEvenRow = true;
             this.gv.OptionsView.ShowAutoFilterRow = true;
             this.gv.OptionsView.ShowGroupPanel = false;
@@ -152,7 +149,7 @@
             this.layoutControlGroup1});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.Root.Size = new System.Drawing.Size(600, 289);
+            this.Root.Size = new System.Drawing.Size(600, 329);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem2
@@ -160,7 +157,7 @@
             this.layoutControlItem2.Control = this.gc;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 79);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(600, 210);
+            this.layoutControlItem2.Size = new System.Drawing.Size(600, 250);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -196,7 +193,7 @@
             this.txt_add1.Name = "txt_add1";
             this.txt_add1.Size = new System.Drawing.Size(594, 26);
             this.txt_add1.Text = "txt_add";
-            this.txt_add1.TextSize = new System.Drawing.Size(38, 15);
+            this.txt_add1.TextSize = new System.Drawing.Size(38, 13);
             this.txt_add1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // F_Master_List

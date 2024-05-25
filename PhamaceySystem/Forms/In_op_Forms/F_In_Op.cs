@@ -20,7 +20,7 @@ namespace PhamaceySystem.Forms.Store_Forms
         public F_In_Op()
         {
             InitializeComponent();
-            view_inheretanz_butomes(true, false, false, false, false, false, true ,true);
+            view_inheretanz_butomes(true, false, false, false, false,  true ,true);
             Title(tit);
             this.Text = tit;
         }
@@ -33,7 +33,7 @@ namespace PhamaceySystem.Forms.Store_Forms
             InitializeComponent();
             Title(tit);
             this.Text = tit;
-            view_inheretanz_butomes(true, true, false, false, false, false, true,true);
+            view_inheretanz_butomes(true, true, false, false, false,  true,true);
         }
 
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
@@ -752,5 +752,16 @@ on Emp.med_shape_id equals shape.med_shape_id into slist
 
         }
 
+        private void gc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void F_In_Op_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            F_Main m =new F_Main();
+            C_Master.get_med_exp_date(m);
+            C_Master.get_med_min_num(m);
+        }
     }
 }

@@ -19,9 +19,9 @@ namespace PhamaceySystem
 {
     public partial class F_Main : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        //    private readonly C_Page_Maneger c_Page_Maneger;
         ClsCommander<T_OPeration_Type> cmdOptype = new ClsCommander<T_OPeration_Type>();
         ClsCommander<T_OPeration_IN_Item> cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
+        ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
 
         C_Regestery reg = new C_Regestery();
         public static string static_med_min;
@@ -178,14 +178,17 @@ namespace PhamaceySystem
             //        WHERE        (dbo.T_Medician.med_total_now <=   dbo.T_Medician.med_minimum)");
 
             var dt = (from med in cmdOpInItem.Get_All().Where(l => l.in_item_expDate.Value.Month < DateTime.Today.Month
-                              && l.in_item_expDate.Value.Year <= DateTime.Today.Year
-                              && l.is_out != true)
+                             && l.in_item_expDate.Value.Year <= DateTime.Today.Year
+                             && l.is_out != true)
+                      join xxx in cmdMedician.Get_All()
+                          on med.Med_id equals xxx.med_id into list
+                      from yyy in list.DefaultIfEmpty()
                       select new
                       {
                           id = med.in_item_id,
                           med_id = med.Med_id,
-                          code = med.T_Medician.med_code,
-                          name = med.T_Medician.med_name,
+                          code = yyy.med_code,
+                          name = yyy.med_name,
                           quntetey = med.in_item_quntity,
                           datee = med.in_item_expDate,
 
@@ -215,6 +218,42 @@ namespace PhamaceySystem
             f.ShowDialog();
         }
 
+        private void update_timer_Tick(object sender, EventArgs e)
+        {
+            DataTable dt = c_db.select(@"SELECT  dbo.T_Medician.med_id,
+                                                 dbo.T_Medician.med_code,
+                                                dbo.T_Medician.med_name,
+                                                dbo.T_Medician.med_minimum,
+                                                dbo.T_Medician.med_total_now                 
+                     FROM        dbo.T_Medician 
+                    WHERE        (dbo.T_Medician.med_total_now <=   dbo.T_Medician.med_minimum)");
+            int count = dt.Rows.Count;
+
+            static_med_min = count.ToString();
+            bar_med_min.Caption = static_med_min;
+
+
+            var dt = (from med in cmdOpInItem.Get_All().Where(l => l.in_item_expDate.Value.Month < DateTime.Today.Month
+                           && l.in_item_expDate.Value.Year <= DateTime.Today.Year
+                           && l.is_out != true)
+                      join xxx in cmdMedician.Get_All()
+                          on med.Med_id equals xxx.med_id into list
+                      from yyy in list.DefaultIfEmpty()
+                      select new
+                      {
+                          id = med.in_item_id,
+                          med_id = med.Med_id,
+                          code = yyy.med_code,
+                          name = yyy.med_name,
+                          quntetey = med.in_item_quntity,
+                          datee = med.in_item_expDate,
+
+                      }).OrderBy(l_id => l_id.id).ToList();
+            int count = dt.Count;
+
+            static_date_exp = count.ToString();
+            bar_exp_date.Caption = static_date_exp;
+        }
     }
 }
 

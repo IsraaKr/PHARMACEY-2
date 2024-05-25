@@ -84,8 +84,8 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForin_op_state = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).BeginInit();
             this.dataLayoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
@@ -136,8 +136,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_state)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_tiltle
@@ -281,7 +281,7 @@
             this.gc.Location = new System.Drawing.Point(2, 250);
             this.gc.MainView = this.gv;
             this.gc.Margin = new System.Windows.Forms.Padding(2);
-            this.gc.MinimumSize = new System.Drawing.Size(400, 245);
+            this.gc.MinimumSize = new System.Drawing.Size(600, 200);
             this.gc.Name = "gc";
             this.gc.Size = new System.Drawing.Size(1296, 349);
             this.gc.TabIndex = 25;
@@ -941,6 +941,14 @@
             this.layoutControlItem1.Text = "رقم العملية";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(117, 19);
             // 
+            // emptySpaceItem4
+            // 
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.Location = new System.Drawing.Point(491, 0);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(10, 220);
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.gc;
@@ -949,14 +957,6 @@
             this.layoutControlItem2.Size = new System.Drawing.Size(1300, 353);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
-            // 
-            // emptySpaceItem4
-            // 
-            this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(491, 0);
-            this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(10, 220);
-            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // F_Out_Op
             // 
@@ -970,6 +970,7 @@
             this.Name = "F_Out_Op";
             this.Text = "F_In_Op";
             this.WindowState = System.Windows.Forms.FormWindowState.Normal;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.F_Out_Op_FormClosed);
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             this.Controls.SetChildIndex(this.dataLayoutControl2, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).EndInit();
@@ -1022,8 +1023,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_state)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
