@@ -112,11 +112,11 @@ namespace PhamaceySystem.Forms.Store_Forms
         {
             if(states)
             {
-                layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                //layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                 layoutControlItem9.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
             } else
             {
-                layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                //layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 layoutControlItem9.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             }
         }
@@ -724,15 +724,15 @@ on Emp.med_shape_id equals shape.med_shape_id into slist
 
         private void btn_edite_item_Click(object sender, EventArgs e)
         {
-            update_item();
-            Get_Update_med_count();
-            Get_OP_Med_count_Data();
-            Get_Update_move();
-            update_op();
-            btn_visible(false);
-            clear_item();
-            Fill_Graid_item();
-            btn_add_item.Enabled = true;
+            //update_item();
+            //Get_Update_med_count();
+            //Get_OP_Med_count_Data();
+            //Get_Update_move();
+            //update_op();
+            //btn_visible(false);
+            //clear_item();
+            //Fill_Graid_item();
+            //btn_add_item.Enabled = true;
         }
 
         private void btn_delet_item_Click(object sender, EventArgs e)
@@ -759,9 +759,39 @@ on Emp.med_shape_id equals shape.med_shape_id into slist
 
         private void F_In_Op_FormClosed(object sender, FormClosedEventArgs e)
         {
-            F_Main m =new F_Main();
-            C_Master.get_med_exp_date(m);
-            C_Master.get_med_min_num(m);
+            //F_Main m =new F_Main();
+            //C_Master.get_med_exp_date(m);
+            //C_Master.get_med_min_num(m);
+        }
+
+        private void in_op_idTextEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void in_op_stateCheckEdit_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void donar_empTextEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void donar_idSearchLookUpEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void in_item_idTextEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_tiltle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

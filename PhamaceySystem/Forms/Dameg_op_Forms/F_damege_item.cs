@@ -169,7 +169,7 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
             gv.Columns[2].Caption = "اسم الدواء";
             gv.Columns[3].Caption = "الكمية التالفة";
             gv.Columns[4].Visible = false;
-            gv.Columns[5].Visible = false;
+            gv.Columns[5].Caption = "رقم الفاتورة";
 
 
             gv.BestFitColumns();

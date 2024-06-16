@@ -38,7 +38,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1040, 675);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "F_In_OP_Graid";
             this.Text = "F_In_OP_Graid";

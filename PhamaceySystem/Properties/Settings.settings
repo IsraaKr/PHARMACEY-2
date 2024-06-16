@@ -27,9 +27,6 @@
     <Setting Name="time_server" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="titel_master_colore" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Maroon</Value>
-    </Setting>
     <Setting Name="is_first_time" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
@@ -37,16 +34,19 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="is_med_count_form_show" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="is_expdate_form_show" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="is_expdate_not_show" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="theme" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Basic</Value>
+      <Value Profile="(Default)">McSkin</Value>
+    </Setting>
+    <Setting Name="titel_master_colore" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Maroon</Value>
     </Setting>
   </Settings>
 </SettingsFile>

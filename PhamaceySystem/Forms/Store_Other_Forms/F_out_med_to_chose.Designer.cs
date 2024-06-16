@@ -37,7 +37,7 @@
             // lbl_tiltle
             // 
             this.lbl_tiltle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_tiltle.Size = new System.Drawing.Size(720, 50);
+            this.lbl_tiltle.Size = new System.Drawing.Size(1040, 50);
             // 
             // timer_date
             // 
@@ -51,7 +51,7 @@
             this.gc.MainView = this.gv;
             this.gc.Margin = new System.Windows.Forms.Padding(2);
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(720, 561);
+            this.gc.Size = new System.Drawing.Size(1040, 502);
             this.gc.TabIndex = 26;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -85,11 +85,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(720, 720);
+            this.ClientSize = new System.Drawing.Size(1040, 675);
             this.Controls.Add(this.gc);
             this.Location = new System.Drawing.Point(0, 0);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "F_out_med_to_chose";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "F_out_med_to_chose";
             this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);

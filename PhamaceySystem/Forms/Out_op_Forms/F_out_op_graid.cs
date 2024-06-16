@@ -175,7 +175,7 @@ on med.emp_id equals place.Emp_id into plist
 
         private void gv_column_names()
         {
-            gv.Columns[0].Visible = false;
+            gv.Columns[0].Caption = "رقم الفاتورة";
             gv.Columns[1].Caption = "التاريخ";
             gv.Columns[2].Caption = "الوقت";
             gv.Columns[3].Caption = "البيان";

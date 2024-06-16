@@ -38,12 +38,13 @@
             // 
             // Root
             // 
-            this.Root.Size = new System.Drawing.Size(600, 611);
+            this.Root.Size = new System.Drawing.Size(600, 547);
             // 
             // dataLayoutControl1
             // 
+            this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(647, 70, 650, 400);
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(600, 611);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(600, 547);
             this.dataLayoutControl1.Controls.SetChildIndex(this.txt_name, 0);
             this.dataLayoutControl1.Controls.SetChildIndex(this.txt_id, 0);
             // 
@@ -70,6 +71,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 720);
             this.Name = "F_Emp";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "F_Emp";
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();

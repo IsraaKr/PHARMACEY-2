@@ -160,7 +160,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
 
             TF_Store_Places.name = txt_name.Text.Trim();
             TF_Store_Places.groupe = txt_group.Text.Trim();
-            TF_Store_Places.shufel = txt_group.Text.Trim();
+            TF_Store_Places.shufel = txt_shuffel.Text.Trim();
         }
         private void Fill_Graid()
         {

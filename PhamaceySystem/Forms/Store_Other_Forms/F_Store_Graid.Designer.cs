@@ -36,6 +36,10 @@
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.SuspendLayout();
             // 
+            // lbl_tiltle
+            // 
+            this.lbl_tiltle.Size = new System.Drawing.Size(1040, 50);
+            // 
             // barBut_in
             // 
             this.barBut_in.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
@@ -83,9 +87,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1040, 675);
             this.Name = "F_Store_Graid";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "F_Store_Graid";
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Load += new System.EventHandler(this.F_Store_Graid_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -61,6 +61,7 @@ namespace PhamaceySystem.Forms.Store_Forms
         int old_med_Quntitey;
         int old_med_id;
         int old_item_id = 0;
+        int old_IN_item_id = 0;
         DataTable dt;
         public override void Get_Data(string status_mess)
         {
@@ -416,7 +417,6 @@ WHERE        (dbo.T_OPeration_Out_Item.out_op_id = " + id + ")");
             Med_idSearchlookupEdit.EditValue = TF_OP_Out_Item.Med_id;
             //  med_storage_place_idSearchLookUpEdit.EditValue = TF_OP_Out_Item.store_place_id;
             out_op_idTextEdit.Text = TF_OP_Out_Item.out_op_id.ToString();
-
         }
 
 
@@ -581,13 +581,13 @@ on yyy.med_shape_id equals shape.med_shape_id into slist
                                 }).OrderBy(l => l.datee);//.Distinct();
 
 
-                if (med_list != null && med_list.Count() == 1)
-                {
-                    get_info_store_med(med_idd);
+                //if (med_list != null && med_list.Count() == 1)
+                //{
+                //    get_info_store_med(med_idd);
 
-                }
-                else
-                    if (med_list != null && med_list.Count() > 1)
+                //}
+                //else
+                    if (med_list != null && med_list.Count() >= 1)
                     {
                         if (is_op_insert == 0 && Validate_Data_op())
                         {
@@ -646,7 +646,7 @@ FROM         T_OPeration_IN_Item INNER JOIN
                       T_Medician ON T_OPeration_IN_Item.Med_id = T_Medician.med_id INNER JOIN
                       T_Store_Placees ON T_OPeration_IN_Item.store_place_id = T_Store_Placees.id left JOIN
                       T_Med_Shape ON T_Medician.med_shape_id = T_Med_Shape.med_shape_id
-WHERE     (T_OPeration_IN_Item.is_out = 'false') AND (T_Medician.med_id = " + med_idd + ")");
+WHERE     (T_OPeration_IN_Item.in_item_id  =  " + old_IN_item_id + ") AND (T_Medician.med_id = " + med_idd + ")");
 
             if (dt.Rows.Count == 1)
             {
@@ -749,6 +749,7 @@ WHERE     (T_OPeration_IN_Item.is_out = 'false') AND (T_Medician.med_id = " + me
             if (TF_OP_Out_Item != null)
             {
                 Fill_Controls_Item();
+                old_IN_item_id = Convert.ToInt32( TF_OP_Out_Item.in_item_id);
                 old_item_id = Convert.ToInt32(out_item_idTextEdit.Text.ToString().Replace(",", string.Empty));
                 old_med_id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue);
                 old_med_Quntitey = Convert.ToInt32(out_item_quntityTextEdit1.Text.ToString().Replace(",", string.Empty));
@@ -797,7 +798,7 @@ WHERE     (T_OPeration_IN_Item.is_out = 'false') AND (T_Medician.med_id = " + me
                 if (Validate_Data_item())
                     insert_item();
                 Fill_Graid_item();
-                update_In_item();
+                update_In_item_with_Add();
                 Get_Add_med_count();
                 Get_Add_move();
                 GetMed_Data();
@@ -825,6 +826,7 @@ WHERE     (T_OPeration_IN_Item.is_out = 'false') AND (T_Medician.med_id = " + me
         private void btn_delet_item_Click(object sender, EventArgs e)
         {
             delete_item();
+            update_In_item_with_Delete();
             Get_Delete_med_count();
             Get_OP_Med_count_Data();
             GetMed_Data();
@@ -840,6 +842,7 @@ WHERE     (T_OPeration_IN_Item.is_out = 'false') AND (T_Medician.med_id = " + me
             old_med_id = 0;
             old_med_id = 0;
             old_med_Quntitey = 0;
+            old_IN_item_id = 0;
         }
 
         private void Med_idSearchlookupEdit_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
@@ -861,15 +864,44 @@ WHERE     (T_OPeration_IN_Item.is_out = 'false') AND (T_Medician.med_id = " + me
             TF_OPeration_IN_Item.out_item_quntitey = TF_OPeration_IN_Item.out_item_quntitey + out_qunt;
             if (TF_OPeration_IN_Item.out_item_quntitey == TF_OPeration_IN_Item.in_item_quntity)
                 TF_OPeration_IN_Item.is_out = true;
-
+            else
+                TF_OPeration_IN_Item.is_out = false;
         }
-        public void update_In_item()
+        public void update_In_item_with_Add()
         {
             try
             {
                 if (out_item_quntityTextEdit1.Text != string.Empty)
                 {
                     Fill_Entitey_in_item();
+                    cmdOpInItem.Update_Data(TF_OPeration_IN_Item);
+                }
+            }
+            catch (Exception ex)
+            {
+                Get_Data(ex.InnerException.InnerException.ToString());
+            }
+        }
+        public void update_In_item_with_Delete()
+        {
+            try
+            {
+                if (out_item_quntityTextEdit1.Text != string.Empty)
+                {
+                    int med_idd = Convert.ToInt32(Med_idSearchlookupEdit.EditValue);
+
+                    get_info_store_med(med_idd);
+                    int out_qunt = Convert.ToInt32(out_item_quntityTextEdit1.Text.ToString().Replace(",", string.Empty));
+                    int in_id = int.Parse(dt.Rows[0][8].ToString());
+                    TF_OPeration_IN_Item = new T_OPeration_IN_Item();
+                    TF_OPeration_IN_Item = cmdOpInItem.Get_By(l => l.in_item_id == in_id).FirstOrDefault();
+
+                    TF_OPeration_IN_Item.out_item_quntitey = TF_OPeration_IN_Item.out_item_quntitey - out_qunt;
+                    if (TF_OPeration_IN_Item.out_item_quntitey == TF_OPeration_IN_Item.in_item_quntity)
+                        TF_OPeration_IN_Item.is_out = true;
+                    else
+                        TF_OPeration_IN_Item.is_out = false;
+
                     cmdOpInItem.Update_Data(TF_OPeration_IN_Item);
                 }
             }
@@ -891,9 +923,34 @@ WHERE     (T_OPeration_IN_Item.is_out = 'false') AND (T_Medician.med_id = " + me
 
         private void F_Out_Op_FormClosed(object sender, FormClosedEventArgs e)
         {
-            F_Main m = new F_Main();
-            C_Master.get_med_exp_date(m);
-            C_Master.get_med_min_num(m);
+            ////F_Main m = new F_Main();
+            ////C_Master.get_med_exp_date(m);
+            ////C_Master.get_med_min_num(m);
+        }
+
+        private void out_op_stateCheckEdit_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void all_in_item_quntityTextEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtp_op_time_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void emp_idSearchLookUpEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

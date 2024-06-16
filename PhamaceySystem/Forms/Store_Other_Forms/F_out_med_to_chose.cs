@@ -99,10 +99,16 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                     x++;
                 }             
             }
-            MessageBox.Show("تم الحفظ بنجاح!!! عدد المواد المدخلة هي  " + x);
-            this.Close();
-            Get_Data("i");
-            base.Insert_Data();
+            if (x>0)
+            {
+                MessageBox.Show("تم الحفظ بنجاح!!! عدد المواد المدخلة هي  " + x);
+                this.Close();
+                Get_Data("i");
+                base.Insert_Data();
+            }
+      else
+                MessageBox.Show("فشل الحفظ !!! تأكد من كافة القيم و أعد المحاولة  " + x);
+
         }
         private void Get_Add_move()
         {
@@ -155,16 +161,36 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             }
             else if (opp_type == 3)
             {
-                var med_list = (from Emp in cmdOpInItem.Get_All().Where(l => l.is_out == false
-                                                                        && l.Med_id == med_idd
-                                                                         && l.in_item_expDate.Value.Month < DateTime.Today.Month
-                                                                         && l.in_item_expDate.Value.Year <= DateTime.Today.Year)
+                //var med_list = (from Emp in cmdOpInItem.Get_All().Where(l => l.is_out == false
+                //                                                        && l.Med_id == med_idd
+                //                                                         && l.in_item_expDate.Value.Month < DateTime.Today.Month
+                //                                                         && l.in_item_expDate.Value.Year <= DateTime.Today.Year)
 
+                //                join xxx in cmdMedician.Get_All()
+                //         on Emp.Med_id equals xxx.med_id into list
+                //                from yyy in list.DefaultIfEmpty()
+                //                join place in cmdStorageplace.Get_All()
+                //         on Emp.store_place_id equals place.id into plist
+
+                //                from ppp in plist.DefaultIfEmpty()
+                //                select new
+                //                {
+                //                    item_id = Emp.in_item_id,
+                //                    med_id = Emp.Med_id,
+                //                    op_id = Emp.In_op_id,
+                //                    name = yyy.med_name,
+                //                    datee =Convert.ToDateTime( Emp.in_item_expDate.Value.ToString("MM/yyyy")),
+                //                    place = ppp.name,
+                //                    quntatey = Emp.in_item_quntity - Emp.out_item_quntitey,
+
+                //                }).OrderBy(l => l.datee).Distinct();
+                //gc.DataSource = med_list;
+                var med_list = (from Emp in cmdOpInItem.Get_All().Where(l => l.is_out == false && l.Med_id == med_idd)
                                 join xxx in cmdMedician.Get_All()
-                         on Emp.Med_id equals xxx.med_id into list
+                                on Emp.Med_id equals xxx.med_id into list
                                 from yyy in list.DefaultIfEmpty()
                                 join place in cmdStorageplace.Get_All()
-                         on Emp.store_place_id equals place.id into plist
+ on Emp.store_place_id equals place.id into plist
 
                                 from ppp in plist.DefaultIfEmpty()
                                 select new
@@ -173,7 +199,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                                     med_id = Emp.Med_id,
                                     op_id = Emp.In_op_id,
                                     name = yyy.med_name,
-                                    datee =Convert.ToDateTime( Emp.in_item_expDate.Value.ToString("MM/yyyy")),
+                                    datee = Emp.in_item_expDate,
                                     place = ppp.name,
                                     quntatey = Emp.in_item_quntity - Emp.out_item_quntitey,
 
@@ -258,11 +284,14 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             int id = med_idd;
             TF_Medician = cmdMedician.Get_All().Where(l => l.med_id == id).FirstOrDefault();
             if (opp_type == 2)
-                TF_Medician.med_dam_count = TF_Medician.med_out_count + out_item_quntity;
+                TF_Medician.med_out_count = TF_Medician.med_out_count + out_item_quntity;
             else if (opp_type == 3)
                 TF_Medician.med_dam_count = TF_Medician.med_dam_count + out_item_quntity;
+            if (opp_type == 2)
+                TF_Medician.med_total_now = TF_Medician.med_total_now -out_item_quntity ;
+            else if (opp_type == 3)
+                TF_Medician.med_total_now = TF_Medician.med_total_now - out_item_quntity;
 
-            TF_Medician.med_total_now = TF_Medician.med_total_now -out_item_quntity;
             cmdMedician.Update_Data(TF_Medician);
         }
    
@@ -334,10 +363,16 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             out_item_quntity = Convert.ToInt32(gv.GetFocusedRowCellValue( gv.Columns["الكمية المطلوبة"]));
             if (row == null)
                 return;
-            if (old_qunt < out_item_quntity || out_item_quntity <0)
+            if (old_qunt < out_item_quntity || out_item_quntity < 0)
             {
                 e.Valid = false;
                 gv.SetColumnError(gv.Columns["الكمية المطلوبة"], " يجب أن تكون الكمية المطلوبة أقل من الكمية المتوفرة و أكبر من الصفر");
+                bar_add.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+
+            }
+            else
+            {
+                bar_add.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
             }
         }
         //مشان م تطلع رسالة الفاليديشن ا

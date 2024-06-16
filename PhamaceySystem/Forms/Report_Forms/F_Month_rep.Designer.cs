@@ -46,6 +46,9 @@
             this.chb_from_to = new System.Windows.Forms.CheckBox();
             this.from_dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.to_dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.Month_DateDateEdit = new DevExpress.XtraEditors.DateEdit();
+            this.reciver_searchLookUpEdit12 = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView121 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -55,15 +58,12 @@
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.Month_DateDateEdit = new DevExpress.XtraEditors.DateEdit();
-            this.ItemForin_item_expDate = new DevExpress.XtraLayout.LayoutControlItem();
-            this.reciver_searchLookUpEdit12 = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.gridView121 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForin_item_expDate = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
@@ -77,6 +77,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.emp_SearchlookupEdit21.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView521)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.op_type_SearchlookupEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Month_DateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Month_DateDateEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reciver_searchLookUpEdit12.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView121)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
@@ -86,21 +90,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Month_DateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Month_DateDateEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_expDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reciver_searchLookUpEdit12.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView121)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_expDate)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.Size = new System.Drawing.Size(800, 50);
+            this.lbl_tiltle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_tiltle.MaximumSize = new System.Drawing.Size(4000, 50);
+            this.lbl_tiltle.Size = new System.Drawing.Size(1040, 50);
             // 
             // timer_date
             // 
@@ -126,16 +128,16 @@
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(800, 291);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(1040, 502);
             this.dataLayoutControl1.TabIndex = 10;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
             // gc
             // 
-            this.gc.Location = new System.Drawing.Point(12, 12);
+            this.gc.Location = new System.Drawing.Point(8, 10);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(645, 385);
+            this.gc.Size = new System.Drawing.Size(915, 482);
             this.gc.TabIndex = 104;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -165,9 +167,9 @@
             // btn_refresh
             // 
             this.btn_refresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_refresh.ImageOptions.Image")));
-            this.btn_refresh.Location = new System.Drawing.Point(664, 36);
+            this.btn_refresh.Location = new System.Drawing.Point(927, 33);
             this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(104, 36);
+            this.btn_refresh.Size = new System.Drawing.Size(103, 38);
             this.btn_refresh.StyleController = this.dataLayoutControl1;
             this.btn_refresh.TabIndex = 111;
             this.btn_refresh.Text = "تحديث ";
@@ -175,8 +177,8 @@
             // 
             // Med_idSearchlookupEdit1
             // 
-            this.Med_idSearchlookupEdit1.Location = new System.Drawing.Point(664, 136);
-            this.Med_idSearchlookupEdit1.Margin = new System.Windows.Forms.Padding(2);
+            this.Med_idSearchlookupEdit1.Location = new System.Drawing.Point(927, 131);
+            this.Med_idSearchlookupEdit1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Med_idSearchlookupEdit1.Name = "Med_idSearchlookupEdit1";
             this.Med_idSearchlookupEdit1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.Med_idSearchlookupEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -200,8 +202,8 @@
             // 
             // store_place_SearchlookupEdit2
             // 
-            this.store_place_SearchlookupEdit2.Location = new System.Drawing.Point(664, 166);
-            this.store_place_SearchlookupEdit2.Margin = new System.Windows.Forms.Padding(2);
+            this.store_place_SearchlookupEdit2.Location = new System.Drawing.Point(927, 161);
+            this.store_place_SearchlookupEdit2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.store_place_SearchlookupEdit2.Name = "store_place_SearchlookupEdit2";
             this.store_place_SearchlookupEdit2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.store_place_SearchlookupEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -227,9 +229,9 @@
             // btn_view_serch
             // 
             this.btn_view_serch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_view_serch.ImageOptions.Image")));
-            this.btn_view_serch.Location = new System.Drawing.Point(664, 358);
+            this.btn_view_serch.Location = new System.Drawing.Point(927, 353);
             this.btn_view_serch.Name = "btn_view_serch";
-            this.btn_view_serch.Size = new System.Drawing.Size(104, 36);
+            this.btn_view_serch.Size = new System.Drawing.Size(103, 38);
             this.btn_view_serch.StyleController = this.dataLayoutControl1;
             this.btn_view_serch.TabIndex = 112;
             this.btn_view_serch.Text = "عرض";
@@ -237,8 +239,8 @@
             // 
             // donar_searchLookUpEdit12
             // 
-            this.donar_searchLookUpEdit12.Location = new System.Drawing.Point(664, 226);
-            this.donar_searchLookUpEdit12.Margin = new System.Windows.Forms.Padding(2);
+            this.donar_searchLookUpEdit12.Location = new System.Drawing.Point(927, 221);
+            this.donar_searchLookUpEdit12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.donar_searchLookUpEdit12.Name = "donar_searchLookUpEdit12";
             this.donar_searchLookUpEdit12.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.donar_searchLookUpEdit12.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -263,8 +265,8 @@
             // 
             // emp_SearchlookupEdit21
             // 
-            this.emp_SearchlookupEdit21.Location = new System.Drawing.Point(664, 196);
-            this.emp_SearchlookupEdit21.Margin = new System.Windows.Forms.Padding(2);
+            this.emp_SearchlookupEdit21.Location = new System.Drawing.Point(927, 191);
+            this.emp_SearchlookupEdit21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.emp_SearchlookupEdit21.Name = "emp_SearchlookupEdit21";
             this.emp_SearchlookupEdit21.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.emp_SearchlookupEdit21.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -289,8 +291,8 @@
             // 
             // op_type_SearchlookupEdit1
             // 
-            this.op_type_SearchlookupEdit1.Location = new System.Drawing.Point(664, 106);
-            this.op_type_SearchlookupEdit1.Margin = new System.Windows.Forms.Padding(2);
+            this.op_type_SearchlookupEdit1.Location = new System.Drawing.Point(927, 101);
+            this.op_type_SearchlookupEdit1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.op_type_SearchlookupEdit1.Name = "op_type_SearchlookupEdit1";
             this.op_type_SearchlookupEdit1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.op_type_SearchlookupEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -310,9 +312,9 @@
             // 
             // chb_from_to
             // 
-            this.chb_from_to.Location = new System.Drawing.Point(664, 286);
+            this.chb_from_to.Location = new System.Drawing.Point(927, 281);
             this.chb_from_to.Name = "chb_from_to";
-            this.chb_from_to.Size = new System.Drawing.Size(104, 20);
+            this.chb_from_to.Size = new System.Drawing.Size(103, 20);
             this.chb_from_to.TabIndex = 113;
             this.chb_from_to.Text = "عن فترة";
             this.chb_from_to.UseVisualStyleBackColor = true;
@@ -322,7 +324,7 @@
             // 
             this.from_dateTimePicker1.Enabled = false;
             this.from_dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.from_dateTimePicker1.Location = new System.Drawing.Point(664, 310);
+            this.from_dateTimePicker1.Location = new System.Drawing.Point(927, 305);
             this.from_dateTimePicker1.Name = "from_dateTimePicker1";
             this.from_dateTimePicker1.Size = new System.Drawing.Size(50, 20);
             this.from_dateTimePicker1.TabIndex = 105;
@@ -331,172 +333,19 @@
             // 
             this.to_dateTimePicker2.Enabled = false;
             this.to_dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.to_dateTimePicker2.Location = new System.Drawing.Point(664, 334);
+            this.to_dateTimePicker2.Location = new System.Drawing.Point(927, 329);
             this.to_dateTimePicker2.Name = "to_dateTimePicker2";
             this.to_dateTimePicker2.Size = new System.Drawing.Size(50, 20);
             this.to_dateTimePicker2.TabIndex = 106;
             // 
-            // Root
-            // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlGroup2});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(783, 409);
-            this.Root.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.gc;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(649, 389);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // layoutControlGroup2
-            // 
-            this.layoutControlGroup2.CustomizationFormText = "خيارات البحث";
-            this.layoutControlGroup2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem9,
-            this.layoutControlItem5,
-            this.layoutControlItem6,
-            this.layoutControlItem10,
-            this.layoutControlItem13,
-            this.layoutControlItem14,
-            this.layoutControlItem11,
-            this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem15,
-            this.layoutControlItem8,
-            this.ItemForin_item_expDate});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(649, 0);
-            this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(114, 389);
-            this.layoutControlGroup2.Text = "خيارات البحث";
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.btn_refresh;
-            this.layoutControlItem9.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.layoutControlItem9.CustomizationFormText = "layoutControlItem9";
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(108, 40);
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem9.TextVisible = false;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.Med_idSearchlookupEdit1;
-            this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.layoutControlItem5.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 100);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(108, 30);
-            this.layoutControlItem5.Text = "دواء";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(51, 13);
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.store_place_SearchlookupEdit2;
-            this.layoutControlItem6.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.layoutControlItem6.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 130);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(108, 30);
-            this.layoutControlItem6.Text = "مكان تخزين";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(51, 13);
-            // 
-            // layoutControlItem10
-            // 
-            this.layoutControlItem10.Control = this.btn_view_serch;
-            this.layoutControlItem10.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.layoutControlItem10.CustomizationFormText = "layoutControlItem10";
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 322);
-            this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(108, 40);
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem10.TextVisible = false;
-            // 
-            // layoutControlItem13
-            // 
-            this.layoutControlItem13.Control = this.donar_searchLookUpEdit12;
-            this.layoutControlItem13.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.layoutControlItem13.CustomizationFormText = "تصنيف";
-            this.layoutControlItem13.Location = new System.Drawing.Point(0, 190);
-            this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(108, 30);
-            this.layoutControlItem13.Text = "المتبرع";
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(51, 13);
-            // 
-            // layoutControlItem14
-            // 
-            this.layoutControlItem14.Control = this.emp_SearchlookupEdit21;
-            this.layoutControlItem14.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.layoutControlItem14.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem14.Location = new System.Drawing.Point(0, 160);
-            this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(108, 30);
-            this.layoutControlItem14.Text = "الموظف";
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(51, 13);
-            // 
-            // layoutControlItem15
-            // 
-            this.layoutControlItem15.Control = this.op_type_SearchlookupEdit1;
-            this.layoutControlItem15.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.layoutControlItem15.CustomizationFormText = "فواتير";
-            this.layoutControlItem15.Location = new System.Drawing.Point(0, 70);
-            this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(108, 30);
-            this.layoutControlItem15.Text = "نوع العملية";
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(51, 13);
-            // 
-            // layoutControlItem11
-            // 
-            this.layoutControlItem11.Control = this.chb_from_to;
-            this.layoutControlItem11.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.layoutControlItem11.CustomizationFormText = "layoutControlItem11";
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 250);
-            this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(108, 24);
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem11.TextVisible = false;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.from_dateTimePicker1;
-            this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.layoutControlItem3.CustomizationFormText = "من";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 274);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(108, 24);
-            this.layoutControlItem3.Text = "من";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(51, 13);
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.to_dateTimePicker2;
-            this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.layoutControlItem4.CustomizationFormText = "إلى";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 298);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(108, 24);
-            this.layoutControlItem4.Text = "إلى";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(51, 13);
-            // 
             // Month_DateDateEdit
             // 
             this.Month_DateDateEdit.EditValue = new System.DateTime(2024, 2, 28, 10, 48, 21, 0);
-            this.Month_DateDateEdit.Location = new System.Drawing.Point(664, 76);
-            this.Month_DateDateEdit.Margin = new System.Windows.Forms.Padding(2);
+            this.Month_DateDateEdit.Location = new System.Drawing.Point(927, 75);
+            this.Month_DateDateEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Month_DateDateEdit.Name = "Month_DateDateEdit";
             this.Month_DateDateEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.Month_DateDateEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Month_DateDateEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Month_DateDateEdit.Properties.Appearance.Options.UseFont = true;
             this.Month_DateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -510,25 +359,15 @@
             this.Month_DateDateEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.Month_DateDateEdit.Properties.VistaCalendarInitialViewStyle = DevExpress.XtraEditors.VistaCalendarInitialViewStyle.YearView;
             this.Month_DateDateEdit.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
-            this.Month_DateDateEdit.Size = new System.Drawing.Size(50, 26);
+            this.Month_DateDateEdit.Size = new System.Drawing.Size(50, 22);
             this.Month_DateDateEdit.StyleController = this.dataLayoutControl1;
             this.Month_DateDateEdit.TabIndex = 10;
-            // 
-            // ItemForin_item_expDate
-            // 
-            this.ItemForin_item_expDate.Control = this.Month_DateDateEdit;
-            this.ItemForin_item_expDate.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.ItemForin_item_expDate.CustomizationFormText = "انتهاء الصلاحية";
-            this.ItemForin_item_expDate.Location = new System.Drawing.Point(0, 40);
-            this.ItemForin_item_expDate.Name = "ItemForin_item_expDate";
-            this.ItemForin_item_expDate.Size = new System.Drawing.Size(108, 30);
-            this.ItemForin_item_expDate.Text = "عن شهر";
-            this.ItemForin_item_expDate.TextSize = new System.Drawing.Size(51, 13);
+            this.Month_DateDateEdit.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.Month_DateDateEdit_Closed);
             // 
             // reciver_searchLookUpEdit12
             // 
-            this.reciver_searchLookUpEdit12.Location = new System.Drawing.Point(664, 256);
-            this.reciver_searchLookUpEdit12.Margin = new System.Windows.Forms.Padding(2);
+            this.reciver_searchLookUpEdit12.Location = new System.Drawing.Point(927, 251);
+            this.reciver_searchLookUpEdit12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.reciver_searchLookUpEdit12.Name = "reciver_searchLookUpEdit12";
             this.reciver_searchLookUpEdit12.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.reciver_searchLookUpEdit12.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -551,26 +390,194 @@
             this.gridView121.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView121.OptionsView.ShowGroupPanel = false;
             // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlGroup2});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(1040, 502);
+            this.Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.gc;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(917, 486);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlGroup2
+            // 
+            this.layoutControlGroup2.CustomizationFormText = "خيارات البحث";
+            this.layoutControlGroup2.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem9,
+            this.layoutControlItem5,
+            this.layoutControlItem6,
+            this.layoutControlItem10,
+            this.layoutControlItem13,
+            this.layoutControlItem14,
+            this.layoutControlItem11,
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.layoutControlItem15,
+            this.layoutControlItem8,
+            this.ItemForin_item_expDate});
+            this.layoutControlGroup2.Location = new System.Drawing.Point(917, 0);
+            this.layoutControlGroup2.Name = "layoutControlGroup2";
+            this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(109, 486);
+            this.layoutControlGroup2.Text = "خيارات البحث";
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.btn_refresh;
+            this.layoutControlItem9.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.layoutControlItem9.CustomizationFormText = "layoutControlItem9";
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(105, 42);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.Med_idSearchlookupEdit1;
+            this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.layoutControlItem5.CustomizationFormText = "layoutControlItem2";
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 98);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(105, 30);
+            this.layoutControlItem5.Text = "دواء";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(51, 13);
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.store_place_SearchlookupEdit2;
+            this.layoutControlItem6.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.layoutControlItem6.CustomizationFormText = "layoutControlItem2";
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 128);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(105, 30);
+            this.layoutControlItem6.Text = "مكان تخزين";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(51, 13);
+            // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.btn_view_serch;
+            this.layoutControlItem10.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.layoutControlItem10.CustomizationFormText = "layoutControlItem10";
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 320);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(105, 140);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.TextVisible = false;
+            // 
+            // layoutControlItem13
+            // 
+            this.layoutControlItem13.Control = this.donar_searchLookUpEdit12;
+            this.layoutControlItem13.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.layoutControlItem13.CustomizationFormText = "تصنيف";
+            this.layoutControlItem13.Location = new System.Drawing.Point(0, 188);
+            this.layoutControlItem13.Name = "layoutControlItem13";
+            this.layoutControlItem13.Size = new System.Drawing.Size(105, 30);
+            this.layoutControlItem13.Text = "المتبرع";
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(51, 13);
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.emp_SearchlookupEdit21;
+            this.layoutControlItem14.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.layoutControlItem14.CustomizationFormText = "layoutControlItem2";
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 158);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(105, 30);
+            this.layoutControlItem14.Text = "الموظف";
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(51, 13);
+            // 
+            // layoutControlItem11
+            // 
+            this.layoutControlItem11.Control = this.chb_from_to;
+            this.layoutControlItem11.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.layoutControlItem11.CustomizationFormText = "layoutControlItem11";
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 248);
+            this.layoutControlItem11.Name = "layoutControlItem11";
+            this.layoutControlItem11.Size = new System.Drawing.Size(105, 24);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem11.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.from_dateTimePicker1;
+            this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.layoutControlItem3.CustomizationFormText = "من";
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 272);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(105, 24);
+            this.layoutControlItem3.Text = "من";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(51, 13);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.to_dateTimePicker2;
+            this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.layoutControlItem4.CustomizationFormText = "إلى";
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 296);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(105, 24);
+            this.layoutControlItem4.Text = "إلى";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(51, 13);
+            // 
+            // layoutControlItem15
+            // 
+            this.layoutControlItem15.Control = this.op_type_SearchlookupEdit1;
+            this.layoutControlItem15.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.layoutControlItem15.CustomizationFormText = "فواتير";
+            this.layoutControlItem15.Location = new System.Drawing.Point(0, 68);
+            this.layoutControlItem15.Name = "layoutControlItem15";
+            this.layoutControlItem15.Size = new System.Drawing.Size(105, 30);
+            this.layoutControlItem15.Text = "نوع العملية";
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(51, 13);
+            // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.reciver_searchLookUpEdit12;
             this.layoutControlItem8.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem8.CustomizationFormText = "تصنيف";
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 220);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 218);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(108, 30);
+            this.layoutControlItem8.Size = new System.Drawing.Size(105, 30);
             this.layoutControlItem8.Text = "المستلم";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(51, 13);
+            // 
+            // ItemForin_item_expDate
+            // 
+            this.ItemForin_item_expDate.Control = this.Month_DateDateEdit;
+            this.ItemForin_item_expDate.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.ItemForin_item_expDate.CustomizationFormText = "انتهاء الصلاحية";
+            this.ItemForin_item_expDate.Location = new System.Drawing.Point(0, 42);
+            this.ItemForin_item_expDate.Name = "ItemForin_item_expDate";
+            this.ItemForin_item_expDate.Size = new System.Drawing.Size(105, 26);
+            this.ItemForin_item_expDate.Text = "عن شهر";
+            this.ItemForin_item_expDate.TextSize = new System.Drawing.Size(51, 13);
             // 
             // F_Month_rep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1040, 675);
             this.Controls.Add(this.dataLayoutControl1);
             this.Location = new System.Drawing.Point(0, 0);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "F_Month_rep";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "F_Month_rep";
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             this.Controls.SetChildIndex(this.dataLayoutControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
@@ -586,6 +593,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.emp_SearchlookupEdit21.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView521)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.op_type_SearchlookupEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Month_DateDateEdit.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Month_DateDateEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reciver_searchLookUpEdit12.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView121)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
@@ -595,16 +606,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Month_DateDateEdit.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Month_DateDateEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_expDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reciver_searchLookUpEdit12.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView121)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_expDate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -176,6 +176,11 @@ FROM         T_OPeration_Out INNER JOIN
             clear_all();
             load_gc(sqll + group + having);
         }
+        public override void Print_Data()
+        {
+            base.Print_Data();
+            C_Master.print_header(tit, gc);
+        }
 
         private void clear_all()
         {

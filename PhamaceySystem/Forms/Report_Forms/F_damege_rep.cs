@@ -87,7 +87,12 @@ FROM         T_OPeration_Damage INNER JOIN
                 emp_SearchlookupEdit21.Properties.View.Columns[1].Caption = "الاسم ";
             }
         }
-  
+        public override void Print_Data()
+        {
+            base.Print_Data();
+            C_Master.print_header(tit, gc);
+        }
+
         public void GetMed_Data()
         {
 

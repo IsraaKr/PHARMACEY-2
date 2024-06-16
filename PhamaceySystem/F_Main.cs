@@ -233,7 +233,7 @@ namespace PhamaceySystem
             bar_med_min.Caption = static_med_min;
 
 
-            var dt = (from med in cmdOpInItem.Get_All().Where(l => l.in_item_expDate.Value.Month < DateTime.Today.Month
+            var dtt = (from med in cmdOpInItem.Get_All().Where(l => l.in_item_expDate.Value.Month < DateTime.Today.Month
                            && l.in_item_expDate.Value.Year <= DateTime.Today.Year
                            && l.is_out != true)
                       join xxx in cmdMedician.Get_All()
@@ -249,9 +249,9 @@ namespace PhamaceySystem
                           datee = med.in_item_expDate,
 
                       }).OrderBy(l_id => l_id.id).ToList();
-            int count = dt.Count;
+            int countt = dtt.Count;
 
-            static_date_exp = count.ToString();
+            static_date_exp = countt.ToString();
             bar_exp_date.Caption = static_date_exp;
         }
     }

@@ -82,7 +82,7 @@
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.Size = new System.Drawing.Size(800, 50);
+            this.lbl_tiltle.Size = new System.Drawing.Size(1040, 50);
             // 
             // timer_date
             // 
@@ -105,16 +105,16 @@
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(800, 291);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(1040, 502);
             this.dataLayoutControl1.TabIndex = 10;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
             // gc
             // 
-            this.gc.Location = new System.Drawing.Point(12, -10);
+            this.gc.Location = new System.Drawing.Point(12, 12);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(639, 289);
+            this.gc.Size = new System.Drawing.Size(896, 478);
             this.gc.TabIndex = 105;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -141,9 +141,9 @@
             // btn_refresh
             // 
             this.btn_refresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_refresh.ImageOptions.Image")));
-            this.btn_refresh.Location = new System.Drawing.Point(658, 14);
+            this.btn_refresh.Location = new System.Drawing.Point(915, 35);
             this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(110, 36);
+            this.btn_refresh.Size = new System.Drawing.Size(110, 38);
             this.btn_refresh.StyleController = this.dataLayoutControl1;
             this.btn_refresh.TabIndex = 111;
             this.btn_refresh.Text = "تحديث ";
@@ -151,7 +151,7 @@
             // 
             // in_op_SearchlookupEdit
             // 
-            this.in_op_SearchlookupEdit.Location = new System.Drawing.Point(658, 54);
+            this.in_op_SearchlookupEdit.Location = new System.Drawing.Point(915, 77);
             this.in_op_SearchlookupEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_op_SearchlookupEdit.Name = "in_op_SearchlookupEdit";
             this.in_op_SearchlookupEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
@@ -177,7 +177,7 @@
             // 
             // Med_idSearchlookupEdit1
             // 
-            this.Med_idSearchlookupEdit1.Location = new System.Drawing.Point(658, 84);
+            this.Med_idSearchlookupEdit1.Location = new System.Drawing.Point(915, 107);
             this.Med_idSearchlookupEdit1.Margin = new System.Windows.Forms.Padding(2);
             this.Med_idSearchlookupEdit1.Name = "Med_idSearchlookupEdit1";
             this.Med_idSearchlookupEdit1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
@@ -204,9 +204,9 @@
             // btn_view_serch
             // 
             this.btn_view_serch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_view_serch.ImageOptions.Image")));
-            this.btn_view_serch.Location = new System.Drawing.Point(658, 240);
+            this.btn_view_serch.Location = new System.Drawing.Point(915, 263);
             this.btn_view_serch.Name = "btn_view_serch";
-            this.btn_view_serch.Size = new System.Drawing.Size(110, 36);
+            this.btn_view_serch.Size = new System.Drawing.Size(110, 38);
             this.btn_view_serch.StyleController = this.dataLayoutControl1;
             this.btn_view_serch.TabIndex = 112;
             this.btn_view_serch.Text = "عرض";
@@ -214,7 +214,7 @@
             // 
             // emp_SearchlookupEdit21
             // 
-            this.emp_SearchlookupEdit21.Location = new System.Drawing.Point(658, 114);
+            this.emp_SearchlookupEdit21.Location = new System.Drawing.Point(915, 137);
             this.emp_SearchlookupEdit21.Margin = new System.Windows.Forms.Padding(2);
             this.emp_SearchlookupEdit21.Name = "emp_SearchlookupEdit21";
             this.emp_SearchlookupEdit21.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
@@ -241,14 +241,14 @@
             // in_op_dateDateEdit
             // 
             this.in_op_dateDateEdit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.in_op_dateDateEdit.Location = new System.Drawing.Point(658, 144);
+            this.in_op_dateDateEdit.Location = new System.Drawing.Point(915, 167);
             this.in_op_dateDateEdit.Name = "in_op_dateDateEdit";
             this.in_op_dateDateEdit.Size = new System.Drawing.Size(50, 20);
             this.in_op_dateDateEdit.TabIndex = 106;
             // 
             // chb_from_to
             // 
-            this.chb_from_to.Location = new System.Drawing.Point(658, 168);
+            this.chb_from_to.Location = new System.Drawing.Point(915, 191);
             this.chb_from_to.Name = "chb_from_to";
             this.chb_from_to.Size = new System.Drawing.Size(110, 20);
             this.chb_from_to.TabIndex = 113;
@@ -260,7 +260,7 @@
             // 
             this.from_dateTimePicker1.Enabled = false;
             this.from_dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.from_dateTimePicker1.Location = new System.Drawing.Point(658, 192);
+            this.from_dateTimePicker1.Location = new System.Drawing.Point(915, 215);
             this.from_dateTimePicker1.Name = "from_dateTimePicker1";
             this.from_dateTimePicker1.Size = new System.Drawing.Size(50, 20);
             this.from_dateTimePicker1.TabIndex = 105;
@@ -269,7 +269,7 @@
             // 
             this.to_dateTimePicker2.Enabled = false;
             this.to_dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.to_dateTimePicker2.Location = new System.Drawing.Point(658, 216);
+            this.to_dateTimePicker2.Location = new System.Drawing.Point(915, 239);
             this.to_dateTimePicker2.Name = "to_dateTimePicker2";
             this.to_dateTimePicker2.Size = new System.Drawing.Size(50, 20);
             this.to_dateTimePicker2.TabIndex = 106;
@@ -282,7 +282,7 @@
             this.layoutControlItem1,
             this.layoutControlGroup2});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(783, 313);
+            this.Root.Size = new System.Drawing.Size(1040, 502);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -290,7 +290,7 @@
             this.layoutControlItem1.Control = this.gc;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(643, 293);
+            this.layoutControlItem1.Size = new System.Drawing.Size(900, 482);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -308,10 +308,10 @@
             this.layoutControlItem11,
             this.layoutControlItem3,
             this.layoutControlItem4});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(643, 0);
+            this.layoutControlGroup2.Location = new System.Drawing.Point(900, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(120, 293);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(120, 482);
             this.layoutControlGroup2.Text = "خيارات البحث";
             // 
             // layoutControlItem9
@@ -321,7 +321,7 @@
             this.layoutControlItem9.CustomizationFormText = "layoutControlItem9";
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(114, 40);
+            this.layoutControlItem9.Size = new System.Drawing.Size(114, 42);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
@@ -330,7 +330,7 @@
             this.layoutControlItem2.Control = this.in_op_SearchlookupEdit;
             this.layoutControlItem2.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem2.CustomizationFormText = "فواتير";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 40);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 42);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(114, 30);
             this.layoutControlItem2.Text = "فواتير";
@@ -341,7 +341,7 @@
             this.layoutControlItem5.Control = this.Med_idSearchlookupEdit1;
             this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 70);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(114, 30);
             this.layoutControlItem5.Text = "دواء";
@@ -352,9 +352,9 @@
             this.layoutControlItem10.Control = this.btn_view_serch;
             this.layoutControlItem10.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem10.CustomizationFormText = "layoutControlItem10";
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 226);
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 228);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(114, 40);
+            this.layoutControlItem10.Size = new System.Drawing.Size(114, 228);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
@@ -363,7 +363,7 @@
             this.layoutControlItem14.Control = this.emp_SearchlookupEdit21;
             this.layoutControlItem14.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem14.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem14.Location = new System.Drawing.Point(0, 100);
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 102);
             this.layoutControlItem14.Name = "layoutControlItem14";
             this.layoutControlItem14.Size = new System.Drawing.Size(114, 30);
             this.layoutControlItem14.Text = "الموظف";
@@ -374,7 +374,7 @@
             this.layoutControlItem7.Control = this.in_op_dateDateEdit;
             this.layoutControlItem7.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem7.CustomizationFormText = "إلى";
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 130);
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 132);
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(114, 24);
             this.layoutControlItem7.Text = "تاريخ العملية";
@@ -385,7 +385,7 @@
             this.layoutControlItem11.Control = this.chb_from_to;
             this.layoutControlItem11.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem11.CustomizationFormText = "layoutControlItem11";
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 154);
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 156);
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.Size = new System.Drawing.Size(114, 24);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
@@ -396,7 +396,7 @@
             this.layoutControlItem3.Control = this.from_dateTimePicker1;
             this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem3.CustomizationFormText = "من";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 178);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 180);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(114, 24);
             this.layoutControlItem3.Text = "من";
@@ -407,7 +407,7 @@
             this.layoutControlItem4.Control = this.to_dateTimePicker2;
             this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem4.CustomizationFormText = "إلى";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 202);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 204);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(114, 24);
             this.layoutControlItem4.Text = "إلى";
@@ -417,11 +417,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1040, 675);
             this.Controls.Add(this.dataLayoutControl1);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "F_damege_rep";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "F_damege_rep";
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             this.Controls.SetChildIndex(this.dataLayoutControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();

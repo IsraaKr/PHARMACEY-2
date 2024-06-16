@@ -179,7 +179,8 @@ on med.store_place_id equals place.id into plist
             gv.Columns[5].Caption = "مكان التخزين ";
             gv.Columns[6].Caption = "خارجة ";
             gv.Columns[7].Caption = "الكمية الخارجة ";
-            gv.Columns[8].Visible = false;
+            gv.Columns[8] .Caption = "رقم الفاتورة";
+
 
             gv.BestFitColumns();
         }

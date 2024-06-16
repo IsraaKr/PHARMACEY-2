@@ -32,6 +32,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>12_113697.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>PhamaceySystem.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="DevExpress.BonusSkins.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -239,6 +245,12 @@
     <Compile Include="Forms\Report_Forms\Store_move_rep.Designer.cs">
       <DependentUpon>Store_move_rep.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Report_Forms\XtraReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Report_Forms\XtraReport1.Designer.cs">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Report_Forms\XtraReport4.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -409,6 +421,9 @@
     <EmbeddedResource Include="Forms\Out_op_Forms\F_out_master_detail.resx">
       <DependentUpon>F_out_master_detail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Out_op_Forms\F_out_op_graid.resx">
+      <DependentUpon>F_out_op_graid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Person_Forms\F_Donars.resx">
       <DependentUpon>F_Donars.cs</DependentUpon>
     </EmbeddedResource>
@@ -438,6 +453,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Report_Forms\Store_move_rep.resx">
       <DependentUpon>Store_move_rep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report_Forms\XtraReport1.resx">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Report_Forms\XtraReport4.resx">
       <DependentUpon>XtraReport4.cs</DependentUpon>
@@ -529,6 +547,9 @@
       <Project>{656e5a30-aed5-4093-8f6c-e6ca5156ea03}</Project>
       <Name>PhamaceyDataBase</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="12_113697.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

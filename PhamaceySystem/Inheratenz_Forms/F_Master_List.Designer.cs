@@ -75,16 +75,16 @@
             this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(647, 70, 650, 400);
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(600, 329);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(600, 547);
             this.dataLayoutControl1.TabIndex = 11;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
             // gc
             // 
-            this.gc.Location = new System.Drawing.Point(2, 81);
+            this.gc.Location = new System.Drawing.Point(2, 80);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(596, 246);
+            this.gc.Size = new System.Drawing.Size(596, 465);
             this.gc.TabIndex = 12;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -117,7 +117,7 @@
             // 
             // txt_id
             // 
-            this.txt_id.Location = new System.Drawing.Point(5, 52);
+            this.txt_id.Location = new System.Drawing.Point(5, 51);
             this.txt_id.Margin = new System.Windows.Forms.Padding(5);
             this.txt_id.Name = "txt_id";
             this.txt_id.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -129,7 +129,7 @@
             // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(5, 26);
+            this.txt_name.Location = new System.Drawing.Point(5, 25);
             this.txt_name.Margin = new System.Windows.Forms.Padding(5);
             this.txt_name.Name = "txt_name";
             this.txt_name.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -149,15 +149,15 @@
             this.layoutControlGroup1});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.Root.Size = new System.Drawing.Size(600, 329);
+            this.Root.Size = new System.Drawing.Size(600, 547);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.gc;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 79);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 78);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(600, 250);
+            this.layoutControlItem2.Size = new System.Drawing.Size(600, 469);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -170,7 +170,7 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(600, 79);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(600, 78);
             this.layoutControlGroup1.Text = "...";
             // 
             // txt
@@ -200,10 +200,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 488);
+            this.ClientSize = new System.Drawing.Size(600, 720);
             this.Controls.Add(this.dataLayoutControl1);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "F_Master_List";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "F_Master_ADD";
             this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);

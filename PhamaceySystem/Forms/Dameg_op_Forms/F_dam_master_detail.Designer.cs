@@ -29,40 +29,21 @@
         private void InitializeComponent()
         {
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            this.gc = new DevExpress.XtraGrid.GridControl();
             this.gv_2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gc = new DevExpress.XtraGrid.GridControl();
             this.gv = new DevExpress.XtraGrid.Views.Grid.GridView();
-            ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbl_tiltle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl_tiltle.Size = new System.Drawing.Size(800, 60);
+            this.lbl_tiltle.Size = new System.Drawing.Size(1040, 50);
             // 
             // timer_date
             // 
             this.timer_date.Enabled = true;
-            // 
-            // gc
-            // 
-            this.gc.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.LevelTemplate = this.gv_2;
-            gridLevelNode1.RelationName = "gv_item";
-            this.gc.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
-            this.gc.Location = new System.Drawing.Point(0, 60);
-            this.gc.MainView = this.gv;
-            this.gc.MenuManager = this.barMang;
-            this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(800, 281);
-            this.gc.TabIndex = 12;
-            this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gv_2,
-            this.gv});
             // 
             // gv_2
             // 
@@ -86,6 +67,23 @@
             this.gv_2.OptionsPrint.PrintFilterInfo = true;
             this.gv_2.OptionsView.ShowAutoFilterRow = true;
             this.gv_2.OptionsView.ShowFooter = true;
+            // 
+            // gc
+            // 
+            this.gc.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridLevelNode1.LevelTemplate = this.gv_2;
+            gridLevelNode1.RelationName = "gv_item";
+            this.gc.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
+            this.gc.Location = new System.Drawing.Point(0, 50);
+            this.gc.MainView = this.gv;
+            this.gc.MenuManager = this.barMang;
+            this.gc.Name = "gc";
+            this.gc.Size = new System.Drawing.Size(1040, 502);
+            this.gc.TabIndex = 12;
+            this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gv,
+            this.gv_2});
             // 
             // gv
             // 
@@ -114,15 +112,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1040, 675);
             this.Controls.Add(this.gc);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "F_dam_master_detail";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "F_dam_master_detail";
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             this.Controls.SetChildIndex(this.gc, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

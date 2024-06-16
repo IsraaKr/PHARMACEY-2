@@ -12,7 +12,7 @@ namespace PhamaceySystem.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.7.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -118,18 +118,6 @@ namespace PhamaceySystem.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Maroon")]
-        public global::System.Drawing.Color titel_master_colore {
-            get {
-                return ((global::System.Drawing.Color)(this["titel_master_colore"]));
-            }
-            set {
-                this["titel_master_colore"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool is_first_time {
             get {
@@ -154,7 +142,7 @@ namespace PhamaceySystem.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool is_med_count_form_show {
             get {
                 return ((bool)(this["is_med_count_form_show"]));
@@ -166,7 +154,7 @@ namespace PhamaceySystem.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool is_expdate_form_show {
             get {
                 return ((bool)(this["is_expdate_form_show"]));
@@ -190,13 +178,25 @@ namespace PhamaceySystem.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Basic")]
+        [global::System.Configuration.DefaultSettingValueAttribute("McSkin")]
         public string theme {
             get {
                 return ((string)(this["theme"]));
             }
             set {
                 this["theme"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Maroon")]
+        public global::System.Drawing.Color titel_master_colore {
+            get {
+                return ((global::System.Drawing.Color)(this["titel_master_colore"]));
+            }
+            set {
+                this["titel_master_colore"] = value;
             }
         }
     }

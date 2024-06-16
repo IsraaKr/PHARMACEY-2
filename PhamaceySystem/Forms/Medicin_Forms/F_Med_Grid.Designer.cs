@@ -37,7 +37,7 @@
             // lbl_tiltle
             // 
             this.lbl_tiltle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_tiltle.Size = new System.Drawing.Size(838, 50);
+            this.lbl_tiltle.Size = new System.Drawing.Size(1040, 50);
             this.lbl_tiltle.Text = "...";
             // 
             // gc
@@ -49,7 +49,7 @@
             this.gc.Margin = new System.Windows.Forms.Padding(2);
             this.gc.Name = "gc";
             this.gc.Padding = new System.Windows.Forms.Padding(10);
-            this.gc.Size = new System.Drawing.Size(838, 206);
+            this.gc.Size = new System.Drawing.Size(1040, 502);
             this.gc.TabIndex = 18;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -82,11 +82,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 365);
+            this.ClientSize = new System.Drawing.Size(1040, 675);
             this.Controls.Add(this.gc);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "F_Med_Grid";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "F_Med_Grid";
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             this.Controls.SetChildIndex(this.gc, 0);
             ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();

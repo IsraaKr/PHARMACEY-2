@@ -54,10 +54,10 @@
             // gc
             // 
             this.gc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc.Location = new System.Drawing.Point(0, 60);
+            this.gc.Location = new System.Drawing.Point(0, 50);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(659, 350);
+            this.gc.Size = new System.Drawing.Size(1040, 580);
             this.gc.TabIndex = 0;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -84,15 +84,16 @@
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.lbl_tiltle.BackColor = System.Drawing.Color.Maroon;
             this.lbl_tiltle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_tiltle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_tiltle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbl_tiltle.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_tiltle.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbl_tiltle.Location = new System.Drawing.Point(0, 0);
+            this.lbl_tiltle.MaximumSize = new System.Drawing.Size(0, 50);
             this.lbl_tiltle.Name = "lbl_tiltle";
-            this.lbl_tiltle.Size = new System.Drawing.Size(659, 60);
+            this.lbl_tiltle.Size = new System.Drawing.Size(1040, 50);
             this.lbl_tiltle.TabIndex = 6;
             this.lbl_tiltle.Text = "....";
             this.lbl_tiltle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -208,15 +209,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barMang;
-            this.barDockControlTop.Size = new System.Drawing.Size(659, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1040, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 410);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 630);
             this.barDockControlBottom.Manager = this.barMang;
-            this.barDockControlBottom.Size = new System.Drawing.Size(659, 40);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1040, 45);
             // 
             // barDockControlLeft
             // 
@@ -224,15 +225,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.barMang;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 410);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 630);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(659, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(1040, 0);
             this.barDockControlRight.Manager = this.barMang;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 410);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 630);
             // 
             // bar_time
             // 
@@ -265,7 +266,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(659, 450);
+            this.ClientSize = new System.Drawing.Size(1040, 675);
             this.Controls.Add(this.gc);
             this.Controls.Add(this.lbl_tiltle);
             this.Controls.Add(this.barDockControlLeft);
@@ -276,6 +277,9 @@
             this.Name = "F_Med_min";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_Med_min";
             this.Load += new System.EventHandler(this.F_Med_min_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();

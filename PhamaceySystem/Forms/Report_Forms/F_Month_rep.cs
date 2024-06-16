@@ -29,7 +29,7 @@ namespace PhamaceySystem.Forms.Report_Forms
         ClsCommander<T_Pers_Recivers> cmdReciver = new ClsCommander<T_Pers_Recivers>();
 
         DataTable dt;
-
+        bool is_date_change = false;
         string sqll = @" SELECT    
 T_Store_Move.id, 
 T_Store_Move.item_id,
@@ -198,7 +198,7 @@ FROM         T_Store_Move left JOIN
         {
             clear_data(this.Controls);
             chb_from_to.Checked = false;
-
+            is_date_change = false;
             Med_idSearchlookupEdit1.EditValue = null;
             donar_searchLookUpEdit12.EditValue = null;
             reciver_searchLookUpEdit12.EditValue = null;
@@ -267,7 +267,7 @@ FROM         T_Store_Move left JOIN
                 from_dateTimePicker1.Value.ToShortDateString() != DateTime.Today.ToShortDateString())
                 s = s + "  ( T_Store_Move.date between N'" + from_dateTimePicker1.Text + "' and N'" + to_dateTimePicker2.Text + "')" + "   AND ";
 
-            if ( Month_DateDateEdit.DateTime.Month != DateTime.Today.Month && Month_DateDateEdit.DateTime.Year != DateTime.Today.Year)
+            if ( is_date_change)
                 s = s + " ( month (T_Store_Move.date) = " + Month_DateDateEdit.DateTime.Month + " " +
                  " and  year (T_Store_Move.date) = " + Month_DateDateEdit.DateTime.Year + " ) " + "    AND ";
 
@@ -277,6 +277,11 @@ FROM         T_Store_Move left JOIN
             clear_all();
         }
 
+        public override void Print_Data()
+        {
+            base.Print_Data();
+            C_Master.print_header(tit, gc);
+        }
 
         private void in_op_SearchlookupEdit_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
         {
@@ -353,6 +358,9 @@ FROM         T_Store_Move left JOIN
                 e.DisplayText = "";
         }
 
-
+        private void Month_DateDateEdit_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        {
+            is_date_change = true;
+        }
     }
 }

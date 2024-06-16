@@ -59,7 +59,10 @@
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.Size = new System.Drawing.Size(800, 62);
+            this.lbl_tiltle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_tiltle.MaximumSize = new System.Drawing.Size(2250, 41);
+            this.lbl_tiltle.MinimumSize = new System.Drawing.Size(0, 41);
+            this.lbl_tiltle.Size = new System.Drawing.Size(600, 41);
             // 
             // timer_date
             // 
@@ -73,31 +76,31 @@
             this.dataLayoutControl1.Controls.Add(this.txt_shuffel);
             this.dataLayoutControl1.Controls.Add(this.txt_name);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataLayoutControl1.Location = new System.Drawing.Point(0, 62);
+            this.dataLayoutControl1.Location = new System.Drawing.Point(0, 41);
+            this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(800, 254);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(600, 556);
             this.dataLayoutControl1.TabIndex = 10;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
             // txt_id
             // 
-            this.txt_id.Location = new System.Drawing.Point(12, 72);
+            this.txt_id.Location = new System.Drawing.Point(8, 58);
+            this.txt_id.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_id.MenuManager = this.barMang;
             this.txt_id.Name = "txt_id";
-            this.txt_id.Size = new System.Drawing.Size(693, 26);
+            this.txt_id.Size = new System.Drawing.Size(524, 20);
             this.txt_id.StyleController = this.dataLayoutControl1;
             this.txt_id.TabIndex = 14;
             // 
             // gc
             // 
-            this.gc.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
-            this.gc.Location = new System.Drawing.Point(12, 102);
+            this.gc.Location = new System.Drawing.Point(8, 82);
             this.gc.MainView = this.gv;
-            this.gc.Margin = new System.Windows.Forms.Padding(4);
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(776, 140);
+            this.gc.Size = new System.Drawing.Size(584, 464);
             this.gc.TabIndex = 13;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -114,7 +117,6 @@
             this.gv.Appearance.Row.Options.UseFont = true;
             this.gv.Appearance.Row.Options.UseTextOptions = true;
             this.gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gv.DetailHeight = 431;
             this.gv.GridControl = this.gc;
             this.gv.Name = "gv";
             this.gv.OptionsBehavior.Editable = false;
@@ -133,20 +135,22 @@
             // 
             // txt_group
             // 
-            this.txt_group.Location = new System.Drawing.Point(402, 12);
+            this.txt_group.Location = new System.Drawing.Point(301, 10);
+            this.txt_group.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_group.MenuManager = this.barMang;
             this.txt_group.Name = "txt_group";
-            this.txt_group.Size = new System.Drawing.Size(303, 26);
+            this.txt_group.Size = new System.Drawing.Size(231, 20);
             this.txt_group.StyleController = this.dataLayoutControl1;
             this.txt_group.TabIndex = 0;
             this.txt_group.EditValueChanged += new System.EventHandler(this.txt_group_EditValueChanged);
             // 
             // txt_shuffel
             // 
-            this.txt_shuffel.Location = new System.Drawing.Point(12, 12);
+            this.txt_shuffel.Location = new System.Drawing.Point(8, 10);
+            this.txt_shuffel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_shuffel.MenuManager = this.barMang;
             this.txt_shuffel.Name = "txt_shuffel";
-            this.txt_shuffel.Size = new System.Drawing.Size(303, 26);
+            this.txt_shuffel.Size = new System.Drawing.Size(231, 20);
             this.txt_shuffel.StyleController = this.dataLayoutControl1;
             this.txt_shuffel.TabIndex = 1;
             this.txt_shuffel.EditValueChanged += new System.EventHandler(this.txt_shuffel_EditValueChanged);
@@ -154,10 +158,11 @@
             // txt_name
             // 
             this.txt_name.AllowDrop = true;
-            this.txt_name.Location = new System.Drawing.Point(12, 42);
+            this.txt_name.Location = new System.Drawing.Point(8, 34);
+            this.txt_name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_name.MenuManager = this.barMang;
             this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(693, 26);
+            this.txt_name.Size = new System.Drawing.Size(524, 20);
             this.txt_name.StyleController = this.dataLayoutControl1;
             this.txt_name.TabIndex = 2;
             this.txt_name.EditValueChanged += new System.EventHandler(this.txt_name_EditValueChanged);
@@ -174,64 +179,68 @@
             this.layoutControlItem4,
             this.layoutControlItem5});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(800, 254);
+            this.Root.Size = new System.Drawing.Size(600, 556);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.txt_group;
-            this.layoutControlItem3.Location = new System.Drawing.Point(390, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(293, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(390, 30);
+            this.layoutControlItem3.Size = new System.Drawing.Size(293, 24);
             this.layoutControlItem3.Text = "المجموعة";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(80, 20);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(58, 13);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.txt_name;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 30);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(780, 30);
+            this.layoutControlItem1.Size = new System.Drawing.Size(586, 24);
             this.layoutControlItem1.Text = "مكان التخزين";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(80, 20);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(58, 13);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txt_shuffel;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(390, 30);
+            this.layoutControlItem2.Size = new System.Drawing.Size(293, 24);
             this.layoutControlItem2.Text = "الرف";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(80, 20);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(58, 13);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.gc;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 90);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(780, 144);
+            this.layoutControlItem4.Size = new System.Drawing.Size(586, 468);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.txt_id;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 60);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(780, 30);
+            this.layoutControlItem5.Size = new System.Drawing.Size(586, 24);
             this.layoutControlItem5.Text = "id";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(80, 20);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(58, 13);
             this.layoutControlItem5.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // F_place_store
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 720);
             this.Controls.Add(this.dataLayoutControl1);
             this.Location = new System.Drawing.Point(0, 0);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "F_place_store";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "F_place_store";
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Load += new System.EventHandler(this.F_place_store_Load);
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             this.Controls.SetChildIndex(this.dataLayoutControl1, 0);

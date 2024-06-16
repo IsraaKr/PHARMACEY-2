@@ -168,7 +168,12 @@ FROM         T_OPeration_IN INNER JOIN
             }
 
         }
-    
+        public override void Print_Data()
+        {
+            base.Print_Data();
+            C_Master.print_header(tit, gc);
+        }
+
         public override void Get_Data(string status_mess)
         {
             GetDonars_Data();

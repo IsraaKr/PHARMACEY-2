@@ -45,7 +45,7 @@
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.Size = new System.Drawing.Size(800, 50);
+            this.lbl_tiltle.Size = new System.Drawing.Size(1040, 50);
             // 
             // timer_date
             // 
@@ -60,7 +60,7 @@
             this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(716, 72, 650, 400);
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(800, 341);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(1040, 552);
             this.dataLayoutControl1.TabIndex = 10;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
@@ -72,7 +72,7 @@
             this.gc.Margin = new System.Windows.Forms.Padding(2);
             this.gc.Name = "gc";
             this.gc.Padding = new System.Windows.Forms.Padding(10);
-            this.gc.Size = new System.Drawing.Size(788, 284);
+            this.gc.Size = new System.Drawing.Size(1028, 495);
             this.gc.TabIndex = 19;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -119,7 +119,7 @@
             this.emptySpaceItem1});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.Root.Size = new System.Drawing.Size(800, 341);
+            this.Root.Size = new System.Drawing.Size(1040, 552);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -128,7 +128,7 @@
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 45);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlItem1.Size = new System.Drawing.Size(790, 286);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1030, 497);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -139,7 +139,7 @@
             this.emptySpaceItem1.MaxSize = new System.Drawing.Size(0, 45);
             this.emptySpaceItem1.MinSize = new System.Drawing.Size(10, 45);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(790, 45);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(1030, 45);
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -147,11 +147,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1040, 675);
             this.Controls.Add(this.dataLayoutControl1);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "F_Master_Graid";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "F_Master_Graid";
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Controls.SetChildIndex(this.dataLayoutControl1, 0);
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
