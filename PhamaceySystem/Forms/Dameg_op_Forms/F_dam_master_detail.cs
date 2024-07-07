@@ -180,8 +180,23 @@ FROM         T_Operation_Damage_Item INNER JOIN
             dt_item.Columns[1].Caption = "اسم الدواء";
             dt_item.Columns[2].Caption = "الكمية المتلفة";
             dt_item.Columns[3].Caption = "مكان التخزين ";
-           
-            gv.BestFitColumns();
+
+            gv.Columns[2].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[2].DisplayFormat.FormatString = "N0";
+
+            gv.OptionsView.ShowFooter = true;
+            gv.Columns[2].Summary.Add(DevExpress.Data.SummaryItemType.Sum, gv.Columns[2].FieldName.ToString(), "المجموع = {0}");
+            gv.Columns[1].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[1].FieldName.ToString(), "عدد المواد = {0}");
+
+            DevExpress.XtraGrid.GridGroupSummaryItem item = new DevExpress.XtraGrid.GridGroupSummaryItem();
+            item.DisplayFormat = "_____مجموع الكميات= {0}";
+            item.FieldName = gv.Columns[2].FieldName.ToString();
+            item.ShowInGroupColumnFooter = gv.Columns["show in group row"];
+            item.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+            gv.GroupSummary.Add(item);
+        
+
+        gv.BestFitColumns();
         }
         private void Get_Row_ID(int Row_Id)
         {

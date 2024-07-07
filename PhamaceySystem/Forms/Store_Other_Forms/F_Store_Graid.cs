@@ -24,10 +24,13 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             InitializeComponent();
             Title(tit);
             this.Text = tit;
+            view_inheretanz_butomes(false, false, false, false, false, true, true);
+
         }
         public string tit = "الأدوية في المستودع";
 
         ClsCommander<T_Medician> cmdMed = new ClsCommander<T_Medician>();
+        ClsCommander<T_Med_Shape> cmdShape = new ClsCommander<T_Med_Shape>();
 
         T_Medician TF_Med;
         Boolean Is_Double_Click = false;
@@ -142,11 +145,16 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         private void Fill_Graid()
         {
             var data = (from med in cmdMed.Get_All()
+                        join shape in cmdShape.Get_All()
+                          on med.med_shape_id equals shape.med_shape_id into slist
+
+                        from sss in slist.DefaultIfEmpty()
                         select new
                         {
                             id = med.med_id,
                             code = med.med_code,
                             name = med.med_name,
+                            shape = sss.med_shape_name,
                             min = med.med_minimum,
                             in_count = med.med_in_count,
                             out_count = med.med_out_count,
@@ -154,7 +162,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                             total = med.med_total_now
 
                         }).OrderBy(l_id => l_id.id).ToList();
-
+        
             //جلب جزء من البيانات
             if (data != null && data.Count > 0)
             {
@@ -171,13 +179,31 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             gv.Columns[0].Visible = false;
             gv.Columns[1].Caption = "الكود";
             gv.Columns[2].Caption = "الاسم";
-            gv.Columns[3].Caption = "الحد الأدنى";
-            gv.Columns[4].Caption = "الإدخال";
-            gv.Columns[5].Caption = "الإخراج";
-            gv.Columns[6].Caption = "التالف";
-            gv.Columns[7].Caption = "الكمية المتوفرة";
+            gv.Columns[3].Caption = "الشكل";
+
+            gv.Columns[4].Caption = "الحد الأدنى";
+            gv.Columns[5].Caption = "الإدخال";
+            gv.Columns[6].Caption = "الإخراج";
+            gv.Columns[7].Caption = "الإتلاف";
+            gv.Columns[8].Caption = "الكمية المتوفرة";
 
             gv.BestFitColumns();
+
+            gv.Columns[4].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[4].DisplayFormat.FormatString = "N0";
+
+            gv.Columns[5].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[5].DisplayFormat.FormatString = "N0";
+
+            gv.Columns[6].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[6].DisplayFormat.FormatString = "N0";
+
+            gv.Columns[7].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[7].DisplayFormat.FormatString = "N0";
+
+            gv.Columns[8].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[8].DisplayFormat.FormatString = "N0";
+
         }
 
         private void Get_Row_ID(int Row_Id)

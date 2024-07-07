@@ -175,7 +175,11 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             gv.Columns["name"].Caption = "اسم الوحدة";
 
             gv.BestFitColumns();
-        }
+
+            gv.OptionsView.ShowFooter = true;
+            gv.Columns[1].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[1].FieldName.ToString(), "العدد = {0}");
+
+    }
         private void Set_Auto_Id()
         {
             var Max_Id = cmdMedUnites.Get_All().Where(c_id => c_id.id

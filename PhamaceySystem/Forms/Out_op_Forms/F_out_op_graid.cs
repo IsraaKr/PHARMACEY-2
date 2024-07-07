@@ -187,6 +187,11 @@ on med.emp_id equals place.Emp_id into plist
             gv.Columns[9].Caption = "عدد المواد  ";
 
             gv.BestFitColumns();
+
+
+            gv.OptionsView.ShowFooter = true;
+            gv.Columns[0].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[0].FieldName.ToString(), "العدد = {0}");
+
         }
 
         private void Get_Row_ID(int Row_Id)

@@ -198,6 +198,13 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             gv.Columns[9].Caption = "الوحدة ";
 
             gv.BestFitColumns();
+
+            gv.Columns[5].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[5].DisplayFormat.FormatString = "N0";
+            gv.OptionsView.ShowFooter = true;
+
+            gv.Columns[2].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[2].FieldName.ToString(), "العدد = {0}");
+
         }
 
         private void Get_Row_ID(int Row_Id)

@@ -16,7 +16,19 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         public F_Store_Move()
         {
             InitializeComponent();
-             view_inheretanz_butomes(false,false, false, false, false, false, true);
+            bar_edit.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            bar_add.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            bar_delete.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            bar_add_save.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            bar_neew.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            sp_edite.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+           sp_add.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+           sp_delete.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            sp_add_save.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            sp_new.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+
+
+            //      view_inheretanz_butomes(false,false, false, false, false, false, true);
             this.Text = tit;
             Title(tit);
         }
@@ -64,11 +76,12 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         private void Fill_Graid_op()
         {
 
-            dt_op = c_db.select(@"SELECT     T_Store_Move.id,
+            dt_op = c_db.select(@" SELECT     T_Store_Move.id,
 T_OPeration_Type.OP_type_name ,
 T_Store_Move.date, 
 T_Store_Move.time, 
 T_Medician.med_name,
+ T_Med_Shape.med_shape_name, 
 T_Store_Move.qunt, 
                       T_Pers_Recivers.name AS reciver_name,
 T_Pers_Emploee.Emp_name,
@@ -80,7 +93,9 @@ FROM         T_Store_Move LEFT OUTER JOIN
                       T_Pers_Emploee ON T_Store_Move.emp_id = T_Pers_Emploee.Emp_id LEFT OUTER JOIN
                       T_Pers_Donars ON T_Store_Move.donar_id = T_Pers_Donars.Donar_id LEFT OUTER JOIN
                       T_OPeration_Type ON T_Store_Move.op_type_id = T_OPeration_Type.OP_type_id LEFT OUTER JOIN
-                      T_Medician ON T_Store_Move.med_id = T_Medician.med_id");
+                      T_Medician ON T_Store_Move.med_id = T_Medician.med_id LEFT OUTER JOIN
+                      T_Med_Shape on T_Medician.med_shape_id =T_Med_Shape.med_shape_id
+      ");
         }
         private void gv_column_names_op()
         {
@@ -89,13 +104,19 @@ FROM         T_Store_Move LEFT OUTER JOIN
             gv.Columns[2].Caption = "التاريخ";
             gv.Columns[3].Caption = "الوقت";
             gv.Columns[4].Caption = "الدواء";
-            gv.Columns[5].Caption = "الكمية ";
-            gv.Columns[6].Caption = "المستلم ";
-            gv.Columns[7].Caption = "الموظف ";
-            gv.Columns[8].Caption = "المتبرع ";
-            gv.Columns[9].Caption = "مكان التخزين";
+            gv.Columns[5].Caption = "الشكل";
+           gv.Columns[6].Caption = "الكمية ";
+            gv.Columns[7].Caption = "المستلم ";
+            gv.Columns[8].Caption = "الموظف ";
+            gv.Columns[9].Caption = "المتبرع ";
+            gv.Columns[10].Caption = "مكان التخزين";
 
             gv.BestFitColumns();
+
+            gv.Columns[6].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[6].DisplayFormat.FormatString = "N0";
+
+
         }
         public  void txt_name_KeyDown(object sender, KeyEventArgs e)
         {

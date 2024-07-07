@@ -191,7 +191,6 @@
             this.dtp_op_time.ShowUpDown = true;
             this.dtp_op_time.Size = new System.Drawing.Size(328, 23);
             this.dtp_op_time.TabIndex = 34;
-            this.dtp_op_time.ValueChanged += new System.EventHandler(this.dtp_op_time_ValueChanged);
             // 
             // dateTimePicker1
             // 
@@ -286,7 +285,6 @@
             this.gc.TabIndex = 25;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
-            this.gc.Click += new System.EventHandler(this.gc_Click);
             // 
             // gv
             // 
@@ -349,7 +347,6 @@
             this.all_in_item_quntityTextEdit.Size = new System.Drawing.Size(429, 26);
             this.all_in_item_quntityTextEdit.StyleController = this.dataLayoutControl2;
             this.all_in_item_quntityTextEdit.TabIndex = 9;
-            this.all_in_item_quntityTextEdit.EditValueChanged += new System.EventHandler(this.all_in_item_quntityTextEdit_EditValueChanged);
             // 
             // out_B_It_noteMemoEdit
             // 
@@ -427,7 +424,6 @@
             this.out_op_stateCheckEdit.Size = new System.Drawing.Size(448, 23);
             this.out_op_stateCheckEdit.StyleController = this.dataLayoutControl2;
             this.out_op_stateCheckEdit.TabIndex = 17;
-            this.out_op_stateCheckEdit.CheckedChanged += new System.EventHandler(this.out_op_stateCheckEdit_CheckedChanged);
             // 
             // reciver_empTextEdit
             // 
@@ -489,7 +485,6 @@
             this.emp_idSearchLookUpEdit.Size = new System.Drawing.Size(282, 26);
             this.emp_idSearchLookUpEdit.StyleController = this.dataLayoutControl2;
             this.emp_idSearchLookUpEdit.TabIndex = 6;
-            this.emp_idSearchLookUpEdit.EditValueChanged += new System.EventHandler(this.emp_idSearchLookUpEdit_EditValueChanged);
             this.emp_idSearchLookUpEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.emp_idSearchLookUpEdit_CustomDisplayText);
             // 
             // gridView3
@@ -519,7 +514,6 @@
             this.Med_idSearchlookupEdit.StyleController = this.dataLayoutControl2;
             this.Med_idSearchlookupEdit.TabIndex = 7;
             this.Med_idSearchlookupEdit.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.Med_idSearchlookupEdit_Closed);
-            this.Med_idSearchlookupEdit.EditValueChanged += new System.EventHandler(this.Med_idSearchlookupEdit_EditValueChanged);
             this.Med_idSearchlookupEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.Med_idSearchlookupEdit_CustomDisplayText);
             // 
             // gridView5
@@ -564,7 +558,6 @@
             this.out_item_quntityTextEdit1.Size = new System.Drawing.Size(431, 26);
             this.out_item_quntityTextEdit1.StyleController = this.dataLayoutControl2;
             this.out_item_quntityTextEdit1.TabIndex = 9;
-            this.out_item_quntityTextEdit1.EditValueChanged += new System.EventHandler(this.out_item_quntityTextEdit1_EditValueChanged);
             // 
             // placeTextEdit2
             // 
@@ -938,7 +931,6 @@
             this.ShowInTaskbar = false;
             this.Text = "F_In_Op";
             this.WindowState = System.Windows.Forms.FormWindowState.Normal;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.F_Out_Op_FormClosed);
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             this.Controls.SetChildIndex(this.dataLayoutControl2, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).EndInit();

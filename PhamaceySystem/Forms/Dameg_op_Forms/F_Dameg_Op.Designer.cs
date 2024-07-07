@@ -407,7 +407,6 @@
             this.dam_op_textTextEdit.Size = new System.Drawing.Size(329, 26);
             this.dam_op_textTextEdit.StyleController = this.dataLayoutControl2;
             this.dam_op_textTextEdit.TabIndex = 3;
-            this.dam_op_textTextEdit.EditValueChanged += new System.EventHandler(this.dam_op_textTextEdit_EditValueChanged);
             // 
             // out_op_stateCheckEdit
             // 
@@ -862,7 +861,6 @@
             this.ShowInTaskbar = false;
             this.Text = "F_In_Op";
             this.WindowState = System.Windows.Forms.FormWindowState.Normal;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.F_Dameg_Op_FormClosed);
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             this.Controls.SetChildIndex(this.dataLayoutControl1, 0);
             this.Controls.SetChildIndex(this.dataLayoutControl2, 0);

@@ -30,10 +30,6 @@
         {
             this.SuspendLayout();
             // 
-            // lbl_tiltle
-            // 
-            this.lbl_tiltle.Size = new System.Drawing.Size(1040, 50);
-            // 
             // F_Store_Move
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -41,10 +37,7 @@
             this.ClientSize = new System.Drawing.Size(1040, 675);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "F_Store_Move";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.Text = "F_Store_Move";
-            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Load += new System.EventHandler(this.F_Store_Move_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -203,12 +203,6 @@
     <Compile Include="Forms\Person_Forms\F_Reciver.Designer.cs">
       <DependentUpon>F_Reciver.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Report_Forms\F_All_Rep.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Report_Forms\F_All_Rep.Designer.cs">
-      <DependentUpon>F_All_Rep.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Report_Forms\F_damege_rep.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,12 +238,6 @@
     </Compile>
     <Compile Include="Forms\Report_Forms\Store_move_rep.Designer.cs">
       <DependentUpon>Store_move_rep.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Report_Forms\XtraReport1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Forms\Report_Forms\XtraReport1.Designer.cs">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Report_Forms\XtraReport4.cs">
       <SubType>Component</SubType>
@@ -347,12 +335,6 @@
     <Compile Include="Forms\Store_Other_Forms\F_Store_Move.Designer.cs">
       <DependentUpon>F_Store_Move.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\XtraReporttest.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Forms\XtraReporttest.Designer.cs">
-      <DependentUpon>XtraReporttest.cs</DependentUpon>
-    </Compile>
     <Compile Include="F_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -433,9 +415,6 @@
     <EmbeddedResource Include="Forms\Person_Forms\F_Reciver.resx">
       <DependentUpon>F_Reciver.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Report_Forms\F_All_Rep.resx">
-      <DependentUpon>F_All_Rep.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Report_Forms\F_damege_rep.resx">
       <DependentUpon>F_damege_rep.cs</DependentUpon>
     </EmbeddedResource>
@@ -453,9 +432,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Report_Forms\Store_move_rep.resx">
       <DependentUpon>Store_move_rep.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Report_Forms\XtraReport1.resx">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Report_Forms\XtraReport4.resx">
       <DependentUpon>XtraReport4.cs</DependentUpon>
@@ -501,9 +477,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Store_Other_Forms\F_Store_Move.resx">
       <DependentUpon>F_Store_Move.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\XtraReporttest.resx">
-      <DependentUpon>XtraReporttest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_Main.resx">
       <DependentUpon>F_Main.cs</DependentUpon>

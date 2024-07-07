@@ -177,8 +177,11 @@ namespace PhamaceySystem.Forms.Person_Forms
         gv.Columns["id"].Visible = false;
         gv.Columns["name"].Caption = "اسم الموظف ";
         gv.BestFitColumns();
-    }
-    private void Set_Auto_Id()
+            gv.OptionsView.ShowFooter = true;
+            gv.Columns[1].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[1].FieldName.ToString(), "العدد = {0}");
+
+        }
+        private void Set_Auto_Id()
     {
         var Max_Id = cmdEmp.Get_All().Where(c_id => c_id.Emp_id
                              == cmdEmp.Get_All().Max(max => max.Emp_id)).FirstOrDefault();

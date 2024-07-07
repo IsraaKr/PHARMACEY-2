@@ -159,8 +159,6 @@ namespace PhamaceySystem.Forms.Setting_Forms
             txt_time.Text = Properties.Settings.Default.time_server;
             txt_sqript_bath.Text = Properties.Settings.Default.sqript_bath;
         }
-
-
         public override void Insert_Data()
         {
 
@@ -185,9 +183,6 @@ namespace PhamaceySystem.Forms.Setting_Forms
             base.Insert_Data();
         }
 
-
-
-
         private void SetNetWorkCon(string server, string dataBase, string userName, string password, String timout)
         {
             var ConString = @"Server=" + server + ";Database=" + dataBase + ";User Id=" + userName + ";Password=" + password + ";Timeout=" + timout + "";
@@ -211,9 +206,6 @@ namespace PhamaceySystem.Forms.Setting_Forms
             // Save Settings
             Properties.Settings.Default.Save();
         }
-
-
-
 
         private void F_Server_Setting_FormClosing(object sender, FormClosingEventArgs e)
         {

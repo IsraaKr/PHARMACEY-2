@@ -1,4 +1,5 @@
 ﻿using DevExpress.Data;
+using DevExpress.XtraGrid;
 using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
 using PhamaceySystem.Forms.Store_Forms;
@@ -171,6 +172,20 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
             gv.Columns[4].Visible = false;
             gv.Columns[5].Caption = "رقم الفاتورة";
 
+            gv.Columns[3].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[3].DisplayFormat.FormatString = "N0";
+
+
+            gv.OptionsView.ShowFooter = true;
+            gv.Columns[3].Summary.Add(DevExpress.Data.SummaryItemType.Sum,   gv.Columns[3].FieldName.ToString() , "المجموع = {0}");
+            gv.Columns[2].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[2].FieldName.ToString(), "عدد المواد = {0}");
+
+            GridGroupSummaryItem item = new GridGroupSummaryItem();
+            item.DisplayFormat = "_____مجموع الكميات= {0}";
+            item.FieldName = gv.Columns[3].FieldName.ToString();
+            item.ShowInGroupColumnFooter = gv.Columns["show in group row"];
+            item.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+            gv.GroupSummary.Add(item);
 
             gv.BestFitColumns();
         }

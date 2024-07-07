@@ -25,7 +25,7 @@ namespace PhamaceySystem
         public static DialogResult Qustion_Massege_Box(string M_Text)
         {
             return MessageBox.Show(M_Text, "تأكيد !! ",
-          MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+          MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
         }
         //طباعة هيدر في التقرير

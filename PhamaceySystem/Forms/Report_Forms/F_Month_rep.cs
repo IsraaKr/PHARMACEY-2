@@ -74,6 +74,20 @@ FROM         T_Store_Move left JOIN
             gv.Columns[13].Caption = "المتبرع";
             gv.Columns[14].Caption = "التخزين";
             gv.BestFitColumns();
+            gv.Columns[10].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[10].DisplayFormat.FormatString = "N0";
+
+
+            gv.OptionsView.ShowFooter = true;
+            gv.Columns[10].Summary.Add(DevExpress.Data.SummaryItemType.Sum, gv.Columns[10].FieldName.ToString(), "المجموع = {0}");
+            gv.Columns[8].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[8].FieldName.ToString(), "عدد المواد = {0}");
+
+            DevExpress.XtraGrid.GridGroupSummaryItem item = new DevExpress.XtraGrid.GridGroupSummaryItem();
+            item.DisplayFormat = "_____مجموع الكميات= {0}";
+            item.FieldName = gv.Columns[10].FieldName.ToString();
+            item.ShowInGroupColumnFooter = gv.Columns["show in group row"];
+            item.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+            gv.GroupSummary.Add(item);
         }
 
         string group = @"  ";

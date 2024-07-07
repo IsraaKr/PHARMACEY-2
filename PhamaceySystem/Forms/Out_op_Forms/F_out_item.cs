@@ -27,6 +27,7 @@ namespace PhamaceySystem.Forms.Out_op_Forms
 
         ClsCommander<T_OPeration_Out_Item> cmdOutItem = new ClsCommander<T_OPeration_Out_Item>();
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
+        ClsCommander<T_Med_Shape> cmdShape = new ClsCommander<T_Med_Shape>();
 
         T_OPeration_Out_Item TF_out_Item;
         Boolean Is_Double_Click = false;
@@ -144,12 +145,16 @@ namespace PhamaceySystem.Forms.Out_op_Forms
                         join xxx in cmdMedician.Get_All()
                          on med.Med_id equals xxx.med_id into list
                         from yyy in list.DefaultIfEmpty()
-                       
+                        join shape in cmdShape.Get_All()
+ on yyy.med_shape_id equals shape.med_shape_id into slist
+
+                        from sss in slist.DefaultIfEmpty()
                         select new
                         {
                             id = med.in_item_id,
                             med_id = med.Med_id,
                             med_name = yyy.med_name,
+                            shape=sss.med_shape_name,
                             qun = med.out_item_quntity,
                            in_item_id = med.in_item_id,
                 op_i=med.out_op_id
@@ -166,10 +171,26 @@ namespace PhamaceySystem.Forms.Out_op_Forms
             gv.Columns[0].Visible = false;
             gv.Columns[1].Caption = "رقم الدواء";
             gv.Columns[2].Caption = "اسم الدواء";
-            gv.Columns[3].Caption = "الكمية الخارجة";
-            gv.Columns[4].Visible = false;
-            gv.Columns[5].Caption = "رقم الفاتورة";
+            gv.Columns[3].Caption = "الشكل";
+            gv.Columns[4].Caption = "الكمية الخارجة";
+            gv.Columns[5].Visible = false;
+            gv.Columns[6].Caption = "رقم الفاتورة";
 
+
+            gv.Columns[4].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[4].DisplayFormat.FormatString = "N0";
+
+
+            gv.OptionsView.ShowFooter = true;
+            gv.Columns[4].Summary.Add(DevExpress.Data.SummaryItemType.Sum, gv.Columns[4].FieldName.ToString(), "المجموع = {0}");
+            gv.Columns[2].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[2].FieldName.ToString(), "عدد المواد = {0}");
+
+            DevExpress.XtraGrid.GridGroupSummaryItem item = new DevExpress.XtraGrid.GridGroupSummaryItem();
+            item.DisplayFormat = "_____مجموع الكميات= {0}";
+            item.FieldName = gv.Columns[4].FieldName.ToString();
+            item.ShowInGroupColumnFooter = gv.Columns["show in group row"];
+            item.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+            gv.GroupSummary.Add(item);
             gv.BestFitColumns();
         }
 

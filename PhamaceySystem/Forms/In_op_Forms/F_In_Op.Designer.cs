@@ -33,6 +33,8 @@
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.dataLayoutControl2 = new DevExpress.XtraDataLayout.DataLayoutControl();
+            this.checkButton1 = new DevExpress.XtraEditors.CheckButton();
+            this.checkedComboBoxEdit_Store_Place = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.dtp_op_time = new System.Windows.Forms.DateTimePicker();
             this.btn_delet_item = new DevExpress.XtraEditors.SimpleButton();
             this.btn_edite_item = new DevExpress.XtraEditors.SimpleButton();
@@ -69,13 +71,13 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemFordonar_id = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForemp_id = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemForin_op_state = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemFordonar_emp1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.ItemFordonar_emp = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.ItemForin_op_state = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -89,11 +91,14 @@
             this.ItemForMed_id = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemFormed_storage_shape_id = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForin_item_id = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).BeginInit();
             this.dataLayoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit_Store_Place.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_item_idTextEdit.Properties)).BeginInit();
@@ -124,13 +129,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemFordonar_id)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForemp_id)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_state)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemFordonar_emp1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemFordonar_emp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_state)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
@@ -144,14 +149,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMed_id)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemFormed_storage_shape_id)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_id)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_tiltle
             // 
             this.lbl_tiltle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_tiltle.Size = new System.Drawing.Size(1040, 50);
-            this.lbl_tiltle.Click += new System.EventHandler(this.lbl_tiltle_Click);
             // 
             // timer_date
             // 
@@ -177,6 +182,8 @@
             // 
             // dataLayoutControl2
             // 
+            this.dataLayoutControl2.Controls.Add(this.checkButton1);
+            this.dataLayoutControl2.Controls.Add(this.checkedComboBoxEdit_Store_Place);
             this.dataLayoutControl2.Controls.Add(this.dtp_op_time);
             this.dataLayoutControl2.Controls.Add(this.btn_delet_item);
             this.dataLayoutControl2.Controls.Add(this.btn_edite_item);
@@ -211,6 +218,27 @@
             this.dataLayoutControl2.Size = new System.Drawing.Size(1040, 502);
             this.dataLayoutControl2.TabIndex = 11;
             this.dataLayoutControl2.Text = "dataLayoutControl2";
+            // 
+            // checkButton1
+            // 
+            this.checkButton1.Location = new System.Drawing.Point(4, 545);
+            this.checkButton1.Name = "checkButton1";
+            this.checkButton1.Size = new System.Drawing.Size(1015, 22);
+            this.checkButton1.StyleController = this.dataLayoutControl2;
+            this.checkButton1.TabIndex = 34;
+            this.checkButton1.Text = "checkButton1";
+            // 
+            // checkedComboBoxEdit_Store_Place
+            // 
+            this.checkedComboBoxEdit_Store_Place.Location = new System.Drawing.Point(8, 145);
+            this.checkedComboBoxEdit_Store_Place.MenuManager = this.barMang;
+            this.checkedComboBoxEdit_Store_Place.Name = "checkedComboBoxEdit_Store_Place";
+            this.checkedComboBoxEdit_Store_Place.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.checkedComboBoxEdit_Store_Place.Size = new System.Drawing.Size(383, 20);
+            this.checkedComboBoxEdit_Store_Place.StyleController = this.dataLayoutControl2;
+            this.checkedComboBoxEdit_Store_Place.TabIndex = 33;
+            this.checkedComboBoxEdit_Store_Place.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.checkedComboBoxEdit_Store_Place_CloseUp);
             // 
             // dtp_op_time
             // 
@@ -313,7 +341,6 @@
             this.gc.TabIndex = 25;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
-            this.gc.Click += new System.EventHandler(this.gc_Click);
             // 
             // gv
             // 
@@ -330,9 +357,9 @@
             this.gv.GridControl = this.gc;
             this.gv.Name = "gv";
             this.gv.OptionsBehavior.Editable = false;
+            this.gv.OptionsFilter.AllowMultiSelectInCheckedFilterPopup = false;
             this.gv.OptionsFind.AlwaysVisible = true;
             this.gv.OptionsPrint.EnableAppearanceEvenRow = true;
-            this.gv.OptionsSelection.MultiSelect = true;
             this.gv.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gv.OptionsView.EnableAppearanceEvenRow = true;
             this.gv.OptionsView.ShowAutoFilterRow = true;
@@ -357,11 +384,10 @@
             this.in_item_idTextEdit.Size = new System.Drawing.Size(383, 26);
             this.in_item_idTextEdit.StyleController = this.dataLayoutControl2;
             this.in_item_idTextEdit.TabIndex = 4;
-            this.in_item_idTextEdit.EditValueChanged += new System.EventHandler(this.in_item_idTextEdit_EditValueChanged);
             // 
             // in_item_quntityTextEdit
             // 
-            this.in_item_quntityTextEdit.Location = new System.Drawing.Point(11, 148);
+            this.in_item_quntityTextEdit.Location = new System.Drawing.Point(11, 172);
             this.in_item_quntityTextEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_item_quntityTextEdit.MenuManager = this.barMang;
             this.in_item_quntityTextEdit.Name = "in_item_quntityTextEdit";
@@ -380,7 +406,7 @@
             // in_item_expDateDateEdit
             // 
             this.in_item_expDateDateEdit.EditValue = new System.DateTime(2024, 2, 28, 10, 48, 21, 0);
-            this.in_item_expDateDateEdit.Location = new System.Drawing.Point(8, 181);
+            this.in_item_expDateDateEdit.Location = new System.Drawing.Point(8, 205);
             this.in_item_expDateDateEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_item_expDateDateEdit.MenuManager = this.barMang;
             this.in_item_expDateDateEdit.Name = "in_item_expDateDateEdit";
@@ -405,13 +431,13 @@
             // 
             // in_B_It_noteMemoEdit
             // 
-            this.in_B_It_noteMemoEdit.Location = new System.Drawing.Point(8, 211);
+            this.in_B_It_noteMemoEdit.Location = new System.Drawing.Point(8, 235);
             this.in_B_It_noteMemoEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_B_It_noteMemoEdit.MenuManager = this.barMang;
             this.in_B_It_noteMemoEdit.Name = "in_B_It_noteMemoEdit";
             this.in_B_It_noteMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.in_B_It_noteMemoEdit.Properties.Appearance.Options.UseFont = true;
-            this.in_B_It_noteMemoEdit.Size = new System.Drawing.Size(383, 66);
+            this.in_B_It_noteMemoEdit.Size = new System.Drawing.Size(383, 42);
             this.in_B_It_noteMemoEdit.StyleController = this.dataLayoutControl2;
             this.in_B_It_noteMemoEdit.TabIndex = 11;
             // 
@@ -460,7 +486,6 @@
             this.in_op_idTextEdit.Size = new System.Drawing.Size(372, 26);
             this.in_op_idTextEdit.StyleController = this.dataLayoutControl2;
             this.in_op_idTextEdit.TabIndex = 0;
-            this.in_op_idTextEdit.EditValueChanged += new System.EventHandler(this.in_op_idTextEdit_EditValueChanged);
             // 
             // in_op_dateDateEdit
             // 
@@ -508,7 +533,6 @@
             this.in_op_stateCheckEdit.Size = new System.Drawing.Size(492, 23);
             this.in_op_stateCheckEdit.StyleController = this.dataLayoutControl2;
             this.in_op_stateCheckEdit.TabIndex = 17;
-            this.in_op_stateCheckEdit.CheckedChanged += new System.EventHandler(this.in_op_stateCheckEdit_CheckedChanged);
             // 
             // donar_empTextEdit
             // 
@@ -523,7 +547,6 @@
             this.donar_empTextEdit.Size = new System.Drawing.Size(366, 26);
             this.donar_empTextEdit.StyleController = this.dataLayoutControl2;
             this.donar_empTextEdit.TabIndex = 4;
-            this.donar_empTextEdit.EditValueChanged += new System.EventHandler(this.donar_empTextEdit_EditValueChanged);
             // 
             // donar_idSearchLookUpEdit
             // 
@@ -543,7 +566,6 @@
             this.donar_idSearchLookUpEdit.Size = new System.Drawing.Size(326, 26);
             this.donar_idSearchLookUpEdit.StyleController = this.dataLayoutControl2;
             this.donar_idSearchLookUpEdit.TabIndex = 5;
-            this.donar_idSearchLookUpEdit.EditValueChanged += new System.EventHandler(this.donar_idSearchLookUpEdit_EditValueChanged);
             this.donar_idSearchLookUpEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.donar_idSearchLookUpEdit_CustomDisplayText);
             // 
             // gridView2
@@ -636,7 +658,7 @@
             this.med_countTextEdit1.Properties.Appearance.Options.UseForeColor = true;
             this.med_countTextEdit1.Properties.Appearance.Options.UseTextOptions = true;
             this.med_countTextEdit1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.med_countTextEdit1.Size = new System.Drawing.Size(62, 26);
+            this.med_countTextEdit1.Size = new System.Drawing.Size(79, 26);
             this.med_countTextEdit1.StyleController = this.dataLayoutControl2;
             this.med_countTextEdit1.TabIndex = 21;
             // 
@@ -645,10 +667,11 @@
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroup2});
+            this.layoutControlGroup2,
+            this.layoutControlItem12});
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1023, 545);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1023, 571);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlGroup2
@@ -747,17 +770,6 @@
             this.ItemForemp_id.Text = "الموظف المسؤول";
             this.ItemForemp_id.TextSize = new System.Drawing.Size(117, 19);
             // 
-            // ItemForin_op_state
-            // 
-            this.ItemForin_op_state.Control = this.in_op_stateCheckEdit;
-            this.ItemForin_op_state.Location = new System.Drawing.Point(0, 30);
-            this.ItemForin_op_state.Name = "ItemForin_op_state";
-            this.ItemForin_op_state.Size = new System.Drawing.Size(496, 27);
-            this.ItemForin_op_state.Text = "in_op_state";
-            this.ItemForin_op_state.TextSize = new System.Drawing.Size(0, 0);
-            this.ItemForin_op_state.TextVisible = false;
-            this.ItemForin_op_state.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btn_add_donar;
@@ -790,7 +802,7 @@
             this.ItemFordonar_emp1.Location = new System.Drawing.Point(172, 255);
             this.ItemFordonar_emp1.Name = "ItemFordonar_emp1";
             this.ItemFordonar_emp1.Padding = new DevExpress.XtraLayout.Utils.Padding(7, 7, 12, 8);
-            this.ItemFordonar_emp1.Size = new System.Drawing.Size(196, 46);
+            this.ItemFordonar_emp1.Size = new System.Drawing.Size(213, 46);
             this.ItemFordonar_emp1.Text = "عدد المواد";
             this.ItemFordonar_emp1.TextSize = new System.Drawing.Size(117, 19);
             // 
@@ -815,10 +827,21 @@
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(368, 255);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(385, 255);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(128, 46);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(111, 46);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // ItemForin_op_state
+            // 
+            this.ItemForin_op_state.Control = this.in_op_stateCheckEdit;
+            this.ItemForin_op_state.Location = new System.Drawing.Point(0, 30);
+            this.ItemForin_op_state.Name = "ItemForin_op_state";
+            this.ItemForin_op_state.Size = new System.Drawing.Size(496, 27);
+            this.ItemForin_op_state.Text = "in_op_state";
+            this.ItemForin_op_state.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForin_op_state.TextVisible = false;
+            this.ItemForin_op_state.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem10
             // 
@@ -849,7 +872,8 @@
             this.ItemForin_item_quntity,
             this.ItemForMed_id,
             this.ItemFormed_storage_shape_id,
-            this.ItemForin_item_id});
+            this.ItemForin_item_id,
+            this.layoutControlItem11});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -884,7 +908,7 @@
             // ItemForin_item_expDate
             // 
             this.ItemForin_item_expDate.Control = this.in_item_expDateDateEdit;
-            this.ItemForin_item_expDate.Location = new System.Drawing.Point(0, 145);
+            this.ItemForin_item_expDate.Location = new System.Drawing.Point(0, 169);
             this.ItemForin_item_expDate.Name = "ItemForin_item_expDate";
             this.ItemForin_item_expDate.Size = new System.Drawing.Size(507, 30);
             this.ItemForin_item_expDate.Text = "انتهاء الصلاحية";
@@ -934,9 +958,9 @@
             // ItemForin_B_It_note
             // 
             this.ItemForin_B_It_note.Control = this.in_B_It_noteMemoEdit;
-            this.ItemForin_B_It_note.Location = new System.Drawing.Point(0, 175);
+            this.ItemForin_B_It_note.Location = new System.Drawing.Point(0, 199);
             this.ItemForin_B_It_note.Name = "ItemForin_B_It_note";
-            this.ItemForin_B_It_note.Size = new System.Drawing.Size(507, 70);
+            this.ItemForin_B_It_note.Size = new System.Drawing.Size(507, 46);
             this.ItemForin_B_It_note.StartNewLine = true;
             this.ItemForin_B_It_note.Text = "ملاحظات المادة";
             this.ItemForin_B_It_note.TextSize = new System.Drawing.Size(117, 19);
@@ -944,7 +968,7 @@
             // ItemForin_item_quntity
             // 
             this.ItemForin_item_quntity.Control = this.in_item_quntityTextEdit;
-            this.ItemForin_item_quntity.Location = new System.Drawing.Point(0, 109);
+            this.ItemForin_item_quntity.Location = new System.Drawing.Point(0, 133);
             this.ItemForin_item_quntity.Name = "ItemForin_item_quntity";
             this.ItemForin_item_quntity.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.ItemForin_item_quntity.Size = new System.Drawing.Size(507, 36);
@@ -981,6 +1005,15 @@
             this.ItemForin_item_id.TextSize = new System.Drawing.Size(117, 19);
             this.ItemForin_item_id.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
+            // layoutControlItem11
+            // 
+            this.layoutControlItem11.Control = this.checkedComboBoxEdit_Store_Place;
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 109);
+            this.layoutControlItem11.Name = "layoutControlItem11";
+            this.layoutControlItem11.Size = new System.Drawing.Size(507, 24);
+            this.layoutControlItem11.Text = "مكان التخزين";
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(117, 19);
+            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.gc;
@@ -990,6 +1023,15 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
+            // layoutControlItem12
+            // 
+            this.layoutControlItem12.Control = this.checkButton1;
+            this.layoutControlItem12.Location = new System.Drawing.Point(0, 541);
+            this.layoutControlItem12.Name = "layoutControlItem12";
+            this.layoutControlItem12.Size = new System.Drawing.Size(1019, 26);
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem12.TextVisible = false;
+            // 
             // F_In_Op
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -997,14 +1039,9 @@
             this.ClientSize = new System.Drawing.Size(1040, 675);
             this.Controls.Add(this.dataLayoutControl2);
             this.Controls.Add(this.dataLayoutControl1);
-            this.Location = new System.Drawing.Point(0, 0);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "F_In_Op";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.Text = "F_In_Op";
-            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.F_In_Op_FormClosed);
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             this.Controls.SetChildIndex(this.dataLayoutControl1, 0);
             this.Controls.SetChildIndex(this.dataLayoutControl2, 0);
@@ -1012,6 +1049,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).EndInit();
             this.dataLayoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit_Store_Place.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_item_idTextEdit.Properties)).EndInit();
@@ -1042,13 +1080,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemFordonar_id)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForemp_id)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_state)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemFordonar_emp1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemFordonar_emp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_state)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
@@ -1062,7 +1100,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMed_id)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemFormed_storage_shape_id)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_id)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1130,5 +1170,9 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private System.Windows.Forms.DateTimePicker dtp_op_time;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEdit_Store_Place;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
+        private DevExpress.XtraEditors.CheckButton checkButton1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
     }
 }

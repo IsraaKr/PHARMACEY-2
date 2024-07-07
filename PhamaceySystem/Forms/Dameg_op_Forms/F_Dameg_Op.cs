@@ -90,7 +90,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                 //  GetStoragePlace_Data();
                 is_op_insert = 0;
                 Get_OP_Med_count_Data();
-
+                btn_add_item.Enabled = true;
 
                 //   med_countTextEdit1.Text = "0";
                 if (id_toUpdate != 0)
@@ -127,7 +127,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         }
         public override void Print_Data()
         {
-            C_Master.print_header("- تفاصيل فاتورة الاخراج رقم -"
+            C_Master.print_header("- تفاصيل فاتورة الإتلاف رقم -"
                       + dam_op_idTextEdit.Text + " - تاريخ -" + dam_op_dateDateEdit.Text
                       , gc);
         }
@@ -155,6 +155,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             base.clear_data(s_controls);
             Set_Auto_Id_op();
             Set_Auto_Id_item();
+            btn_add_item.Enabled = true;
 
         }
         public override void neew()
@@ -164,8 +165,10 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             Set_Auto_Id_op();
             Set_Auto_Id_item();
             gc.DataSource = null;
-            gv.Columns.Clear();
-
+            gv.Columns.Clear(); 
+            btn_add_item.Enabled = true;
+            clear_op();
+            clear_item();
         }
 
         //*****************عملية الإتلاف*********************
@@ -223,6 +226,19 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                 dam_op_idTextEdit.Text = max_id.dam_OP_id.ToString();
             }
         }
+        private void clear_op()
+        {
+            dam_op_dateDateEdit.DateTime = DateTime.Today;
+            dam_op_textTextEdit.Text = string.Empty;
+            dtp_op_time.Text = DateTime.Today.ToShortTimeString();
+          
+            emp_idSearchLookUpEdit.EditValue = null;
+            med_countTextEdit1.Text = "0";
+
+            Set_Auto_Id_op();
+        }
+
+
         private void update_op()
         {
             if (Validate_Data_op())
@@ -309,7 +325,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                 Get_Data(ex.InnerException.InnerException.ToString());
             }
         }
-        public void delete_item()
+        public int delete_item()
         {
             try
             {
@@ -323,22 +339,40 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                                 Get_Row_ID(row_id);
                                 cmdOppDamItem.Delete_Data(TF_OP_Dam_Item);
                                 old_item_id = Convert.ToInt32(dam_item_idTextEdit.Text.ToString().Replace(",", string.Empty));
+                                return 1;
                             }
 
-
-
-
+                        return 1;
+                    }
+                    else
+                    {
+                        clear_item();
+                        return 0;
                     }
                 }
                 else
+
+                {
                     C_Master.Warning_Massege_Box("  بالضغط مرتين يجب اختيار عنصر من الجدول لحذفه");
+                    return 0;
+                }
             }
             catch (Exception ex)
             {
                 if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                {
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
+                    cmdOpDam.Detached_Data(TF_OP_Dam);
+                    cmdOppDamItem.Detached_Data(TF_OP_Dam_Item);
+                    cmdOpInItem.Detached_Data(TF_OPeration_IN_Item);
+                    return 0;
+
+                }
                 else
+                {
                     Get_Data(ex.InnerException.InnerException.ToString());
+                    return 0;
+                }
             }
         }
         private void Set_Auto_Id_item()
@@ -353,30 +387,48 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             int id = Convert.ToInt32(dam_op_idTextEdit.Text);
 
             DataTable data_source = c_db.select(@"SELECT     T_Operation_Damage_Item.dmg_item_id,
-T_Operation_Damage_Item.Med_id,
-T_Medician.med_code, 
-T_Medician.med_name, 
-T_Med_Shape.med_shape_name, 
-                      T_Operation_Damage_Item.dmg_item_quntity
+T_Operation_Damage_Item.Med_id, T_Medician.med_code, T_Medician.med_name, T_Med_Shape.med_shape_name, 
+                      T_Operation_Damage_Item.dmg_item_quntity, T_Operation_Damage_Item.in_item_id, T_OPeration_IN_Item.in_item_expDate, T_OPeration_IN_Item.store_place_id, 
+                      T_Store_Placees.name
 FROM         T_Operation_Damage_Item INNER JOIN
-                      T_Medician ON T_Operation_Damage_Item.Med_id = T_Medician.med_id LEFT OUTER JOIN
-                      T_Med_Shape ON T_Medician.med_shape_id = T_Med_Shape.med_shape_id
-WHERE        (dbo.T_Operation_Damage_Item.dmg_op_id = " + id + ")");
+                      T_Medician ON T_Operation_Damage_Item.Med_id = T_Medician.med_id INNER JOIN
+                      T_OPeration_IN_Item ON T_Operation_Damage_Item.in_item_id = T_OPeration_IN_Item.in_item_id AND 
+                      T_Medician.med_id = T_OPeration_IN_Item.Med_id INNER JOIN
+                      T_Store_Placees ON T_OPeration_IN_Item.store_place_id = T_Store_Placees.id INNER JOIN
+                      T_Med_Shape ON T_Medician.med_shape_id = T_Med_Shape.med_shape_id  WHERE        (dbo.T_Operation_Damage_Item.dmg_op_id = " + id + ")");
             gc.DataSource = data_source;
             if (data_source != null && data_source.Rows.Count > 0)
             {
-               
-
-                gv.Columns[0].Caption = "رقم المادة";
-                gv.Columns[1].Caption = "رقم الدواء"; ;
+             
+                gv.Columns[0].Visible = false;
+                gv.Columns[1].Visible = false;
                 gv.Columns[2].Caption = "كود الدواء"; ;
                 gv.Columns[3].Caption = "اسم الدواء";
                 gv.Columns[4].Caption = "شكل الدواء";
-
                 gv.Columns[5].Caption = "الكمية";
+                gv.Columns[6].Visible = false;
+                gv.Columns[7].Caption = "انتهاء الصلاحية";
+                gv.Columns[8].Visible = false;
+                gv.Columns[9].Caption = "مكان التخزين";
 
                 gv.BestFitColumns();
+                gv.Columns[5].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                gv.Columns[5].DisplayFormat.FormatString = "N0";
 
+                gv.Columns[7].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+                gv.Columns[7].DisplayFormat.FormatString = "MM/yyyy";
+
+
+                gv.OptionsView.ShowFooter = true;
+                gv.Columns[5].Summary.Add(DevExpress.Data.SummaryItemType.Sum, gv.Columns[5].FieldName.ToString(), "المجموع = {0}");
+                gv.Columns[3].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[3].FieldName.ToString(), "عدد المواد = {0}");
+
+              DevExpress.XtraGrid.GridGroupSummaryItem item = new DevExpress.XtraGrid.GridGroupSummaryItem();
+                item.DisplayFormat = "_____مجموع الكميات= {0}";
+                item.FieldName = gv.Columns[5].FieldName.ToString();
+                item.ShowInGroupColumnFooter = gv.Columns["show in group row"];
+                item.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+                gv.GroupSummary.Add(item);
             }
         }
         private void clear_item()
@@ -388,6 +440,7 @@ WHERE        (dbo.T_Operation_Damage_Item.dmg_op_id = " + id + ")");
             ItemForin_item_quntity.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             layoutControlItem5.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             ItemForin_item_quntity3.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            btn_add_item.Enabled = true;
 
             Set_Auto_Id_item();
         }
@@ -857,16 +910,20 @@ WHERE     (T_OPeration_IN_Item.in_item_id  =  " + old_IN_item_id + ") AND (T_Med
 
         private void btn_delet_item_Click(object sender, EventArgs e)
         {
-            delete_item();
-            update_In_item_with_Delete();
+            int done = delete_item();
+            if (done == 1)
+            {
+                update_In_item_with_Delete();
             Get_Delete_med_count();
             Get_OP_Med_count_Data();
             GetMed_Data();
             Get_Delete_move();
             update_op();
             btn_visible(false);
+            }
             clear_item();
             Fill_Graid_item();
+
             dam_item_quntityTextEdit1.Enabled = true;
             Med_idSearchlookupEdit.Enabled = true;
             btn_add_item.Enabled = true;
@@ -875,6 +932,8 @@ WHERE     (T_OPeration_IN_Item.in_item_id  =  " + old_IN_item_id + ") AND (T_Med
             old_med_id = 0;
             old_med_Quntitey = 0;
             old_IN_item_id = 0;
+            btn_visible(false);
+
         }
 
         private void Med_idSearchlookupEdit_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
@@ -938,16 +997,6 @@ WHERE     (T_OPeration_IN_Item.in_item_id  =  " + old_IN_item_id + ") AND (T_Med
                 Get_Data(ex.InnerException.InnerException.ToString());
             }
         }
-        private void F_Dameg_Op_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //F_Main m = new F_Main();
-            //C_Master.get_med_exp_date(m);
-            //C_Master.get_med_min_num(m);
-        }
-
-        private void dam_op_textTextEdit_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
+   
     }
 }

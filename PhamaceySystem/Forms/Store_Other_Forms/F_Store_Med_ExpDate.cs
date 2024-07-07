@@ -29,6 +29,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         public string tit = "الأدوية المنتهية الصلاحية";
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
         ClsCommander<T_OPeration_IN_Item> cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
+        ClsCommander<T_Store_Placees> cmdStorageplace = new ClsCommander<T_Store_Placees>();
 
         T_OPeration_IN_Item TF_OP_IN_Item;
 
@@ -85,20 +86,23 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             }
             cmdMedician = new ClsCommander<T_Medician>();
             gc.DataSource = (from med in cmdOpInItem.Get_All().Where(l => l.in_item_expDate.Value.Month < month
-                             && l.in_item_expDate.Value.Year <=year
+                             && l.in_item_expDate.Value.Year <= year
                              && l.is_out != true)
                              join xxx in cmdMedician.Get_All()
                              on med.Med_id equals xxx.med_id into list
                              from yyy in list.DefaultIfEmpty()
+                             join place in cmdStorageplace.Get_All()
+                             on med.store_place_id equals place.id into place_list
+                             from place_data in place_list.DefaultIfEmpty()
                              select new
                              {
                                  id = med.in_item_id,
                                  med_id = med.Med_id,
-                                 code =yyy.med_code,
+                                 code = yyy.med_code,
                                  name = yyy.med_name,
-                                 quntetey =yyy.med_total_now,
+                                 quntetey = yyy.med_total_now,
                                  datee = med.in_item_expDate,
-
+                                 place = place_data.name
                              }).OrderBy(l_id => l_id.id);
 
             gv.Columns["id"].Visible = false;
@@ -108,7 +112,13 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             gv.Columns["name"].Caption = "الاسم";
             gv.Columns[4].Caption = " الكمية الموجودة ";
             gv.Columns[5].Caption = "تاريخ انتهاء الصلاحية";
+            gv.Columns[6].Caption = "التخزين";
 
+            gv.Columns[4].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[4].DisplayFormat.FormatString = "N0";
+
+            gv.Columns[5].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            gv.Columns[5].DisplayFormat.FormatString = "MM/yyyy";
             gv.BestFitColumns();
         }
 

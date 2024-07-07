@@ -37,7 +37,6 @@
             // lbl_tiltle
             // 
             this.lbl_tiltle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_tiltle.Size = new System.Drawing.Size(1040, 50);
             this.lbl_tiltle.Text = "...";
             // 
             // gc
@@ -86,10 +85,7 @@
             this.Controls.Add(this.gc);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "F_Med_Grid";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.Text = "F_Med_Grid";
-            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             this.Controls.SetChildIndex(this.gc, 0);
             ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();

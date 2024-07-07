@@ -30,25 +30,23 @@ namespace PhamaceySystem.Forms.Report_Forms
         ClsCommander<T_OPeration_Damage> cmdOpDam = new ClsCommander<T_OPeration_Damage>();
         ClsCommander<T_Operation_Damage_Item> cmdOpDamItem = new ClsCommander<T_Operation_Damage_Item>();
         ClsCommander<T_Med_Shape> cmdShape = new ClsCommander<T_Med_Shape>();
+        ClsCommander<T_OPeration_IN_Item> cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
+        ClsCommander<T_Store_Placees> cmdStorageplace = new ClsCommander<T_Store_Placees>();
 
 
         DataTable dt;
 
-        string sqll = @"  SELECT     T_OPeration_Damage.dam_OP_id,
-T_OPeration_Damage.dam_op_date,
-T_OPeration_Damage.dam_op_time,
-T_OPeration_Damage.dam_op_text, 
-                      T_Operation_Damage_Item.Med_id,
-T_Medician.med_code, 
-T_Medician.med_name, 
-T_Med_Shape.med_shape_name, 
-T_Operation_Damage_Item.dmg_item_quntity, 
-           T_Pers_Emploee.Emp_name
+        string sqll = @" SELECT     T_OPeration_Damage.dam_OP_id, T_OPeration_Damage.dam_op_date, T_OPeration_Damage.dam_op_time, T_OPeration_Damage.dam_op_text, 
+                      T_Operation_Damage_Item.Med_id, T_Medician.med_code, T_Medician.med_name, T_Med_Shape.med_shape_name, T_Operation_Damage_Item.dmg_item_quntity, 
+                      T_Pers_Emploee.Emp_name, T_OPeration_IN_Item.in_item_expDate, T_Store_Placees.name
 FROM         T_OPeration_Damage INNER JOIN
                       T_Operation_Damage_Item ON T_OPeration_Damage.dam_OP_id = T_Operation_Damage_Item.dmg_op_id INNER JOIN
                       T_Pers_Emploee ON T_OPeration_Damage.emp_id = T_Pers_Emploee.Emp_id INNER JOIN
-                      T_Medician ON T_Operation_Damage_Item.Med_id = T_Medician.med_id left JOIN
-                      T_Med_Shape ON T_Medician.med_shape_id = T_Med_Shape.med_shape_id  ";
+                      T_Medician ON T_Operation_Damage_Item.Med_id = T_Medician.med_id INNER JOIN
+                      T_OPeration_IN_Item ON T_Operation_Damage_Item.in_item_id = T_OPeration_IN_Item.in_item_id AND 
+                      T_Medician.med_id = T_OPeration_IN_Item.Med_id INNER JOIN
+                      T_Store_Placees ON T_OPeration_IN_Item.store_place_id = T_Store_Placees.id LEFT OUTER JOIN
+                      T_Med_Shape ON T_Medician.med_shape_id = T_Med_Shape.med_shape_id ";
         private void gv_column_names()
         {
             gv.Columns[0].Caption = "الرقم";
@@ -60,10 +58,27 @@ FROM         T_OPeration_Damage INNER JOIN
             gv.Columns[6].Caption = "الاسم";
             gv.Columns[7].Caption = "الشكل";
             gv.Columns[8].Caption = "الكمية";
-
             gv.Columns[9].Caption = "الموظف";
-
+            gv.Columns[10].Caption = "انتهاء الصلاحية";
+            gv.Columns[11].Caption = "مكان التخزين";
             gv.BestFitColumns();
+
+            gv.Columns[8].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[8].DisplayFormat.FormatString = "N0";
+
+            gv.Columns[10].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            gv.Columns[10].DisplayFormat.FormatString = "MM/yyyy";
+
+            gv.OptionsView.ShowFooter = true;
+            gv.Columns[8].Summary.Add(DevExpress.Data.SummaryItemType.Sum, gv.Columns[8].FieldName.ToString(), "المجموع = {0}");
+            gv.Columns[6].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[6].FieldName.ToString(), "عدد المواد = {0}");
+
+            DevExpress.XtraGrid.GridGroupSummaryItem item = new DevExpress.XtraGrid.GridGroupSummaryItem();
+            item.DisplayFormat = "_____مجموع الكميات= {0}";
+            item.FieldName = gv.Columns[8].FieldName.ToString();
+            item.ShowInGroupColumnFooter = gv.Columns["show in group row"];
+            item.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+            gv.GroupSummary.Add(item);
         }
 
         string group = @"  ";
@@ -137,13 +152,32 @@ FROM         T_OPeration_Damage INNER JOIN
             }
 
         }
+        public void GetStoragePlace_Data()
+        {
+            var place_list = (from Emp in cmdStorageplace.Get_All()
+                              select new
+                              {
+                                  id = Emp.id,
+                                  name = Emp.name,
+                                  groupp = Emp.groupe,
+                                  shufel = Emp.shufel
+                              }).OrderBy(id => id.id);
+            if (place_list != null && place_list.Count() > 0)
+            {
+                store_place_SearchlookupEdit2.slkp_iniatalize_data(place_list, "name", "id");
+                store_place_SearchlookupEdit2.Properties.View.Columns[0].Caption = "الرقم";
+                store_place_SearchlookupEdit2.Properties.View.Columns[1].Caption = "الاسم ";
+                store_place_SearchlookupEdit2.Properties.View.Columns[2].Caption = "مجموعة الرفوف ";
+                store_place_SearchlookupEdit2.Properties.View.Columns[3].Caption = "رقم الرف ";
 
+            }
+        }
         public override void Get_Data(string status_mess)
         {
             GetEmp_Data();
             GetMed_Data();
             GetIn_op_Data();
-
+            GetStoragePlace_Data();
 
             base.Get_Data("");
         }
@@ -172,7 +206,10 @@ FROM         T_OPeration_Damage INNER JOIN
             in_op_SearchlookupEdit.EditValue = null;
             Med_idSearchlookupEdit1.Text = string.Empty;
             emp_SearchlookupEdit21.Text = string.Empty;
+            store_place_SearchlookupEdit2.EditValue = null;
+            store_place_SearchlookupEdit2.Text = string.Empty;
 
+            exp_date.Text = string.Empty;
 
             from_dateTimePicker1.Text = DateTime.Today.ToShortDateString();
             to_dateTimePicker2.Text = DateTime.Today.ToShortDateString();
@@ -205,7 +242,13 @@ FROM         T_OPeration_Damage INNER JOIN
 
             if (emp_SearchlookupEdit21.Text != string.Empty)
                 s = s + " T_OPeration_Damage.emp_id =" + Convert.ToInt32(emp_SearchlookupEdit21.EditValue) + "   AND";
-     
+
+            if (store_place_SearchlookupEdit2.Text != string.Empty)
+                s = s + "   T_OPeration_IN_Item.store_place_id =" + Convert.ToInt32(store_place_SearchlookupEdit2.EditValue) + "   AND ";
+
+            if (exp_date.Text != string.Empty)
+                s = s + " ( month (T_OPeration_IN_Item.in_item_expDate) = " + exp_date.DateTime.Month + " " +
+                   " and  year (T_OPeration_IN_Item.in_item_expDate) = " + exp_date.DateTime.Year + "  ) " + "    AND ";
 
             if (chb_from_to.Checked == true &&
                 from_dateTimePicker1.Value.ToShortDateString() != DateTime.Today.ToShortDateString())
@@ -277,6 +320,27 @@ FROM         T_OPeration_Damage INNER JOIN
 
         }
 
+        private void exp_date_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            if (e.Value != null && e.Value.ToString() != string.Empty)
+            {
+                long e_id = Convert.ToInt64(e.Value);
+                e.DisplayText = cmdOpInItem.Get_By(id => id.in_item_id == e_id).FirstOrDefault().in_item_expDate.ToString();
+            }
+            else
+                e.DisplayText = "";
+        }
 
+        private void store_place_SearchlookupEdit2_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            
+                if (e.Value != null && e.Value.ToString() != string.Empty)
+                {
+                    long e_id = Convert.ToInt64(e.Value);
+                    e.DisplayText = cmdStorageplace.Get_By(id => id.id == e_id).FirstOrDefault().name;
+                }
+                else
+                    e.DisplayText = "";
+            }
     }
 }

@@ -179,7 +179,12 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
             gv.Columns[6].Caption = "عدد المواد  ";
 
             gv.BestFitColumns();
-        }
+            gv.OptionsView.ShowFooter = true;
+            gv.Columns[0].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[0].FieldName.ToString(), "العدد  = {0}");
+
+           
+     
+    }
 
         private void Get_Row_ID(int Row_Id)
         {

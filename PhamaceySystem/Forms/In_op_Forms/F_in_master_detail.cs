@@ -160,15 +160,8 @@ FROM         T_OPeration_IN INNER JOIN
 
         private void Fill_Graid_item()
         {
-            dt_item = c_db.select(@" SELECT     T_OPeration_IN_Item.in_item_id,
-
-T_Medician.med_name, 
-T_OPeration_IN_Item.in_item_quntity,
-
-                      T_Store_Placees.name,
-T_OPeration_IN_Item.is_out,
-T_OPeration_IN_Item.out_item_quntitey,
-T_OPeration_IN_Item.In_op_id
+            dt_item = c_db.select(@"SELECT     T_OPeration_IN_Item.in_item_id, T_Medician.med_name, T_OPeration_IN_Item.in_item_quntity, T_Store_Placees.name, T_OPeration_IN_Item.is_out, 
+                      T_OPeration_IN_Item.out_item_quntitey, T_OPeration_IN_Item.In_op_id, T_OPeration_IN_Item.in_item_expDate
 FROM         T_OPeration_IN_Item INNER JOIN
                       T_Medician ON T_OPeration_IN_Item.Med_id = T_Medician.med_id INNER JOIN
                       T_OPeration_IN ON T_OPeration_IN_Item.In_op_id = T_OPeration_IN.in_op_id INNER JOIN
@@ -193,9 +186,31 @@ FROM         T_OPeration_IN_Item INNER JOIN
             dt_item.Columns[4].Caption = "خارجة ";
             dt_item.Columns[5].Caption = "الكمية الخارجة ";
             dt_item.Columns[6].Caption = "رقم فاتورة الادخال ";
+            dt_item.Columns[7].Caption = "انتهاء الصلاحية ";
 
             gv.BestFitColumns();
-        }
+
+            gv.Columns[2].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[2].DisplayFormat.FormatString = "N0";
+
+            gv.Columns[5].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[5].DisplayFormat.FormatString = "N0";
+
+            gv.Columns[6].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            gv.Columns[6].DisplayFormat.FormatString = "MM/yyyy";
+
+            gv.OptionsView.ShowFooter = true;
+            gv.Columns[2].Summary.Add(DevExpress.Data.SummaryItemType.Sum, gv.Columns[2].FieldName.ToString(), "المجموع = {0}");
+            gv.Columns[1].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[1].FieldName.ToString(), "عدد المواد = {0}");
+
+            DevExpress.XtraGrid.GridGroupSummaryItem item = new DevExpress.XtraGrid.GridGroupSummaryItem();
+            item.DisplayFormat = "_____مجموع الكميات= {0}";
+            item.FieldName = gv.Columns[2].FieldName.ToString();
+            item.ShowInGroupColumnFooter = gv.Columns["show in group row"];
+            item.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+            gv.GroupSummary.Add(item);
+        
+    }
         private void Get_Row_ID(int Row_Id)
         {
 

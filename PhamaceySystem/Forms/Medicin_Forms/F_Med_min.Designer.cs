@@ -80,6 +80,7 @@
             this.gv.OptionsPrint.PrintDetails = true;
             this.gv.OptionsPrint.PrintFilterInfo = true;
             this.gv.OptionsView.ShowAutoFilterRow = true;
+            this.gv.OptionsView.ShowFooter = true;
             this.gv.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gv_RowStyle);
             // 
             // lbl_tiltle

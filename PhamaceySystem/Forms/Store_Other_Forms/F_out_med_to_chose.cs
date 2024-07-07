@@ -81,32 +81,96 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             }
 
         }
+        private int total_old()
+        {
+            int x = 0;
+            int old_qunt = 0;
+            for (int i = 0; i < gv.RowCount; i++)
+            {
+                old_qunt = old_qunt + Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns[6]));
+            }
+            return old_qunt;
+        }
         public override void Insert_Data()
         {
             int x = 0;
-            for (int i = 0; i < gv.RowCount; i++)
+            if (textEdit1.Text != string.Empty)
             {
-                in_item_idd = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns[0]));
-                in_op_idd = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns[2]));
-                int old_qunt = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns[6]));
-                out_item_quntity = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns["الكمية المطلوبة"]));
-                if (out_item_quntity > 0 && out_item_quntity <= old_qunt)
+                int totla_old_amount = total_old();
+                int totla_amount = Convert.ToInt32(textEdit1.Text.ToString().Replace(",", string.Empty));
+                if (totla_old_amount < totla_amount)
                 {
-                    insert_item();
-                    update_In_item();
-                    Get_Add_med_count();
-                    Get_Add_move();
-                    x++;
-                }             
+                    textEdit1.ErrorText = " يجب أن تكون الكمية أصغر أو تساوي " + totla_old_amount;
+                }
+                else
+                {
+                    
+                        for (int i = 0; i < gv.RowCount; i++)
+                        {
+                        if (totla_amount > 0)
+                        {
+                            in_item_idd = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns[0]));
+                            in_op_idd = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns[2]));
+                            int old_qunt = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns[6]));
+
+                            if (totla_amount > old_qunt && totla_amount > 0)
+                            {
+                                gv.SetRowCellValue(i, gv.Columns["الكمية المطلوبة"], old_qunt);
+                                totla_amount = totla_amount - old_qunt;
+                                out_item_quntity = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns["الكمية المطلوبة"]));
+
+                            }
+                            else if (totla_amount <= old_qunt && totla_amount > 0)
+                            {
+                                gv.SetRowCellValue(i, gv.Columns["الكمية المطلوبة"], totla_amount);
+                                totla_amount = totla_amount - old_qunt;
+
+                                out_item_quntity = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns["الكمية المطلوبة"]));
+
+                            }
+
+                            if (out_item_quntity > 0 && out_item_quntity <= old_qunt)
+                            {
+                                insert_item();
+                                update_In_item();
+                                Get_Add_med_count();
+                                Get_Add_move();
+                                x++;
+                            }
+                        }
+                        else
+                            break;
+               
+                    }
+                }
             }
-            if (x>0)
+            else
+            {
+                for (int i = 0; i < gv.RowCount; i++)
+                {
+                    in_item_idd = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns[0]));
+                    in_op_idd = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns[2]));
+                    int old_qunt = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns[6]));
+                    out_item_quntity = Convert.ToInt32(gv.GetRowCellValue(i, gv.Columns["الكمية المطلوبة"]));
+                    if (out_item_quntity > 0 && out_item_quntity <= old_qunt)
+                    {
+                        insert_item();
+                        update_In_item();
+                        Get_Add_med_count();
+                        Get_Add_move();
+                        x++;
+                    }
+                }
+
+            }
+            if (x > 0)
             {
                 MessageBox.Show("تم الحفظ بنجاح!!! عدد المواد المدخلة هي  " + x);
                 this.Close();
                 Get_Data("i");
                 base.Insert_Data();
             }
-      else
+            else
                 MessageBox.Show("فشل الحفظ !!! تأكد من كافة القيم و أعد المحاولة  " + x);
 
         }
@@ -211,13 +275,20 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             gv.Columns[2].Visible = false;         
             gv.Columns[3].Caption = "الاسم";
             gv.Columns[3].OptionsColumn.AllowEdit = false;
-            gv.Columns[4].Caption = "تاريخ انتهاء الصلاحية";
 
-            gv.Columns[3].OptionsColumn.AllowEdit = false;
+            gv.Columns[4].Caption = "تاريخ انتهاء الصلاحية";
+            gv.Columns[4].OptionsColumn.AllowEdit = false;
+            gv.Columns[4].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            gv.Columns[4].DisplayFormat.FormatString = "MM/yyyy";
+
             gv.Columns[5].Caption = "مكان التخزين ";
-            gv.Columns[3].OptionsColumn.AllowEdit = false;
+            gv.Columns[5].OptionsColumn.AllowEdit = false;
+
             gv.Columns[6].Caption = "الكمية المتوفرة ";
-            gv.Columns[3].OptionsColumn.AllowEdit = false;
+            gv.Columns[6].OptionsColumn.AllowEdit = false;
+            gv.Columns[6].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[6].DisplayFormat.FormatString = "N0";
+
             if (gv.Columns.Count<=7)
             {
                 gv.Columns.Add(new DevExpress.XtraGrid.Columns.GridColumn());
@@ -227,7 +298,9 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                 col.FieldName = "الكمية المطلوبة";
                 col.VisibleIndex = 7;
             }
-                    
+            gv.Columns[7].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[7].DisplayFormat.FormatString = "N0";
+
             gv.BestFitColumns();
         } 
        

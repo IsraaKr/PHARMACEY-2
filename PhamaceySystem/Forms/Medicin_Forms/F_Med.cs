@@ -310,7 +310,16 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             f.ShowDialog();
             GetUnite_Data();
         }
-        
-       
+
+        private void F_Med_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (med_nameTextEdit.Text != string.Empty)
+            {
+                if (C_Master.Qustion_Massege_Box("؟؟ هل تريد حفظ البيانات") == DialogResult.Yes)
+                    Insert_Data();
+                ////else
+                ////    this.Close();
+            }
+        }
     }
 }
