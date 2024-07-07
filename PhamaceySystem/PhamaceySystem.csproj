@@ -516,13 +516,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="12_113697.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\PhamaceyDataBase\PhamaceyDataBase.csproj">
       <Project>{656e5a30-aed5-4093-8f6c-e6ca5156ea03}</Project>
       <Name>PhamaceyDataBase</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="12_113697.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

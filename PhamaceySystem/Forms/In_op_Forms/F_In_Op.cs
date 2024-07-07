@@ -61,6 +61,9 @@ namespace PhamaceySystem.Forms.Store_Forms
         int old_med_id = 0;
         int old_item_id = 0;
         List<int> id_store_places;
+        List<int> quntettey_list;
+        int curent_pace_id = 0;
+        int curent_quntety = 0;
         public override void Get_Data(string status_mess)
         {
             try
@@ -85,7 +88,6 @@ namespace PhamaceySystem.Forms.Store_Forms
                 GetDonars_Data();
                 GetEmp_Data();
                 GetMed_Data();
-                GetStoragePlace_Data();
                 is_op_insert = 0;
                 old_med_Quntitey = 0;
                 old_med_id = 0;
@@ -288,10 +290,10 @@ namespace PhamaceySystem.Forms.Store_Forms
                 number_of_errores += 1;
                 Med_idSearchlookupEdit.ErrorText = "هذا الحقل مطلوب";
             }
-            if(med_storage_place_idSearchLookUpEdit.EditValue == null)
+            if(checkedComboBoxEdit_Store_Place.EditValue == "")
             {
                 number_of_errores += 1;
-                med_storage_place_idSearchLookUpEdit.ErrorText = "هذا الحقل مطلوب";
+                checkedComboBoxEdit_Store_Place.ErrorText = "هذا الحقل مطلوب";
             }
 
             return (number_of_errores == 0);
@@ -312,22 +314,19 @@ namespace PhamaceySystem.Forms.Store_Forms
 
         public void insert_item()
         {
-            for (int i = 0; i < id_store_places.Count; i++)
-            {
+         
                 TF_OP_IN_Item = new T_OPeration_IN_Item();
                 Fill_Entitey_item();
 
-                TF_OP_IN_Item.in_item_quntity = Convert.ToInt32(
-               in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty)) / id_store_places.Count;
-
-                TF_OP_IN_Item.store_place_id = id_store_places[i];
-
+            TF_OP_IN_Item.in_item_quntity = curent_quntety;
+            TF_OP_IN_Item.store_place_id = curent_pace_id;
+           
                 cmdOpInItem.Insert_Data(TF_OP_IN_Item);
                 var max_id = cmdOpInItem.Get_All()
             .Where(c_id => c_id.in_item_id == cmdOpInItem.Get_All().Max(max => max.in_item_id))
             .FirstOrDefault();
                 in_item_idTextEdit.Text = max_id == null ? "1" : (max_id.in_item_id).ToString();
-            }
+            
 
         }
 
@@ -436,31 +435,38 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
                 gv.Columns[8].Caption = " موقع التخزين ";
                 gv.Columns[9].Visible = false;
                 gv.BestFitColumns();
-
-                gv.Columns[5].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+              
+                    gv.Columns[5].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
                 gv.Columns[5].DisplayFormat.FormatString = "N0";
 
                 gv.Columns[6].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
                 gv.Columns[6].DisplayFormat.FormatString = "MM/yyyy";
 
+                if (gv.Columns[5].Summary.Count == 0)
+                {
+                    gv.OptionsView.ShowFooter = true;
+                    gv.Columns[5].Summary.Add(DevExpress.Data.SummaryItemType.Sum, gv.Columns[5].FieldName.ToString(), "المجموع = {0}");
+                    gv.Columns[3].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[3].FieldName.ToString(), "عدد المواد = {0}");
+                }
+               
+                    if (gv.GroupSummary.Count ==0 )
+                {
 
-                gv.OptionsView.ShowFooter = true;
-                gv.Columns[5].Summary.Add(DevExpress.Data.SummaryItemType.Sum, gv.Columns[5].FieldName.ToString(), "المجموع = {0}");
-                gv.Columns[3].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[3].FieldName.ToString(), "عدد المواد = {0}");
-
-                DevExpress.XtraGrid.GridGroupSummaryItem item = new DevExpress.XtraGrid.GridGroupSummaryItem();
-                item.DisplayFormat = "_____مجموع الكميات= {0}";
-                item.FieldName = gv.Columns[5].FieldName.ToString();
-                item.ShowInGroupColumnFooter = gv.Columns["show in group row"];
-                item.SummaryType = DevExpress.Data.SummaryItemType.Sum;
-                gv.GroupSummary.Add(item);
-            
+                    DevExpress.XtraGrid.GridGroupSummaryItem item = new DevExpress.XtraGrid.GridGroupSummaryItem();
+                    item.DisplayFormat = "_____مجموع الكميات= {0}";
+                    item.FieldName = gv.Columns[5].FieldName.ToString();
+                    item.ShowInGroupColumnFooter = gv.Columns["show in group row"];
+                    item.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+                    gv.GroupSummary.Add(item);
+                }
         }
         }
 
         private void clear_item()
         {
-            med_storage_place_idSearchLookUpEdit.EditValue = null;
+            checkedComboBoxEdit_Store_Place.EditValue = "";
+            checkedComboBoxEdit_Store_Place.Text = "";
+            checkedComboBoxEdit_Store_Place.SetEditValue("");
             in_item_quntityTextEdit.Text = string.Empty;
             Med_idSearchlookupEdit.EditValue = null;
             btn_add_item.Enabled = true;
@@ -474,7 +480,7 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
             in_item_expDateDateEdit.DateTime = Convert.ToDateTime(TF_OP_IN_Item.in_item_expDate);
             in_B_It_noteMemoEdit.Text = TF_OP_IN_Item.in_B_It_note;
             Med_idSearchlookupEdit.EditValue = TF_OP_IN_Item.Med_id;
-            med_storage_place_idSearchLookUpEdit.EditValue = TF_OP_IN_Item.store_place_id;
+            checkedComboBoxEdit_Store_Place.SetEditValue ( TF_OP_IN_Item.store_place_id);
             in_op_idTextEdit.Text = TF_OP_IN_Item.In_op_id.ToString();
         }
 
@@ -486,9 +492,9 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
 
             TF_Medician = cmdMedician.Get_All().Where(l => l.med_id == id).FirstOrDefault();
             TF_Medician.med_in_count = TF_Medician.med_in_count +
-                Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
+                curent_quntety;
             TF_Medician.med_total_now = TF_Medician.med_total_now +
-                Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
+                curent_quntety ;
             cmdMedician.Update_Data(TF_Medician);
         }
 
@@ -526,7 +532,7 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
         {
             TF_Store_Move = new T_Store_Move();
 
-            TF_Store_Move.qunt = Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
+            TF_Store_Move.qunt = curent_quntety;
             TF_Store_Move.med_id = Convert.ToInt32(
                 Med_idSearchlookupEdit.EditValue.ToString());
             TF_Store_Move.item_id = Convert.ToInt32(in_item_idTextEdit.Text.ToString().Replace(",", string.Empty));
@@ -537,7 +543,7 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
             TF_Store_Move.emp_id = Convert.ToInt32(emp_idSearchLookUpEdit.EditValue.ToString());
             TF_Store_Move.reciver_id = null;
             TF_Store_Move.donar_id = Convert.ToInt32( donar_idSearchLookUpEdit.EditValue.ToString());
-            TF_Store_Move.place_id = Convert.ToInt32(   med_storage_place_idSearchLookUpEdit.EditValue.ToString());
+            TF_Store_Move.place_id = curent_pace_id;
             cmdStoreMove.Insert_Data(TF_Store_Move);
         }
 
@@ -555,13 +561,13 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
             TF_Store_Move = new T_Store_Move();
             TF_Store_Move = cmdStoreMove.Get_By(l => l.item_id == old_item_id & l.op_type_id == 1).FirstOrDefault();
 
-            TF_Store_Move.qunt = Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
+            TF_Store_Move.qunt = curent_quntety;
             TF_Store_Move.med_id = Convert.ToInt32(
                 Med_idSearchlookupEdit.EditValue.ToString());
             TF_Store_Move.emp_id = Convert.ToInt32(emp_idSearchLookUpEdit.EditValue.ToString());
             TF_Store_Move.reciver_id = null;
             TF_Store_Move.donar_id = Convert.ToInt32(donar_idSearchLookUpEdit.EditValue.ToString());
-            TF_Store_Move.place_id = Convert.ToInt32(med_storage_place_idSearchLookUpEdit.EditValue.ToString());
+            TF_Store_Move.place_id = curent_pace_id;
 
             cmdStoreMove.Update_Data(TF_Store_Move);
         }
@@ -569,20 +575,7 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
 
         //*******************تعبة الداتا***********************
 
-        public void GetStoragePlace_Data()
-        {
-            var place_list = (from Emp in cmdStorageplace.Get_All()
-                select new { id = Emp.id, name = Emp.name, groupp = Emp.groupe, shufel = Emp.shufel }).OrderBy(
-                id => id.id);
-            if(place_list != null && place_list.Count() > 0)
-            {
-                med_storage_place_idSearchLookUpEdit.slkp_iniatalize_data(place_list, "name", "id");
-                med_storage_place_idSearchLookUpEdit.Properties.View.Columns[0].Caption = "الرقم";
-                med_storage_place_idSearchLookUpEdit.Properties.View.Columns[1].Caption = "الاسم ";
-                med_storage_place_idSearchLookUpEdit.Properties.View.Columns[2].Caption = "مجموعة الرفوف ";
-                med_storage_place_idSearchLookUpEdit.Properties.View.Columns[3].Caption = "رقم الرف ";
-            }
-        }
+   
         public void GetStoragePlace_Data_MulteyCheck()
         {
             var place_list = (from Emp in cmdStorageplace.Get_All()
@@ -679,7 +672,7 @@ on Emp.med_shape_id equals shape.med_shape_id into slist
         {
             F_place_store f = new F_place_store();
             f.ShowDialog();
-            GetStoragePlace_Data();
+            GetStoragePlace_Data_MulteyCheck();
         }
 
 
@@ -696,18 +689,7 @@ on Emp.med_shape_id equals shape.med_shape_id into slist
                 e.DisplayText = "";
         }
 
-        private void med_storage_place_idSearchLookUpEdit_CustomDisplayText(
-            object sender,
-            DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
-        {
-            if(e.Value != null && e.Value.ToString() != string.Empty)
-            {
-                long e_id = Convert.ToInt64(e.Value);
-                e.DisplayText = cmdStorageplace.Get_By(id => id.id == e_id).FirstOrDefault().name;
-            } else
-                e.DisplayText = "";
-        }
-
+   
         private void donar_idSearchLookUpEdit_CustomDisplayText(
             object sender,
             DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
@@ -784,16 +766,23 @@ on Emp.med_shape_id equals shape.med_shape_id into slist
             {
                 try
                 {
-                   // if(is_op_insert == 0 && Validate_Data_op())
+                    quntety_in_places();
+                    for (int i = 0; i < id_store_places.Count; i++)
+                    {
+                        curent_pace_id = id_store_places[i];
+                        curent_quntety = quntettey_list[i];
+                        // if(is_op_insert == 0 && Validate_Data_op())
                         insert_op();
-                 //   if(Validate_Data_item())
+                        //   if(Validate_Data_item())
                         insert_item();
-                    Fill_Graid_item();
-                    Get_Add_med_count();
-                    Get_Add_move();
+                        Fill_Graid_item();
+                        Get_Add_med_count();
+                        Get_Add_move();
+                        Get_OP_Med_count_Data();
+                        update_op();
+                    }
                     clear_item();
-                    Get_OP_Med_count_Data();
-                    update_op();
+                   
                 } catch(Exception ex)
                 {
                     Get_Data(ex.InnerException.InnerException.ToString());
@@ -849,7 +838,6 @@ on Emp.med_shape_id equals shape.med_shape_id into slist
                     if (!id_store_places.Contains(id))
                     {
                         id_store_places.Add(id);
-                        MessageBox.Show("" + id_store_places[id_store_places.Count - 1]);
                     }
                 }
 
@@ -883,9 +871,42 @@ on Emp.med_shape_id equals shape.med_shape_id into slist
 
             return uncheckedValues;
         }
- 
-    
+
+  
+
+        private void quntety_in_places()
+        {
+            int total_all = Convert.ToInt32(in_item_quntityTextEdit.Text.ToString().Replace(",", string.Empty));
+
+            quntettey_list = new List<int>();
+         //   int albaqe = total_all;
+            if (total_all < id_store_places.Count)
+            {
+                checkedComboBoxEdit_Store_Place.ErrorText = " يجب أن تكون الكمية أصغر أو تساوي " + id_store_places.Count;
+
+            }
+            else if (total_all >= id_store_places.Count)
+            {
+
+                int quantityPerShelf = total_all / id_store_places.Count;
+                int remainingQuantity = total_all % id_store_places.Count;
+
+                for (int i = 0; i < id_store_places.Count; i++)
+                {
+
+                    int quantity = quantityPerShelf;
+                    if (i < remainingQuantity)
+                    {
+                        quantity++;
+                    }
+              
+                    quntettey_list.Add(quantity);
+                    
+                }
+            }
+
         }
+    }
 
       
     }

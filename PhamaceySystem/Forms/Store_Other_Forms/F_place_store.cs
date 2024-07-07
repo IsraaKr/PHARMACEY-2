@@ -179,7 +179,9 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             gv.Columns[2].Caption = "المجموعة";
             gv.Columns[3].Caption = "الرف";
 
-            gv.BestFitColumns();
+            if (gv.Columns[1].Summary.Count == 0)
+                gv.Columns[1].Summary.Add(DevExpress.Data.SummaryItemType.Count, "name", "عدد المواد = {0}");
+
         }
         private void Set_Auto_Id()
         {

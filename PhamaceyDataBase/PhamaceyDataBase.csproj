@@ -116,10 +116,19 @@
     <Compile Include="T_Pers_Recivers.cs">
       <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="T_Roles.cs">
+      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="T_Store_Move.cs">
       <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="T_Store_Placees.cs">
+      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_System_Record.cs">
+      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Users.cs">
       <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -139,8 +148,8 @@
   <ItemGroup>
     <Content Include="Phamacey_Entity_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Phamacey_Entity_Model.Context.cs</LastGenOutput>
       <DependentUpon>Phamacey_Entity_Model.edmx</DependentUpon>
+      <LastGenOutput>Phamacey_Entity_Model.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Phamacey_Entity_Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

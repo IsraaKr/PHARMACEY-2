@@ -178,7 +178,9 @@ namespace PhamaceySystem.Forms.Medicin_Forms
          //   searchLookUpEdit1.Properties.DataSource = x;
             gv.BestFitColumns();
             gv.OptionsView.ShowFooter = true;
-            gv.Columns[1].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[1].FieldName.ToString(), "العدد = {0}");
+            if (gv.Columns[1].Summary.Count == 0)
+         
+                gv.Columns[1].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[1].FieldName.ToString(), "العدد = {0}");
 
         }
         private void Set_Auto_Id()

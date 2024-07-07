@@ -88,17 +88,24 @@ namespace PhamaceySystem.Forms.Medicin_Forms
 
                 gv.BestFitColumns();
 
+
+            
+            if (gv.Columns[4].Summary.Count == 0)
+            {
+           
                 gv.OptionsView.ShowFooter = true;             
                 gv.Columns[4].Summary.Add(DevExpress.Data.SummaryItemType.Sum , "total", "المجموع = {0}");
                 gv.Columns[2].Summary.Add(DevExpress.Data.SummaryItemType.Count, "name", "عدد المواد = {0}");
-
+            }
+            if (gv.GroupSummary.Count == 0)
+            {
                 GridGroupSummaryItem item = new GridGroupSummaryItem();
                 item.DisplayFormat = "_____مجموع الكميات= {0}";
                 item.FieldName = "total";
                 item.ShowInGroupColumnFooter = gv.Columns["show in group row"];
                 item.SummaryType = DevExpress.Data.SummaryItemType.Sum;
                 gv.GroupSummary.Add(item);
-            
+            }
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using DevExpress.Data;
+﻿  
+            using DevExpress.Data;
 using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
 using PhamaceySystem.Classes;
@@ -191,7 +192,9 @@ on med.emp_id equals place.Emp_id into plist
             gv.BestFitColumns();
 
             gv.OptionsView.ShowFooter = true;
-            gv.Columns[0].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[0].FieldName.ToString(), "عدد = {0}");
+            if (gv.Columns[0].Summary.Count == 0)
+          
+                gv.Columns[0].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[0].FieldName.ToString(), "عدد = {0}");
 
          
     }

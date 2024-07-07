@@ -33,7 +33,6 @@
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.dataLayoutControl2 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.checkButton1 = new DevExpress.XtraEditors.CheckButton();
             this.checkedComboBoxEdit_Store_Place = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.dtp_op_time = new System.Windows.Forms.DateTimePicker();
             this.btn_delet_item = new DevExpress.XtraEditors.SimpleButton();
@@ -48,8 +47,6 @@
             this.in_item_quntityTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.in_item_expDateDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.in_B_It_noteMemoEdit = new DevExpress.XtraEditors.MemoEdit();
-            this.med_storage_place_idSearchLookUpEdit = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.in_op_idTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.in_op_dateDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.in_op_textTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -83,17 +80,15 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForin_item_expDate = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForin_B_It_note = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForin_item_quntity = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForMed_id = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemFormed_storage_shape_id = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForin_item_id = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).BeginInit();
@@ -106,8 +101,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.in_item_expDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_item_expDateDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_B_It_noteMemoEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.med_storage_place_idSearchLookUpEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_op_idTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_op_dateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_op_dateDateEdit.Properties)).BeginInit();
@@ -141,17 +134,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_expDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_B_It_note)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_quntity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMed_id)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemFormed_storage_shape_id)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_id)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_tiltle
@@ -182,7 +173,6 @@
             // 
             // dataLayoutControl2
             // 
-            this.dataLayoutControl2.Controls.Add(this.checkButton1);
             this.dataLayoutControl2.Controls.Add(this.checkedComboBoxEdit_Store_Place);
             this.dataLayoutControl2.Controls.Add(this.dtp_op_time);
             this.dataLayoutControl2.Controls.Add(this.btn_delet_item);
@@ -196,7 +186,6 @@
             this.dataLayoutControl2.Controls.Add(this.in_item_quntityTextEdit);
             this.dataLayoutControl2.Controls.Add(this.in_item_expDateDateEdit);
             this.dataLayoutControl2.Controls.Add(this.in_B_It_noteMemoEdit);
-            this.dataLayoutControl2.Controls.Add(this.med_storage_place_idSearchLookUpEdit);
             this.dataLayoutControl2.Controls.Add(this.in_op_idTextEdit);
             this.dataLayoutControl2.Controls.Add(this.in_op_dateDateEdit);
             this.dataLayoutControl2.Controls.Add(this.in_op_textTextEdit);
@@ -219,23 +208,17 @@
             this.dataLayoutControl2.TabIndex = 11;
             this.dataLayoutControl2.Text = "dataLayoutControl2";
             // 
-            // checkButton1
-            // 
-            this.checkButton1.Location = new System.Drawing.Point(4, 545);
-            this.checkButton1.Name = "checkButton1";
-            this.checkButton1.Size = new System.Drawing.Size(1015, 22);
-            this.checkButton1.StyleController = this.dataLayoutControl2;
-            this.checkButton1.TabIndex = 34;
-            this.checkButton1.Text = "checkButton1";
-            // 
             // checkedComboBoxEdit_Store_Place
             // 
-            this.checkedComboBoxEdit_Store_Place.Location = new System.Drawing.Point(8, 145);
+            this.checkedComboBoxEdit_Store_Place.Location = new System.Drawing.Point(51, 62);
             this.checkedComboBoxEdit_Store_Place.MenuManager = this.barMang;
             this.checkedComboBoxEdit_Store_Place.Name = "checkedComboBoxEdit_Store_Place";
+            this.checkedComboBoxEdit_Store_Place.Properties.AllowMultiSelect = true;
+            this.checkedComboBoxEdit_Store_Place.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkedComboBoxEdit_Store_Place.Properties.Appearance.Options.UseFont = true;
             this.checkedComboBoxEdit_Store_Place.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.checkedComboBoxEdit_Store_Place.Size = new System.Drawing.Size(383, 20);
+            this.checkedComboBoxEdit_Store_Place.Size = new System.Drawing.Size(337, 26);
             this.checkedComboBoxEdit_Store_Place.StyleController = this.dataLayoutControl2;
             this.checkedComboBoxEdit_Store_Place.TabIndex = 33;
             this.checkedComboBoxEdit_Store_Place.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.checkedComboBoxEdit_Store_Place_CloseUp);
@@ -244,7 +227,7 @@
             // 
             this.dtp_op_time.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_op_time.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtp_op_time.Location = new System.Drawing.Point(523, 123);
+            this.dtp_op_time.Location = new System.Drawing.Point(523, 80);
             this.dtp_op_time.Name = "dtp_op_time";
             this.dtp_op_time.RightToLeftLayout = true;
             this.dtp_op_time.ShowUpDown = true;
@@ -256,7 +239,7 @@
             this.btn_delet_item.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delet_item.Appearance.Options.UseFont = true;
             this.btn_delet_item.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_delet_item.ImageOptions.Image")));
-            this.btn_delet_item.Location = new System.Drawing.Point(8, 309);
+            this.btn_delet_item.Location = new System.Drawing.Point(8, 266);
             this.btn_delet_item.Name = "btn_delet_item";
             this.btn_delet_item.Size = new System.Drawing.Size(64, 24);
             this.btn_delet_item.StyleController = this.dataLayoutControl2;
@@ -269,7 +252,7 @@
             this.btn_edite_item.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_edite_item.Appearance.Options.UseFont = true;
             this.btn_edite_item.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_edite_item.ImageOptions.Image")));
-            this.btn_edite_item.Location = new System.Drawing.Point(8, 281);
+            this.btn_edite_item.Location = new System.Drawing.Point(8, 238);
             this.btn_edite_item.Name = "btn_edite_item";
             this.btn_edite_item.Size = new System.Drawing.Size(64, 24);
             this.btn_edite_item.StyleController = this.dataLayoutControl2;
@@ -284,7 +267,7 @@
             this.btn_add_item.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_add_item.ImageOptions.Image")));
             this.btn_add_item.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn_add_item.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btn_add_item.Location = new System.Drawing.Point(76, 281);
+            this.btn_add_item.Location = new System.Drawing.Point(76, 238);
             this.btn_add_item.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_item.Name = "btn_add_item";
             this.btn_add_item.Size = new System.Drawing.Size(435, 52);
@@ -296,7 +279,7 @@
             // btn_add_emp
             // 
             this.btn_add_emp.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_add_emp.ImageOptions.SvgImage")));
-            this.btn_add_emp.Location = new System.Drawing.Point(523, 252);
+            this.btn_add_emp.Location = new System.Drawing.Point(523, 209);
             this.btn_add_emp.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_emp.Name = "btn_add_emp";
             this.btn_add_emp.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
@@ -308,7 +291,7 @@
             // btn_add_med
             // 
             this.btn_add_med.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_add_med.ImageOptions.SvgImage")));
-            this.btn_add_med.Location = new System.Drawing.Point(8, 66);
+            this.btn_add_med.Location = new System.Drawing.Point(8, 23);
             this.btn_add_med.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_med.Name = "btn_add_med";
             this.btn_add_med.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
@@ -320,7 +303,7 @@
             // btn_add_donar
             // 
             this.btn_add_donar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_add_donar.ImageOptions.SvgImage")));
-            this.btn_add_donar.Location = new System.Drawing.Point(523, 213);
+            this.btn_add_donar.Location = new System.Drawing.Point(523, 170);
             this.btn_add_donar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_donar.Name = "btn_add_donar";
             this.btn_add_donar.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
@@ -332,7 +315,7 @@
             // gc
             // 
             this.gc.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.gc.Location = new System.Drawing.Point(4, 341);
+            this.gc.Location = new System.Drawing.Point(4, 298);
             this.gc.MainView = this.gv;
             this.gc.Margin = new System.Windows.Forms.Padding(2);
             this.gc.MinimumSize = new System.Drawing.Size(500, 200);
@@ -370,7 +353,7 @@
             // in_item_idTextEdit
             // 
             this.in_item_idTextEdit.Enabled = false;
-            this.in_item_idTextEdit.Location = new System.Drawing.Point(8, 36);
+            this.in_item_idTextEdit.Location = new System.Drawing.Point(8, -7);
             this.in_item_idTextEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_item_idTextEdit.MenuManager = this.barMang;
             this.in_item_idTextEdit.Name = "in_item_idTextEdit";
@@ -387,7 +370,7 @@
             // 
             // in_item_quntityTextEdit
             // 
-            this.in_item_quntityTextEdit.Location = new System.Drawing.Point(11, 172);
+            this.in_item_quntityTextEdit.Location = new System.Drawing.Point(11, 105);
             this.in_item_quntityTextEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_item_quntityTextEdit.MenuManager = this.barMang;
             this.in_item_quntityTextEdit.Name = "in_item_quntityTextEdit";
@@ -406,7 +389,7 @@
             // in_item_expDateDateEdit
             // 
             this.in_item_expDateDateEdit.EditValue = new System.DateTime(2024, 2, 28, 10, 48, 21, 0);
-            this.in_item_expDateDateEdit.Location = new System.Drawing.Point(8, 205);
+            this.in_item_expDateDateEdit.Location = new System.Drawing.Point(8, 138);
             this.in_item_expDateDateEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_item_expDateDateEdit.MenuManager = this.barMang;
             this.in_item_expDateDateEdit.Name = "in_item_expDateDateEdit";
@@ -431,48 +414,20 @@
             // 
             // in_B_It_noteMemoEdit
             // 
-            this.in_B_It_noteMemoEdit.Location = new System.Drawing.Point(8, 235);
+            this.in_B_It_noteMemoEdit.Location = new System.Drawing.Point(8, 168);
             this.in_B_It_noteMemoEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_B_It_noteMemoEdit.MenuManager = this.barMang;
             this.in_B_It_noteMemoEdit.Name = "in_B_It_noteMemoEdit";
             this.in_B_It_noteMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.in_B_It_noteMemoEdit.Properties.Appearance.Options.UseFont = true;
-            this.in_B_It_noteMemoEdit.Size = new System.Drawing.Size(383, 42);
+            this.in_B_It_noteMemoEdit.Size = new System.Drawing.Size(383, 66);
             this.in_B_It_noteMemoEdit.StyleController = this.dataLayoutControl2;
             this.in_B_It_noteMemoEdit.TabIndex = 11;
-            // 
-            // med_storage_place_idSearchLookUpEdit
-            // 
-            this.med_storage_place_idSearchLookUpEdit.Location = new System.Drawing.Point(51, 105);
-            this.med_storage_place_idSearchLookUpEdit.Margin = new System.Windows.Forms.Padding(2);
-            this.med_storage_place_idSearchLookUpEdit.MenuManager = this.barMang;
-            this.med_storage_place_idSearchLookUpEdit.Name = "med_storage_place_idSearchLookUpEdit";
-            this.med_storage_place_idSearchLookUpEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.med_storage_place_idSearchLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.med_storage_place_idSearchLookUpEdit.Properties.Appearance.Options.UseFont = true;
-            this.med_storage_place_idSearchLookUpEdit.Properties.Appearance.Options.UseTextOptions = true;
-            this.med_storage_place_idSearchLookUpEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.med_storage_place_idSearchLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.med_storage_place_idSearchLookUpEdit.Properties.NullText = "";
-            this.med_storage_place_idSearchLookUpEdit.Properties.PopupView = this.gridView1;
-            this.med_storage_place_idSearchLookUpEdit.Size = new System.Drawing.Size(337, 26);
-            this.med_storage_place_idSearchLookUpEdit.StyleController = this.dataLayoutControl2;
-            this.med_storage_place_idSearchLookUpEdit.TabIndex = 8;
-            this.med_storage_place_idSearchLookUpEdit.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.med_storage_place_idSearchLookUpEdit_CustomDisplayText);
-            // 
-            // gridView1
-            // 
-            this.gridView1.DetailHeight = 284;
-            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // in_op_idTextEdit
             // 
             this.in_op_idTextEdit.Enabled = false;
-            this.in_op_idTextEdit.Location = new System.Drawing.Point(523, 36);
+            this.in_op_idTextEdit.Location = new System.Drawing.Point(523, -7);
             this.in_op_idTextEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_op_idTextEdit.MenuManager = this.barMang;
             this.in_op_idTextEdit.Name = "in_op_idTextEdit";
@@ -490,7 +445,7 @@
             // in_op_dateDateEdit
             // 
             this.in_op_dateDateEdit.EditValue = new System.DateTime(2024, 2, 28, 0, 0, 0, 0);
-            this.in_op_dateDateEdit.Location = new System.Drawing.Point(523, 93);
+            this.in_op_dateDateEdit.Location = new System.Drawing.Point(523, 50);
             this.in_op_dateDateEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_op_dateDateEdit.MenuManager = this.barMang;
             this.in_op_dateDateEdit.Name = "in_op_dateDateEdit";
@@ -507,7 +462,7 @@
             // 
             // in_op_textTextEdit
             // 
-            this.in_op_textTextEdit.Location = new System.Drawing.Point(523, 147);
+            this.in_op_textTextEdit.Location = new System.Drawing.Point(523, 104);
             this.in_op_textTextEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_op_textTextEdit.MenuManager = this.barMang;
             this.in_op_textTextEdit.Name = "in_op_textTextEdit";
@@ -522,7 +477,7 @@
             // in_op_stateCheckEdit
             // 
             this.in_op_stateCheckEdit.EditValue = true;
-            this.in_op_stateCheckEdit.Location = new System.Drawing.Point(523, 66);
+            this.in_op_stateCheckEdit.Location = new System.Drawing.Point(523, 23);
             this.in_op_stateCheckEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_op_stateCheckEdit.MenuManager = this.barMang;
             this.in_op_stateCheckEdit.Name = "in_op_stateCheckEdit";
@@ -536,7 +491,7 @@
             // 
             // donar_empTextEdit
             // 
-            this.donar_empTextEdit.Location = new System.Drawing.Point(526, 180);
+            this.donar_empTextEdit.Location = new System.Drawing.Point(526, 137);
             this.donar_empTextEdit.Margin = new System.Windows.Forms.Padding(2);
             this.donar_empTextEdit.MenuManager = this.barMang;
             this.donar_empTextEdit.Name = "donar_empTextEdit";
@@ -550,7 +505,7 @@
             // 
             // donar_idSearchLookUpEdit
             // 
-            this.donar_idSearchLookUpEdit.Location = new System.Drawing.Point(566, 216);
+            this.donar_idSearchLookUpEdit.Location = new System.Drawing.Point(566, 173);
             this.donar_idSearchLookUpEdit.Margin = new System.Windows.Forms.Padding(2);
             this.donar_idSearchLookUpEdit.MenuManager = this.barMang;
             this.donar_idSearchLookUpEdit.Name = "donar_idSearchLookUpEdit";
@@ -578,7 +533,7 @@
             // 
             // emp_idSearchLookUpEdit
             // 
-            this.emp_idSearchLookUpEdit.Location = new System.Drawing.Point(566, 255);
+            this.emp_idSearchLookUpEdit.Location = new System.Drawing.Point(566, 212);
             this.emp_idSearchLookUpEdit.Margin = new System.Windows.Forms.Padding(2);
             this.emp_idSearchLookUpEdit.MenuManager = this.barMang;
             this.emp_idSearchLookUpEdit.Name = "emp_idSearchLookUpEdit";
@@ -607,7 +562,7 @@
             // btn_add_store_place
             // 
             this.btn_add_store_place.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_add_store_place.ImageOptions.SvgImage")));
-            this.btn_add_store_place.Location = new System.Drawing.Point(8, 106);
+            this.btn_add_store_place.Location = new System.Drawing.Point(8, 63);
             this.btn_add_store_place.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_store_place.Name = "btn_add_store_place";
             this.btn_add_store_place.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
@@ -618,7 +573,7 @@
             // 
             // Med_idSearchlookupEdit
             // 
-            this.Med_idSearchlookupEdit.Location = new System.Drawing.Point(51, 69);
+            this.Med_idSearchlookupEdit.Location = new System.Drawing.Point(51, 26);
             this.Med_idSearchlookupEdit.Margin = new System.Windows.Forms.Padding(2);
             this.Med_idSearchlookupEdit.MenuManager = this.barMang;
             this.Med_idSearchlookupEdit.Name = "Med_idSearchlookupEdit";
@@ -647,7 +602,7 @@
             // 
             this.med_countTextEdit1.EditValue = "0";
             this.med_countTextEdit1.Enabled = false;
-            this.med_countTextEdit1.Location = new System.Drawing.Point(700, 301);
+            this.med_countTextEdit1.Location = new System.Drawing.Point(700, 258);
             this.med_countTextEdit1.Margin = new System.Windows.Forms.Padding(2);
             this.med_countTextEdit1.Name = "med_countTextEdit1";
             this.med_countTextEdit1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -667,11 +622,10 @@
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroup2,
-            this.layoutControlItem12});
+            this.layoutControlGroup2});
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1023, 571);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1023, 545);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlGroup2
@@ -865,15 +819,14 @@
             this.layoutControlItem7,
             this.layoutControlItem5,
             this.ItemForin_item_expDate,
-            this.layoutControlItem4,
             this.layoutControlItem8,
             this.layoutControlItem9,
             this.ItemForin_B_It_note,
             this.ItemForin_item_quntity,
             this.ItemForMed_id,
-            this.ItemFormed_storage_shape_id,
             this.ItemForin_item_id,
-            this.layoutControlItem11});
+            this.layoutControlItem11,
+            this.layoutControlItem4});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
@@ -908,26 +861,11 @@
             // ItemForin_item_expDate
             // 
             this.ItemForin_item_expDate.Control = this.in_item_expDateDateEdit;
-            this.ItemForin_item_expDate.Location = new System.Drawing.Point(0, 169);
+            this.ItemForin_item_expDate.Location = new System.Drawing.Point(0, 145);
             this.ItemForin_item_expDate.Name = "ItemForin_item_expDate";
             this.ItemForin_item_expDate.Size = new System.Drawing.Size(507, 30);
             this.ItemForin_item_expDate.Text = "انتهاء الصلاحية";
             this.ItemForin_item_expDate.TextSize = new System.Drawing.Size(117, 19);
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.btn_add_store_place;
-            this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
-            this.layoutControlItem4.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 70);
-            this.layoutControlItem4.MaxSize = new System.Drawing.Size(40, 39);
-            this.layoutControlItem4.MinSize = new System.Drawing.Size(40, 39);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(40, 39);
-            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem4.Text = "layoutControlItem3";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem8
             // 
@@ -958,9 +896,9 @@
             // ItemForin_B_It_note
             // 
             this.ItemForin_B_It_note.Control = this.in_B_It_noteMemoEdit;
-            this.ItemForin_B_It_note.Location = new System.Drawing.Point(0, 199);
+            this.ItemForin_B_It_note.Location = new System.Drawing.Point(0, 175);
             this.ItemForin_B_It_note.Name = "ItemForin_B_It_note";
-            this.ItemForin_B_It_note.Size = new System.Drawing.Size(507, 46);
+            this.ItemForin_B_It_note.Size = new System.Drawing.Size(507, 70);
             this.ItemForin_B_It_note.StartNewLine = true;
             this.ItemForin_B_It_note.Text = "ملاحظات المادة";
             this.ItemForin_B_It_note.TextSize = new System.Drawing.Size(117, 19);
@@ -968,7 +906,7 @@
             // ItemForin_item_quntity
             // 
             this.ItemForin_item_quntity.Control = this.in_item_quntityTextEdit;
-            this.ItemForin_item_quntity.Location = new System.Drawing.Point(0, 133);
+            this.ItemForin_item_quntity.Location = new System.Drawing.Point(0, 109);
             this.ItemForin_item_quntity.Name = "ItemForin_item_quntity";
             this.ItemForin_item_quntity.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.ItemForin_item_quntity.Size = new System.Drawing.Size(507, 36);
@@ -985,16 +923,6 @@
             this.ItemForMed_id.Text = "اسم الدواء";
             this.ItemForMed_id.TextSize = new System.Drawing.Size(117, 19);
             // 
-            // ItemFormed_storage_shape_id
-            // 
-            this.ItemFormed_storage_shape_id.Control = this.med_storage_place_idSearchLookUpEdit;
-            this.ItemFormed_storage_shape_id.Location = new System.Drawing.Point(40, 66);
-            this.ItemFormed_storage_shape_id.Name = "ItemFormed_storage_shape_id";
-            this.ItemFormed_storage_shape_id.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.ItemFormed_storage_shape_id.Size = new System.Drawing.Size(467, 43);
-            this.ItemFormed_storage_shape_id.Text = "موقع التخزين";
-            this.ItemFormed_storage_shape_id.TextSize = new System.Drawing.Size(117, 19);
-            // 
             // ItemForin_item_id
             // 
             this.ItemForin_item_id.Control = this.in_item_idTextEdit;
@@ -1008,11 +936,27 @@
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.checkedComboBoxEdit_Store_Place;
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 109);
+            this.layoutControlItem11.Location = new System.Drawing.Point(40, 66);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(507, 24);
+            this.layoutControlItem11.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.layoutControlItem11.Size = new System.Drawing.Size(467, 43);
             this.layoutControlItem11.Text = "مكان التخزين";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(117, 19);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.btn_add_store_place;
+            this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.layoutControlItem4.CustomizationFormText = "layoutControlItem3";
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 70);
+            this.layoutControlItem4.MaxSize = new System.Drawing.Size(40, 39);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(40, 39);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(40, 39);
+            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem4.Text = "layoutControlItem3";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem2
             // 
@@ -1022,15 +966,6 @@
             this.layoutControlItem2.Size = new System.Drawing.Size(1019, 204);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
-            // 
-            // layoutControlItem12
-            // 
-            this.layoutControlItem12.Control = this.checkButton1;
-            this.layoutControlItem12.Location = new System.Drawing.Point(0, 541);
-            this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(1019, 26);
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem12.TextVisible = false;
             // 
             // F_In_Op
             // 
@@ -1057,8 +992,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.in_item_expDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_item_expDateDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_B_It_noteMemoEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.med_storage_place_idSearchLookUpEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_op_idTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_op_dateDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_op_dateDateEdit.Properties)).EndInit();
@@ -1092,17 +1025,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_expDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_B_It_note)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_quntity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMed_id)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemFormed_storage_shape_id)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_id)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1117,8 +1048,6 @@
         private DevExpress.XtraEditors.TextEdit in_item_quntityTextEdit;
         private DevExpress.XtraEditors.DateEdit in_item_expDateDateEdit;
         private DevExpress.XtraEditors.MemoEdit in_B_It_noteMemoEdit;
-        private DevExpress.XtraEditors.SearchLookUpEdit med_storage_place_idSearchLookUpEdit;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.TextEdit in_op_idTextEdit;
         private DevExpress.XtraEditors.DateEdit in_op_dateDateEdit;
         private DevExpress.XtraEditors.TextEdit in_op_textTextEdit;
@@ -1157,7 +1086,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        public DevExpress.XtraLayout.LayoutControlItem ItemFormed_storage_shape_id;
         private DevExpress.XtraEditors.SearchLookUpEdit Med_idSearchlookupEdit;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
@@ -1172,7 +1100,5 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEdit_Store_Place;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
-        private DevExpress.XtraEditors.CheckButton checkButton1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
     }
 }

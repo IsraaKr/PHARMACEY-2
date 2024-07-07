@@ -203,7 +203,9 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             gv.Columns[5].DisplayFormat.FormatString = "N0";
             gv.OptionsView.ShowFooter = true;
 
-            gv.Columns[2].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[2].FieldName.ToString(), "العدد = {0}");
+            if (gv.Columns[2].Summary.Count == 0)
+           
+                gv.Columns[2].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[2].FieldName.ToString(), "العدد = {0}");
 
         }
 

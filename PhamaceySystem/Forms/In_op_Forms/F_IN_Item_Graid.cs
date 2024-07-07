@@ -194,18 +194,22 @@ on med.store_place_id equals place.id into plist
 
             gv.Columns[9].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             gv.Columns[9].DisplayFormat.FormatString = "MM/yyyy";
-
-            gv.OptionsView.ShowFooter = true;
+            if (gv.Columns[3].Summary.Count == 0)
+            {
+           
+                gv.OptionsView.ShowFooter = true;
             gv.Columns[3].Summary.Add(DevExpress.Data.SummaryItemType.Sum, gv.Columns[3].FieldName.ToString(), "المجموع = {0}");
             gv.Columns[2].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[2].FieldName.ToString(), "عدد المواد = {0}");
-
-            DevExpress.XtraGrid.GridGroupSummaryItem item = new DevExpress.XtraGrid.GridGroupSummaryItem();
-            item.DisplayFormat = "_____مجموع الكميات= {0}";
-            item.FieldName = gv.Columns[3].FieldName.ToString();
-            item.ShowInGroupColumnFooter = gv.Columns["show in group row"];
-            item.SummaryType = DevExpress.Data.SummaryItemType.Sum;
-            gv.GroupSummary.Add(item);
-        
+            }
+            if (gv.GroupSummary.Count == 0)
+            {
+                DevExpress.XtraGrid.GridGroupSummaryItem item = new DevExpress.XtraGrid.GridGroupSummaryItem();
+                item.DisplayFormat = "_____مجموع الكميات= {0}";
+                item.FieldName = gv.Columns[3].FieldName.ToString();
+                item.ShowInGroupColumnFooter = gv.Columns["show in group row"];
+                item.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+                gv.GroupSummary.Add(item);
+            }
 
     }
 

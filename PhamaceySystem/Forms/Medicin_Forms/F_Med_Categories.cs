@@ -176,7 +176,9 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             gv.Columns["name"].Caption = "اسم التصنيف";
 
             gv.OptionsView.ShowFooter = true;
-            gv.Columns[1].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[1].FieldName.ToString(), "العدد = {0}");
+            if (gv.Columns[1].Summary.Count == 0)
+     
+                gv.Columns[1].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[1].FieldName.ToString(), "العدد = {0}");
 
             gv.BestFitColumns();
         }

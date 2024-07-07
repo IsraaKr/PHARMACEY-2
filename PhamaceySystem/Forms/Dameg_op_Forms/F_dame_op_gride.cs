@@ -180,7 +180,10 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
 
             gv.BestFitColumns();
             gv.OptionsView.ShowFooter = true;
-            gv.Columns[0].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[0].FieldName.ToString(), "العدد  = {0}");
+            if (gv.Columns[0].Summary.Count == 0)
+            
+       
+                gv.Columns[0].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[0].FieldName.ToString(), "العدد  = {0}");
 
            
      
