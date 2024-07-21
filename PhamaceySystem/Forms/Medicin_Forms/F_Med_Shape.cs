@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
+using PhamaceySystem.Classes;
+using PhamaceySystem.Forms.Setting_Forms;
 
 namespace PhamaceySystem.Forms.Medicin_Forms
 {
@@ -61,6 +63,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                     TF_Med_Shape = new T_Med_Shape();
                     Fill_Entitey();
                     cmdMedSape.Insert_Data(TF_Med_Shape);
+                    C_Add_System_record.Add(tit ,"إضافة", $" تم إضافة {tit}  باسم {TF_Med_Shape.med_shape_name} ");
                     base.Insert_Data();
                     Get_Data("i");
                 }
@@ -82,6 +85,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
 
                         Fill_Entitey();
                         cmdMedSape.Update_Data(TF_Med_Shape);
+                        C_Add_System_record.Add(tit ,"تعديل", $" تم تعديل {tit}  باسم {TF_Med_Shape.med_shape_name} ");
+
                         base.Update_Data();
                         Get_Data("u");
                     }
@@ -108,6 +113,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                             {
                                 Get_Row_ID(row_id);
                                 cmdMedSape.Delete_Data(TF_Med_Shape);
+                                C_Add_System_record.Add(tit, "حذف", $" تم حذف {tit}  باسم {TF_Med_Shape.med_shape_name} ");
+
                             }
                         base.Delete_Data();
                         Get_Data("d");

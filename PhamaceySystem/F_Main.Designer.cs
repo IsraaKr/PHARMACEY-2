@@ -20,7 +20,6 @@
             base.Dispose(disposing);
         }
 
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -41,6 +40,7 @@
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem39 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup21 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -184,7 +184,6 @@
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem14);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "المستخدمين";
-            this.ribbonPageGroup4.Visible = false;
             // 
             // barButtonItem12
             // 
@@ -196,7 +195,10 @@
             // 
             this.barButtonItem13.Caption = "إدارة المستخدمين";
             this.barButtonItem13.Id = 13;
+            this.barButtonItem13.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem13.ImageOptions.Image")));
+            this.barButtonItem13.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem13.ImageOptions.LargeImage")));
             this.barButtonItem13.Name = "barButtonItem13";
+            this.barButtonItem13.Tag = "F_User_Add";
             // 
             // barButtonItem14
             // 
@@ -206,10 +208,20 @@
             // 
             // ribbonPageGroup11
             // 
+            this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem39);
             this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem15);
             this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem20);
             this.ribbonPageGroup11.Name = "ribbonPageGroup11";
             this.ribbonPageGroup11.Text = "النظام";
+            // 
+            // barButtonItem39
+            // 
+            this.barButtonItem39.Caption = "سجل النظام";
+            this.barButtonItem39.Id = 55;
+            this.barButtonItem39.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem39.ImageOptions.Image")));
+            this.barButtonItem39.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem39.ImageOptions.LargeImage")));
+            this.barButtonItem39.Name = "barButtonItem39";
+            this.barButtonItem39.Tag = "F_System_Record";
             // 
             // barButtonItem15
             // 
@@ -752,10 +764,11 @@
             this.barButtonItem36,
             this.skinRibbonGalleryBarItem1,
             this.barButtonItem37,
-            this.barButtonItem38});
+            this.barButtonItem38,
+            this.barButtonItem39});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbon.MaxItemId = 55;
+            this.ribbon.MaxItemId = 56;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsStubGlyphs.Padding = new System.Windows.Forms.Padding(0);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -767,7 +780,7 @@
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1,
             this.repositoryItemTextEdit2});
-            this.ribbon.Size = new System.Drawing.Size(1198, 158);
+            this.ribbon.Size = new System.Drawing.Size(1198, 148);
             this.ribbon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ribbon_ItemClick);
             // 
             // update_timer
@@ -877,5 +890,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem38;
         public DevExpress.XtraBars.BarStaticItem bar_exp_date;
         private System.Windows.Forms.Timer update_timer;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem39;
     }
 }

@@ -33,16 +33,13 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             Title(tit);
         }
         public string tit = "حركة المستودع";
-        Boolean Is_Double_Click = false;
         DataTable dt_op;
-     //   DataTable dt_item;
         DataSet ds;
         int id;
 
         public override void Get_Data(string status_mess)
         {
             ds = new DataSet();
-            Is_Double_Click = false;
             Fill_Graid_op();
             gc.DataSource = dt_op;
 
@@ -143,20 +140,6 @@ FROM         T_Store_Move LEFT OUTER JOIN
                 //  TF_OPeration_IN = cmdINOP.Get_By(c_id => c_id.in_op_id == id).FirstOrDefault();
             }
         }
-
-        public override void gv_DoubleClick(object sender, EventArgs e)
-        {
-            Is_Double_Click = true;
-            gv.SelectRow(gv.FocusedRowHandle);
-
-            Get_Row_ID(0);
-            //  if (TF_OPeration_IN != null)
-            // Fill_Controls();
-        }
-
-        private void F_Store_Move_Load(object sender, EventArgs e)
-        {
-            view_inheretanz_butomes(false, false, false, false, false, false, true);
-        }
+       
     }
 }

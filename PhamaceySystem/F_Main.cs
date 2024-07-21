@@ -33,7 +33,10 @@ namespace PhamaceySystem
                 DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = Properties.Settings.Default.theme;
                 Boolean chec = cmdOptype.check_db_existing();
                 if (chec == true)
+                {
                     InitializeComponent();
+                    setRole();
+                }
                 else if (chec == false)
                 {
                     var res = MessageBox.Show("خطاء في الاتصال بقاعدة البيانات !!! اختر نعم لضبط نص الاتصال أو لا للخروج من البرنامج", "تأكيد",
@@ -51,6 +54,18 @@ namespace PhamaceySystem
             {
                 MessageBox.Show("" + ex);
             }
+            
+        }
+        //test
+        private void setRole()
+        {
+            C_Local_User.UserId = "111234";
+            C_Local_User.Id = 1;
+            C_Local_User.Role = "Admin";
+            C_Local_User.FullName = "fullName";
+            C_Local_User.UserName = "userName";
+
+
         }
         private void F_Main_FormClosing(object sender, FormClosingEventArgs e)
         {

@@ -15,7 +15,7 @@ namespace PhamaceyDataBase
     
     public partial class PHANACEY_DBEntities : DbContext
     {
-        public PHANACEY_DBEntities( string x)
+        public PHANACEY_DBEntities(string x)
             : base(x)
         {
         }
@@ -42,7 +42,7 @@ namespace PhamaceyDataBase
         public virtual DbSet<T_Roles> T_Roles { get; set; }
         public virtual DbSet<T_Store_Move> T_Store_Move { get; set; }
         public virtual DbSet<T_Store_Placees> T_Store_Placees { get; set; }
-        public virtual DbSet<T_System_Record> T_System_Record { get; set; }
         public virtual DbSet<T_Users> T_Users { get; set; }
+        public virtual DbSet<T_System_Record> T_System_Record { get; set; }
     }
 }

@@ -95,9 +95,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\C_Add_System_record.cs" />
     <Compile Include="Classes\C_DB.cs" />
     <Compile Include="Classes\C_Exeption.cs" />
     <Compile Include="Classes\C_GC_Page_Nav.cs" />
+    <Compile Include="Classes\C_Local_User.cs" />
     <Compile Include="Classes\C_Master.cs" />
     <Compile Include="Classes\C_Page_Maneger.cs" />
     <Compile Include="Classes\C_Regestery.cs" />
@@ -251,6 +253,12 @@
     <Compile Include="Forms\Setting_Forms\F_Server_Setting.Designer.cs">
       <DependentUpon>F_Server_Setting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Setting_Forms\F_System_Record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setting_Forms\F_System_Record.Designer.cs">
+      <DependentUpon>F_System_Record.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Setting_Forms\F_System_Setting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,6 +342,24 @@
     </Compile>
     <Compile Include="Forms\Store_Other_Forms\F_Store_Move.Designer.cs">
       <DependentUpon>F_Store_Move.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User_Forms\F_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User_Forms\F_Login.Designer.cs">
+      <DependentUpon>F_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User_Forms\F_Permitions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User_Forms\F_Permitions.Designer.cs">
+      <DependentUpon>F_Permitions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User_Forms\F_User_Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User_Forms\F_User_Add.Designer.cs">
+      <DependentUpon>F_User_Add.cs</DependentUpon>
     </Compile>
     <Compile Include="F_Main.cs">
       <SubType>Form</SubType>
@@ -439,6 +465,9 @@
     <EmbeddedResource Include="Forms\Setting_Forms\F_Server_Setting.resx">
       <DependentUpon>F_Server_Setting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setting_Forms\F_System_Record.resx">
+      <DependentUpon>F_System_Record.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Setting_Forms\F_System_Setting.resx">
       <DependentUpon>F_System_Setting.cs</DependentUpon>
     </EmbeddedResource>
@@ -478,6 +507,12 @@
     <EmbeddedResource Include="Forms\Store_Other_Forms\F_Store_Move.resx">
       <DependentUpon>F_Store_Move.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User_Forms\F_Login.resx">
+      <DependentUpon>F_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User_Forms\F_User_Add.resx">
+      <DependentUpon>F_User_Add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_Main.resx">
       <DependentUpon>F_Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -502,6 +537,7 @@
     </Compile>
     <None Include="Properties\DataSources\PhamaceyDataBase.T_OPeration_IN.datasource" />
     <None Include="Properties\DataSources\PhamaceyDataBase.T_test.datasource" />
+    <None Include="Properties\DataSources\PhamaceyDataBase.T_Users1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

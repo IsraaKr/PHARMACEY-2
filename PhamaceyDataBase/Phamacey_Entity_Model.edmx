@@ -197,6 +197,8 @@
           <Property Name="Device_name" Type="nvarchar(max)" />
           <Property Name="Mac_Id" Type="nvarchar(max)" />
           <Property Name="Tiltle" Type="nvarchar(max)" />
+          <Property Name="tableName" Type="nvarchar(max)" />
+          <Property Name="op_name" Type="nvarchar(max)" />
           <Property Name="desicriptio" Type="nvarchar(max)" />
           <Property Name="created_date" Type="datetime" />
           <Property Name="User_id" Type="int" Nullable="false" />
@@ -641,7 +643,6 @@
           <EntitySet Name="T_Roles" EntityType="PHANACEY_DBModel.T_Roles" />
           <EntitySet Name="T_Store_Move" EntityType="PHANACEY_DBModel.T_Store_Move" />
           <EntitySet Name="T_Store_Placees" EntityType="PHANACEY_DBModel.T_Store_Placees" />
-          <EntitySet Name="T_System_Record" EntityType="PHANACEY_DBModel.T_System_Record" />
           <EntitySet Name="T_Users" EntityType="PHANACEY_DBModel.T_Users" />
           <AssociationSet Name="FK_T_Medician_T_Med_Category" Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Category">
             <End Role="T_Med_Category" EntitySet="T_Med_Category" />
@@ -735,6 +736,7 @@
             <End Role="T_Users" EntitySet="T_Users" />
             <End Role="T_Roles" EntitySet="T_Roles" />
           </AssociationSet>
+          <EntitySet Name="T_System_Record" EntityType="PHANACEY_DBModel.T_System_Record" />
           <AssociationSet Name="FK_T_System_Record_T_Users" Association="PHANACEY_DBModel.FK_T_System_Record_T_Users">
             <End Role="T_Users" EntitySet="T_Users" />
             <End Role="T_System_Record" EntitySet="T_System_Record" />
@@ -967,20 +969,6 @@
           <Property Name="groupe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="shufel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="T_OPeration_IN_Item" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_Med_Storage_Shape" FromRole="T_Store_Placees" ToRole="T_OPeration_IN_Item" />
-        </EntityType>
-        <EntityType Name="T_System_Record">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Full_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Device_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Mac_Id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Tiltle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="desicriptio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="created_date" Type="DateTime" Precision="3" />
-          <Property Name="User_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="T_Users" Relationship="PHANACEY_DBModel.FK_T_System_Record_T_Users" FromRole="T_System_Record" ToRole="T_Users" />
         </EntityType>
         <EntityType Name="T_Users">
           <Key>
@@ -1273,6 +1261,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="T_System_Record">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Full_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Device_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mac_Id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tiltle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tableName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="op_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="desicriptio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="User_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_Users" Relationship="PHANACEY_DBModel.FK_T_System_Record_T_Users" FromRole="T_System_Record" ToRole="T_Users" />
+        </EntityType>
         <Association Name="FK_T_System_Record_T_Users">
           <End Type="PHANACEY_DBModel.T_Users" Role="T_Users" Multiplicity="1" />
           <End Type="PHANACEY_DBModel.T_System_Record" Role="T_System_Record" Multiplicity="*" />
@@ -1491,20 +1495,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="T_System_Record">
-            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_System_Record">
-              <MappingFragment StoreEntitySet="T_System_Record">
-                <ScalarProperty Name="User_id" ColumnName="User_id" />
-                <ScalarProperty Name="created_date" ColumnName="created_date" />
-                <ScalarProperty Name="desicriptio" ColumnName="desicriptio" />
-                <ScalarProperty Name="Tiltle" ColumnName="Tiltle" />
-                <ScalarProperty Name="Mac_Id" ColumnName="Mac_Id" />
-                <ScalarProperty Name="Device_name" ColumnName="Device_name" />
-                <ScalarProperty Name="Full_name" ColumnName="Full_name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="T_Users">
             <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Users">
               <MappingFragment StoreEntitySet="T_Users">
@@ -1515,6 +1505,22 @@
                 <ScalarProperty Name="pass_word" ColumnName="pass_word" />
                 <ScalarProperty Name="user_name" ColumnName="user_name" />
                 <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_System_Record">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_System_Record">
+              <MappingFragment StoreEntitySet="T_System_Record">
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="desicriptio" ColumnName="desicriptio" />
+                <ScalarProperty Name="op_name" ColumnName="op_name" />
+                <ScalarProperty Name="tableName" ColumnName="tableName" />
+                <ScalarProperty Name="Tiltle" ColumnName="Tiltle" />
+                <ScalarProperty Name="Mac_Id" ColumnName="Mac_Id" />
+                <ScalarProperty Name="Device_name" ColumnName="Device_name" />
+                <ScalarProperty Name="Full_name" ColumnName="Full_name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

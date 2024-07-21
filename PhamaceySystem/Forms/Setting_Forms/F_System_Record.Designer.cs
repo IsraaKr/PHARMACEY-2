@@ -1,6 +1,7 @@
-﻿namespace PhamaceySystem.Forms.Store_Other_Forms
+﻿
+namespace PhamaceySystem.Forms.Setting_Forms
 {
-    partial class F_Store_Move
+    partial class F_System_Record
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +31,17 @@
         {
             this.SuspendLayout();
             // 
-            // F_Store_Move
+            // lbl_tiltle
+            // 
+            this.lbl_tiltle.Size = new System.Drawing.Size(800, 50);
+            // 
+            // F_System_Record
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 675);
-            this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "F_Store_Move";
-            this.Text = "F_Store_Move";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "F_System_Record";
+            this.Text = "F_System_Record";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -99,7 +99,6 @@ FROM         T_Store_Move left JOIN
 
         string having = @" ";
 
-        string where = "  ";
         public void GetStoragePlace_Data()
         {
             var place_list = (from Emp in cmdStorageplace.Get_All()

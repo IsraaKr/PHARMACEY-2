@@ -290,7 +290,7 @@ namespace PhamaceySystem.Forms.Store_Forms
                 number_of_errores += 1;
                 Med_idSearchlookupEdit.ErrorText = "هذا الحقل مطلوب";
             }
-            if(checkedComboBoxEdit_Store_Place.EditValue == "")
+            if(checkedComboBoxEdit_Store_Place.EditValue == string.Empty)
             {
                 number_of_errores += 1;
                 checkedComboBoxEdit_Store_Place.ErrorText = "هذا الحقل مطلوب";

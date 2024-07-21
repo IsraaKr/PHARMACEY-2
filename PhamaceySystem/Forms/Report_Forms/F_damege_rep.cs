@@ -90,7 +90,6 @@ FROM         T_OPeration_Damage INNER JOIN
 
         string having = @" ";
 
-        string where = "  ";
 
         public void GetEmp_Data()
         {

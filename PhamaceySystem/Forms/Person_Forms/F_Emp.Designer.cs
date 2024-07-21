@@ -71,8 +71,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 720);
             this.Name = "F_Emp";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.Text = "F_Emp";
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();

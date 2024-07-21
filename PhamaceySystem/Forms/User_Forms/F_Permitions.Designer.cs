@@ -1,6 +1,7 @@
-﻿namespace PhamaceySystem.Forms.Store_Other_Forms
+﻿
+namespace PhamaceySystem.Forms.User_Forms
 {
-    partial class F_Store_Move
+    partial class F_Permitions
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +29,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // F_Store_Move
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 675);
-            this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "F_Store_Move";
-            this.Text = "F_Store_Move";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "F_Permitions";
         }
 
         #endregion

@@ -19,6 +19,8 @@ namespace PhamaceyDataBase
         public string Device_name { get; set; }
         public string Mac_Id { get; set; }
         public string Tiltle { get; set; }
+        public string tableName { get; set; }
+        public string op_name { get; set; }
         public string desicriptio { get; set; }
         public Nullable<System.DateTime> created_date { get; set; }
         public int User_id { get; set; }

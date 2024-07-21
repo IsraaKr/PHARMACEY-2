@@ -91,7 +91,6 @@ FROM         T_OPeration_Out INNER JOIN
 
         string having = @" ";
 
-        string where = "  ";
         public void GetStoragePlace_Data()
         {
             var place_list = (from Emp in cmdStorageplace.Get_All()

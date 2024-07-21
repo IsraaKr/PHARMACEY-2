@@ -1,5 +1,6 @@
 ﻿using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
+using PhamaceySystem.Classes;
 using PhamaceySystem.Forms.Medicin_Forms;
 using PhamaceySystem.Forms.Person_Forms;
 using PhamaceySystem.Forms.Store_Other_Forms;
@@ -219,6 +220,8 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                 TF_OP_Dam = new T_OPeration_Damage();
                 Fill_Entitey_op();
                 cmdOpDam.Insert_Data(TF_OP_Dam);
+                C_Add_System_record.Add(tit, "إضافة", $" تم إضافة {tit}  برقم {TF_OP_Dam.dam_OP_id} ");
+
 
 
                 var max_id = cmdOpDam.Get_All().Where(c_id => c_id.dam_OP_id ==
@@ -237,8 +240,6 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
 
             Set_Auto_Id_op();
         }
-
-
         private void update_op()
         {
             if (Validate_Data_op())
@@ -246,6 +247,8 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                 Fill_Entitey_op();
                 Get_OP_Med_count_Data();
                 cmdOpDam.Update_Data(TF_OP_Dam);
+                C_Add_System_record.Add(tit, "تعديل", $" تم تعديل {tit}  برقم {TF_OP_Dam.dam_OP_id} ");
+
                 id_toUpdate = 0;
             }
 
@@ -299,6 +302,8 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             TF_OP_Dam_Item = new T_Operation_Damage_Item();
             Fill_Entitey_item();
             cmdOppDamItem.Insert_Data(TF_OP_Dam_Item);
+            C_Add_System_record.Add(" مادة لفاتورة اتلاف رقم" + TF_OP_Dam_Item.dmg_op_id , "إضافة", $" تم إضافة مادة لفاتورة اتلاف برقم {TF_OP_Dam_Item.dmg_item_id} ");
+
             var max_id = cmdOppDamItem.Get_All().Where(c_id => c_id.dmg_item_id ==
                         cmdOppDamItem.Get_All().Max(max => max.dmg_item_id)).FirstOrDefault();
             dam_item_idTextEdit.Text = max_id == null ? "1" : (max_id.dmg_item_id ).ToString();
@@ -314,6 +319,8 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
 
                         Fill_Entitey_item();
                         cmdOppDamItem.Update_Data(TF_OP_Dam_Item);
+                        C_Add_System_record.Add("مادة لفاتورة اتلاف ", "تعديل", $" تم تعديل {tit}  باسم {TF_OP_Dam.dam_OP_id} ");
+
                         old_item_id = Convert.ToInt32(dam_item_idTextEdit.Text.ToString().Replace(",", string.Empty));
                     }
                 }
@@ -338,6 +345,8 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                             {
                                 Get_Row_ID(row_id);
                                 cmdOppDamItem.Delete_Data(TF_OP_Dam_Item);
+                                C_Add_System_record.Add(tit, "حذف", $" تم حذف {tit}  باسم {TF_OP_Dam_Item.dmg_item_id} ");
+
                                 old_item_id = Convert.ToInt32(dam_item_idTextEdit.Text.ToString().Replace(",", string.Empty));
                                 return 1;
                             }

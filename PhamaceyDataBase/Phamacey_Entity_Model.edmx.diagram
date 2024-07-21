@@ -22,7 +22,6 @@
         <EntityTypeShape EntityType="PHANACEY_DBModel.T_Roles" Width="1.5" PointX="13" PointY="13.625" />
         <EntityTypeShape EntityType="PHANACEY_DBModel.T_Store_Move" Width="1.5" PointX="8.25" PointY="5.375" />
         <EntityTypeShape EntityType="PHANACEY_DBModel.T_Store_Placees" Width="1.5" PointX="3" PointY="2" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_System_Record" Width="1.5" PointX="13" PointY="10.125" />
         <EntityTypeShape EntityType="PHANACEY_DBModel.T_Users" Width="1.5" PointX="10.75" PointY="11.375" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Category" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Shape" />
@@ -47,6 +46,7 @@
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Recivers" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_Store_Move_T_OPeration_Type" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_Roles_T_Users" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_System_Record" Width="1.5" PointX="13" PointY="9.25" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_System_Record_T_Users" />
       </Diagram>
     </edmx:Diagrams>

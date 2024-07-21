@@ -48,7 +48,6 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         T_OPeration_Out_Item TF_OP_Out_Item;
         T_Operation_Damage_Item TF_OP_Dam_Item;
         T_Store_Move TF_Store_Move;
-        Boolean Is_Double_Click = false;
         int opp_type;
         int med_idd;
         int in_item_idd;
@@ -67,7 +66,6 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             try
             {
 //clear_data(this.Controls);
-                Is_Double_Click = false;
                 cmdMedician = new ClsCommander<T_Medician>();
                 TF_Medician = cmdMedician.Get_All().FirstOrDefault();
                 if (TF_Medician != null)
@@ -83,7 +81,6 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         }
         private int total_old()
         {
-            int x = 0;
             int old_qunt = 0;
             for (int i = 0; i < gv.RowCount; i++)
             {

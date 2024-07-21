@@ -32,7 +32,6 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         T_OPeration_Out TF_OPeration_out;
         Boolean Is_Double_Click = false;
         int id;
-        int row_to_show;
         public override void Get_Data(string status_mess)
         {
             try
