@@ -200,7 +200,7 @@ FROM         T_Store_Move left JOIN
         {
             gc.DataSource = null;
             gv.Columns.Clear();
-            dt = c_db.select(query);
+            dt = C_DB.Select(query);
             gc.DataSource = dt;
             gv_column_names();
             gv.ExpandAllGroups();

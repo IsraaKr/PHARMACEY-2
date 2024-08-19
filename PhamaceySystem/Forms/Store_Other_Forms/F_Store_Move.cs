@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Store_Other_Forms
 {
-    public partial class F_Store_Move : F_Master_Graid
+    public partial class F_Store_Move : F_Master_Grid
     {
         public F_Store_Move()
         {
@@ -73,7 +73,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         private void Fill_Graid_op()
         {
 
-            dt_op = c_db.select(@" SELECT     T_Store_Move.id,
+            dt_op = C_DB.Select(@" SELECT     T_Store_Move.id,
 T_OPeration_Type.OP_type_name ,
 T_Store_Move.date, 
 T_Store_Move.time, 

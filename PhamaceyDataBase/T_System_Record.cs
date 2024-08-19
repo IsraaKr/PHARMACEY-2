@@ -24,7 +24,5 @@ namespace PhamaceyDataBase
         public string desicriptio { get; set; }
         public Nullable<System.DateTime> created_date { get; set; }
         public int User_id { get; set; }
-    
-        public virtual T_Users T_Users { get; set; }
     }
 }

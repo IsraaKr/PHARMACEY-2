@@ -1,5 +1,6 @@
 ﻿using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
+using PhamaceySystem.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,6 +61,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                     TF_Med_unites = new T_Med_Unites();
                     Fill_Entitey();
                     cmdMedUnites.Insert_Data(TF_Med_unites);
+                    C_Add_System_record.Add(tit, "إضافة", $" تم إضافة {tit}  باسم {TF_Med_unites.name} ");
+
                     base.Insert_Data();
                     Get_Data("i");
                 }
@@ -81,6 +84,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
 
                         Fill_Entitey();
                         cmdMedUnites.Update_Data(TF_Med_unites);
+                        C_Add_System_record.Add(tit, "تعديل", $" تم تعديل {tit}  باسم {TF_Med_unites.name} ");
+
                         base.Update_Data();
                         Get_Data("u");
                     }
@@ -107,6 +112,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                             {
                                 Get_Row_ID(row_id);
                                 cmdMedUnites.Delete_Data(TF_Med_unites);
+                                C_Add_System_record.Add(tit, "حذف", $" تم حذف {tit}  باسم {TF_Med_unites.name} ");
+
                             }
                         base.Delete_Data();
                         Get_Data("d");
@@ -118,7 +125,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             }
             catch (Exception ex)
             {
-                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exception.FK_Exception))
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                 else
                     Get_Data(ex.InnerException.InnerException.ToString());

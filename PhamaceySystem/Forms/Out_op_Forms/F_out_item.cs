@@ -4,18 +4,13 @@ using PhamaceyDataBase.Commander;
 using PhamaceySystem.Forms.Store_Forms;
 using PhamaceySystem.Inheratenz_Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Out_op_Forms
 {
-    public partial class F_out_item : F_Master_Graid
+    public partial class F_out_item : F_Master_Grid
     {
         public F_out_item()
         {
@@ -23,7 +18,7 @@ namespace PhamaceySystem.Forms.Out_op_Forms
             Title(tit);
             this.Text = tit;
         }
-        public string tit = "مواد فواتير الإخراج"  ;
+        public string tit = "مواد فواتير الإخراج";
 
         ClsCommander<T_OPeration_Out_Item> cmdOutItem = new ClsCommander<T_OPeration_Out_Item>();
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
@@ -33,8 +28,7 @@ namespace PhamaceySystem.Forms.Out_op_Forms
         Boolean Is_Double_Click = false;
         int id;
         int op_id;
-        //  int row_to_show;
-        public override void Get_Data(string status_mess)
+        int med_id; public override void Get_Data(string status_mess)
         {
             try
             {
@@ -102,6 +96,7 @@ namespace PhamaceySystem.Forms.Out_op_Forms
                             {
                                 Get_Row_ID(row_id);
                                 cmdOutItem.Delete_Data(TF_out_Item);
+                                Classes.C_Add_System_record.Add(tit, "حذف", $" تم حذف {tit}  بالرقم {med_id} بكمية {TF_out_Item.out_item_quntity} من الفاتورة {op_id}");
 
                             }
                             base.Delete_Data();
@@ -114,7 +109,7 @@ namespace PhamaceySystem.Forms.Out_op_Forms
             }
             catch (Exception ex)
             {
-                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exception.FK_Exception))
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                 else
                     Get_Data(ex.InnerException.InnerException.ToString());
@@ -154,10 +149,10 @@ namespace PhamaceySystem.Forms.Out_op_Forms
                             id = med.in_item_id,
                             med_id = med.Med_id,
                             med_name = yyy.med_name,
-                            shape=sss.med_shape_name,
+                            shape = sss.med_shape_name,
                             qun = med.out_item_quntity,
-                           in_item_id = med.in_item_id,
-                op_i=med.out_op_id
+                            out_item_id = med.out_op_id,
+                            op_i = med.out_op_id
                         }).OrderBy(l_id => l_id.id).ToList();
             if (data != null && data.Count > 0)
             {
@@ -182,10 +177,10 @@ namespace PhamaceySystem.Forms.Out_op_Forms
 
             if (gv.Columns[4].Summary.Count == 0)
             {
-          
+
                 gv.OptionsView.ShowFooter = true;
-            gv.Columns[4].Summary.Add(DevExpress.Data.SummaryItemType.Sum, gv.Columns[4].FieldName.ToString(), "المجموع = {0}");
-            gv.Columns[2].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[2].FieldName.ToString(), "عدد المواد = {0}");
+                gv.Columns[4].Summary.Add(DevExpress.Data.SummaryItemType.Sum, gv.Columns[4].FieldName.ToString(), "المجموع = {0}");
+                gv.Columns[2].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[2].FieldName.ToString(), "عدد المواد = {0}");
             }
             if (gv.GroupSummary.Count == 0)
             {
@@ -207,6 +202,7 @@ namespace PhamaceySystem.Forms.Out_op_Forms
                 id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString());
                 TF_out_Item = cmdOutItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
                 op_id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[5]).ToString());
+                med_id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[1]).ToString());
 
             }
             else
@@ -214,6 +210,7 @@ namespace PhamaceySystem.Forms.Out_op_Forms
                 id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString());
                 TF_out_Item = cmdOutItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
                 op_id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[5]).ToString());
+                med_id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[1]).ToString());
 
             }
         }

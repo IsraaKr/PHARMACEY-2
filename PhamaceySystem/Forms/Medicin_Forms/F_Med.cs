@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PhamaceySystem.Forms.Store_Forms;
+using PhamaceySystem.Classes;
 
 namespace PhamaceySystem.Forms.Medicin_Forms
 {
@@ -86,6 +87,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                         TF_Medician = new T_Medician();
                         Fill_Entitey();
                         cmdMedician.Insert_Data(TF_Medician);
+                        C_Add_System_record.Add(tit, "إضافة", $" تم إضافة {tit}  باسم {TF_Medician.med_name} ");
+
                         base.Insert_Data();
                         Get_Data("i");
                        
@@ -94,6 +97,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                     {
                         Fill_Entitey();
                         cmdMedician.Update_Data(TF_Medician);
+                        C_Add_System_record.Add(tit, "تعديل", $" تم تعديل {tit}  باسم {TF_Medician.med_name} ");
+
                         base.Update_Data();
                         Get_Data("u");
                     }

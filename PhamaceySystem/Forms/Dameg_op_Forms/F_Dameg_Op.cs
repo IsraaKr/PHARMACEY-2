@@ -36,14 +36,14 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             this.Text = tit;
             view_inheretanz_butomes(true, true, false, false, false, true,true);
         }
-        ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
-        ClsCommander<T_Pers_Emploee> cmdEmp = new ClsCommander<T_Pers_Emploee>();
-        ClsCommander<T_OPeration_Damage> cmdOpDam = new ClsCommander<T_OPeration_Damage>();
-        ClsCommander<T_Operation_Damage_Item> cmdOppDamItem = new ClsCommander<T_Operation_Damage_Item>();
-        ClsCommander<T_OPeration_IN_Item> cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
-        ClsCommander<T_Store_Move> cmdStoreMove = new ClsCommander<T_Store_Move>();
-        ClsCommander<T_Med_Shape> cmdShape = new ClsCommander<T_Med_Shape>();
-        ClsCommander<T_Store_Placees> cmdStorageplace = new ClsCommander<T_Store_Placees>();
+ ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
+  ClsCommander<T_Pers_Emploee> cmdEmp = new ClsCommander<T_Pers_Emploee>();
+  ClsCommander<T_OPeration_Damage> cmdOpDam = new ClsCommander<T_OPeration_Damage>();
+  ClsCommander<T_Operation_Damage_Item> cmdOppDamItem = new ClsCommander<T_Operation_Damage_Item>();
+  ClsCommander<T_OPeration_IN_Item> cmdOpInItem = new ClsCommander<T_OPeration_IN_Item>();
+  ClsCommander<T_Store_Move> cmdStoreMove = new ClsCommander<T_Store_Move>();
+  ClsCommander<T_Med_Shape> cmdShape = new ClsCommander<T_Med_Shape>();
+  ClsCommander<T_Store_Placees> cmdStorageplace = new ClsCommander<T_Store_Placees>();
 
         T_OPeration_IN_Item TF_OPeration_IN_Item;
         T_OPeration_Damage TF_OP_Dam;
@@ -52,7 +52,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         T_Store_Move TF_Store_Move;
 
         int is_op_insert = 0;
-        DateTime d = DateTime.Now;
+  readonly      DateTime d = DateTime.Now;
         int id_toUpdate = 0;
         Boolean Is_Double_Click = false;
         int med_id_chose = 0;
@@ -60,6 +60,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         int old_med_id;
         int old_item_id = 0;
         int old_IN_item_id = 0;
+        int old_dam_op = 0;
         DataTable dt;
         public override void Get_Data(string status_mess)
         {
@@ -76,7 +77,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                 dtp_op_time.CalendarMonthBackground = dam_op_dateDateEdit.BackColor;
 
                 Is_Double_Click = false;
-                btn_visible(false);
+                Btn_visible(false);
 
                 cmdMedician = new ClsCommander<T_Medician>();
                 cmdMedician = new ClsCommander<T_Medician>();
@@ -112,7 +113,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             }
 
         }
-        private void btn_visible(bool states)
+        private void Btn_visible(bool states)
         {
             if (states)
             {
@@ -143,6 +144,8 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                 else
                 {
                     update_op();
+                   Classes. C_Add_System_record.Add(tit, "تعديل", $" تم تعديل {tit}  برقم {TF_OP_Dam.dam_OP_id} ");
+
                 }
 
             }
@@ -168,7 +171,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             gc.DataSource = null;
             gv.Columns.Clear(); 
             btn_add_item.Enabled = true;
-            clear_op();
+            Clear_op();
             clear_item();
         }
 
@@ -211,7 +214,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             emp_idSearchLookUpEdit.EditValue = TF_OP_Dam.emp_id;
 
         }
-        public void insert_op()
+        public void Insert_op()
         {
             var check = cmdOpDam.Get_All().Where(x => x.dam_OP_id == Convert.ToInt32(dam_op_idTextEdit.Text)).FirstOrDefault();
             if (check == null)
@@ -220,7 +223,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                 TF_OP_Dam = new T_OPeration_Damage();
                 Fill_Entitey_op();
                 cmdOpDam.Insert_Data(TF_OP_Dam);
-                C_Add_System_record.Add(tit, "إضافة", $" تم إضافة {tit}  برقم {TF_OP_Dam.dam_OP_id} ");
+             Classes.   C_Add_System_record.Add(tit, "إضافة", $" تم إضافة {tit}  برقم {TF_OP_Dam.dam_OP_id} ");
 
 
 
@@ -229,7 +232,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                 dam_op_idTextEdit.Text = max_id.dam_OP_id.ToString();
             }
         }
-        private void clear_op()
+        private void Clear_op()
         {
             dam_op_dateDateEdit.DateTime = DateTime.Today;
             dam_op_textTextEdit.Text = string.Empty;
@@ -247,7 +250,6 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                 Fill_Entitey_op();
                 Get_OP_Med_count_Data();
                 cmdOpDam.Update_Data(TF_OP_Dam);
-                C_Add_System_record.Add(tit, "تعديل", $" تم تعديل {tit}  برقم {TF_OP_Dam.dam_OP_id} ");
 
                 id_toUpdate = 0;
             }
@@ -297,12 +299,12 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             TF_OP_Dam_Item.dmg_op_id = Convert.ToInt32(dam_op_idTextEdit.Text);
             TF_OP_Dam_Item.in_item_id = int.Parse(dt.Rows[0][8].ToString().ToString());
         }
-        public void insert_item()
+        public void Insert_item()
         {
             TF_OP_Dam_Item = new T_Operation_Damage_Item();
             Fill_Entitey_item();
             cmdOppDamItem.Insert_Data(TF_OP_Dam_Item);
-            C_Add_System_record.Add(" مادة لفاتورة اتلاف رقم" + TF_OP_Dam_Item.dmg_op_id , "إضافة", $" تم إضافة مادة لفاتورة اتلاف برقم {TF_OP_Dam_Item.dmg_item_id} ");
+         Classes.   C_Add_System_record.Add(tit, "إضافة", $" تم إضافة {tit}  بالرقم {TF_OP_Dam_Item.Med_id} بكمية {TF_OP_Dam_Item.dmg_item_quntity} من الفاتورة {TF_OP_Dam_Item.dmg_op_id}");
 
             var max_id = cmdOppDamItem.Get_All().Where(c_id => c_id.dmg_item_id ==
                         cmdOppDamItem.Get_All().Max(max => max.dmg_item_id)).FirstOrDefault();
@@ -319,7 +321,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
 
                         Fill_Entitey_item();
                         cmdOppDamItem.Update_Data(TF_OP_Dam_Item);
-                        C_Add_System_record.Add("مادة لفاتورة اتلاف ", "تعديل", $" تم تعديل {tit}  باسم {TF_OP_Dam.dam_OP_id} ");
+                     Classes.   C_Add_System_record.Add(tit, "تعديل", $" تم تعديل {tit}  بالرقم {TF_OP_Dam_Item.Med_id} بكمية {TF_OP_Dam_Item.dmg_item_quntity} من الفاتورة {TF_OP_Dam_Item.dmg_op_id}");
 
                         old_item_id = Convert.ToInt32(dam_item_idTextEdit.Text.ToString().Replace(",", string.Empty));
                     }
@@ -345,7 +347,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                             {
                                 Get_Row_ID(row_id);
                                 cmdOppDamItem.Delete_Data(TF_OP_Dam_Item);
-                                C_Add_System_record.Add(tit, "حذف", $" تم حذف {tit}  باسم {TF_OP_Dam_Item.dmg_item_id} ");
+                             Classes.   C_Add_System_record.Add(tit, "حذف", $" تم حذف {tit}  بالرقم {old_med_id} بكمية {TF_OP_Dam_Item.dmg_item_quntity} من الفاتورة {old_dam_op}");
 
                                 old_item_id = Convert.ToInt32(dam_item_idTextEdit.Text.ToString().Replace(",", string.Empty));
                                 return 1;
@@ -368,7 +370,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             }
             catch (Exception ex)
             {
-                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exception.FK_Exception))
                 {
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                     cmdOpDam.Detached_Data(TF_OP_Dam);
@@ -395,7 +397,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         {
             int id = Convert.ToInt32(dam_op_idTextEdit.Text);
 
-            DataTable data_source = c_db.select(@"SELECT     T_Operation_Damage_Item.dmg_item_id,
+            DataTable data_source = C_DB.Select(@"SELECT     T_Operation_Damage_Item.dmg_item_id,
 T_Operation_Damage_Item.Med_id, T_Medician.med_code, T_Medician.med_name, T_Med_Shape.med_shape_name, 
                       T_Operation_Damage_Item.dmg_item_quntity, T_Operation_Damage_Item.in_item_id, T_OPeration_IN_Item.in_item_expDate, T_OPeration_IN_Item.store_place_id, 
                       T_Store_Placees.name
@@ -569,7 +571,7 @@ FROM         T_Operation_Damage_Item INNER JOIN
 //            //                    name = Emp.med_name
 //            //                }).OrderBy(id => id.id);
 
-//           DataTable med_list = c_db.select(@"SELECT     T_OPeration_IN_Item.Med_id, T_Medician.med_name, T_Med_Shape.med_shape_name, T_Medician.med_total_now, T_OPeration_IN_Item.in_item_expDate
+//           DataTable med_list = C_DB.select(@"SELECT     T_OPeration_IN_Item.Med_id, T_Medician.med_name, T_Med_Shape.med_shape_name, T_Medician.med_total_now, T_OPeration_IN_Item.in_item_expDate
 //FROM         T_OPeration_IN_Item INNER JOIN
 //                      T_Medician ON T_OPeration_IN_Item.Med_id = T_Medician.med_id left JOIN
 //                      T_Med_Shape ON T_Medician.med_shape_id = T_Med_Shape.med_shape_id
@@ -685,7 +687,7 @@ on Emp.med_shape_id equals shape.med_shape_id into slist
                 {
                     if (is_op_insert == 0 && Validate_Data_op())
                     {
-                        insert_op();
+                        Insert_op();
 
                         //  int item_in_id = Convert.ToInt32(filter_date_searchLookUpEdit.EditValue);
                         int out_op_id = Convert.ToInt32(dam_op_idTextEdit.Text);
@@ -723,7 +725,7 @@ on Emp.med_shape_id equals shape.med_shape_id into slist
         }
         private void get_info_store_med(int med_idd)
         {
-            //            dt = c_db.select(@"SELECT    T_Medician.med_name,
+            //            dt = C_DB.select(@"SELECT    T_Medician.med_name,
             //                                         T_OPeration_IN_Item.in_item_quntity, 
             //                             T_OPeration_IN_Item.out_item_quntitey,
             //                            T_OPeration_IN_Item.in_item_expDate, 
@@ -750,7 +752,7 @@ on Emp.med_shape_id equals shape.med_shape_id into slist
             //                dtp_exp_date.Text = dt.Rows[0][3].ToString();
             //                placeTextEdit2.Text = dt.Rows[0][4].ToString();
 
-            dt = c_db.select(@"SELECT     T_Medician.med_name,
+            dt = C_DB.Select(@"SELECT     T_Medician.med_name,
 T_Med_Shape.med_shape_name,
 T_OPeration_IN_Item.in_item_quntity, 
 T_OPeration_IN_Item.out_item_quntitey, 
@@ -841,7 +843,7 @@ WHERE     (T_OPeration_IN_Item.in_item_id  =  " + old_IN_item_id + ") AND (T_Med
         {
             Is_Double_Click = true;
             btn_add_item.Enabled = false;
-            btn_visible(true);
+            Btn_visible(true);
             gv.SelectRow(gv.FocusedRowHandle);
             Get_Row_ID(0);
             if (TF_OP_Dam_Item != null)
@@ -854,6 +856,8 @@ WHERE     (T_OPeration_IN_Item.in_item_id  =  " + old_IN_item_id + ") AND (T_Med
                 old_med_Quntitey = Convert.ToInt32(dam_item_quntityTextEdit1.Text.ToString().Replace(",", string.Empty));
                 dam_item_quntityTextEdit1.Enabled = false;
                 Med_idSearchlookupEdit.Enabled = false;
+         old_dam_op = Convert.ToInt32(dam_op_idTextEdit.Text.ToString().Replace(",", string.Empty));
+
             }
         }
         private void gv_KeyDown(object sender, KeyEventArgs e)
@@ -864,7 +868,7 @@ WHERE     (T_OPeration_IN_Item.in_item_id  =  " + old_IN_item_id + ") AND (T_Med
         private void gv_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
             Is_Double_Click = true;
-            btn_visible(true);
+            Btn_visible(true);
 
         }
         private void Get_Row_ID(int Row_Id)
@@ -893,9 +897,9 @@ WHERE     (T_OPeration_IN_Item.in_item_id  =  " + old_IN_item_id + ") AND (T_Med
             else if (Validate_Data_op() && Validate_Data_item())
             {
                 if (is_op_insert == 0 && Validate_Data_op())
-                    insert_op();
+                    Insert_op();
                 if (Validate_Data_item())
-                    insert_item();
+                    Insert_item();
                 Fill_Graid_item();
                 update_In_item_with_Add();
                 Get_Add_med_count();
@@ -933,7 +937,7 @@ WHERE     (T_OPeration_IN_Item.in_item_id  =  " + old_IN_item_id + ") AND (T_Med
             GetMed_Data();
             Get_Delete_move();
             update_op();
-            btn_visible(false);
+            Btn_visible(false);
             }
             clear_item();
             Fill_Graid_item();
@@ -946,7 +950,7 @@ WHERE     (T_OPeration_IN_Item.in_item_id  =  " + old_IN_item_id + ") AND (T_Med
             old_med_id = 0;
             old_med_Quntitey = 0;
             old_IN_item_id = 0;
-            btn_visible(false);
+            Btn_visible(false);
 
         }
 

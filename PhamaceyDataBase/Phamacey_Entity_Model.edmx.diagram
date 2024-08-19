@@ -46,8 +46,7 @@
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Recivers" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_Store_Move_T_OPeration_Type" />
         <AssociationConnector Association="PHANACEY_DBModel.FK_T_Roles_T_Users" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_System_Record" Width="1.5" PointX="13" PointY="9.25" />
-        <AssociationConnector Association="PHANACEY_DBModel.FK_T_System_Record_T_Users" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_System_Record" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

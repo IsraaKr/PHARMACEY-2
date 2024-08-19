@@ -31,7 +31,8 @@ namespace PhamaceySystem.Forms.User_Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_Login));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox_RemempperMe = new System.Windows.Forms.CheckBox();
+            this.checkBox_ShowPassword = new System.Windows.Forms.CheckBox();
             this.btn_new_user = new DevExpress.XtraEditors.SimpleButton();
             this.btn_cancel = new DevExpress.XtraEditors.SimpleButton();
             this.btn_login = new DevExpress.XtraEditors.SimpleButton();
@@ -52,7 +53,8 @@ namespace PhamaceySystem.Forms.User_Forms
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.checkBox1);
+            this.panel1.Controls.Add(this.checkBox_RemempperMe);
+            this.panel1.Controls.Add(this.checkBox_ShowPassword);
             this.panel1.Controls.Add(this.btn_new_user);
             this.panel1.Controls.Add(this.btn_cancel);
             this.panel1.Controls.Add(this.btn_login);
@@ -66,23 +68,34 @@ namespace PhamaceySystem.Forms.User_Forms
             this.panel1.Size = new System.Drawing.Size(463, 375);
             this.panel1.TabIndex = 10;
             // 
-            // checkBox1
+            // checkBox_RemempperMe
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(178, 280);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox1.Size = new System.Drawing.Size(106, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "عرض كلمة المرور";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox_RemempperMe.AutoSize = true;
+            this.checkBox_RemempperMe.Location = new System.Drawing.Point(141, 277);
+            this.checkBox_RemempperMe.Name = "checkBox_RemempperMe";
+            this.checkBox_RemempperMe.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBox_RemempperMe.Size = new System.Drawing.Size(59, 17);
+            this.checkBox_RemempperMe.TabIndex = 11;
+            this.checkBox_RemempperMe.Text = "تذكرني";
+            this.checkBox_RemempperMe.UseVisualStyleBackColor = true;
+            this.checkBox_RemempperMe.CheckedChanged += new System.EventHandler(this.checkBox_RemempperMe_CheckedChanged);
+            // 
+            // checkBox_ShowPassword
+            // 
+            this.checkBox_ShowPassword.AutoSize = true;
+            this.checkBox_ShowPassword.Location = new System.Drawing.Point(235, 277);
+            this.checkBox_ShowPassword.Name = "checkBox_ShowPassword";
+            this.checkBox_ShowPassword.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBox_ShowPassword.Size = new System.Drawing.Size(106, 17);
+            this.checkBox_ShowPassword.TabIndex = 4;
+            this.checkBox_ShowPassword.Text = "عرض كلمة المرور";
+            this.checkBox_ShowPassword.UseVisualStyleBackColor = true;
+            this.checkBox_ShowPassword.CheckedChanged += new System.EventHandler(this.checkBox_ShowPassword_CheckedChanged);
             // 
             // btn_new_user
             // 
-            this.btn_new_user.Appearance.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_new_user.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_new_user.Appearance.ForeColor = System.Drawing.Color.White;
-            this.btn_new_user.Appearance.Options.UseBackColor = true;
+            this.btn_new_user.Appearance.ForeColor = System.Drawing.Color.Black;
             this.btn_new_user.Appearance.Options.UseFont = true;
             this.btn_new_user.Appearance.Options.UseForeColor = true;
             this.btn_new_user.Location = new System.Drawing.Point(178, 338);
@@ -91,13 +104,12 @@ namespace PhamaceySystem.Forms.User_Forms
             this.btn_new_user.TabIndex = 10;
             this.btn_new_user.Text = "مستخدم جديد";
             this.btn_new_user.Visible = false;
+            this.btn_new_user.Click += new System.EventHandler(this.btn_new_user_Click);
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Appearance.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_cancel.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancel.Appearance.ForeColor = System.Drawing.Color.White;
-            this.btn_cancel.Appearance.Options.UseBackColor = true;
+            this.btn_cancel.Appearance.ForeColor = System.Drawing.Color.Black;
             this.btn_cancel.Appearance.Options.UseFont = true;
             this.btn_cancel.Appearance.Options.UseForeColor = true;
             this.btn_cancel.Location = new System.Drawing.Point(105, 300);
@@ -105,13 +117,12 @@ namespace PhamaceySystem.Forms.User_Forms
             this.btn_cancel.Size = new System.Drawing.Size(125, 32);
             this.btn_cancel.TabIndex = 3;
             this.btn_cancel.Text = "إلغاء";
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_login
             // 
-            this.btn_login.Appearance.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_login.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_login.Appearance.ForeColor = System.Drawing.Color.White;
-            this.btn_login.Appearance.Options.UseBackColor = true;
+            this.btn_login.Appearance.ForeColor = System.Drawing.Color.Black;
             this.btn_login.Appearance.Options.UseFont = true;
             this.btn_login.Appearance.Options.UseForeColor = true;
             this.btn_login.Location = new System.Drawing.Point(235, 300);
@@ -119,6 +130,7 @@ namespace PhamaceySystem.Forms.User_Forms
             this.btn_login.Size = new System.Drawing.Size(125, 32);
             this.btn_login.TabIndex = 2;
             this.btn_login.Text = "تسجيل الدخول";
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
             // txt_password
             // 
@@ -128,6 +140,7 @@ namespace PhamaceySystem.Forms.User_Forms
             this.txt_password.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txt_password.Size = new System.Drawing.Size(298, 20);
             this.txt_password.TabIndex = 1;
+            this.txt_password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_password_KeyPress);
             // 
             // label2
             // 
@@ -152,9 +165,9 @@ namespace PhamaceySystem.Forms.User_Forms
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(141, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(81, 1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(180, 168);
+            this.pictureBox1.Size = new System.Drawing.Size(298, 168);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -166,6 +179,7 @@ namespace PhamaceySystem.Forms.User_Forms
             this.txt_username.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txt_username.Size = new System.Drawing.Size(298, 20);
             this.txt_username.TabIndex = 0;
+            this.txt_username.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_username_KeyPress);
             // 
             // panel2
             // 
@@ -199,6 +213,7 @@ namespace PhamaceySystem.Forms.User_Forms
             this.Name = "F_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.F_Login_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_password.Properties)).EndInit();
@@ -213,7 +228,7 @@ namespace PhamaceySystem.Forms.User_Forms
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox_ShowPassword;
         private DevExpress.XtraEditors.SimpleButton btn_new_user;
         private DevExpress.XtraEditors.SimpleButton btn_cancel;
         private DevExpress.XtraEditors.SimpleButton btn_login;
@@ -224,5 +239,6 @@ namespace PhamaceySystem.Forms.User_Forms
         private DevExpress.XtraEditors.TextEdit txt_username;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkBox_RemempperMe;
     }
 }

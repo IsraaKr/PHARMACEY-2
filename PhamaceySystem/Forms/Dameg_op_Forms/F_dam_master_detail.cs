@@ -108,7 +108,7 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
             }
             catch (Exception ex)
             {
-                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exception.FK_Exception))
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                 else
                     Get_Data(ex.InnerException.InnerException.ToString());
@@ -128,7 +128,7 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
         private void Fill_Graid_op()
         {
 
-            dt_op = c_db.select(@"SELECT     T_OPeration_Damage.dam_OP_id,
+            dt_op = C_DB.Select(@"SELECT     T_OPeration_Damage.dam_OP_id,
 T_OPeration_Damage.dam_op_date,
 T_OPeration_Damage.dam_op_time,
 T_OPeration_Damage.dam_op_text, 
@@ -158,7 +158,7 @@ FROM         T_OPeration_Damage INNER JOIN
 
         private void Fill_Graid_item()
         {
-            dt_item = c_db.select(@" SELECT     T_Operation_Damage_Item.dmg_item_id, T_Medician.med_name, T_Operation_Damage_Item.dmg_item_quntity, T_Store_Placees.name, 
+            dt_item = C_DB.Select(@" SELECT     T_Operation_Damage_Item.dmg_item_id, T_Medician.med_name, T_Operation_Damage_Item.dmg_item_quntity, T_Store_Placees.name, 
                       T_Operation_Damage_Item.dmg_op_id
 FROM         T_Operation_Damage_Item INNER JOIN
                       T_OPeration_Damage ON T_Operation_Damage_Item.dmg_op_id = T_OPeration_Damage.dam_OP_id INNER JOIN

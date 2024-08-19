@@ -1,6 +1,6 @@
 ﻿namespace PhamaceySystem.Inheratenz_Forms
 {
-    partial class F_Master_Graid
+    partial class F_Master_Grid
     {
         /// <summary>
         /// Required designer variable.

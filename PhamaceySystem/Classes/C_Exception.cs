@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace PhamaceySystem.Classes
 {
-   public class C_Exeption
+    class C_Exception
     {
-        public static string FK_Exeption = "constraint";//Statement conflicted with REFERENCE 
+        public static string FK_Exception = "constraint";//Statement conflicted with REFERENCE 
     }
 }

@@ -1,6 +1,7 @@
 ﻿using DevExpress.Data;
 using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
+using PhamaceySystem.Classes;
 using PhamaceySystem.Forms.Medicin_Forms;
 using PhamaceySystem.Forms.Store_Forms;
 using PhamaceySystem.Forms.Store_OP_Forms;
@@ -17,7 +18,7 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Store_Other_Forms
 {
-    public partial class F_Store_Graid : F_Master_Graid
+    public partial class F_Store_Graid : F_Master_Grid
     {
         public F_Store_Graid()
         {
@@ -104,6 +105,8 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                             {
                                 Get_Row_ID(row_id);
                                 cmdMed.Delete_Data(TF_Med);
+                                C_Add_System_record.Add(tit, "حذف", $" تم حذف {tit}  باسم {TF_Med.med_name} ");
+
 
                             }
                             base.Delete_Data();
@@ -116,7 +119,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             }
             catch (Exception ex)
             {
-                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exception.FK_Exception))
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                 else
                     Get_Data(ex.InnerException.InnerException.ToString());

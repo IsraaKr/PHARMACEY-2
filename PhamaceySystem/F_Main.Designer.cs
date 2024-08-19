@@ -34,66 +34,66 @@
             this.xtc = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
-            this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem39 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup21 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage_Setting = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup_users = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem_Login = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Users = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup_system = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem_System_Record = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_System_Seting = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_DB = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup_Them = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
-            this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem21 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem23 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem29 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem37 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem38 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem28 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem31 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup18 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem27 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem30 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem32 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem33 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem25 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem34 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem35 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage_Thwabet = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup_Thwabet_Store = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem_Store_Place = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup_Thwabet_Med = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem_Med_Shape = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Med_Categorey = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Med_Unites = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup_Thwabet_Pepole = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem_Doners = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Emp = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_reciver = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage_Report = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup_Rep_Store = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem_RepIn = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_RepOut = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Rep_dam = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup_Rep_Total = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem_Rep_Month = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Rep_In_form = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage_Store = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup_in = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem_InOP = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_In_Fwater = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_In_Item = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_In_Fwater_And_Item = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup_out = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem_OutOp = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Out_Fwater = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_out_Item = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Out_Fwater_And_Item = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup_Dam = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem_damOP = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Dam_Fwater = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Dam_Item = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Dam_Fwater_And_Item = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup_Store = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem_Store_Med = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Store_Move = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_EXpDate = new DevExpress.XtraBars.BarButtonItem();
             this.bar_exp_date = new DevExpress.XtraBars.BarStaticItem();
             this.barButtonItem36 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem26 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage_Main = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup_Med = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem_Add_Med = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Med_Grid = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Min_Med = new DevExpress.XtraBars.BarButtonItem();
             this.bar_med_min = new DevExpress.XtraBars.BarStaticItem();
             this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
@@ -118,7 +118,7 @@
             this.xtc.MdiParent = this;
             this.xtc.UseDocumentSelector = DevExpress.Utils.DefaultBoolean.False;
             this.xtc.UseFormIconAsPageImage = DevExpress.Utils.DefaultBoolean.False;
-            this.xtc.SelectedPageChanged += new System.EventHandler(this.xtc_SelectedPageChanged);
+            this.xtc.SelectedPageChanged += new System.EventHandler(this.Xtc_SelectedPageChanged);
             // 
             // barStaticItem1
             // 
@@ -168,85 +168,82 @@
             this.barStaticItem2.ShowImageInToolbar = false;
             this.barStaticItem2.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // ribbonPage4
+            // ribbonPage_Setting
             // 
-            this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup4,
-            this.ribbonPageGroup11,
-            this.ribbonPageGroup21});
-            this.ribbonPage4.Name = "ribbonPage4";
-            this.ribbonPage4.Text = "الإعدادت";
+            this.ribbonPage_Setting.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup_users,
+            this.ribbonPageGroup_system,
+            this.ribbonPageGroup_Them});
+            this.ribbonPage_Setting.Name = "ribbonPage_Setting";
+            this.ribbonPage_Setting.Text = "الإعدادت";
             // 
-            // ribbonPageGroup4
+            // ribbonPageGroup_users
             // 
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem12);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem13);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem14);
-            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "المستخدمين";
+            this.ribbonPageGroup_users.ItemLinks.Add(this.barButtonItem_Login);
+            this.ribbonPageGroup_users.ItemLinks.Add(this.barButtonItem_Users);
+            this.ribbonPageGroup_users.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup_users.Name = "ribbonPageGroup_users";
+            this.ribbonPageGroup_users.Text = "المستخدمين";
             // 
-            // barButtonItem12
+            // barButtonItem_Login
             // 
-            this.barButtonItem12.Caption = "تسجيل الدخول";
-            this.barButtonItem12.Id = 12;
-            this.barButtonItem12.Name = "barButtonItem12";
+            this.barButtonItem_Login.Caption = "تسجيل الدخول";
+            this.barButtonItem_Login.Id = 12;
+            this.barButtonItem_Login.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Login.ImageOptions.Image")));
+            this.barButtonItem_Login.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Login.ImageOptions.LargeImage")));
+            this.barButtonItem_Login.Name = "barButtonItem_Login";
+            this.barButtonItem_Login.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BarButtonItem12_ItemClick);
             // 
-            // barButtonItem13
+            // barButtonItem_Users
             // 
-            this.barButtonItem13.Caption = "إدارة المستخدمين";
-            this.barButtonItem13.Id = 13;
-            this.barButtonItem13.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem13.ImageOptions.Image")));
-            this.barButtonItem13.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem13.ImageOptions.LargeImage")));
-            this.barButtonItem13.Name = "barButtonItem13";
-            this.barButtonItem13.Tag = "F_User_Add";
+            this.barButtonItem_Users.Caption = "إدارة المستخدمين";
+            this.barButtonItem_Users.Id = 13;
+            this.barButtonItem_Users.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Users.ImageOptions.Image")));
+            this.barButtonItem_Users.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Users.ImageOptions.LargeImage")));
+            this.barButtonItem_Users.Name = "barButtonItem_Users";
+            this.barButtonItem_Users.Tag = "F_User_Add";
             // 
-            // barButtonItem14
+            // ribbonPageGroup_system
             // 
-            this.barButtonItem14.Caption = "الصلاحيات";
-            this.barButtonItem14.Id = 14;
-            this.barButtonItem14.Name = "barButtonItem14";
+            this.ribbonPageGroup_system.ItemLinks.Add(this.barButtonItem_System_Record);
+            this.ribbonPageGroup_system.ItemLinks.Add(this.barButtonItem_System_Seting);
+            this.ribbonPageGroup_system.ItemLinks.Add(this.barButtonItem_DB);
+            this.ribbonPageGroup_system.Name = "ribbonPageGroup_system";
+            this.ribbonPageGroup_system.Text = "النظام";
             // 
-            // ribbonPageGroup11
+            // barButtonItem_System_Record
             // 
-            this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem39);
-            this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem15);
-            this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem20);
-            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
-            this.ribbonPageGroup11.Text = "النظام";
+            this.barButtonItem_System_Record.Caption = "سجل النظام";
+            this.barButtonItem_System_Record.Id = 55;
+            this.barButtonItem_System_Record.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_System_Record.ImageOptions.Image")));
+            this.barButtonItem_System_Record.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_System_Record.ImageOptions.LargeImage")));
+            this.barButtonItem_System_Record.Name = "barButtonItem_System_Record";
+            this.barButtonItem_System_Record.Tag = "F_System_Record";
             // 
-            // barButtonItem39
+            // barButtonItem_System_Seting
             // 
-            this.barButtonItem39.Caption = "سجل النظام";
-            this.barButtonItem39.Id = 55;
-            this.barButtonItem39.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem39.ImageOptions.Image")));
-            this.barButtonItem39.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem39.ImageOptions.LargeImage")));
-            this.barButtonItem39.Name = "barButtonItem39";
-            this.barButtonItem39.Tag = "F_System_Record";
+            this.barButtonItem_System_Seting.Caption = "إعدادات النظام";
+            this.barButtonItem_System_Seting.Id = 15;
+            this.barButtonItem_System_Seting.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_System_Seting.ImageOptions.Image")));
+            this.barButtonItem_System_Seting.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_System_Seting.ImageOptions.LargeImage")));
+            this.barButtonItem_System_Seting.Name = "barButtonItem_System_Seting";
+            this.barButtonItem_System_Seting.Tag = "F_System_Setting";
             // 
-            // barButtonItem15
+            // barButtonItem_DB
             // 
-            this.barButtonItem15.Caption = "إعدادات النظام";
-            this.barButtonItem15.Id = 15;
-            this.barButtonItem15.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem15.ImageOptions.Image")));
-            this.barButtonItem15.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem15.ImageOptions.LargeImage")));
-            this.barButtonItem15.Name = "barButtonItem15";
-            this.barButtonItem15.Tag = "F_System_Setting";
+            this.barButtonItem_DB.Caption = "اعدادات قاعدة البيانات";
+            this.barButtonItem_DB.Id = 22;
+            this.barButtonItem_DB.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_DB.ImageOptions.Image")));
+            this.barButtonItem_DB.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_DB.ImageOptions.LargeImage")));
+            this.barButtonItem_DB.Name = "barButtonItem_DB";
+            this.barButtonItem_DB.Tag = "F_Server_Setting";
             // 
-            // barButtonItem20
+            // ribbonPageGroup_Them
             // 
-            this.barButtonItem20.Caption = "اعدادات قاعدة البيانات";
-            this.barButtonItem20.Id = 22;
-            this.barButtonItem20.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem20.ImageOptions.Image")));
-            this.barButtonItem20.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem20.ImageOptions.LargeImage")));
-            this.barButtonItem20.Name = "barButtonItem20";
-            this.barButtonItem20.Tag = "F_Server_Setting";
-            // 
-            // ribbonPageGroup21
-            // 
-            this.ribbonPageGroup21.ItemLinks.Add(this.skinDropDownButtonItem1);
-            this.ribbonPageGroup21.ItemLinks.Add(this.skinRibbonGalleryBarItem1);
-            this.ribbonPageGroup21.Name = "ribbonPageGroup21";
-            this.ribbonPageGroup21.Text = "ألوان البرنامج";
+            this.ribbonPageGroup_Them.ItemLinks.Add(this.skinDropDownButtonItem1);
+            this.ribbonPageGroup_Them.ItemLinks.Add(this.skinRibbonGalleryBarItem1);
+            this.ribbonPageGroup_Them.Name = "ribbonPageGroup_Them";
+            this.ribbonPageGroup_Them.Text = "ألوان البرنامج";
             // 
             // skinDropDownButtonItem1
             // 
@@ -259,343 +256,343 @@
             this.skinRibbonGalleryBarItem1.Id = 52;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
             // 
-            // ribbonPage3
-            // 
-            this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup3,
-            this.ribbonPageGroup5,
-            this.ribbonPageGroup12});
-            this.ribbonPage3.Name = "ribbonPage3";
-            this.ribbonPage3.Text = "الثوابت";
-            // 
-            // ribbonPageGroup3
-            // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem21);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "المستودع";
-            // 
-            // barButtonItem21
-            // 
-            this.barButtonItem21.Caption = "مواقع التخزين";
-            this.barButtonItem21.Id = 23;
-            this.barButtonItem21.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem21.ImageOptions.SvgImage")));
-            this.barButtonItem21.Name = "barButtonItem21";
-            this.barButtonItem21.Tag = "F_place_store";
-            // 
-            // ribbonPageGroup5
-            // 
-            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem3);
-            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem4);
-            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem23);
-            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-            this.ribbonPageGroup5.Text = "مستلزمات الأدوية";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "أشكال الأدوية";
-            this.barButtonItem3.Id = 3;
-            this.barButtonItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
-            this.barButtonItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
-            this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.Tag = "F_Med_Shape";
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "تصنيفات الأدوية";
-            this.barButtonItem4.Id = 4;
-            this.barButtonItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
-            this.barButtonItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
-            this.barButtonItem4.Name = "barButtonItem4";
-            this.barButtonItem4.Tag = "F_Med_Categories";
-            // 
-            // barButtonItem23
-            // 
-            this.barButtonItem23.Caption = "الوحدات";
-            this.barButtonItem23.Id = 25;
-            this.barButtonItem23.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem23.ImageOptions.Image")));
-            this.barButtonItem23.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem23.ImageOptions.LargeImage")));
-            this.barButtonItem23.Name = "barButtonItem23";
-            this.barButtonItem23.Tag = "F_Med_Unites";
-            // 
-            // ribbonPageGroup12
-            // 
-            this.ribbonPageGroup12.ItemLinks.Add(this.barButtonItem10);
-            this.ribbonPageGroup12.ItemLinks.Add(this.barButtonItem9);
-            this.ribbonPageGroup12.ItemLinks.Add(this.barButtonItem11);
-            this.ribbonPageGroup12.Name = "ribbonPageGroup12";
-            this.ribbonPageGroup12.Text = "الأشخاص";
-            // 
-            // barButtonItem10
-            // 
-            this.barButtonItem10.Caption = "المتبرعين";
-            this.barButtonItem10.Id = 10;
-            this.barButtonItem10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.ImageOptions.Image")));
-            this.barButtonItem10.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.ImageOptions.LargeImage")));
-            this.barButtonItem10.Name = "barButtonItem10";
-            this.barButtonItem10.Tag = "F_Donars";
-            // 
-            // barButtonItem9
-            // 
-            this.barButtonItem9.Caption = "الموظفين";
-            this.barButtonItem9.Id = 9;
-            this.barButtonItem9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem9.ImageOptions.Image")));
-            this.barButtonItem9.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem9.ImageOptions.LargeImage")));
-            this.barButtonItem9.Name = "barButtonItem9";
-            this.barButtonItem9.Tag = "F_Emp";
-            // 
-            // barButtonItem11
-            // 
-            this.barButtonItem11.Caption = "المستلمين";
-            this.barButtonItem11.Id = 11;
-            this.barButtonItem11.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem11.ImageOptions.Image")));
-            this.barButtonItem11.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem11.ImageOptions.LargeImage")));
-            this.barButtonItem11.Name = "barButtonItem11";
-            this.barButtonItem11.Tag = "F_Reciver";
-            // 
-            // ribbonPage5
-            // 
-            this.ribbonPage5.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup7,
-            this.ribbonPageGroup17});
-            this.ribbonPage5.Name = "ribbonPage5";
-            this.ribbonPage5.Text = "التقارير";
-            // 
-            // ribbonPageGroup7
-            // 
-            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem29);
-            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem37);
-            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem38);
-            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            this.ribbonPageGroup7.Text = "المستودع";
-            // 
-            // barButtonItem29
-            // 
-            this.barButtonItem29.Caption = "عملية الإدخال";
-            this.barButtonItem29.Id = 42;
-            this.barButtonItem29.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem29.ImageOptions.Image")));
-            this.barButtonItem29.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem29.ImageOptions.LargeImage")));
-            this.barButtonItem29.Name = "barButtonItem29";
-            this.barButtonItem29.Tag = "F_In_Rep";
-            // 
-            // barButtonItem37
-            // 
-            this.barButtonItem37.Caption = "عملية الإخراج";
-            this.barButtonItem37.Id = 53;
-            this.barButtonItem37.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem37.ImageOptions.Image")));
-            this.barButtonItem37.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem37.ImageOptions.LargeImage")));
-            this.barButtonItem37.Name = "barButtonItem37";
-            this.barButtonItem37.Tag = "F_out_rep";
-            // 
-            // barButtonItem38
-            // 
-            this.barButtonItem38.Caption = "عملية الإتلاف";
-            this.barButtonItem38.Id = 54;
-            this.barButtonItem38.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem38.ImageOptions.Image")));
-            this.barButtonItem38.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem38.ImageOptions.LargeImage")));
-            this.barButtonItem38.Name = "barButtonItem38";
-            this.barButtonItem38.Tag = "F_damege_rep";
-            // 
-            // ribbonPageGroup17
-            // 
-            this.ribbonPageGroup17.ItemLinks.Add(this.barButtonItem28);
-            this.ribbonPageGroup17.ItemLinks.Add(this.barButtonItem31);
-            this.ribbonPageGroup17.Name = "ribbonPageGroup17";
-            this.ribbonPageGroup17.Text = "تقارير إجمالية";
-            // 
-            // barButtonItem28
-            // 
-            this.barButtonItem28.Caption = "التقرير الشهري";
-            this.barButtonItem28.Id = 41;
-            this.barButtonItem28.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem28.ImageOptions.Image")));
-            this.barButtonItem28.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem28.ImageOptions.LargeImage")));
-            this.barButtonItem28.Name = "barButtonItem28";
-            this.barButtonItem28.Tag = "F_Month_rep";
-            // 
-            // barButtonItem31
-            // 
-            this.barButtonItem31.Caption = "تقرير إدخال جاهز";
-            this.barButtonItem31.Id = 44;
-            this.barButtonItem31.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem31.ImageOptions.Image")));
-            this.barButtonItem31.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem31.ImageOptions.LargeImage")));
-            this.barButtonItem31.Name = "barButtonItem31";
-            this.barButtonItem31.Tag = "F_Viewer";
-            this.barButtonItem31.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem31_ItemClick);
-            // 
-            // ribbonPage2
-            // 
-            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup18,
-            this.ribbonPageGroup6,
-            this.ribbonPageGroup15});
-            this.ribbonPage2.Name = "ribbonPage2";
-            this.ribbonPage2.Text = "المستودع";
-            // 
-            // ribbonPageGroup18
-            // 
-            this.ribbonPageGroup18.ItemLinks.Add(this.barButtonItem6);
-            this.ribbonPageGroup18.ItemLinks.Add(this.barButtonItem22);
-            this.ribbonPageGroup18.ItemLinks.Add(this.barButtonItem27);
-            this.ribbonPageGroup18.ItemLinks.Add(this.barButtonItem30);
-            this.ribbonPageGroup18.Name = "ribbonPageGroup18";
-            this.ribbonPageGroup18.Text = " الإدخال";
-            // 
-            // barButtonItem6
-            // 
-            this.barButtonItem6.Caption = "إدخال مواد";
-            this.barButtonItem6.Id = 6;
-            this.barButtonItem6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem6.ImageOptions.SvgImage")));
-            this.barButtonItem6.Name = "barButtonItem6";
-            this.barButtonItem6.Tag = "F_In_Op";
-            // 
-            // barButtonItem22
-            // 
-            this.barButtonItem22.Caption = "فواتير الإدخال";
-            this.barButtonItem22.Id = 24;
-            this.barButtonItem22.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem22.ImageOptions.Image")));
-            this.barButtonItem22.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem22.ImageOptions.LargeImage")));
-            this.barButtonItem22.Name = "barButtonItem22";
-            this.barButtonItem22.Tag = "F_In_OP_Graid";
-            // 
-            // barButtonItem27
-            // 
-            this.barButtonItem27.Caption = "المواد المدخلة";
-            this.barButtonItem27.Id = 40;
-            this.barButtonItem27.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem27.ImageOptions.SvgImage")));
-            this.barButtonItem27.Name = "barButtonItem27";
-            this.barButtonItem27.Tag = "F_IN_Item_Graid";
-            // 
-            // barButtonItem30
-            // 
-            this.barButtonItem30.Caption = "فواتير الإدخال و تفاصيلها";
-            this.barButtonItem30.Id = 43;
-            this.barButtonItem30.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem30.ImageOptions.Image")));
-            this.barButtonItem30.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem30.ImageOptions.LargeImage")));
-            this.barButtonItem30.Name = "barButtonItem30";
-            this.barButtonItem30.Tag = "F_in_master_detail";
-            // 
-            // ribbonPageGroup6
-            // 
-            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem7);
-            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem24);
-            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem32);
-            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem33);
-            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
-            this.ribbonPageGroup6.Text = "الإخراج";
-            // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Caption = "إخراج مواد";
-            this.barButtonItem7.Id = 7;
-            this.barButtonItem7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem7.ImageOptions.SvgImage")));
-            this.barButtonItem7.Name = "barButtonItem7";
-            this.barButtonItem7.Tag = "F_Out_Op";
-            // 
-            // barButtonItem24
-            // 
-            this.barButtonItem24.Caption = "فواتير الإخراج";
-            this.barButtonItem24.Id = 26;
-            this.barButtonItem24.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem24.ImageOptions.SvgImage")));
-            this.barButtonItem24.Name = "barButtonItem24";
-            this.barButtonItem24.Tag = "F_out_op_graid";
-            // 
-            // barButtonItem32
-            // 
-            this.barButtonItem32.Caption = "المواد الخارجة";
-            this.barButtonItem32.Id = 45;
-            this.barButtonItem32.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem32.ImageOptions.Image")));
-            this.barButtonItem32.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem32.ImageOptions.LargeImage")));
-            this.barButtonItem32.Name = "barButtonItem32";
-            this.barButtonItem32.Tag = "F_out_item";
-            // 
-            // barButtonItem33
-            // 
-            this.barButtonItem33.Caption = "فواتير الإخراج  و تفاصيلها";
-            this.barButtonItem33.Id = 46;
-            this.barButtonItem33.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem33.ImageOptions.Image")));
-            this.barButtonItem33.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem33.ImageOptions.LargeImage")));
-            this.barButtonItem33.Name = "barButtonItem33";
-            this.barButtonItem33.Tag = "F_out_master_detail";
-            // 
-            // ribbonPageGroup15
-            // 
-            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem18);
-            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem25);
-            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem34);
-            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem35);
-            this.ribbonPageGroup15.Name = "ribbonPageGroup15";
-            this.ribbonPageGroup15.Text = "الإتلاف";
-            // 
-            // barButtonItem18
-            // 
-            this.barButtonItem18.Caption = "إتلاف مواد";
-            this.barButtonItem18.Id = 18;
-            this.barButtonItem18.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem18.ImageOptions.SvgImage")));
-            this.barButtonItem18.Name = "barButtonItem18";
-            this.barButtonItem18.Tag = "F_Dameg_Op";
-            // 
-            // barButtonItem25
-            // 
-            this.barButtonItem25.Caption = "فواتير الإتلاف";
-            this.barButtonItem25.Id = 27;
-            this.barButtonItem25.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem25.ImageOptions.Image")));
-            this.barButtonItem25.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem25.ImageOptions.LargeImage")));
-            this.barButtonItem25.Name = "barButtonItem25";
-            this.barButtonItem25.Tag = "F_dame_op_gride";
-            // 
-            // barButtonItem34
-            // 
-            this.barButtonItem34.Caption = "المواد التالفة";
-            this.barButtonItem34.Id = 47;
-            this.barButtonItem34.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem34.ImageOptions.Image")));
-            this.barButtonItem34.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem34.ImageOptions.LargeImage")));
-            this.barButtonItem34.Name = "barButtonItem34";
-            this.barButtonItem34.Tag = "F_damege_item";
-            // 
-            // barButtonItem35
-            // 
-            this.barButtonItem35.Caption = "فواتير الإتلاف و تفاصيلها";
-            this.barButtonItem35.Id = 48;
-            this.barButtonItem35.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem35.ImageOptions.Image")));
-            this.barButtonItem35.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem35.ImageOptions.LargeImage")));
-            this.barButtonItem35.Name = "barButtonItem35";
-            this.barButtonItem35.Tag = "F_dam_master_detail";
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem5);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem19);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem8);
-            this.ribbonPageGroup2.ItemLinks.Add(this.bar_exp_date);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem36);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "المستودع";
-            // 
-            // barButtonItem5
-            // 
-            this.barButtonItem5.Caption = "حركة المواد";
-            this.barButtonItem5.Id = 5;
-            this.barButtonItem5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
-            this.barButtonItem5.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
-            this.barButtonItem5.Name = "barButtonItem5";
-            this.barButtonItem5.Tag = "F_Store_Graid";
-            // 
-            // barButtonItem19
-            // 
-            this.barButtonItem19.Caption = "حركة المستودع";
-            this.barButtonItem19.Id = 20;
-            this.barButtonItem19.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem19.ImageOptions.Image")));
-            this.barButtonItem19.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem19.ImageOptions.LargeImage")));
-            this.barButtonItem19.Name = "barButtonItem19";
-            this.barButtonItem19.Tag = "F_Store_Move";
-            // 
-            // barButtonItem8
-            // 
-            this.barButtonItem8.Caption = "المواد المنتهية الصلاحية";
-            this.barButtonItem8.Id = 8;
-            this.barButtonItem8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem8.ImageOptions.Image")));
-            this.barButtonItem8.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem8.ImageOptions.LargeImage")));
-            this.barButtonItem8.Name = "barButtonItem8";
-            this.barButtonItem8.Tag = "F_Store_Med_ExpDate";
+            // ribbonPage_Thwabet
+            // 
+            this.ribbonPage_Thwabet.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup_Thwabet_Store,
+            this.ribbonPageGroup_Thwabet_Med,
+            this.ribbonPageGroup_Thwabet_Pepole});
+            this.ribbonPage_Thwabet.Name = "ribbonPage_Thwabet";
+            this.ribbonPage_Thwabet.Text = "الثوابت";
+            // 
+            // ribbonPageGroup_Thwabet_Store
+            // 
+            this.ribbonPageGroup_Thwabet_Store.ItemLinks.Add(this.barButtonItem_Store_Place);
+            this.ribbonPageGroup_Thwabet_Store.Name = "ribbonPageGroup_Thwabet_Store";
+            this.ribbonPageGroup_Thwabet_Store.Text = "المستودع";
+            // 
+            // barButtonItem_Store_Place
+            // 
+            this.barButtonItem_Store_Place.Caption = "مواقع التخزين";
+            this.barButtonItem_Store_Place.Id = 23;
+            this.barButtonItem_Store_Place.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem_Store_Place.ImageOptions.SvgImage")));
+            this.barButtonItem_Store_Place.Name = "barButtonItem_Store_Place";
+            this.barButtonItem_Store_Place.Tag = "F_place_store";
+            // 
+            // ribbonPageGroup_Thwabet_Med
+            // 
+            this.ribbonPageGroup_Thwabet_Med.ItemLinks.Add(this.barButtonItem_Med_Shape);
+            this.ribbonPageGroup_Thwabet_Med.ItemLinks.Add(this.barButtonItem_Med_Categorey);
+            this.ribbonPageGroup_Thwabet_Med.ItemLinks.Add(this.barButtonItem_Med_Unites);
+            this.ribbonPageGroup_Thwabet_Med.Name = "ribbonPageGroup_Thwabet_Med";
+            this.ribbonPageGroup_Thwabet_Med.Text = "مستلزمات الأدوية";
+            // 
+            // barButtonItem_Med_Shape
+            // 
+            this.barButtonItem_Med_Shape.Caption = "أشكال الأدوية";
+            this.barButtonItem_Med_Shape.Id = 3;
+            this.barButtonItem_Med_Shape.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Med_Shape.ImageOptions.Image")));
+            this.barButtonItem_Med_Shape.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Med_Shape.ImageOptions.LargeImage")));
+            this.barButtonItem_Med_Shape.Name = "barButtonItem_Med_Shape";
+            this.barButtonItem_Med_Shape.Tag = "F_Med_Shape";
+            // 
+            // barButtonItem_Med_Categorey
+            // 
+            this.barButtonItem_Med_Categorey.Caption = "تصنيفات الأدوية";
+            this.barButtonItem_Med_Categorey.Id = 4;
+            this.barButtonItem_Med_Categorey.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Med_Categorey.ImageOptions.Image")));
+            this.barButtonItem_Med_Categorey.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Med_Categorey.ImageOptions.LargeImage")));
+            this.barButtonItem_Med_Categorey.Name = "barButtonItem_Med_Categorey";
+            this.barButtonItem_Med_Categorey.Tag = "F_Med_Categories";
+            // 
+            // barButtonItem_Med_Unites
+            // 
+            this.barButtonItem_Med_Unites.Caption = "الوحدات";
+            this.barButtonItem_Med_Unites.Id = 25;
+            this.barButtonItem_Med_Unites.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Med_Unites.ImageOptions.Image")));
+            this.barButtonItem_Med_Unites.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Med_Unites.ImageOptions.LargeImage")));
+            this.barButtonItem_Med_Unites.Name = "barButtonItem_Med_Unites";
+            this.barButtonItem_Med_Unites.Tag = "F_Med_Unites";
+            // 
+            // ribbonPageGroup_Thwabet_Pepole
+            // 
+            this.ribbonPageGroup_Thwabet_Pepole.ItemLinks.Add(this.barButtonItem_Doners);
+            this.ribbonPageGroup_Thwabet_Pepole.ItemLinks.Add(this.barButtonItem_Emp);
+            this.ribbonPageGroup_Thwabet_Pepole.ItemLinks.Add(this.barButtonItem_reciver);
+            this.ribbonPageGroup_Thwabet_Pepole.Name = "ribbonPageGroup_Thwabet_Pepole";
+            this.ribbonPageGroup_Thwabet_Pepole.Text = "الأشخاص";
+            // 
+            // barButtonItem_Doners
+            // 
+            this.barButtonItem_Doners.Caption = "المتبرعين";
+            this.barButtonItem_Doners.Id = 10;
+            this.barButtonItem_Doners.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Doners.ImageOptions.Image")));
+            this.barButtonItem_Doners.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Doners.ImageOptions.LargeImage")));
+            this.barButtonItem_Doners.Name = "barButtonItem_Doners";
+            this.barButtonItem_Doners.Tag = "F_Donars";
+            // 
+            // barButtonItem_Emp
+            // 
+            this.barButtonItem_Emp.Caption = "الموظفين";
+            this.barButtonItem_Emp.Id = 9;
+            this.barButtonItem_Emp.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Emp.ImageOptions.Image")));
+            this.barButtonItem_Emp.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Emp.ImageOptions.LargeImage")));
+            this.barButtonItem_Emp.Name = "barButtonItem_Emp";
+            this.barButtonItem_Emp.Tag = "F_Emp";
+            // 
+            // barButtonItem_reciver
+            // 
+            this.barButtonItem_reciver.Caption = "المستلمين";
+            this.barButtonItem_reciver.Id = 11;
+            this.barButtonItem_reciver.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_reciver.ImageOptions.Image")));
+            this.barButtonItem_reciver.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_reciver.ImageOptions.LargeImage")));
+            this.barButtonItem_reciver.Name = "barButtonItem_reciver";
+            this.barButtonItem_reciver.Tag = "F_Reciver";
+            // 
+            // ribbonPage_Report
+            // 
+            this.ribbonPage_Report.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup_Rep_Store,
+            this.ribbonPageGroup_Rep_Total});
+            this.ribbonPage_Report.Name = "ribbonPage_Report";
+            this.ribbonPage_Report.Text = "التقارير";
+            // 
+            // ribbonPageGroup_Rep_Store
+            // 
+            this.ribbonPageGroup_Rep_Store.ItemLinks.Add(this.barButtonItem_RepIn);
+            this.ribbonPageGroup_Rep_Store.ItemLinks.Add(this.barButtonItem_RepOut);
+            this.ribbonPageGroup_Rep_Store.ItemLinks.Add(this.barButtonItem_Rep_dam);
+            this.ribbonPageGroup_Rep_Store.Name = "ribbonPageGroup_Rep_Store";
+            this.ribbonPageGroup_Rep_Store.Text = "المستودع";
+            // 
+            // barButtonItem_RepIn
+            // 
+            this.barButtonItem_RepIn.Caption = "عملية الإدخال";
+            this.barButtonItem_RepIn.Id = 42;
+            this.barButtonItem_RepIn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_RepIn.ImageOptions.Image")));
+            this.barButtonItem_RepIn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_RepIn.ImageOptions.LargeImage")));
+            this.barButtonItem_RepIn.Name = "barButtonItem_RepIn";
+            this.barButtonItem_RepIn.Tag = "F_In_Rep";
+            // 
+            // barButtonItem_RepOut
+            // 
+            this.barButtonItem_RepOut.Caption = "عملية الإخراج";
+            this.barButtonItem_RepOut.Id = 53;
+            this.barButtonItem_RepOut.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_RepOut.ImageOptions.Image")));
+            this.barButtonItem_RepOut.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_RepOut.ImageOptions.LargeImage")));
+            this.barButtonItem_RepOut.Name = "barButtonItem_RepOut";
+            this.barButtonItem_RepOut.Tag = "F_out_rep";
+            // 
+            // barButtonItem_Rep_dam
+            // 
+            this.barButtonItem_Rep_dam.Caption = "عملية الإتلاف";
+            this.barButtonItem_Rep_dam.Id = 54;
+            this.barButtonItem_Rep_dam.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Rep_dam.ImageOptions.Image")));
+            this.barButtonItem_Rep_dam.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Rep_dam.ImageOptions.LargeImage")));
+            this.barButtonItem_Rep_dam.Name = "barButtonItem_Rep_dam";
+            this.barButtonItem_Rep_dam.Tag = "F_damege_rep";
+            // 
+            // ribbonPageGroup_Rep_Total
+            // 
+            this.ribbonPageGroup_Rep_Total.ItemLinks.Add(this.barButtonItem_Rep_Month);
+            this.ribbonPageGroup_Rep_Total.ItemLinks.Add(this.barButtonItem_Rep_In_form);
+            this.ribbonPageGroup_Rep_Total.Name = "ribbonPageGroup_Rep_Total";
+            this.ribbonPageGroup_Rep_Total.Text = "تقارير إجمالية";
+            // 
+            // barButtonItem_Rep_Month
+            // 
+            this.barButtonItem_Rep_Month.Caption = "التقرير الشهري";
+            this.barButtonItem_Rep_Month.Id = 41;
+            this.barButtonItem_Rep_Month.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Rep_Month.ImageOptions.Image")));
+            this.barButtonItem_Rep_Month.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Rep_Month.ImageOptions.LargeImage")));
+            this.barButtonItem_Rep_Month.Name = "barButtonItem_Rep_Month";
+            this.barButtonItem_Rep_Month.Tag = "F_Month_rep";
+            // 
+            // barButtonItem_Rep_In_form
+            // 
+            this.barButtonItem_Rep_In_form.Caption = "تقرير إدخال جاهز";
+            this.barButtonItem_Rep_In_form.Id = 44;
+            this.barButtonItem_Rep_In_form.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Rep_In_form.ImageOptions.Image")));
+            this.barButtonItem_Rep_In_form.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Rep_In_form.ImageOptions.LargeImage")));
+            this.barButtonItem_Rep_In_form.Name = "barButtonItem_Rep_In_form";
+            this.barButtonItem_Rep_In_form.Tag = "F_Viewer";
+            this.barButtonItem_Rep_In_form.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BarButtonItem31_ItemClick);
+            // 
+            // ribbonPage_Store
+            // 
+            this.ribbonPage_Store.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup_in,
+            this.ribbonPageGroup_out,
+            this.ribbonPageGroup_Dam});
+            this.ribbonPage_Store.Name = "ribbonPage_Store";
+            this.ribbonPage_Store.Text = "المستودع";
+            // 
+            // ribbonPageGroup_in
+            // 
+            this.ribbonPageGroup_in.ItemLinks.Add(this.barButtonItem_InOP);
+            this.ribbonPageGroup_in.ItemLinks.Add(this.barButtonItem_In_Fwater);
+            this.ribbonPageGroup_in.ItemLinks.Add(this.barButtonItem_In_Item);
+            this.ribbonPageGroup_in.ItemLinks.Add(this.barButtonItem_In_Fwater_And_Item);
+            this.ribbonPageGroup_in.Name = "ribbonPageGroup_in";
+            this.ribbonPageGroup_in.Text = " الإدخال";
+            // 
+            // barButtonItem_InOP
+            // 
+            this.barButtonItem_InOP.Caption = "إدخال مواد";
+            this.barButtonItem_InOP.Id = 6;
+            this.barButtonItem_InOP.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem_InOP.ImageOptions.SvgImage")));
+            this.barButtonItem_InOP.Name = "barButtonItem_InOP";
+            this.barButtonItem_InOP.Tag = "F_In_Op";
+            // 
+            // barButtonItem_In_Fwater
+            // 
+            this.barButtonItem_In_Fwater.Caption = "فواتير الإدخال";
+            this.barButtonItem_In_Fwater.Id = 24;
+            this.barButtonItem_In_Fwater.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_In_Fwater.ImageOptions.Image")));
+            this.barButtonItem_In_Fwater.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_In_Fwater.ImageOptions.LargeImage")));
+            this.barButtonItem_In_Fwater.Name = "barButtonItem_In_Fwater";
+            this.barButtonItem_In_Fwater.Tag = "F_In_OP_Graid";
+            // 
+            // barButtonItem_In_Item
+            // 
+            this.barButtonItem_In_Item.Caption = "المواد المدخلة";
+            this.barButtonItem_In_Item.Id = 40;
+            this.barButtonItem_In_Item.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem_In_Item.ImageOptions.SvgImage")));
+            this.barButtonItem_In_Item.Name = "barButtonItem_In_Item";
+            this.barButtonItem_In_Item.Tag = "F_IN_Item_Graid";
+            // 
+            // barButtonItem_In_Fwater_And_Item
+            // 
+            this.barButtonItem_In_Fwater_And_Item.Caption = "فواتير الإدخال و تفاصيلها";
+            this.barButtonItem_In_Fwater_And_Item.Id = 43;
+            this.barButtonItem_In_Fwater_And_Item.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_In_Fwater_And_Item.ImageOptions.Image")));
+            this.barButtonItem_In_Fwater_And_Item.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_In_Fwater_And_Item.ImageOptions.LargeImage")));
+            this.barButtonItem_In_Fwater_And_Item.Name = "barButtonItem_In_Fwater_And_Item";
+            this.barButtonItem_In_Fwater_And_Item.Tag = "F_in_master_detail";
+            // 
+            // ribbonPageGroup_out
+            // 
+            this.ribbonPageGroup_out.ItemLinks.Add(this.barButtonItem_OutOp);
+            this.ribbonPageGroup_out.ItemLinks.Add(this.barButtonItem_Out_Fwater);
+            this.ribbonPageGroup_out.ItemLinks.Add(this.barButtonItem_out_Item);
+            this.ribbonPageGroup_out.ItemLinks.Add(this.barButtonItem_Out_Fwater_And_Item);
+            this.ribbonPageGroup_out.Name = "ribbonPageGroup_out";
+            this.ribbonPageGroup_out.Text = "الإخراج";
+            // 
+            // barButtonItem_OutOp
+            // 
+            this.barButtonItem_OutOp.Caption = "إخراج مواد";
+            this.barButtonItem_OutOp.Id = 7;
+            this.barButtonItem_OutOp.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem_OutOp.ImageOptions.SvgImage")));
+            this.barButtonItem_OutOp.Name = "barButtonItem_OutOp";
+            this.barButtonItem_OutOp.Tag = "F_Out_Op";
+            // 
+            // barButtonItem_Out_Fwater
+            // 
+            this.barButtonItem_Out_Fwater.Caption = "فواتير الإخراج";
+            this.barButtonItem_Out_Fwater.Id = 26;
+            this.barButtonItem_Out_Fwater.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem_Out_Fwater.ImageOptions.SvgImage")));
+            this.barButtonItem_Out_Fwater.Name = "barButtonItem_Out_Fwater";
+            this.barButtonItem_Out_Fwater.Tag = "F_out_op_graid";
+            // 
+            // barButtonItem_out_Item
+            // 
+            this.barButtonItem_out_Item.Caption = "المواد الخارجة";
+            this.barButtonItem_out_Item.Id = 45;
+            this.barButtonItem_out_Item.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_out_Item.ImageOptions.Image")));
+            this.barButtonItem_out_Item.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_out_Item.ImageOptions.LargeImage")));
+            this.barButtonItem_out_Item.Name = "barButtonItem_out_Item";
+            this.barButtonItem_out_Item.Tag = "F_out_item";
+            // 
+            // barButtonItem_Out_Fwater_And_Item
+            // 
+            this.barButtonItem_Out_Fwater_And_Item.Caption = "فواتير الإخراج  و تفاصيلها";
+            this.barButtonItem_Out_Fwater_And_Item.Id = 46;
+            this.barButtonItem_Out_Fwater_And_Item.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Out_Fwater_And_Item.ImageOptions.Image")));
+            this.barButtonItem_Out_Fwater_And_Item.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Out_Fwater_And_Item.ImageOptions.LargeImage")));
+            this.barButtonItem_Out_Fwater_And_Item.Name = "barButtonItem_Out_Fwater_And_Item";
+            this.barButtonItem_Out_Fwater_And_Item.Tag = "F_out_master_detail";
+            // 
+            // ribbonPageGroup_Dam
+            // 
+            this.ribbonPageGroup_Dam.ItemLinks.Add(this.barButtonItem_damOP);
+            this.ribbonPageGroup_Dam.ItemLinks.Add(this.barButtonItem_Dam_Fwater);
+            this.ribbonPageGroup_Dam.ItemLinks.Add(this.barButtonItem_Dam_Item);
+            this.ribbonPageGroup_Dam.ItemLinks.Add(this.barButtonItem_Dam_Fwater_And_Item);
+            this.ribbonPageGroup_Dam.Name = "ribbonPageGroup_Dam";
+            this.ribbonPageGroup_Dam.Text = "الإتلاف";
+            // 
+            // barButtonItem_damOP
+            // 
+            this.barButtonItem_damOP.Caption = "إتلاف مواد";
+            this.barButtonItem_damOP.Id = 18;
+            this.barButtonItem_damOP.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem_damOP.ImageOptions.SvgImage")));
+            this.barButtonItem_damOP.Name = "barButtonItem_damOP";
+            this.barButtonItem_damOP.Tag = "F_Dameg_Op";
+            // 
+            // barButtonItem_Dam_Fwater
+            // 
+            this.barButtonItem_Dam_Fwater.Caption = "فواتير الإتلاف";
+            this.barButtonItem_Dam_Fwater.Id = 27;
+            this.barButtonItem_Dam_Fwater.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Dam_Fwater.ImageOptions.Image")));
+            this.barButtonItem_Dam_Fwater.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Dam_Fwater.ImageOptions.LargeImage")));
+            this.barButtonItem_Dam_Fwater.Name = "barButtonItem_Dam_Fwater";
+            this.barButtonItem_Dam_Fwater.Tag = "F_dame_op_gride";
+            // 
+            // barButtonItem_Dam_Item
+            // 
+            this.barButtonItem_Dam_Item.Caption = "المواد التالفة";
+            this.barButtonItem_Dam_Item.Id = 47;
+            this.barButtonItem_Dam_Item.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Dam_Item.ImageOptions.Image")));
+            this.barButtonItem_Dam_Item.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Dam_Item.ImageOptions.LargeImage")));
+            this.barButtonItem_Dam_Item.Name = "barButtonItem_Dam_Item";
+            this.barButtonItem_Dam_Item.Tag = "F_damege_item";
+            // 
+            // barButtonItem_Dam_Fwater_And_Item
+            // 
+            this.barButtonItem_Dam_Fwater_And_Item.Caption = "فواتير الإتلاف و تفاصيلها";
+            this.barButtonItem_Dam_Fwater_And_Item.Id = 48;
+            this.barButtonItem_Dam_Fwater_And_Item.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Dam_Fwater_And_Item.ImageOptions.Image")));
+            this.barButtonItem_Dam_Fwater_And_Item.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Dam_Fwater_And_Item.ImageOptions.LargeImage")));
+            this.barButtonItem_Dam_Fwater_And_Item.Name = "barButtonItem_Dam_Fwater_And_Item";
+            this.barButtonItem_Dam_Fwater_And_Item.Tag = "F_dam_master_detail";
+            // 
+            // ribbonPageGroup_Store
+            // 
+            this.ribbonPageGroup_Store.ItemLinks.Add(this.barButtonItem_Store_Med);
+            this.ribbonPageGroup_Store.ItemLinks.Add(this.barButtonItem_Store_Move);
+            this.ribbonPageGroup_Store.ItemLinks.Add(this.barButtonItem_EXpDate);
+            this.ribbonPageGroup_Store.ItemLinks.Add(this.bar_exp_date);
+            this.ribbonPageGroup_Store.ItemLinks.Add(this.barButtonItem36);
+            this.ribbonPageGroup_Store.Name = "ribbonPageGroup_Store";
+            this.ribbonPageGroup_Store.Text = "المستودع";
+            // 
+            // barButtonItem_Store_Med
+            // 
+            this.barButtonItem_Store_Med.Caption = "حركة المواد";
+            this.barButtonItem_Store_Med.Id = 5;
+            this.barButtonItem_Store_Med.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Store_Med.ImageOptions.Image")));
+            this.barButtonItem_Store_Med.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Store_Med.ImageOptions.LargeImage")));
+            this.barButtonItem_Store_Med.Name = "barButtonItem_Store_Med";
+            this.barButtonItem_Store_Med.Tag = "F_Store_Graid";
+            // 
+            // barButtonItem_Store_Move
+            // 
+            this.barButtonItem_Store_Move.Caption = "حركة المستودع";
+            this.barButtonItem_Store_Move.Id = 20;
+            this.barButtonItem_Store_Move.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Store_Move.ImageOptions.Image")));
+            this.barButtonItem_Store_Move.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Store_Move.ImageOptions.LargeImage")));
+            this.barButtonItem_Store_Move.Name = "barButtonItem_Store_Move";
+            this.barButtonItem_Store_Move.Tag = "F_Store_Move";
+            // 
+            // barButtonItem_EXpDate
+            // 
+            this.barButtonItem_EXpDate.Caption = "المواد المنتهية الصلاحية";
+            this.barButtonItem_EXpDate.Id = 8;
+            this.barButtonItem_EXpDate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_EXpDate.ImageOptions.Image")));
+            this.barButtonItem_EXpDate.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_EXpDate.ImageOptions.LargeImage")));
+            this.barButtonItem_EXpDate.Name = "barButtonItem_EXpDate";
+            this.barButtonItem_EXpDate.Tag = "F_Store_Med_ExpDate";
             // 
             // bar_exp_date
             // 
@@ -625,50 +622,50 @@
             this.barButtonItem36.Id = 51;
             this.barButtonItem36.Name = "barButtonItem36";
             // 
-            // ribbonPage1
+            // ribbonPage_Main
             // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1,
-            this.ribbonPageGroup2});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "الرئيسية";
+            this.ribbonPage_Main.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup_Med,
+            this.ribbonPageGroup_Store});
+            this.ribbonPage_Main.Name = "ribbonPage_Main";
+            this.ribbonPage_Main.Text = "الرئيسية";
             // 
-            // ribbonPageGroup1
+            // ribbonPageGroup_Med
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem26);
-            this.ribbonPageGroup1.ItemLinks.Add(this.bar_med_min);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem17);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "المواد";
+            this.ribbonPageGroup_Med.ItemLinks.Add(this.barButtonItem_Add_Med);
+            this.ribbonPageGroup_Med.ItemLinks.Add(this.barButtonItem_Med_Grid);
+            this.ribbonPageGroup_Med.ItemLinks.Add(this.barButtonItem_Min_Med);
+            this.ribbonPageGroup_Med.ItemLinks.Add(this.bar_med_min);
+            this.ribbonPageGroup_Med.ItemLinks.Add(this.barButtonItem17);
+            this.ribbonPageGroup_Med.Name = "ribbonPageGroup_Med";
+            this.ribbonPageGroup_Med.Text = "المواد";
             // 
-            // barButtonItem1
+            // barButtonItem_Add_Med
             // 
-            this.barButtonItem1.Caption = "إضافة بطاقة مادة";
-            this.barButtonItem1.Id = 1;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            this.barButtonItem1.Tag = "F_Med";
+            this.barButtonItem_Add_Med.Caption = "إضافة بطاقة مادة";
+            this.barButtonItem_Add_Med.Id = 1;
+            this.barButtonItem_Add_Med.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Add_Med.ImageOptions.Image")));
+            this.barButtonItem_Add_Med.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Add_Med.ImageOptions.LargeImage")));
+            this.barButtonItem_Add_Med.Name = "barButtonItem_Add_Med";
+            this.barButtonItem_Add_Med.Tag = "F_Med";
             // 
-            // barButtonItem2
+            // barButtonItem_Med_Grid
             // 
-            this.barButtonItem2.Caption = "المواد";
-            this.barButtonItem2.Id = 2;
-            this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.barButtonItem2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
-            this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.Tag = "F_Med_Grid";
+            this.barButtonItem_Med_Grid.Caption = "المواد";
+            this.barButtonItem_Med_Grid.Id = 2;
+            this.barButtonItem_Med_Grid.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Med_Grid.ImageOptions.Image")));
+            this.barButtonItem_Med_Grid.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Med_Grid.ImageOptions.LargeImage")));
+            this.barButtonItem_Med_Grid.Name = "barButtonItem_Med_Grid";
+            this.barButtonItem_Med_Grid.Tag = "F_Med_Grid";
             // 
-            // barButtonItem26
+            // barButtonItem_Min_Med
             // 
-            this.barButtonItem26.Caption = "المواد التي شارفت على الانتهاء";
-            this.barButtonItem26.Id = 28;
-            this.barButtonItem26.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem26.ImageOptions.Image")));
-            this.barButtonItem26.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem26.ImageOptions.LargeImage")));
-            this.barButtonItem26.Name = "barButtonItem26";
-            this.barButtonItem26.Tag = "F_Med_min";
+            this.barButtonItem_Min_Med.Caption = "المواد التي شارفت على الانتهاء";
+            this.barButtonItem_Min_Med.Id = 28;
+            this.barButtonItem_Min_Med.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Min_Med.ImageOptions.Image")));
+            this.barButtonItem_Min_Med.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_Min_Med.ImageOptions.LargeImage")));
+            this.barButtonItem_Min_Med.Name = "barButtonItem_Min_Med";
+            this.barButtonItem_Min_Med.Tag = "F_Med_min";
             // 
             // bar_med_min
             // 
@@ -699,6 +696,15 @@
             this.barButtonItem17.Id = 39;
             this.barButtonItem17.Name = "barButtonItem17";
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "تغير كلمة سر المستخدم";
+            this.barButtonItem1.Id = 56;
+            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.Tag = "F_Change_Pass";
+            // 
             // repositoryItemTextEdit1
             // 
             this.repositoryItemTextEdit1.AutoHeight = false;
@@ -723,71 +729,71 @@
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
             this.ribbon.SearchEditItem,
-            this.barButtonItem1,
-            this.barButtonItem2,
-            this.barButtonItem3,
-            this.barButtonItem4,
-            this.barButtonItem5,
-            this.barButtonItem6,
-            this.barButtonItem7,
-            this.barButtonItem8,
-            this.barButtonItem9,
-            this.barButtonItem10,
-            this.barButtonItem11,
-            this.barButtonItem12,
-            this.barButtonItem13,
-            this.barButtonItem14,
-            this.barButtonItem15,
+            this.barButtonItem_Add_Med,
+            this.barButtonItem_Med_Grid,
+            this.barButtonItem_Med_Shape,
+            this.barButtonItem_Med_Categorey,
+            this.barButtonItem_Store_Med,
+            this.barButtonItem_InOP,
+            this.barButtonItem_OutOp,
+            this.barButtonItem_EXpDate,
+            this.barButtonItem_Emp,
+            this.barButtonItem_Doners,
+            this.barButtonItem_reciver,
+            this.barButtonItem_Login,
+            this.barButtonItem_Users,
+            this.barButtonItem_System_Seting,
             this.barButtonItem16,
-            this.barButtonItem18,
-            this.barButtonItem19,
-            this.barButtonItem20,
-            this.barButtonItem21,
-            this.barButtonItem22,
-            this.barButtonItem23,
-            this.barButtonItem24,
-            this.barButtonItem25,
-            this.barButtonItem26,
+            this.barButtonItem_damOP,
+            this.barButtonItem_Store_Move,
+            this.barButtonItem_DB,
+            this.barButtonItem_Store_Place,
+            this.barButtonItem_In_Fwater,
+            this.barButtonItem_Med_Unites,
+            this.barButtonItem_Out_Fwater,
+            this.barButtonItem_Dam_Fwater,
+            this.barButtonItem_Min_Med,
             this.skinDropDownButtonItem1,
             this.bar_med_min,
             this.barButtonItem17,
-            this.barButtonItem27,
-            this.barButtonItem28,
-            this.barButtonItem29,
-            this.barButtonItem30,
-            this.barButtonItem31,
-            this.barButtonItem32,
-            this.barButtonItem33,
-            this.barButtonItem34,
-            this.barButtonItem35,
+            this.barButtonItem_In_Item,
+            this.barButtonItem_Rep_Month,
+            this.barButtonItem_RepIn,
+            this.barButtonItem_In_Fwater_And_Item,
+            this.barButtonItem_Rep_In_form,
+            this.barButtonItem_out_Item,
+            this.barButtonItem_Out_Fwater_And_Item,
+            this.barButtonItem_Dam_Item,
+            this.barButtonItem_Dam_Fwater_And_Item,
             this.bar_exp_date,
             this.barButtonItem36,
             this.skinRibbonGalleryBarItem1,
-            this.barButtonItem37,
-            this.barButtonItem38,
-            this.barButtonItem39});
+            this.barButtonItem_RepOut,
+            this.barButtonItem_Rep_dam,
+            this.barButtonItem_System_Record,
+            this.barButtonItem1});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbon.MaxItemId = 56;
+            this.ribbon.MaxItemId = 57;
             this.ribbon.Name = "ribbon";
             this.ribbon.OptionsStubGlyphs.Padding = new System.Windows.Forms.Padding(0);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1,
-            this.ribbonPage2,
-            this.ribbonPage5,
-            this.ribbonPage3,
-            this.ribbonPage4});
+            this.ribbonPage_Main,
+            this.ribbonPage_Store,
+            this.ribbonPage_Report,
+            this.ribbonPage_Thwabet,
+            this.ribbonPage_Setting});
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1,
             this.repositoryItemTextEdit2});
-            this.ribbon.Size = new System.Drawing.Size(1198, 148);
-            this.ribbon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ribbon_ItemClick);
+            this.ribbon.Size = new System.Drawing.Size(1042, 148);
+            this.ribbon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Ribbon_ItemClick);
             // 
             // update_timer
             // 
             this.update_timer.Enabled = true;
             this.update_timer.Interval = 100000;
-            this.update_timer.Tick += new System.EventHandler(this.update_timer_Tick);
+            this.update_timer.Tick += new System.EventHandler(this.Update_timer_Tick);
             // 
             // F_Main
             // 
@@ -796,7 +802,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1198, 719);
+            this.ClientSize = new System.Drawing.Size(1042, 719);
             this.Controls.Add(this.ribbon);
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("F_Main.IconOptions.Image")));
@@ -827,69 +833,69 @@
         public DevExpress.XtraBars.BarStaticItem barStaticItem1;
         public DevExpress.XtraBars.BarStaticItem barStaticItem2;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem12;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem13;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem14;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem15;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Add_Med;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Med_Grid;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Med_Shape;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Med_Categorey;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Store_Med;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_InOP;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_OutOp;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_EXpDate;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Emp;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Doners;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_reciver;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Login;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Users;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_System_Seting;
         private DevExpress.XtraBars.BarButtonItem barButtonItem16;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem18;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem19;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem20;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem21;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem22;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem23;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem24;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem25;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem26;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_damOP;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Store_Move;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_DB;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Store_Place;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_In_Fwater;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Med_Unites;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Out_Fwater;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Dam_Fwater;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Min_Med;
         private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
         public DevExpress.XtraBars.BarStaticItem bar_med_min;
         private DevExpress.XtraBars.BarButtonItem barButtonItem17;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem27;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem28;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem29;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem30;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem31;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem32;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem33;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem34;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem35;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_In_Item;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Rep_Month;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_RepIn;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_In_Fwater_And_Item;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Rep_In_form;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_out_Item;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Out_Fwater_And_Item;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Dam_Item;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Dam_Fwater_And_Item;
         private DevExpress.XtraBars.BarButtonItem barButtonItem36;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup18;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage5;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup17;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup21;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage_Main;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_Med;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_Store;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage_Store;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_in;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_out;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_Dam;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage_Report;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_Rep_Store;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_Rep_Total;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage_Thwabet;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_Thwabet_Store;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_Thwabet_Med;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_Thwabet_Pepole;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage_Setting;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_users;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_system;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup_Them;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem37;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem38;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_RepOut;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_Rep_dam;
         public DevExpress.XtraBars.BarStaticItem bar_exp_date;
         private System.Windows.Forms.Timer update_timer;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem39;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem_System_Record;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }

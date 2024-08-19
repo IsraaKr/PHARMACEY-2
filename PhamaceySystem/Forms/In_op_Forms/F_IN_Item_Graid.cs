@@ -15,10 +15,10 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Store_OP_Forms
 {
-    public partial class F_IN_Item_Graid : F_Master_Graid
+    public partial class F_IN_Item_Grid : F_Master_Grid
 
     {
-        public F_IN_Item_Graid()
+        public F_IN_Item_Grid()
         {
             InitializeComponent();
             Title(tit);
@@ -34,8 +34,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         Boolean Is_Double_Click = false;
         int id;
         int op_id;
-      //  int row_to_show;
-        public override void Get_Data(string status_mess)
+        int med_id; public override void Get_Data(string status_mess)
         {
             try
             {
@@ -103,6 +102,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                             {
                                 Get_Row_ID(row_id);
                                 cmdInItem.Delete_Data(TF_IN_Item);
+                                Classes.C_Add_System_record.Add(tit, "حذف", $" تم حذف {tit}  بالرقم {med_id} بكمية {TF_IN_Item.in_item_quntity} من الفاتورة {op_id}");
 
                             }
                             base.Delete_Data();
@@ -115,7 +115,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             }
             catch (Exception ex)
             {
-                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exception.FK_Exception))
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                 else
                     Get_Data(ex.InnerException.InnerException.ToString());
@@ -173,7 +173,7 @@ on med.store_place_id equals place.id into plist
         private void gv_column_names()
         {
             gv.Columns[0].Visible = false;
-            gv.Columns[1].Visible = false;
+            gv.Columns[1].Caption = "رقم الدواء";
             gv.Columns[2].Caption = "اسم الدواء";
             gv.Columns[3].Caption = "الكمية المدخلة";
             gv.Columns[4].Visible = false;
@@ -221,6 +221,7 @@ on med.store_place_id equals place.id into plist
                 id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString());
                 TF_IN_Item = cmdInItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
         op_id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[8]).ToString());
+                med_id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[1]).ToString());
 
             }
             else
@@ -228,6 +229,7 @@ on med.store_place_id equals place.id into plist
                 id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString());
                 TF_IN_Item = cmdInItem.Get_By(c_id => c_id.in_item_id == id).FirstOrDefault();
                 op_id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[8]).ToString());
+                med_id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[1]).ToString());
 
             }
         }

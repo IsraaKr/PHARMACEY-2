@@ -6,24 +6,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.ServiceModel;
 using System.IO;
 using System.Text.RegularExpressions;
 using Microsoft.Win32;
+using System.ServiceProcess;
 
 namespace PhamaceySystem
 {
-    class c_db
+    class C_DB
     {
         //public static SqlConnection con;
-        public static SqlCommand comnd;
+        public static SqlCommand Command;
         public static SqlDataReader dr;
         //  public static SqlDataAdapter da;
         public static DataTable dt;
         public static int done;
 
         public static SqlConnection _Con;
-        public static SqlConnection con  //عند كل استخدام ل كون نستخدم التابع و ليس الخاصية
+        public static SqlConnection Con  //عند كل استخدام ل كون نستخدم التابع و ليس الخاصية
         {
             get
             {
@@ -36,8 +37,55 @@ namespace PhamaceySystem
                 _Con = value;
             }
         }
+
+        //التأكد من تشغيل الخدمات 
+        //تفقد خدمات السضم
+        public static bool Check_Services()
+        {
+            ServiceController[] services = ServiceController.GetServices();
+           List<string> services_to_check = new List<string>() ; 
+            foreach (var item in services)
+            {
+                if (item.ServiceName.Contains("SQLEXPRESS") && !item.ServiceName.Contains("Agent"))
+                {
+                    services_to_check.Add(item.ServiceName);
+                }
+            }
+             
+            foreach (var item in services_to_check)
+            {
+                ServiceController sc = new ServiceController(item);
+                try
+                {
+          
+                    if (sc.Status != ServiceControllerStatus.Running)
+                    {
+                        MessageBox.Show($" الخدمة  لا تعمل !! يرجى تـشغيلها و المحاولة مرة أخرى  {item} "
+                                                   , "خدمة ويندوز متوففة",
+                                                   MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Warning);
+                        Application.Exit();
+                        return false;
+
+                    }
+
+                }
+
+
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("حدث خطأ أثنار التحقق من الخدمة  " + item + " " + ex.Message);
+                    return false;
+                }
+
+            }
+            return true;
+        }
+
+
         //جلب اسم السيرفر
-        public static string get_server_name()
+        public static string Get_server_name()
         {
             string server_name = "";
             var registaryviewarray = new[] { RegistryView.Registry32, RegistryView.Registry64 };
@@ -72,49 +120,49 @@ namespace PhamaceySystem
             return server_name;
         }
         //الاتصال بالقاعدة
-        public static void server_connection(string ser_name)
+        public static void Server_connection(string ser_name)
         {
-            con = new SqlConnection(@"Data Source=" + ser_name + "; Integrated Security=true;");
+            Con = new SqlConnection(@"Data Source=" + ser_name + "; Integrated Security=true;");
         }
         //إنشاء قاعدة البيانات
-        public static void create_DB(string db_name)
+        public static void Create_DB(string db_name)
         {
-            comnd = new SqlCommand("create database " + db_name, con);
-            comnd.ExecuteNonQuery();
+            Command = new SqlCommand("create database " + db_name, Con);
+            Command.ExecuteNonQuery();
 
         }
         //الاتصال بقاعدة البيانات
-        public static void db_conection(string server_name, string db_name)
+        public static void DB_Connection(string server_name, string db_name)
         {
-            con = new SqlConnection(@"Data Source=" + server_name + "; Initial Catalog=" + db_name + "; Integrated Security=true;");
+            Con = new SqlConnection(@"Data Source=" + server_name + "; Initial Catalog=" + db_name + "; Integrated Security=true;");
         }
         //select
-        public static DataTable select(string sql)
+        public static DataTable Select(string sql)
         {
             string serv = Properties.Settings.Default.Server_Name;
-            db_conection(serv, "PHANACEY_DB");
-            comnd = new SqlCommand(sql, con);
-            dr = comnd.ExecuteReader();
+            DB_Connection(serv, "PHANACEY_DB");
+            Command = new SqlCommand(sql, Con);
+            dr = Command.ExecuteReader();
             dt = new DataTable();
             dt.Load(dr);
             dr.Close();
             return dt;
         }
         //insert_upadte_delete
-        public static int insert_upadte_delete(string sql)
+        public static int Insert_Update_Delete(string sql)
         {
             done = 0;
-            comnd = new SqlCommand(sql, con);
-            done = comnd.ExecuteNonQuery();
+            Command = new SqlCommand(sql, Con);
+            done = Command.ExecuteNonQuery();
             return done;
         }
         //max id
-        public static string max(string sql)
+        public static string Max(string sql)
         {
             dr.Close();
             int x = 0;
-            comnd = new SqlCommand(sql, con);
-            dr = comnd.ExecuteReader();
+            Command = new SqlCommand(sql, Con);
+            dr = Command.ExecuteReader();
             while (dr.Read())
             {
                 if (x < Int32.Parse(dr[0].ToString()))
@@ -127,7 +175,7 @@ namespace PhamaceySystem
 
 
 
-        public static bool runSqlScriptFile(string pathStoreProceduresFile)
+        public static bool RunSqlScriptFile(string pathStoreProceduresFile)
         {
             try
             {
@@ -141,7 +189,7 @@ namespace PhamaceySystem
                 {
                     if (commandString.Trim() != "")
                     {
-                        using (var command = new SqlCommand(commandString, con))
+                        using (var command = new SqlCommand(commandString, Con))
                         {
                             try
                             {

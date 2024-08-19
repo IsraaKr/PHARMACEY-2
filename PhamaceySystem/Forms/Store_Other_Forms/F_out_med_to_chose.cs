@@ -3,6 +3,7 @@ using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
 using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
+using PhamaceySystem.Classes;
 using PhamaceySystem.Inheratenz_Forms;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,11 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             med_idd = med_id;       
             out_op_idd = out_op_id;
             opp_type = op_type;
+            if (opp_type == 2)
+                tite = "مواد فاتورة اخراج";
+            else
+                 if (opp_type == 3)
+                tite = "مواد فاتورة اتلاف";
             datee =Convert.ToDateTime( date.ToString("yyyy/MM/dd"));
             time = timr;
              emp_f_id = emp_id;
@@ -56,7 +62,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
         int item_id;
         int emp_f_id;
         int reciver_f_id;
-
+        string tite;
 
         int out_item_quntity;
         DateTime datee;
@@ -319,6 +325,8 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                 TF_OP_Out_Item = new T_OPeration_Out_Item();
                 Fill_Entitey_item();
                 cmdOppOutItem.Insert_Data(TF_OP_Out_Item);
+                C_Add_System_record.Add(tite, "إضافة", $" تم إضافة مادة إخراج  بالرقم {TF_OP_Out_Item.Med_id} بكمية {TF_OP_Out_Item.out_item_quntity} من الفاتورة {TF_OP_Out_Item.out_op_id}");
+
                 Set_Auto_Id_item();
             }
             else if (opp_type==3)
@@ -332,6 +340,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                 TF_OP_Dam_Item.dmg_op_id = out_op_idd;
                 TF_OP_Dam_Item.in_item_id = in_item_idd;
                 cmdOppDamItem.Insert_Data(TF_OP_Dam_Item);
+                C_Add_System_record.Add(tit, "إضافة", $" تم إضافة مادة إتلاف  بالرقم {TF_OP_Dam_Item.Med_id} بكمية {TF_OP_Dam_Item.dmg_item_quntity} من الفاتورة {TF_OP_Dam_Item.dmg_op_id}");
 
                 var max_id = cmdOppDamItem.Get_All().Where(c_id => c_id.dmg_item_id ==
                         cmdOppDamItem.Get_All().Max(max => max.dmg_item_id)).FirstOrDefault();

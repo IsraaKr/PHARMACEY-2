@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhamaceyDataBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,9 @@ namespace PhamaceySystem.Classes
         public static DateTime CreatedDate { get; set; }
         public static DateTime EditedDate { get; set; }
 
-        //Navication
+      
 
-  
+        public static List<T_Roles> LocalRoles { get; set; }
+
     }
 }

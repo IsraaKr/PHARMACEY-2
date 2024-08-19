@@ -46,7 +46,16 @@
       <Value Profile="(Default)">McSkin</Value>
     </Setting>
     <Setting Name="titel_master_colore" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Maroon</Value>
+      <Value Profile="(Default)">RosyBrown</Value>
+    </Setting>
+    <Setting Name="login_user_name" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="login_pass_Word" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Rememper_me" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

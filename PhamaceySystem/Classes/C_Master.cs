@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,7 @@ namespace PhamaceySystem
 {
    public static class C_Master
     {
+        public static string user_login = " test ";
         public static string mas_del = "هل أنت متأكد أنك تريد الحذف";
         public static void Warning_Massege_Box(string M_Text)
         {
@@ -54,6 +56,19 @@ namespace PhamaceySystem
             print.Document.RightToLeftLayout = true;
             print.PreviewRibbonFormEx.StartPosition = FormStartPosition.CenterScreen;
             print.PreviewRibbonFormEx.Show();
+        }
+
+        //تشفير كلمة السر
+        public static string SHA512(string Pass_Word)
+        {
+            SHA512Managed sHA512 = new SHA512Managed();
+            byte[] hash = System.Text.Encoding.UTF8.GetBytes(Pass_Word);
+            StringBuilder sb = new StringBuilder();
+            foreach (byte b in hash)
+            {
+                sb.Append(b.ToString("x2").ToLower());
+            }
+            return sb.ToString();
         }
 
         #region validation
@@ -219,7 +234,7 @@ namespace PhamaceySystem
             bool check_date_exp_not = Properties.Settings.Default.is_expdate_not_show;
             bool check_date_exp_form = Properties.Settings.Default.is_expdate_form_show;
 
-            //DataTable dt = c_db.select(@"SELECT  dbo.T_Medician.med_id,
+            //DataTable dt = C_DB.select(@"SELECT  dbo.T_Medician.med_id,
             //                                     dbo.T_Medician.med_code,
             //                                    dbo.T_Medician.med_name,
             //                                    dbo.T_Medician.med_minimum,
@@ -266,7 +281,7 @@ namespace PhamaceySystem
             bool check_show_not = Properties.Settings.Default.is_med_count_not_show;
             bool check_show_form = Properties.Settings.Default.is_med_count_form_show;
 
-            DataTable dt = c_db.select(@"SELECT  dbo.T_Medician.med_id,
+            DataTable dt = C_DB.Select(@"SELECT  dbo.T_Medician.med_id,
                                                  dbo.T_Medician.med_code,
                                                 dbo.T_Medician.med_name,
                                                 dbo.T_Medician.med_minimum,

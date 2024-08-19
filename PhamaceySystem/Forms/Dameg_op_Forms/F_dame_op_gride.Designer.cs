@@ -1,6 +1,6 @@
 ﻿namespace PhamaceySystem.Forms.Dameg_op_Forms
 {
-    partial class F_dame_op_gride
+    partial class F_dame_op_grid
     {
         /// <summary>
         /// Required designer variable.

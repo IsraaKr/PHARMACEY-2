@@ -210,7 +210,7 @@
             // 
             // checkedComboBoxEdit_Store_Place
             // 
-            this.checkedComboBoxEdit_Store_Place.Location = new System.Drawing.Point(51, 62);
+            this.checkedComboBoxEdit_Store_Place.Location = new System.Drawing.Point(51, 105);
             this.checkedComboBoxEdit_Store_Place.MenuManager = this.barMang;
             this.checkedComboBoxEdit_Store_Place.Name = "checkedComboBoxEdit_Store_Place";
             this.checkedComboBoxEdit_Store_Place.Properties.AllowMultiSelect = true;
@@ -227,7 +227,7 @@
             // 
             this.dtp_op_time.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_op_time.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtp_op_time.Location = new System.Drawing.Point(523, 80);
+            this.dtp_op_time.Location = new System.Drawing.Point(523, 123);
             this.dtp_op_time.Name = "dtp_op_time";
             this.dtp_op_time.RightToLeftLayout = true;
             this.dtp_op_time.ShowUpDown = true;
@@ -239,7 +239,7 @@
             this.btn_delet_item.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delet_item.Appearance.Options.UseFont = true;
             this.btn_delet_item.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_delet_item.ImageOptions.Image")));
-            this.btn_delet_item.Location = new System.Drawing.Point(8, 266);
+            this.btn_delet_item.Location = new System.Drawing.Point(8, 309);
             this.btn_delet_item.Name = "btn_delet_item";
             this.btn_delet_item.Size = new System.Drawing.Size(64, 24);
             this.btn_delet_item.StyleController = this.dataLayoutControl2;
@@ -252,7 +252,7 @@
             this.btn_edite_item.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_edite_item.Appearance.Options.UseFont = true;
             this.btn_edite_item.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_edite_item.ImageOptions.Image")));
-            this.btn_edite_item.Location = new System.Drawing.Point(8, 238);
+            this.btn_edite_item.Location = new System.Drawing.Point(8, 281);
             this.btn_edite_item.Name = "btn_edite_item";
             this.btn_edite_item.Size = new System.Drawing.Size(64, 24);
             this.btn_edite_item.StyleController = this.dataLayoutControl2;
@@ -267,7 +267,7 @@
             this.btn_add_item.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_add_item.ImageOptions.Image")));
             this.btn_add_item.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn_add_item.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btn_add_item.Location = new System.Drawing.Point(76, 238);
+            this.btn_add_item.Location = new System.Drawing.Point(76, 281);
             this.btn_add_item.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_item.Name = "btn_add_item";
             this.btn_add_item.Size = new System.Drawing.Size(435, 52);
@@ -279,7 +279,7 @@
             // btn_add_emp
             // 
             this.btn_add_emp.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_add_emp.ImageOptions.SvgImage")));
-            this.btn_add_emp.Location = new System.Drawing.Point(523, 209);
+            this.btn_add_emp.Location = new System.Drawing.Point(523, 252);
             this.btn_add_emp.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_emp.Name = "btn_add_emp";
             this.btn_add_emp.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
@@ -291,7 +291,7 @@
             // btn_add_med
             // 
             this.btn_add_med.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_add_med.ImageOptions.SvgImage")));
-            this.btn_add_med.Location = new System.Drawing.Point(8, 23);
+            this.btn_add_med.Location = new System.Drawing.Point(8, 66);
             this.btn_add_med.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_med.Name = "btn_add_med";
             this.btn_add_med.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
@@ -303,7 +303,7 @@
             // btn_add_donar
             // 
             this.btn_add_donar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_add_donar.ImageOptions.SvgImage")));
-            this.btn_add_donar.Location = new System.Drawing.Point(523, 170);
+            this.btn_add_donar.Location = new System.Drawing.Point(523, 213);
             this.btn_add_donar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_donar.Name = "btn_add_donar";
             this.btn_add_donar.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
@@ -315,7 +315,7 @@
             // gc
             // 
             this.gc.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.gc.Location = new System.Drawing.Point(4, 298);
+            this.gc.Location = new System.Drawing.Point(4, 341);
             this.gc.MainView = this.gv;
             this.gc.Margin = new System.Windows.Forms.Padding(2);
             this.gc.MinimumSize = new System.Drawing.Size(500, 200);
@@ -353,7 +353,7 @@
             // in_item_idTextEdit
             // 
             this.in_item_idTextEdit.Enabled = false;
-            this.in_item_idTextEdit.Location = new System.Drawing.Point(8, -7);
+            this.in_item_idTextEdit.Location = new System.Drawing.Point(8, 36);
             this.in_item_idTextEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_item_idTextEdit.MenuManager = this.barMang;
             this.in_item_idTextEdit.Name = "in_item_idTextEdit";
@@ -370,7 +370,7 @@
             // 
             // in_item_quntityTextEdit
             // 
-            this.in_item_quntityTextEdit.Location = new System.Drawing.Point(11, 105);
+            this.in_item_quntityTextEdit.Location = new System.Drawing.Point(11, 148);
             this.in_item_quntityTextEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_item_quntityTextEdit.MenuManager = this.barMang;
             this.in_item_quntityTextEdit.Name = "in_item_quntityTextEdit";
@@ -389,7 +389,7 @@
             // in_item_expDateDateEdit
             // 
             this.in_item_expDateDateEdit.EditValue = new System.DateTime(2024, 2, 28, 10, 48, 21, 0);
-            this.in_item_expDateDateEdit.Location = new System.Drawing.Point(8, 138);
+            this.in_item_expDateDateEdit.Location = new System.Drawing.Point(8, 181);
             this.in_item_expDateDateEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_item_expDateDateEdit.MenuManager = this.barMang;
             this.in_item_expDateDateEdit.Name = "in_item_expDateDateEdit";
@@ -414,7 +414,7 @@
             // 
             // in_B_It_noteMemoEdit
             // 
-            this.in_B_It_noteMemoEdit.Location = new System.Drawing.Point(8, 168);
+            this.in_B_It_noteMemoEdit.Location = new System.Drawing.Point(8, 211);
             this.in_B_It_noteMemoEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_B_It_noteMemoEdit.MenuManager = this.barMang;
             this.in_B_It_noteMemoEdit.Name = "in_B_It_noteMemoEdit";
@@ -427,7 +427,7 @@
             // in_op_idTextEdit
             // 
             this.in_op_idTextEdit.Enabled = false;
-            this.in_op_idTextEdit.Location = new System.Drawing.Point(523, -7);
+            this.in_op_idTextEdit.Location = new System.Drawing.Point(523, 36);
             this.in_op_idTextEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_op_idTextEdit.MenuManager = this.barMang;
             this.in_op_idTextEdit.Name = "in_op_idTextEdit";
@@ -445,7 +445,7 @@
             // in_op_dateDateEdit
             // 
             this.in_op_dateDateEdit.EditValue = new System.DateTime(2024, 2, 28, 0, 0, 0, 0);
-            this.in_op_dateDateEdit.Location = new System.Drawing.Point(523, 50);
+            this.in_op_dateDateEdit.Location = new System.Drawing.Point(523, 93);
             this.in_op_dateDateEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_op_dateDateEdit.MenuManager = this.barMang;
             this.in_op_dateDateEdit.Name = "in_op_dateDateEdit";
@@ -462,7 +462,7 @@
             // 
             // in_op_textTextEdit
             // 
-            this.in_op_textTextEdit.Location = new System.Drawing.Point(523, 104);
+            this.in_op_textTextEdit.Location = new System.Drawing.Point(523, 147);
             this.in_op_textTextEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_op_textTextEdit.MenuManager = this.barMang;
             this.in_op_textTextEdit.Name = "in_op_textTextEdit";
@@ -477,7 +477,7 @@
             // in_op_stateCheckEdit
             // 
             this.in_op_stateCheckEdit.EditValue = true;
-            this.in_op_stateCheckEdit.Location = new System.Drawing.Point(523, 23);
+            this.in_op_stateCheckEdit.Location = new System.Drawing.Point(523, 66);
             this.in_op_stateCheckEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_op_stateCheckEdit.MenuManager = this.barMang;
             this.in_op_stateCheckEdit.Name = "in_op_stateCheckEdit";
@@ -491,7 +491,7 @@
             // 
             // donar_empTextEdit
             // 
-            this.donar_empTextEdit.Location = new System.Drawing.Point(526, 137);
+            this.donar_empTextEdit.Location = new System.Drawing.Point(526, 180);
             this.donar_empTextEdit.Margin = new System.Windows.Forms.Padding(2);
             this.donar_empTextEdit.MenuManager = this.barMang;
             this.donar_empTextEdit.Name = "donar_empTextEdit";
@@ -505,7 +505,7 @@
             // 
             // donar_idSearchLookUpEdit
             // 
-            this.donar_idSearchLookUpEdit.Location = new System.Drawing.Point(566, 173);
+            this.donar_idSearchLookUpEdit.Location = new System.Drawing.Point(566, 216);
             this.donar_idSearchLookUpEdit.Margin = new System.Windows.Forms.Padding(2);
             this.donar_idSearchLookUpEdit.MenuManager = this.barMang;
             this.donar_idSearchLookUpEdit.Name = "donar_idSearchLookUpEdit";
@@ -533,7 +533,7 @@
             // 
             // emp_idSearchLookUpEdit
             // 
-            this.emp_idSearchLookUpEdit.Location = new System.Drawing.Point(566, 212);
+            this.emp_idSearchLookUpEdit.Location = new System.Drawing.Point(566, 255);
             this.emp_idSearchLookUpEdit.Margin = new System.Windows.Forms.Padding(2);
             this.emp_idSearchLookUpEdit.MenuManager = this.barMang;
             this.emp_idSearchLookUpEdit.Name = "emp_idSearchLookUpEdit";
@@ -562,7 +562,7 @@
             // btn_add_store_place
             // 
             this.btn_add_store_place.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_add_store_place.ImageOptions.SvgImage")));
-            this.btn_add_store_place.Location = new System.Drawing.Point(8, 63);
+            this.btn_add_store_place.Location = new System.Drawing.Point(8, 106);
             this.btn_add_store_place.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_store_place.Name = "btn_add_store_place";
             this.btn_add_store_place.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
@@ -573,7 +573,7 @@
             // 
             // Med_idSearchlookupEdit
             // 
-            this.Med_idSearchlookupEdit.Location = new System.Drawing.Point(51, 26);
+            this.Med_idSearchlookupEdit.Location = new System.Drawing.Point(51, 69);
             this.Med_idSearchlookupEdit.Margin = new System.Windows.Forms.Padding(2);
             this.Med_idSearchlookupEdit.MenuManager = this.barMang;
             this.Med_idSearchlookupEdit.Name = "Med_idSearchlookupEdit";
@@ -602,7 +602,7 @@
             // 
             this.med_countTextEdit1.EditValue = "0";
             this.med_countTextEdit1.Enabled = false;
-            this.med_countTextEdit1.Location = new System.Drawing.Point(700, 258);
+            this.med_countTextEdit1.Location = new System.Drawing.Point(700, 301);
             this.med_countTextEdit1.Margin = new System.Windows.Forms.Padding(2);
             this.med_countTextEdit1.Name = "med_countTextEdit1";
             this.med_countTextEdit1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));

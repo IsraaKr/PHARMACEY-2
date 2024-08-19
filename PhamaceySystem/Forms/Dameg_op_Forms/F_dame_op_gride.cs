@@ -1,6 +1,7 @@
 ﻿using DevExpress.Data;
 using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
+using PhamaceySystem.Classes;
 using PhamaceySystem.Forms.Store_Forms;
 using PhamaceySystem.Forms.Store_OP_Forms;
 using PhamaceySystem.Inheratenz_Forms;
@@ -16,9 +17,9 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Dameg_op_Forms
 {
-    public partial class F_dame_op_gride : F_Master_Graid
+    public partial class F_dame_op_grid : F_Master_Grid
     {
-        public F_dame_op_gride()
+        public F_dame_op_grid()
         {
             InitializeComponent();
             Title(tit);
@@ -29,7 +30,7 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
         ClsCommander<T_OPeration_Damage> cmdDamOP = new ClsCommander<T_OPeration_Damage>();
         ClsCommander<T_Pers_Emploee> cmdEmp = new ClsCommander<T_Pers_Emploee>();
 
-        T_OPeration_Damage TF_OPeration_IN;
+        T_OPeration_Damage TF_OPeration_Dam;
         Boolean Is_Double_Click = false;
         int id;
         public override void Get_Data(string status_mess)
@@ -40,8 +41,8 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
                 Is_Double_Click = false;
                 cmdDamOP = new ClsCommander<T_OPeration_Damage>();
                 //  row_to_show = Properties.Settings.Default.gc_row_count;
-                TF_OPeration_IN = cmdDamOP.Get_All().FirstOrDefault();
-                if (TF_OPeration_IN != null)
+                TF_OPeration_Dam = cmdDamOP.Get_All().FirstOrDefault();
+                if (TF_OPeration_Dam != null)
                     Fill_Graid();
                 base.Get_Data(status_mess);
 
@@ -100,7 +101,8 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
                             foreach (int row_id in gv.GetSelectedRows())
                             {
                                 Get_Row_ID(row_id);
-                                cmdDamOP.Delete_Data(TF_OPeration_IN);
+                                cmdDamOP.Delete_Data(TF_OPeration_Dam);
+                               Classes. C_Add_System_record.Add(tit, "حذف", $" تم حذف {tit}  بالرقم {TF_OPeration_Dam.dam_OP_id} ");
 
                             }
                             base.Delete_Data();
@@ -113,7 +115,7 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
             }
             catch (Exception ex)
             {
-                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exception.FK_Exception))
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                 else
                     Get_Data(ex.InnerException.InnerException.ToString());
@@ -194,12 +196,12 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
             if (Row_Id != 0)
             {
                 id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]).ToString().Replace(",", string.Empty));
-                TF_OPeration_IN = cmdDamOP.Get_By(c_id => c_id.dam_OP_id == id).FirstOrDefault();
+                TF_OPeration_Dam = cmdDamOP.Get_By(c_id => c_id.dam_OP_id == id).FirstOrDefault();
             }
             else
             {
                 id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString().Replace(",", string.Empty));
-                TF_OPeration_IN = cmdDamOP.Get_By(c_id => c_id.dam_OP_id == id).FirstOrDefault();
+                TF_OPeration_Dam = cmdDamOP.Get_By(c_id => c_id.dam_OP_id == id).FirstOrDefault();
             }
         }
 

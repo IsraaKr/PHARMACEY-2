@@ -1,6 +1,6 @@
 ﻿namespace PhamaceySystem.Forms.Store_OP_Forms
 {
-    partial class F_out_op_graid
+    partial class F_out_op_grid
     {
         /// <summary>
         /// Required designer variable.

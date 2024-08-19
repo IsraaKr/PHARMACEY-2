@@ -1,6 +1,6 @@
 ﻿namespace PhamaceySystem.Forms.Dameg_op_Forms
 {
-    partial class F_damege_item
+    partial class F_damage_item
     {
         /// <summary>
         /// Required designer variable.

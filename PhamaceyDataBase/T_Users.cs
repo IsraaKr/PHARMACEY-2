@@ -18,7 +18,6 @@ namespace PhamaceyDataBase
         public T_Users()
         {
             this.T_Roles = new HashSet<T_Roles>();
-            this.T_System_Record = new HashSet<T_System_Record>();
         }
     
         public int Id { get; set; }
@@ -32,7 +31,5 @@ namespace PhamaceyDataBase
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_Roles> T_Roles { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<T_System_Record> T_System_Record { get; set; }
     }
 }

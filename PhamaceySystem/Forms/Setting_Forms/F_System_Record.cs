@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Setting_Forms
 {
-    public partial class F_System_Record : F_Master_Graid
+    public partial class F_System_Record : F_Master_Grid
     {
         public F_System_Record()
         {
@@ -24,6 +24,8 @@ namespace PhamaceySystem.Forms.Setting_Forms
             sp_new.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             bar_edit.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             sp_edite.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            bar_delete.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            sp_delete.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             bar_delete.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             sp_delete.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
 
@@ -103,7 +105,7 @@ namespace PhamaceySystem.Forms.Setting_Forms
                             fullName = med.Full_name,                         
                             user_id = med.User_id,
                            
-                        }).OrderBy(l_id => l_id.id).ToList();
+                        }).OrderByDescending(l_id => l_id.id).ToList();
             //جلب جزء من البيانات
             if (data != null && data.Count > 0)
             {

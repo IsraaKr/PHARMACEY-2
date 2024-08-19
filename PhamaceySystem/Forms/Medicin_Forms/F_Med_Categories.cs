@@ -63,6 +63,9 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                     TF_Med_Cat = new T_Med_Category();
                     Fill_Entitey();
                     cmdMedCat.Insert_Data(TF_Med_Cat);
+
+                    C_Add_System_record.Add(tit, "إضافة", $" تم إضافة {tit}  باسم {TF_Med_Cat.med_cat_name} ");
+
                     base.Insert_Data();
                     Get_Data("i");
                 }
@@ -84,6 +87,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                    
                         Fill_Entitey();
                         cmdMedCat.Update_Data(TF_Med_Cat);
+                        C_Add_System_record.Add(tit, "تعديل", $" تم تعديل {tit}  باسم {TF_Med_Cat.med_cat_name} ");
+
                         base.Update_Data();
                         Get_Data("u");
                     }
@@ -110,6 +115,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                             {
                                 Get_Row_ID(row_id);
                                 cmdMedCat.Delete_Data(TF_Med_Cat);
+                                C_Add_System_record.Add(tit, "حذف", $" تم حذف {tit}  باسم {TF_Med_Cat.med_cat_name} ");
+
                             }
                         base.Delete_Data();
                         Get_Data("d");
@@ -121,7 +128,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             }
             catch (Exception ex)
             {
-                if (ex.InnerException.InnerException.ToString().Contains(C_Exeption.FK_Exeption))
+                if (ex.InnerException.InnerException.ToString().Contains(C_Exception.FK_Exception))
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                 else         
                   Get_Data(ex.InnerException.InnerException.ToString());

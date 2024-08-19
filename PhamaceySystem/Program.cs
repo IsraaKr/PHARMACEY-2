@@ -7,6 +7,7 @@ using PhamaceySystem.Forms.Starts_Forms;
 using PhamaceySystem.Forms.Store_Forms;
 using PhamaceySystem.Forms.Store_OP_Forms;
 using PhamaceySystem.Forms.Store_Other_Forms;
+using PhamaceySystem.Forms.User_Forms;
 using PhamaceySystem.Inheratenz_Forms;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,9 @@ namespace PhamaceySystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             C_SqlCon.Server_Name = Properties.Settings.Default.Server_Name.ToString();
-            Application.Run(new F_Main());
+          //  C_SqlCon.Server_Name = "ISRAA-PC\\SQLEXPRESS";
+
+            Application.Run(new F_Login());
         }
     }
 }

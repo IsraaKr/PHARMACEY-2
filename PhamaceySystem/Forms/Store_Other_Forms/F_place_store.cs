@@ -1,5 +1,6 @@
 ﻿using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
+using PhamaceySystem.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -61,6 +62,8 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                     TF_Store_Places = new T_Store_Placees();
                     Fill_Entitey();
                     cmdStorePalces.Insert_Data(TF_Store_Places);
+                    C_Add_System_record.Add(tit, "إضافة", $" تم إضافة {tit}  باسم {TF_Store_Places.name} ");
+
                     base.Insert_Data();
                     Get_Data("i");
                 }
@@ -82,6 +85,8 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
 
                         Fill_Entitey();
                         cmdStorePalces.Update_Data(TF_Store_Places);
+                        C_Add_System_record.Add(tit, "تعديل", $" تم تعديل {tit}  باسم {TF_Store_Places.name} ");
+
                         base.Update_Data();
                         Get_Data("u");
                     }
@@ -108,6 +113,8 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
                             {
                                 Get_Row_ID(row_id);
                                 cmdStorePalces.Delete_Data(TF_Store_Places);
+                                C_Add_System_record.Add(tit, "حذف", $" تم حذف {tit}  باسم {TF_Store_Places.name} ");
+
                             }
                         base.Delete_Data();
                         Get_Data("d");
@@ -119,7 +126,7 @@ namespace PhamaceySystem.Forms.Store_Other_Forms
             }
             catch (Exception ex)
             {
-                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exception.FK_Exception))
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                 else
                     Get_Data(ex.InnerException.InnerException.ToString());

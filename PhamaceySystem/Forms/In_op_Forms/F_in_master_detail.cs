@@ -1,12 +1,7 @@
 ﻿using PhamaceySystem.Forms.Store_Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Store_OP_Forms
@@ -16,7 +11,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         public F_in_master_detail()
         {
             InitializeComponent();
-            view_inheretanz_butomes(true, false, false, true, true,  true, true);
+            view_inheretanz_butomes(true, false, false, true, true, true, true);
 
             Title(tit);
             this.Text = tit;
@@ -108,7 +103,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             }
             catch (Exception ex)
             {
-                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exception.FK_Exception))
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                 else
                     Get_Data(ex.InnerException.InnerException.ToString());
@@ -128,7 +123,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         private void Fill_Graid_op()
         {
 
-            dt_op = c_db.select(@"SELECT     T_OPeration_IN.in_op_id,
+            dt_op = C_DB.Select(@"SELECT     T_OPeration_IN.in_op_id,
 T_OPeration_IN.in_op_date, T_OPeration_IN.in_op_time, T_OPeration_IN.in_op_text,
 
                      T_OPeration_IN.donar_id,
@@ -160,7 +155,7 @@ FROM         T_OPeration_IN INNER JOIN
 
         private void Fill_Graid_item()
         {
-            dt_item = c_db.select(@"SELECT     T_OPeration_IN_Item.in_item_id, T_Medician.med_name, T_OPeration_IN_Item.in_item_quntity, T_Store_Placees.name, T_OPeration_IN_Item.is_out, 
+            dt_item = C_DB.Select(@"SELECT     T_OPeration_IN_Item.in_item_id, T_Medician.med_name, T_OPeration_IN_Item.in_item_quntity, T_Store_Placees.name, T_OPeration_IN_Item.is_out, 
                       T_OPeration_IN_Item.out_item_quntitey, T_OPeration_IN_Item.In_op_id, T_OPeration_IN_Item.in_item_expDate
 FROM         T_OPeration_IN_Item INNER JOIN
                       T_Medician ON T_OPeration_IN_Item.Med_id = T_Medician.med_id INNER JOIN
@@ -181,7 +176,7 @@ FROM         T_OPeration_IN_Item INNER JOIN
 
             dt_item.Columns[1].Caption = "اسم الدواء";
             dt_item.Columns[2].Caption = "الكمية المدخلة";
-        
+
             dt_item.Columns[3].Caption = "مكان التخزين ";
             dt_item.Columns[4].Caption = "خارجة ";
             dt_item.Columns[5].Caption = "الكمية الخارجة ";
@@ -201,10 +196,10 @@ FROM         T_OPeration_IN_Item INNER JOIN
 
             if (gv.Columns[2].Summary.Count == 0)
             {
-           
+
                 gv.OptionsView.ShowFooter = true;
-            gv.Columns[2].Summary.Add(DevExpress.Data.SummaryItemType.Sum, gv.Columns[2].FieldName.ToString(), "المجموع = {0}");
-            gv.Columns[1].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[1].FieldName.ToString(), "عدد المواد = {0}");
+                gv.Columns[2].Summary.Add(DevExpress.Data.SummaryItemType.Sum, gv.Columns[2].FieldName.ToString(), "المجموع = {0}");
+                gv.Columns[1].Summary.Add(DevExpress.Data.SummaryItemType.Count, gv.Columns[1].FieldName.ToString(), "عدد المواد = {0}");
 
             }
             if (gv.GroupSummary.Count == 0)
@@ -216,7 +211,7 @@ FROM         T_OPeration_IN_Item INNER JOIN
                 item.SummaryType = DevExpress.Data.SummaryItemType.Sum;
                 gv.GroupSummary.Add(item);
             }
-    }
+        }
         private void Get_Row_ID(int Row_Id)
         {
 
@@ -230,16 +225,6 @@ FROM         T_OPeration_IN_Item INNER JOIN
                 id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString().Replace(",", string.Empty));
                 //  TF_OPeration_IN = cmdINOP.Get_By(c_id => c_id.in_op_id == id).FirstOrDefault();
             }
-        }
-
-        private void gv_DoubleClick(object sender, EventArgs e)
-        {
-            Is_Double_Click = true;
-            gv.SelectRow(gv.FocusedRowHandle);
-
-            Get_Row_ID(0);
-            //  if (TF_OPeration_IN != null)
-            // Fill_Controls();
         }
     }
 }

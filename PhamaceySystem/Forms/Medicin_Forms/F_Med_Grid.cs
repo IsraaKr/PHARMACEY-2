@@ -2,6 +2,7 @@
 using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
 using PhamaceySystem;
+using PhamaceySystem.Classes;
 using PhamaceySystem.Inheratenz_Forms;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Medicin_Forms
 {
-    public partial class F_Med_Grid : F_Master_Graid
+    public partial class F_Med_Grid : F_Master_Grid
     {
         public F_Med_Grid()
         {
@@ -106,6 +107,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                             {
                                 Get_Row_ID(row_id);
                                 cmdMedician.Delete_Data(TF_Medician);
+                                C_Add_System_record.Add(tit, "حذف", $" تم حذف {tit}  باسم {TF_Medician.med_name} ");
+
                             }
                             base.Delete_Data();
                             Get_Data("d");
@@ -117,7 +120,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             }
             catch (Exception ex)
             {
-                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exception.FK_Exception))
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                 else
                     Get_Data(ex.InnerException.InnerException.ToString());
@@ -145,7 +148,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         private void Fill_Graid()
         {
 
-            //            DataTable dt = c_db.select(@"SELECT T_Medician.med_id, 
+            //            DataTable dt = C_DB.select(@"SELECT T_Medician.med_id, 
             //                                            T_Medician.med_code,
             //                                               T_Medician.med_name,
             //                                              T_Medician.med_minimum,                                                                                    

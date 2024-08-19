@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,7 +20,7 @@ namespace PhamaceySystem.Forms.Setting_Forms
             InitializeComponent();
             firstStart = FirstStart;
             Set_Prop_Settings();
-            txt_server.Text = c_db.get_server_name();
+            txt_server.Text = C_DB.Get_server_name();
             txt_database.Text = "PHANACEY_DB";
             view_inheretanz_butomes(false, true, false, false, false, false,true);
             Title(tit);
@@ -31,7 +32,7 @@ namespace PhamaceySystem.Forms.Setting_Forms
             InitializeComponent();
 
             Set_Prop_Settings();
-            txt_server.Text = c_db.get_server_name();
+            txt_server.Text = C_DB.Get_server_name();
             txt_database.Text = "PHANACEY_DB";
             view_inheretanz_butomes(false, true, false, false, false, false, true);
             Title(tit);
@@ -47,37 +48,37 @@ namespace PhamaceySystem.Forms.Setting_Forms
         {  // أول استدعاء من اجل انشاء قاعدة البيانات و الجداول
             try//جلب اسم السيرفر و  الاتصال بالسيرفر
             {
-                server_nam = c_db.get_server_name();
+                server_nam = C_DB.Get_server_name();
                 MessageBox.Show("تم جلب اسم السيرفر : " + server_nam);
             }
             catch (Exception)
             {
                 MessageBox.Show("Error in ServerName part");
             }
-            c_db.server_connection(server_nam);
+            C_DB.Server_connection(server_nam);
 
             MessageBox.Show("تم الاتصال بالسيرف " + server_nam);
 
             // ******************************************
             //string sql = "select name from sys.databases"; //تجلب اسماء قواعد البيانات التي عندي
-            //DataTable dt = c_db.select(sql);
+            //DataTable dt = C_DB.select(sql);
 
             try//إنشاء قاعدة  البيانات و الاتصال بها
             {
-                c_db.create_DB(db_nam);
+                C_DB.Create_DB(db_nam);
                 MessageBox.Show("تم إنشاء قاعدة البيانات : " + db_nam);
             }
             catch (Exception)
             {
                 MessageBox.Show("Error in data base part");
             }
-            c_db.db_conection(server_nam, db_nam);
+            C_DB.DB_Connection(server_nam, db_nam);
             MessageBox.Show("تم الاتصال بقاعدة البيانات " + db_nam);
 
             //************************************************
             try//إنشاء الجداول
             {
-                run = c_db.runSqlScriptFile(Properties.Settings.Default.sqript_bath);
+                run = C_DB.RunSqlScriptFile(Properties.Settings.Default.sqript_bath);
                 MessageBox.Show("تم إنشاء كل الجداول  " + run);
             }
             catch (Exception)
@@ -112,9 +113,77 @@ namespace PhamaceySystem.Forms.Setting_Forms
             {
                 MessageBox.Show("Error in operation type  tables part");
             }
+            try
+            {
+                ClsCommander<T_Users> cmdUsers = new ClsCommander<T_Users>();
+                ClsCommander<T_Roles> cmdRoles = new ClsCommander<T_Roles>();
 
-       
+                T_Users TF_Users = new T_Users();
+                var check = cmdUsers.Get_All().Count();
+                if (check == 0)
+                {
+                    TF_Users.Full_Name = "مدير النظام";
+                    TF_Users.user_name = "admin";
+                    TF_Users.pass_word = SHA512( "admin") ;
+                    TF_Users.Role = "مدير";
+                    TF_Users.is_secondery = true;
+                    TF_Users.updated_date = DateTime.Now;
+                    TF_Users.cerated_date = DateTime.Now;
+                    cmdUsers.Insert_Data(TF_Users);
+                    TF_Users = cmdUsers.Get_All().FirstOrDefault();
+                    List<string> rolesName = new List<string> 
+                    {
+                    "per_in",
+                    "per_dam",
+                    "per_med",
+                    "per_thwabet",
+                    "per_rep",
+                    "per_out",
+                    "per_sysRecord",
+                    "per_seting",
+                    "per_Users",
+                    "per_Db",
+                    "per_save",
+                    "per_edite",
+                    "per_delete",
+                    "per_print",
+                };
+                    //done and add user  roles
+                    for (int i = 0; i < rolesName.Count; i++)            
+                    {
+                       
+                        //set role
+                        T_Roles roles = new T_Roles();
 
+                        roles.keyy = rolesName[i];
+                        roles.value = true;
+                        roles.User_Id = TF_Users.Id ;
+
+                        //send role
+                        cmdRoles.Insert_Data(roles);
+                    }
+                }
+
+                MessageBox.Show(" تم إنشاء مدير النظام ");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error in Users  tables part");
+            }
+
+
+        }
+        //تشفير كلمة السر
+        private string SHA512(string Pass_Word)
+        {
+            SHA512Managed sHA512 = new SHA512Managed();
+            byte[] hash = System.Text.Encoding.UTF8.GetBytes(Pass_Word);
+            StringBuilder sb = new StringBuilder();
+            foreach (byte b in hash)
+            {
+                sb.Append(b.ToString("x2").ToLower());
+            }
+            return sb.ToString();
         }
         private void btn_restore_database_Click(object sender, EventArgs e)
         {

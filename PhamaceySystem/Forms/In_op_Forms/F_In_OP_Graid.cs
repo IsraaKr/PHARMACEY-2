@@ -16,9 +16,9 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Store_Forms
 {
-    public partial class F_In_OP_Graid : F_Master_Graid
+    public partial class F_In_OP_Grid : F_Master_Grid
     {
-        public F_In_OP_Graid()
+        public F_In_OP_Grid()
         {
             InitializeComponent();
 
@@ -41,7 +41,6 @@ namespace PhamaceySystem.Forms.Store_Forms
                 clear_data(this.Controls);
                 Is_Double_Click = false;
                 cmdINOP = new ClsCommander<T_OPeration_IN>();
-                //  row_to_show = Properties.Settings.Default.gc_row_count;
                 TF_OPeration_IN = cmdINOP.Get_All().FirstOrDefault();
                 if (TF_OPeration_IN != null)
                     Fill_Graid();
@@ -103,6 +102,7 @@ namespace PhamaceySystem.Forms.Store_Forms
                             {
                                 Get_Row_ID(row_id);
                                 cmdINOP.Delete_Data(TF_OPeration_IN);
+                                Classes.C_Add_System_record.Add(tit, "حذف", $" تم حذف {tit}  بالرقم {TF_OPeration_IN.in_op_id} ");
 
                             }
                             base.Delete_Data();
@@ -115,7 +115,7 @@ namespace PhamaceySystem.Forms.Store_Forms
             }
             catch (Exception ex)
             {
-                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exception.FK_Exception))
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                 else
                     Get_Data(ex.InnerException.InnerException.ToString());

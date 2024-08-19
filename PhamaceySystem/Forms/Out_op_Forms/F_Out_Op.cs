@@ -62,6 +62,7 @@ namespace PhamaceySystem.Forms.Store_Forms
         int old_med_id;
         int old_item_id = 0;
         int old_IN_item_id = 0;
+        int old_out_op = 0;
         DataTable dt;
         public override void Get_Data(string status_mess)
         {
@@ -148,6 +149,8 @@ namespace PhamaceySystem.Forms.Store_Forms
                 else
                 {
                     update_op();
+                    Classes.C_Add_System_record.Add(tit, "تعديل", $" تم تعديل {tit}  برقم {TF_OP_Out.out_op_id} ");
+
                 }
 
 
@@ -235,6 +238,7 @@ namespace PhamaceySystem.Forms.Store_Forms
                 TF_OP_Out = new T_OPeration_Out();
                 Fill_Entitey_op();
                 cmdOpOut.Insert_Data(TF_OP_Out);
+                Classes.C_Add_System_record.Add(tit, "إضافة", $" تم إضافة {tit}  برقم {TF_OP_Out.out_op_id} ");
 
 
                 var max_id = cmdOpOut.Get_All().Where(c_id => c_id.out_op_id ==
@@ -319,6 +323,7 @@ namespace PhamaceySystem.Forms.Store_Forms
             TF_OP_Out_Item = new T_OPeration_Out_Item();
             Fill_Entitey_item();
             cmdOppOutItem.Insert_Data(TF_OP_Out_Item);
+            Classes.C_Add_System_record.Add(tit, "إضافة", $" تم إضافة {tit}  بالرقم {TF_OP_Out_Item.Med_id} بكمية {TF_OP_Out_Item.out_item_quntity} من الفاتورة {TF_OP_Out_Item.out_item_id}");
 
             var max_id = cmdOppOutItem.Get_All().Where(c_id => c_id.out_item_id ==
                                cmdOppOutItem.Get_All().Max(max => max.out_item_id)).FirstOrDefault();
@@ -335,6 +340,9 @@ namespace PhamaceySystem.Forms.Store_Forms
 
                         Fill_Entitey_item();
                         cmdOppOutItem.Update_Data(TF_OP_Out_Item);
+                        Classes.C_Add_System_record.Add(tit, "تعديل", $" تم تعديل {tit}  بالرقم {TF_OP_Out_Item.Med_id} بكمية {TF_OP_Out_Item.out_item_quntity} من الفاتورة {TF_OP_Out_Item.out_item_id}");
+
+
                         old_item_id = Convert.ToInt32(out_item_idTextEdit.Text.ToString().Replace(",", string.Empty));
                     }
                 }
@@ -359,6 +367,9 @@ namespace PhamaceySystem.Forms.Store_Forms
                             {
                                 Get_Row_ID(row_id);
                                 cmdOppOutItem.Delete_Data(TF_OP_Out_Item);
+
+                                Classes.C_Add_System_record.Add(tit, "حذف", $" تم حذف {tit}  بالرقم {old_med_id} بكمية {TF_OP_Out_Item.out_item_quntity} من الفاتورة {old_out_op}");
+
                                 old_item_id = Convert.ToInt32(out_item_idTextEdit.Text.ToString().Replace(",", string.Empty));
 
 
@@ -380,7 +391,7 @@ namespace PhamaceySystem.Forms.Store_Forms
             }
             catch (Exception ex)
             {
-                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exception.FK_Exception))
                 {
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                     cmdOpOut.Detached_Data(TF_OP_Out);
@@ -407,7 +418,7 @@ namespace PhamaceySystem.Forms.Store_Forms
         {
             int id = Convert.ToInt32(out_op_idTextEdit.Text);
 
-            DataTable data_source = c_db.select(@"SELECT     T_OPeration_Out_Item.out_item_id, T_Medician.med_id, T_Medician.med_code, T_Medician.med_name, T_Med_Shape.med_shape_name, 
+            DataTable data_source = C_DB.Select(@"SELECT     T_OPeration_Out_Item.out_item_id, T_Medician.med_id, T_Medician.med_code, T_Medician.med_name, T_Med_Shape.med_shape_name, 
                       T_OPeration_Out_Item.out_item_quntity, T_OPeration_IN_Item.in_item_expDate, T_Store_Placees.name
 FROM         T_OPeration_Out_Item INNER JOIN
                       T_OPeration_Out ON T_OPeration_Out_Item.out_op_id = T_OPeration_Out.out_op_id INNER JOIN
@@ -696,7 +707,7 @@ on yyy.med_shape_id equals shape.med_shape_id into slist
         }
         private void get_info_store_med(int med_idd)
         {
-            dt = c_db.select(@"SELECT     T_Medician.med_name,
+            dt = C_DB.Select(@"SELECT     T_Medician.med_name,
 T_Med_Shape.med_shape_name,
 T_OPeration_IN_Item.in_item_quntity, 
 T_OPeration_IN_Item.out_item_quntitey, 
@@ -818,6 +829,8 @@ WHERE     (T_OPeration_IN_Item.in_item_id  =  " + old_IN_item_id + ") AND (T_Med
                 old_med_Quntitey = Convert.ToInt32(out_item_quntityTextEdit1.Text.ToString().Replace(",", string.Empty));
                 out_item_quntityTextEdit1.Enabled = false;
                 Med_idSearchlookupEdit.Enabled = false;
+                old_out_op = Convert.ToInt32(out_op_idTextEdit.Text.ToString().Replace(",", string.Empty));
+
             }
         }
         private void gv_KeyDown(object sender, KeyEventArgs e)

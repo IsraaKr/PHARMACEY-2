@@ -190,13 +190,49 @@ namespace PhamaceySystem.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Maroon")]
+        [global::System.Configuration.DefaultSettingValueAttribute("RosyBrown")]
         public global::System.Drawing.Color titel_master_colore {
             get {
                 return ((global::System.Drawing.Color)(this["titel_master_colore"]));
             }
             set {
                 this["titel_master_colore"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string login_user_name {
+            get {
+                return ((string)(this["login_user_name"]));
+            }
+            set {
+                this["login_user_name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string login_pass_Word {
+            get {
+                return ((string)(this["login_pass_Word"]));
+            }
+            set {
+                this["login_pass_Word"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Rememper_me {
+            get {
+                return ((bool)(this["Rememper_me"]));
+            }
+            set {
+                this["Rememper_me"] = value;
             }
         }
     }

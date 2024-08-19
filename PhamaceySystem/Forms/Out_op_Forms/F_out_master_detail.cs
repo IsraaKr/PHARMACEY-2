@@ -109,7 +109,7 @@ namespace PhamaceySystem.Forms.Out_op_Forms
                 }
                 catch (Exception ex)
                 {
-                    if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exeption.FK_Exeption))
+                    if (ex.InnerException.InnerException.ToString().Contains(Classes.C_Exception.FK_Exception))
                         C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                     else
                         Get_Data(ex.InnerException.InnerException.ToString());
@@ -129,7 +129,7 @@ namespace PhamaceySystem.Forms.Out_op_Forms
             private void Fill_Graid_op()
             {
 
-                dt_op = c_db.select(@"SELECT     T_OPeration_Out.out_op_id, 
+                dt_op = C_DB.Select(@"SELECT     T_OPeration_Out.out_op_id, 
 T_OPeration_Out.out_op_date, 
 T_OPeration_Out.out_op_time, 
 T_OPeration_Out.out_op_text, 
@@ -167,7 +167,7 @@ FROM         T_OPeration_Out INNER JOIN
 
             private void Fill_Graid_item()
             {
-                dt_item = c_db.select(@" SELECT     T_OPeration_Out_Item.out_item_id,
+                dt_item = C_DB.Select(@" SELECT     T_OPeration_Out_Item.out_item_id,
 T_Medician.med_name,
 T_Med_Shape.med_shape_name, 
 T_OPeration_Out_Item.out_item_quntity,

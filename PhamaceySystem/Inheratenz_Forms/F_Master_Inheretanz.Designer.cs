@@ -52,7 +52,7 @@
             this.sp_refresh = new DevExpress.XtraBars.BarButtonItem();
             this.status_bar = new DevExpress.XtraBars.Bar();
             this.bar_states = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
+            this.bar_User = new DevExpress.XtraBars.BarStaticItem();
             this.bar_date = new DevExpress.XtraBars.BarStaticItem();
             this.bar_time = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -115,7 +115,7 @@
             this.bar_print,
             this.bar_time,
             this.bar_date,
-            this.barStaticItem3,
+            this.bar_User,
             this.bar_neew,
             this.sp_new,
             this.sp_print,
@@ -321,7 +321,7 @@
             this.status_bar.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
             this.status_bar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_states),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem3),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_User),
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_date),
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_time)});
             this.status_bar.OptionsBar.AllowQuickCustomization = false;
@@ -337,14 +337,14 @@
             this.bar_states.Name = "bar_states";
             this.bar_states.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // barStaticItem3
+            // bar_User
             // 
-            this.barStaticItem3.Caption = "..";
-            this.barStaticItem3.Id = 21;
-            this.barStaticItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.Image")));
-            this.barStaticItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.LargeImage")));
-            this.barStaticItem3.Name = "barStaticItem3";
-            this.barStaticItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.bar_User.Caption = "..";
+            this.bar_User.Id = 21;
+            this.bar_User.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_User.ImageOptions.Image")));
+            this.bar_User.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_User.ImageOptions.LargeImage")));
+            this.bar_User.Name = "bar_User";
+            this.bar_User.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // bar_date
             // 
@@ -486,15 +486,15 @@
         public DevExpress.XtraBars.BarManager barMang;
         public System.Windows.Forms.Timer timer_states_bar;
         public System.Windows.Forms.Timer timer_date;
-        public DevExpress.XtraBars.BarStaticItem barStaticItem3;
+        public DevExpress.XtraBars.BarStaticItem bar_User;
         public DevExpress.XtraBars.BarStaticItem bar_date;
         public DevExpress.XtraBars.BarStaticItem bar_time;
         public DevExpress.XtraBars.BarButtonItem bar_add_save;
         public DevExpress.XtraBars.BarButtonItem sp_add_save;
-        private DevExpress.XtraBars.BarButtonItem bar_refresh;
-        private DevExpress.XtraBars.BarButtonItem sp_refresh;
         public DevExpress.XtraBars.BarButtonItem barButtonItem1;
         public DevExpress.XtraBars.BarButtonItem barButtonItem2;
         public DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        public DevExpress.XtraBars.BarButtonItem bar_refresh;
+        public DevExpress.XtraBars.BarButtonItem sp_refresh;
     }
 }
