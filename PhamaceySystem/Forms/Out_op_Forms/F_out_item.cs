@@ -113,6 +113,8 @@ namespace PhamaceySystem.Forms.Out_op_Forms
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                 else
                     Get_Data(ex.InnerException.InnerException.ToString());
+                Get_Data("");
+                cmdOutItem.Detached_Data(TF_out_Item);
             }
         }
         public override void clear_data(Control.ControlCollection s_controls)

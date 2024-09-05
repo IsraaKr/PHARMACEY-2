@@ -21,7 +21,7 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         public F_Dameg_Op()
         {
             InitializeComponent();
-
+            SetRoles();
             view_inheretanz_butomes(true, false, false, false, false, true,true);
 
             Title(tit);
@@ -32,11 +32,83 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         {
             id_toUpdate = op_id;
             InitializeComponent();
+            SetRoles();
             Title(tit);
             this.Text = tit;
             view_inheretanz_butomes(true, true, false, false, false, true,true);
         }
- ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
+        private void SetRoles()
+        {
+
+            if (!C_RoleManeger.GetRole("per_in"))
+            {
+             
+
+            }
+            if (!C_RoleManeger.GetRole("per_out"))
+            {
+               
+
+
+            }
+            if (!C_RoleManeger.GetRole("per_dam"))
+            {
+               
+
+            }
+            if (!C_RoleManeger.GetRole("per_med"))
+            {
+               
+
+            }
+            if (!C_RoleManeger.GetRole("per_thwabet"))
+            {
+                btn_add_emp.Enabled = false;
+            
+            }
+            if (!C_RoleManeger.GetRole("per_rep"))
+            {
+
+            }
+            if (!C_RoleManeger.GetRole("per_sysRecord"))
+            {
+
+            }
+            if (!C_RoleManeger.GetRole("per_seting"))
+            {
+
+            }
+            if (!C_RoleManeger.GetRole("per_Users"))
+            {
+
+            }
+            if (!C_RoleManeger.GetRole("per_Db"))
+            {
+
+            }
+          
+            if (!C_RoleManeger.GetRole("per_save"))
+            {
+                btn_add_item.Enabled = false;
+            }
+
+            if (!C_RoleManeger.GetRole("per_delete"))
+            {
+                btn_delet_item.Enabled = false;
+            }
+
+            if (!C_RoleManeger.GetRole("per_edite"))
+            {
+
+            }
+
+            if (!C_RoleManeger.GetRole("per_print"))
+            {
+                
+            }
+        }
+
+        ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
   ClsCommander<T_Pers_Emploee> cmdEmp = new ClsCommander<T_Pers_Emploee>();
   ClsCommander<T_OPeration_Damage> cmdOpDam = new ClsCommander<T_OPeration_Damage>();
   ClsCommander<T_Operation_Damage_Item> cmdOppDamItem = new ClsCommander<T_Operation_Damage_Item>();
@@ -152,6 +224,8 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             catch (Exception ex)
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
+            
+                cmdOpDam.Detached_Data(TF_OP_Dam);
             }
         }
         public override void clear_data(Control.ControlCollection s_controls)
@@ -332,6 +406,8 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
             catch (Exception ex)
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
+             
+                cmdOppDamItem.Detached_Data(TF_OP_Dam_Item);
             }
         }
         public int delete_item()
@@ -384,6 +460,10 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
                     Get_Data(ex.InnerException.InnerException.ToString());
                     return 0;
                 }
+                Get_Data("");
+                cmdOpDam.Detached_Data(TF_OP_Dam);
+                cmdOppDamItem.Detached_Data(TF_OP_Dam_Item);
+                cmdOpInItem.Detached_Data(TF_OPeration_IN_Item);
             }
         }
         private void Set_Auto_Id_item()
@@ -985,6 +1065,8 @@ WHERE     (T_OPeration_IN_Item.in_item_id  =  " + old_IN_item_id + ") AND (T_Med
             catch (Exception ex)
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
+   
+                cmdOpInItem.Detached_Data(TF_OPeration_IN_Item);
             }
         }
         public void update_In_item_with_Delete()
@@ -1013,6 +1095,8 @@ WHERE     (T_OPeration_IN_Item.in_item_id  =  " + old_IN_item_id + ") AND (T_Med
             catch (Exception ex)
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
+      
+                cmdOpInItem.Detached_Data(TF_OPeration_IN_Item);
             }
         }
    

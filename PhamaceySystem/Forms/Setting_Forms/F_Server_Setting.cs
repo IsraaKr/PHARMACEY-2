@@ -18,13 +18,21 @@ namespace PhamaceySystem.Forms.Setting_Forms
         public F_Server_Setting(bool FirstStart)
         {
             InitializeComponent();
+            Is_sqript_in = 0;
+            Is_backup_in = 0;
             firstStart = FirstStart;
             Set_Prop_Settings();
             txt_server.Text = C_DB.Get_server_name();
             txt_database.Text = "PHANACEY_DB";
+            txt_back_name.Text = txt_database.Text + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + DateTime.Now.Second;
             view_inheretanz_butomes(false, true, false, false, false, false,true);
             Title(tit);
             this.Text = tit;
+            if (txt_back_path.Text != string.Empty || txt_back_path.Text != " ")
+            {
+                Is_backup_in = 1;
+            }
+         
         }
         public string tit = "Server Settings \\ إعدادات السيرفر ";
         public F_Server_Setting()
@@ -32,32 +40,46 @@ namespace PhamaceySystem.Forms.Setting_Forms
             InitializeComponent();
 
             Set_Prop_Settings();
+            Is_sqript_in = 0;
+            Is_backup_in = 0;
             txt_server.Text = C_DB.Get_server_name();
             txt_database.Text = "PHANACEY_DB";
+            txt_back_name.Text = txt_database.Text + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + DateTime.Now.Second ;
+
             view_inheretanz_butomes(false, true, false, false, false, false, true);
             Title(tit);
             this.Text = tit;
+            if (txt_back_path.Text!=string.Empty ||  txt_back_path.Text != " " )
+            {
+                Is_backup_in = 1;
+            }
+          
+
+
+
         }
         private readonly bool firstStart;
-
-        string server_nam = "";
-        string db_nam = "PHANACEY_DB";
+        string backup_path;
         bool run = false;
+        int Is_sqript_in = 0;
+        int Is_backup_in = 0;
+
+
         //انشاء قاعدة البيانات
         private void create_db()
         {  // أول استدعاء من اجل انشاء قاعدة البيانات و الجداول
             try//جلب اسم السيرفر و  الاتصال بالسيرفر
             {
-                server_nam = C_DB.Get_server_name();
-                MessageBox.Show("تم جلب اسم السيرفر : " + server_nam);
+                txt_server.Text = C_DB.Get_server_name();
+                MessageBox.Show("تم جلب اسم السيرفر : " + txt_server.Text);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error in ServerName part");
+                MessageBox.Show("Error in ServerName part" +ex);
             }
-            C_DB.Server_connection(server_nam);
+            C_DB.Server_connection(txt_server.Text);
 
-            MessageBox.Show("تم الاتصال بالسيرف " + server_nam);
+            MessageBox.Show("تم الاتصال بالسيرف " + txt_server.Text);
 
             // ******************************************
             //string sql = "select name from sys.databases"; //تجلب اسماء قواعد البيانات التي عندي
@@ -65,25 +87,31 @@ namespace PhamaceySystem.Forms.Setting_Forms
 
             try//إنشاء قاعدة  البيانات و الاتصال بها
             {
-                C_DB.Create_DB(db_nam);
-                MessageBox.Show("تم إنشاء قاعدة البيانات : " + db_nam);
+                C_DB.Create_DB(txt_database.Text);
+                MessageBox.Show("تم إنشاء قاعدة البيانات : " + txt_database.Text);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error in data base part");
+                if (ex.ToString().Contains(Classes.C_Exception.Service_exception))
+                {
+                    C_Master.Warning_Massege_Box("الرجاء التأكد من الخدمات SQL services");
+                    Application.Exit();
+                }
+                else
+                    Get_Data(ex.InnerException.InnerException.ToString());
             }
-            C_DB.DB_Connection(server_nam, db_nam);
-            MessageBox.Show("تم الاتصال بقاعدة البيانات " + db_nam);
+            C_DB.DB_Connection(txt_server.Text, txt_database.Text);
+            MessageBox.Show("تم الاتصال بقاعدة البيانات " + txt_database.Text);
 
             //************************************************
             try//إنشاء الجداول
             {
-                run = C_DB.RunSqlScriptFile(Properties.Settings.Default.sqript_bath);
+                run = C_DB.RunSqlScriptFile(Properties.Settings.Default.sqript_path);
                 MessageBox.Show("تم إنشاء كل الجداول  " + run);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error in tables part");
+                MessageBox.Show("Error in tables part"+ex);
             }
 
             try
@@ -124,7 +152,7 @@ namespace PhamaceySystem.Forms.Setting_Forms
                 {
                     TF_Users.Full_Name = "مدير النظام";
                     TF_Users.user_name = "admin";
-                    TF_Users.pass_word = SHA512( "admin") ;
+                    TF_Users.pass_word = C_Master. SHA512( "admin") ;
                     TF_Users.Role = "مدير";
                     TF_Users.is_secondery = true;
                     TF_Users.updated_date = DateTime.Now;
@@ -173,23 +201,8 @@ namespace PhamaceySystem.Forms.Setting_Forms
 
 
         }
-        //تشفير كلمة السر
-        private string SHA512(string Pass_Word)
-        {
-            SHA512Managed sHA512 = new SHA512Managed();
-            byte[] hash = System.Text.Encoding.UTF8.GetBytes(Pass_Word);
-            StringBuilder sb = new StringBuilder();
-            foreach (byte b in hash)
-            {
-                sb.Append(b.ToString("x2").ToLower());
-            }
-            return sb.ToString();
-        }
-        private void btn_restore_database_Click(object sender, EventArgs e)
-        {
-
-        }
-
+    
+     
         private void rb_local_CheckedChanged(object sender, EventArgs e)
         {
             txt_user_name.Enabled = false;
@@ -211,8 +224,9 @@ namespace PhamaceySystem.Forms.Setting_Forms
             Properties.Settings.Default.username = txt_user_name.Text;
             Properties.Settings.Default.password = txt_pass.Text;
             Properties.Settings.Default.time_server = txt_time.Text;
-            Properties.Settings.Default.sqript_bath = txt_sqript_bath.Text;
+            Properties.Settings.Default.sqript_path = txt_sqript_bath.Text;
             Properties.Settings.Default.is_first_time =!run;
+            Properties.Settings.Default.save_backup_path = txt_back_path.Text;
 
             // Save Settings
             Properties.Settings.Default.Save();
@@ -226,26 +240,14 @@ namespace PhamaceySystem.Forms.Setting_Forms
             txt_user_name.Text = Properties.Settings.Default.username;
             txt_pass.Text = Properties.Settings.Default.password;
             txt_time.Text = Properties.Settings.Default.time_server;
-            txt_sqript_bath.Text = Properties.Settings.Default.sqript_bath;
+            txt_sqript_bath.Text = Properties.Settings.Default.sqript_path;
+            txt_back_path.Text= Properties.Settings.Default.save_backup_path;
+
         }
         public override void Insert_Data()
         {
 
-            //var Server = txt_server.Text;
-            //var DataBase = txt_database.Text;
-            //var Timout = txt_time.Text;
-            //var UserName = txt_user_name.Text;
-            //var Password = txt_pass.Text;
-            //if (rb_local.Checked == true)
-            //{
-            //    // Local Con
-            //    SetLocalCon(Server, DataBase);
-            //}
-            //else
-            //{
-            //    // Network Con
-            //    SetNetWorkCon(Server, DataBase, UserName, Password, Timout);
-            //}
+ 
             Save_Prop_Settings();
             MessageBox.Show("تم حفظ نص الاتصال بنجاح , اعد تشغيل البرنامج لطفا");
             Application.Exit();
@@ -286,7 +288,8 @@ namespace PhamaceySystem.Forms.Setting_Forms
 
         private void btn_sqript_file_Click(object sender, EventArgs e)
         {
-
+            Is_sqript_in = 1;
+            
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "اختر ملف سكريبت قاعدة البيانات";
             openFileDialog.RestoreDirectory = true;
@@ -296,7 +299,7 @@ namespace PhamaceySystem.Forms.Setting_Forms
                 txt_sqript_bath.Text = openFileDialog.FileName;
 
                 // Save Settings
-                Properties.Settings.Default.sqript_bath = txt_sqript_bath.Text;
+                Properties.Settings.Default.sqript_path = txt_sqript_bath.Text;
                 Properties.Settings.Default.Save();
                 MessageBox.Show(" تم حفظ المسار بنجاح \n يرجى أنشاء قاعدة البيانات");
 
@@ -305,9 +308,43 @@ namespace PhamaceySystem.Forms.Setting_Forms
 
         private void btn_create_db_Click(object sender, EventArgs e)
         {
-            create_db();
-            MessageBox.Show("تم حفظ الإعدادات  بنجاح , سيتم إغلاق البرنامج \n أعد التشغيل لطفا ");
-            Application.Exit();
+            if (Is_sqript_in==1)
+            {
+                create_db();
+                MessageBox.Show("تم حفظ الإعدادات  بنجاح , سيتم إغلاق البرنامج \n أعد التشغيل لطفا ");
+                Application.Exit();
+
+            }
+        }
+
+        private void btn_backup_database_Click(object sender, EventArgs e)
+        {
+            bool back = false;
+            if (Is_backup_in==1)     
+              back =  C_DB.DB_Backup(txt_server.Text, txt_database.Text, txt_back_path.Text, txt_back_name.Text + ".bak");
+            if (back == true)
+                MessageBox.Show(" تم حفظ النسخة الاحتياطية بنجاح");
+
+        }
+
+        private void btn_folder_backup_Click(object sender, EventArgs e)
+        {
+
+            Is_backup_in = 1;
+            FolderBrowserDialog openFileDialog = new FolderBrowserDialog();
+            //openFileDialog. = "اختر ملف سكريبت قاعدة البيانات";
+            //openFileDialog.RestoreDirectory = true;
+            var result = openFileDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                txt_back_path.Text = openFileDialog.SelectedPath;
+                txt_back_name.Text = txt_database.Text + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + DateTime.Now.Second;
+                // Save Settings
+                Properties.Settings.Default.save_backup_path = txt_back_path.Text;
+                Properties.Settings.Default.Save();
+               
+
+            }
         }
     }
 }

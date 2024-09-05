@@ -71,6 +71,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             catch (Exception ex)
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
+           
+                cmdMedSape.Detached_Data(TF_Med_Shape);
             }
 
         }
@@ -97,6 +99,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             catch (Exception ex)
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
+           
+                cmdMedSape.Detached_Data(TF_Med_Shape);
             }
         }
 
@@ -130,6 +134,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                 else
                     Get_Data(ex.InnerException.InnerException.ToString());
+                Get_Data("");
+                cmdMedSape.Detached_Data(TF_Med_Shape);
             }
 
         }

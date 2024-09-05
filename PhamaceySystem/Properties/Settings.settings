@@ -17,7 +17,7 @@
     <Setting Name="password" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="sqript_bath" Type="System.String" Scope="User">
+    <Setting Name="sqript_path" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="constr" Type="(Connection string)" Scope="Application">
@@ -56,6 +56,9 @@
     </Setting>
     <Setting Name="Rememper_me" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="save_backup_path" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

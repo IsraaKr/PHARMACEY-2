@@ -20,7 +20,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         public F_Med()
         {
             InitializeComponent();
-    
+            SetRoles();
             view_inheretanz_butomes(true, true, true, false, false, false,true);
             Title(tit);
             this.Text = tit;
@@ -31,8 +31,81 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         {
             id_toUpdate = med_id;
             InitializeComponent();
+            SetRoles();
             Title(tit);
             view_inheretanz_butomes(false, true, true, false, false, false, true);
+        }
+        private void SetRoles()
+        {
+
+            if (!C_RoleManeger.GetRole("per_in"))
+            {
+
+
+            }
+            if (!C_RoleManeger.GetRole("per_out"))
+            {
+
+
+            }
+            if (!C_RoleManeger.GetRole("per_dam"))
+            {
+
+            }
+            if (!C_RoleManeger.GetRole("per_med"))
+            {
+              
+            }
+            if (!C_RoleManeger.GetRole("per_thwabet"))
+            {
+                btn_cat.Enabled = false;
+                btn_shape.Enabled = false;
+                btn_unite.Enabled = false;
+            }
+            if (!C_RoleManeger.GetRole("per_rep"))
+            {
+
+            }
+            if (!C_RoleManeger.GetRole("per_sysRecord"))
+            {
+
+            }
+            if (!C_RoleManeger.GetRole("per_seting"))
+            {
+
+            }
+            if (!C_RoleManeger.GetRole("per_Users"))
+            {
+
+            }
+            if (!C_RoleManeger.GetRole("per_Db"))
+            {
+
+            }
+            if (!C_RoleManeger.GetRole("per_Db"))
+            {
+
+            }
+
+            if (!C_RoleManeger.GetRole("per_save"))
+            {
+               
+            }
+
+            if (!C_RoleManeger.GetRole("per_delete"))
+            {
+             
+            }
+
+            if (!C_RoleManeger.GetRole("per_edite"))
+            {
+
+            }
+
+            if (!C_RoleManeger.GetRole("per_print"))
+            {
+
+            }
         }
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
         ClsCommander<T_Med_Category> cmdMedCat = new ClsCommander<T_Med_Category>();
@@ -108,6 +181,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             catch (Exception ex)
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
+             
+                cmdMedician.Detached_Data(TF_Medician);
             }
         }
         public override void neew()
@@ -133,6 +208,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             catch (Exception ex)
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
+            
+                cmdMedician.Detached_Data(TF_Medician);
             }
         }
 

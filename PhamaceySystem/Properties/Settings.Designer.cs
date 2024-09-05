@@ -12,7 +12,7 @@ namespace PhamaceySystem.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.7.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -86,12 +86,12 @@ namespace PhamaceySystem.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string sqript_bath {
+        public string sqript_path {
             get {
-                return ((string)(this["sqript_bath"]));
+                return ((string)(this["sqript_path"]));
             }
             set {
-                this["sqript_bath"] = value;
+                this["sqript_path"] = value;
             }
         }
         
@@ -233,6 +233,18 @@ namespace PhamaceySystem.Properties {
             }
             set {
                 this["Rememper_me"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string save_backup_path {
+            get {
+                return ((string)(this["save_backup_path"]));
+            }
+            set {
+                this["save_backup_path"] = value;
             }
         }
     }

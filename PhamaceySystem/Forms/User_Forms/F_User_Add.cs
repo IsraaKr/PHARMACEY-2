@@ -108,6 +108,10 @@ namespace PhamaceySystem.Forms.User_Forms
             catch (Exception ex)
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
+      
+                cmdUsers.Detached_Data(TF_Users);
+
+
             }
 
         }
@@ -138,6 +142,8 @@ namespace PhamaceySystem.Forms.User_Forms
             catch (Exception ex)
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
+         
+                cmdUsers.Detached_Data(TF_Users);
             }
         }
         private void set_new_roles()
@@ -198,6 +204,8 @@ namespace PhamaceySystem.Forms.User_Forms
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                 else
                     Get_Data(ex.InnerException.InnerException.ToString());
+                Get_Data("");
+                cmdUsers.Detached_Data(TF_Users);
             }
 
         }

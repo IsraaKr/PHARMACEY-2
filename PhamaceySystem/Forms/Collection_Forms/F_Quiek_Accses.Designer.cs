@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_Quiek_Accses));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_add_med = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_in_op = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_out_op = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_dam_op = new DevExpress.XtraEditors.SimpleButton();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -63,10 +63,10 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.simpleButton5);
-            this.flowLayoutPanel1.Controls.Add(this.simpleButton2);
-            this.flowLayoutPanel1.Controls.Add(this.simpleButton3);
-            this.flowLayoutPanel1.Controls.Add(this.simpleButton4);
+            this.flowLayoutPanel1.Controls.Add(this.btn_add_med);
+            this.flowLayoutPanel1.Controls.Add(this.btn_in_op);
+            this.flowLayoutPanel1.Controls.Add(this.btn_out_op);
+            this.flowLayoutPanel1.Controls.Add(this.btn_dam_op);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 36);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -74,69 +74,69 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(928, 174);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // simpleButton5
+            // btn_add_med
             // 
-            this.simpleButton5.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.simpleButton5.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton5.Appearance.Options.UseBackColor = true;
-            this.simpleButton5.Appearance.Options.UseFont = true;
-            this.simpleButton5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.simpleButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton5.ImageOptions.SvgImage")));
-            this.simpleButton5.Location = new System.Drawing.Point(693, 30);
-            this.simpleButton5.Margin = new System.Windows.Forms.Padding(10);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(185, 139);
-            this.simpleButton5.TabIndex = 4;
-            this.simpleButton5.Text = "ادخال بطاقة مادة";
-            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
+            this.btn_add_med.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.btn_add_med.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add_med.Appearance.Options.UseBackColor = true;
+            this.btn_add_med.Appearance.Options.UseFont = true;
+            this.btn_add_med.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btn_add_med.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton5.ImageOptions.SvgImage")));
+            this.btn_add_med.Location = new System.Drawing.Point(693, 30);
+            this.btn_add_med.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_add_med.Name = "btn_add_med";
+            this.btn_add_med.Size = new System.Drawing.Size(185, 139);
+            this.btn_add_med.TabIndex = 4;
+            this.btn_add_med.Text = "ادخال بطاقة مادة";
+            this.btn_add_med.Click += new System.EventHandler(this.simpleButton5_Click);
             // 
-            // simpleButton2
+            // btn_in_op
             // 
-            this.simpleButton2.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton2.Appearance.Options.UseBackColor = true;
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
-            this.simpleButton2.Location = new System.Drawing.Point(488, 30);
-            this.simpleButton2.Margin = new System.Windows.Forms.Padding(10);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(185, 139);
-            this.simpleButton2.TabIndex = 1;
-            this.simpleButton2.Text = "ادخال مواد";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            this.btn_in_op.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.btn_in_op.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_in_op.Appearance.Options.UseBackColor = true;
+            this.btn_in_op.Appearance.Options.UseFont = true;
+            this.btn_in_op.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btn_in_op.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.btn_in_op.Location = new System.Drawing.Point(488, 30);
+            this.btn_in_op.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_in_op.Name = "btn_in_op";
+            this.btn_in_op.Size = new System.Drawing.Size(185, 139);
+            this.btn_in_op.TabIndex = 1;
+            this.btn_in_op.Text = "ادخال مواد";
+            this.btn_in_op.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
-            // simpleButton3
+            // btn_out_op
             // 
-            this.simpleButton3.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.simpleButton3.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton3.Appearance.Options.UseBackColor = true;
-            this.simpleButton3.Appearance.Options.UseFont = true;
-            this.simpleButton3.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.Location = new System.Drawing.Point(288, 30);
-            this.simpleButton3.Margin = new System.Windows.Forms.Padding(10);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(180, 139);
-            this.simpleButton3.TabIndex = 2;
-            this.simpleButton3.Text = "اخراج مواد";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
+            this.btn_out_op.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.btn_out_op.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_out_op.Appearance.Options.UseBackColor = true;
+            this.btn_out_op.Appearance.Options.UseFont = true;
+            this.btn_out_op.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btn_out_op.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
+            this.btn_out_op.Location = new System.Drawing.Point(288, 30);
+            this.btn_out_op.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_out_op.Name = "btn_out_op";
+            this.btn_out_op.Size = new System.Drawing.Size(180, 139);
+            this.btn_out_op.TabIndex = 2;
+            this.btn_out_op.Text = "اخراج مواد";
+            this.btn_out_op.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
-            // simpleButton4
+            // btn_dam_op
             // 
-            this.simpleButton4.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.simpleButton4.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton4.Appearance.Options.UseBackColor = true;
-            this.simpleButton4.Appearance.Options.UseFont = true;
-            this.simpleButton4.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.simpleButton4.Location = new System.Drawing.Point(88, 30);
-            this.simpleButton4.Margin = new System.Windows.Forms.Padding(10);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(180, 139);
-            this.simpleButton4.TabIndex = 3;
-            this.simpleButton4.Text = "اتلاف مواد";
-            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
+            this.btn_dam_op.Appearance.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.btn_dam_op.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_dam_op.Appearance.Options.UseBackColor = true;
+            this.btn_dam_op.Appearance.Options.UseFont = true;
+            this.btn_dam_op.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btn_dam_op.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
+            this.btn_dam_op.Location = new System.Drawing.Point(88, 30);
+            this.btn_dam_op.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_dam_op.Name = "btn_dam_op";
+            this.btn_dam_op.Size = new System.Drawing.Size(180, 139);
+            this.btn_dam_op.TabIndex = 3;
+            this.btn_dam_op.Text = "اتلاف مواد";
+            this.btn_dam_op.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // pictureEdit1
             // 
@@ -212,13 +212,13 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton btn_in_op;
+        private DevExpress.XtraEditors.SimpleButton btn_out_op;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private DevExpress.XtraEditors.SimpleButton btn_dam_op;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.SimpleButton btn_add_med;
     }
 }

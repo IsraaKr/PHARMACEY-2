@@ -28,7 +28,6 @@ namespace PhamaceySystem.Forms.User_Forms
 
         ClsCommander<T_Users> cmdUsers = new ClsCommander<T_Users>();
         T_Users TF_Users;
-        Boolean Is_Double_Click = false;
 
         public override void Title(string s_title)
         {
@@ -40,7 +39,6 @@ namespace PhamaceySystem.Forms.User_Forms
             try
             {
                 clear_data(this.Controls);
-                Is_Double_Click = false;
                 cmdUsers = new ClsCommander<T_Users>();
                 TF_Users = cmdUsers.Get_All().Where(l=>l.Id ==C_Local_User.Id).FirstOrDefault();
               

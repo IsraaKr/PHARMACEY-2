@@ -1,5 +1,6 @@
 ﻿using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
+using PhamaceySystem.Classes;
 using PhamaceySystem.Forms.Medicin_Forms;
 using PhamaceySystem.Forms.Person_Forms;
 using PhamaceySystem.Forms.Store_Other_Forms;
@@ -21,7 +22,7 @@ namespace PhamaceySystem.Forms.Store_Forms
         {
             InitializeComponent();
 
-
+            SetRoles();
             view_inheretanz_butomes(true, false, false, false, false, true,true);
 
             Title(tit);
@@ -32,9 +33,81 @@ namespace PhamaceySystem.Forms.Store_Forms
         {
             id_toUpdate = op_id;
             InitializeComponent();
+            SetRoles();
             Title(tit);
             this.Text = tit;
             view_inheretanz_butomes(true, true, false, false, false,  true , true);
+        }
+        private void SetRoles()
+        {
+
+            if (!C_RoleManeger.GetRole("per_in"))
+            {
+
+
+            }
+            if (!C_RoleManeger.GetRole("per_out"))
+            {
+
+
+            }
+            if (!C_RoleManeger.GetRole("per_dam"))
+            {
+
+            }
+            if (!C_RoleManeger.GetRole("per_med"))
+            {
+               
+            }
+            if (!C_RoleManeger.GetRole("per_thwabet"))
+            {
+                btn_add_emp.Enabled = false;
+                btn_add_reciver.Enabled = false;
+            }
+            if (!C_RoleManeger.GetRole("per_rep"))
+            {
+
+            }
+            if (!C_RoleManeger.GetRole("per_sysRecord"))
+            {
+
+            }
+            if (!C_RoleManeger.GetRole("per_seting"))
+            {
+
+            }
+            if (!C_RoleManeger.GetRole("per_Users"))
+            {
+
+            }
+            if (!C_RoleManeger.GetRole("per_Db"))
+            {
+
+            }
+            if (!C_RoleManeger.GetRole("per_Db"))
+            {
+
+            }
+
+            if (!C_RoleManeger.GetRole("per_save"))
+            {
+                btn_add_item.Enabled = false;
+            }
+
+            if (!C_RoleManeger.GetRole("per_delete"))
+            {
+                btn_delet_item.Enabled = false;
+            }
+
+            if (!C_RoleManeger.GetRole("per_edite"))
+            {
+
+            }
+
+            if (!C_RoleManeger.GetRole("per_print"))
+            {
+
+            }
         }
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
         ClsCommander<T_Pers_Emploee> cmdEmp = new ClsCommander<T_Pers_Emploee>();
@@ -158,6 +231,8 @@ namespace PhamaceySystem.Forms.Store_Forms
             catch (Exception ex)
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
+            
+                cmdOpOut.Detached_Data(TF_OP_Out);
             }
         }
         public override void clear_data(Control.ControlCollection s_controls)
@@ -352,6 +427,8 @@ namespace PhamaceySystem.Forms.Store_Forms
             catch (Exception ex)
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
+           
+                cmdOppOutItem.Detached_Data(TF_OP_Out_Item);
             }
         }
         public int delete_item()
@@ -405,6 +482,10 @@ namespace PhamaceySystem.Forms.Store_Forms
                     Get_Data(ex.InnerException.InnerException.ToString());
                     return 0;
                 }
+                Get_Data("");
+                cmdOpOut.Detached_Data(TF_OP_Out);
+                cmdOppOutItem.Detached_Data(TF_OP_Out_Item);
+                cmdOpInItem.Detached_Data(TF_OPeration_IN_Item);
             }
         }
         private void Set_Auto_Id_item()

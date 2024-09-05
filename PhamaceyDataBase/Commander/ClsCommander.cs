@@ -57,6 +57,7 @@ namespace PhamaceyDataBase.Commander
         }
         public bool check_db_existing()
         {
+
             return Context.Database.Exists();
         }
         public void Insert_Data(TEntity entity)

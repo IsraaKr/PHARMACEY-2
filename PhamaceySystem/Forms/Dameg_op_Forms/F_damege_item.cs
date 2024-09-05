@@ -48,20 +48,7 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
             }
 
         }
-        public override void neew()
-        {
-            //try
-            //{
-            //    F_In_Op f = new F_In_Op();
-            //    f.ShowDialog();
-
-            //    Get_Data("");
-            //}
-            //catch (Exception ex)
-            //{
-            //    Get_Data(ex.InnerException.InnerException.ToString());
-            //}
-        }
+     
         public override void Update_Data()
         {
             try
@@ -79,6 +66,8 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
             catch (Exception ex)
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
+            
+                cmdDamegeItem.Detached_Data(TF_damege_Item);
             }
 
 
@@ -114,6 +103,8 @@ namespace PhamaceySystem.Forms.Dameg_op_Forms
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                 else
                     Get_Data(ex.InnerException.InnerException.ToString());
+                Get_Data("");
+                cmdDamegeItem.Detached_Data(TF_damege_Item);
             }
         }
         public override void clear_data(Control.ControlCollection s_controls)

@@ -22,15 +22,17 @@ namespace PhamaceySystem.Forms.User_Forms
             try
             {
               //  DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = Properties.Settings.Default.theme;
-                bool servecices = C_DB.Check_Services();
-                if (servecices)
-                {
-                    Boolean chec = cmdOptype.check_db_existing();
+                //bool servecices = C_DB.Check_Services();
+                //if (servecices)
+                //{
+                    bool chec=false;              
+                   chec = cmdOptype.check_db_existing();
+           
                     if (chec == true)
                     {
                         InitializeComponent();
                         Get_Data("");
-                        Colores();
+                        Colors();
                     }
                     else if (chec == false)
                     {
@@ -44,7 +46,7 @@ namespace PhamaceySystem.Forms.User_Forms
                         else
                             Application.Exit();
                     }
-                }
+             //   }
             }
             catch (Exception ex)
             {
@@ -191,7 +193,7 @@ namespace PhamaceySystem.Forms.User_Forms
        
         
        
-        public void Colores()
+        public void Colors()
         {
             panel2.BackColor = Properties.Settings.Default.titel_master_colore;
             btn_login.Appearance.BackColor = Properties.Settings.Default.titel_master_colore;

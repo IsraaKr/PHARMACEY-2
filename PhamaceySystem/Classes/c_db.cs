@@ -83,6 +83,33 @@ namespace PhamaceySystem
             return true;
         }
 
+        //backup 
+        
+        public static bool DB_Backup(string server, string db_name , string path, string back_name)
+        {
+            try
+            {               
+                DB_Connection(server,db_name);
+                done = 0;
+              //  string back_File_path = path + @"\" + back_name ;
+                string back_File_path2 =Path.Combine(path , back_name);
+           //     string Backup_command = $" BACKUP DATABASE [{db_name}] TO DISK = N' {back_File_path2} ' " ;
+                string Backup_command2 = $"BACKUP DATABASE [{db_name}] TO  DISK = N'{back_File_path2}' WITH NOFORMAT, NOINIT,  NAME = N'PHANACEY_DB-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10 ";
+
+
+                Command = new SqlCommand(Backup_command2, Con);
+
+              done=  Command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception  ex)
+            {
+                MessageBox.Show(ex+"");
+                return false;
+            }
+
+          
+        }
 
         //جلب اسم السيرفر
         public static string Get_server_name()
@@ -174,7 +201,7 @@ namespace PhamaceySystem
         }
 
 
-
+        //تنفيذ سكريبت قاعدة البيانات 
         public static bool RunSqlScriptFile(string pathStoreProceduresFile)
         {
             try
@@ -214,45 +241,5 @@ namespace PhamaceySystem
             }
         }
 
-        //private bool runSqlScriptFile(string pathStoreProceduresFile, string connectionString)
-        //{
-        //    try
-        //    {
-        //        string script = File.ReadAllText(pathStoreProceduresFile);
-
-        //        // split script on GO command
-        //        System.Collections.Generic.IEnumerable<string> commandStrings = System.Text.RegularExpressions.Regex.Split(script, @"^\s*GO\s*$",
-        //                                 RegexOptions.Multiline | RegexOptions.IgnoreCase);
-        //        using (SqlConnection connection = new SqlConnection(connectionString))
-        //        {
-        //            connection.Open();
-        //            foreach (string commandString in commandStrings)
-        //            {
-        //                if (commandString.Trim() != "")
-        //                {
-        //                    using (var command = new SqlCommand(commandString, connection))
-        //                    {
-        //                        try
-        //                        {
-        //                            command.ExecuteNonQuery();
-        //                        }
-        //                        catch (SqlException ex)
-        //                        {
-        //                            string spError = commandString.Length > 100 ? commandString.Substring(0, 100) + " ...\n..." : commandString;
-        //                            MessageBox.Show(string.Format("Please check the SqlServer script.\nFile: {0} \nLine: {1} \nError: {2} \nSQL Command: \n{3}", pathStoreProceduresFile, ex.LineNumber, ex.Message, spError), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //                            return false;
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //        }
-        //        return true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        return false;
-        //    }
-        //}
-    }
+   }
 }

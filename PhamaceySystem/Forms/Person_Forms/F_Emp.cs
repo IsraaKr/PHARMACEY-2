@@ -74,6 +74,8 @@ namespace PhamaceySystem.Forms.Person_Forms
             catch (Exception ex)
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
+        
+                cmdEmp.Detached_Data(TF_Pers_Emploee);
             }
 
         }
@@ -101,6 +103,8 @@ namespace PhamaceySystem.Forms.Person_Forms
             catch (Exception ex)
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
+             
+                cmdEmp.Detached_Data(TF_Pers_Emploee);
             }
         }
 
@@ -135,6 +139,8 @@ namespace PhamaceySystem.Forms.Person_Forms
                     C_Master.Warning_Massege_Box("العنصر مرتبط مع جداول أخرى...... لا يمكن حذفه");
                 else
                     Get_Data(ex.InnerException.InnerException.ToString());
+                Get_Data("");
+                cmdEmp.Detached_Data(TF_Pers_Emploee);
             }
 
         }
