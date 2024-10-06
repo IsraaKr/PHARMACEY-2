@@ -4,9 +4,12 @@ using PhamaceyDataBase.Commander;
 using PhamaceySystem.Classes;
 using PhamaceySystem.Forms;
 using PhamaceySystem.Forms.Collection_Forms;
+using PhamaceySystem.Forms.Dameg_op_Forms;
 using PhamaceySystem.Forms.Medicin_Forms;
 using PhamaceySystem.Forms.Report_Forms;
 using PhamaceySystem.Forms.Setting_Forms;
+using PhamaceySystem.Forms.Store_Forms;
+using PhamaceySystem.Forms.Store_OP_Forms;
 using PhamaceySystem.Forms.Store_Other_Forms;
 using PhamaceySystem.Forms.User_Forms;
 using System;
@@ -399,6 +402,36 @@ namespace PhamaceySystem
         {
             F_Login f = new F_Login();
             f.Show();
+        }
+    
+        private void barButtonItem_In_Fwater_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            F_In_OP_Grid f = new F_In_OP_Grid();
+            Open_extra(f);
+        }
+
+        private void barButtonItem_In_Item_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            F_IN_Item_Grid f = new F_IN_Item_Grid();
+            Open_extra(f);
+        }
+
+        private void barButtonItem_Out_Fwater_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            F_out_op_grid f = new F_out_op_grid();
+            Open_extra(f);
+        }
+
+        private void barButtonItem_Dam_Fwater_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            F_dame_op_grid f = new F_dame_op_grid();
+            Open_extra(f);
+        }
+
+        private void barButtonItem_Dam_Item_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            F_damage_item f = new F_damage_item();
+            Open_extra(f);
         }
     }
 }

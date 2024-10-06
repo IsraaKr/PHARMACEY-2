@@ -18,13 +18,14 @@ namespace PhamaceyDataBase.Commander
     public  class test
     {
         public static string ser = C_SqlCon.Server_Name;
+        public static string db_name = C_SqlCon.DB_Name;
         public static string x = @" App=EntityFramework ""; ";
         public static string connstr =
             @"metadata=res://*/Phamacey_Entity_Model.csdl|
                        res://*/Phamacey_Entity_Model.ssdl|
                        res://*/Phamacey_Entity_Model.msl;
               provider=System.Data.SqlClient;
-           provider connection string ="";  data source = " + ser + " ;   initial catalog = PHANACEY_DB;     integrated security = True;   MultipleActiveResultSets=True; "+ x +"  ";
+           provider connection string ="";  data source = " + ser + " ;   initial catalog = " + db_name + " ;     integrated security = True;   MultipleActiveResultSets=True; " + x +"  ";
         /*   providerName="System.Data.EntityClient"*/
       
     }

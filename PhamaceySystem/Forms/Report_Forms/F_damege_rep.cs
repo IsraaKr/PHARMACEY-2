@@ -38,7 +38,7 @@ namespace PhamaceySystem.Forms.Report_Forms
 
         string sqll = @" SELECT     T_OPeration_Damage.dam_OP_id, T_OPeration_Damage.dam_op_date, T_OPeration_Damage.dam_op_time, T_OPeration_Damage.dam_op_text, 
                       T_Operation_Damage_Item.Med_id, T_Medician.med_code, T_Medician.med_name, T_Med_Shape.med_shape_name, T_Operation_Damage_Item.dmg_item_quntity, 
-                      T_Pers_Emploee.Emp_name, T_OPeration_IN_Item.in_item_expDate, T_Store_Placees.name
+                      T_Pers_Emploee.Emp_name, T_OPeration_IN_Item.in_item_expDate, T_Store_Placees.name as place_name
 FROM         T_OPeration_Damage INNER JOIN
                       T_Operation_Damage_Item ON T_OPeration_Damage.dam_OP_id = T_Operation_Damage_Item.dmg_op_id INNER JOIN
                       T_Pers_Emploee ON T_OPeration_Damage.emp_id = T_Pers_Emploee.Emp_id INNER JOIN

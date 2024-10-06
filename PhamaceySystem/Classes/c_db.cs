@@ -11,6 +11,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using Microsoft.Win32;
 using System.ServiceProcess;
+using PhamaceyDataBase;
 
 namespace PhamaceySystem
 {
@@ -156,7 +157,8 @@ namespace PhamaceySystem
         {
             Command = new SqlCommand("create database " + db_name, Con);
             Command.ExecuteNonQuery();
-
+            Properties.Settings.Default.database = db_name;
+            Properties.Settings.Default.Save();
         }
         //الاتصال بقاعدة البيانات
         public static void DB_Connection(string server_name, string db_name)
@@ -167,7 +169,7 @@ namespace PhamaceySystem
         public static DataTable Select(string sql)
         {
             string serv = Properties.Settings.Default.Server_Name;
-            DB_Connection(serv, "PHANACEY_DB");
+            DB_Connection(serv, C_SqlCon.DB_Name);
             Command = new SqlCommand(sql, Con);
             dr = Command.ExecuteReader();
             dt = new DataTable();

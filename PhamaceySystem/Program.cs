@@ -28,7 +28,9 @@ namespace PhamaceySystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             C_SqlCon.Server_Name = Properties.Settings.Default.Server_Name.ToString();
-          //  C_SqlCon.Server_Name = "ISRAA-PC\\SQLEXPRESS";
+            C_SqlCon.DB_Name = Properties.Settings.Default.database.ToString();
+
+            //  C_SqlCon.Server_Name = "ISRAA-PC\\SQLEXPRESS";
 
             Application.Run(new F_Login());
         }

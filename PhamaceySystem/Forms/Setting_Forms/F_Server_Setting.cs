@@ -23,8 +23,13 @@ namespace PhamaceySystem.Forms.Setting_Forms
             firstStart = FirstStart;
             Set_Prop_Settings();
             txt_server.Text = C_DB.Get_server_name();
-            txt_database.Text = "PHANACEY_DB";
+            txt_database.Text = "PHARMACEY_DB";
             txt_back_name.Text = txt_database.Text + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + DateTime.Now.Second;
+       Properties.Settings.Default.Server_Name = txt_server.Text;
+            Properties.Settings.Default.database = txt_database.Text;
+            Properties.Settings.Default.Save();
+
+
             view_inheretanz_butomes(false, true, false, false, false, false,true);
             Title(tit);
             this.Text = tit;
@@ -32,7 +37,10 @@ namespace PhamaceySystem.Forms.Setting_Forms
             {
                 Is_backup_in = 1;
             }
-         
+            if (txt_sqript_bath.Text != string.Empty || txt_sqript_bath.Text != " ")
+            {
+                Is_sqript_in = 1;
+            }
         }
         public string tit = "Server Settings \\ إعدادات السيرفر ";
         public F_Server_Setting()
@@ -43,8 +51,14 @@ namespace PhamaceySystem.Forms.Setting_Forms
             Is_sqript_in = 0;
             Is_backup_in = 0;
             txt_server.Text = C_DB.Get_server_name();
-            txt_database.Text = "PHANACEY_DB";
+            txt_database.Text = "PHARMACEY_DB";
             txt_back_name.Text = txt_database.Text + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + DateTime.Now.Second ;
+
+
+            Properties.Settings.Default.Server_Name = txt_server.Text;
+            Properties.Settings.Default.database = txt_database.Text;
+            Properties.Settings.Default.Save();
+
 
             view_inheretanz_butomes(false, true, false, false, false, false, true);
             Title(tit);
@@ -53,8 +67,11 @@ namespace PhamaceySystem.Forms.Setting_Forms
             {
                 Is_backup_in = 1;
             }
-          
 
+            if (txt_sqript_bath.Text != string.Empty || txt_sqript_bath.Text != " ")
+            {
+                Is_sqript_in = 1;
+            }
 
 
         }
@@ -102,7 +119,9 @@ namespace PhamaceySystem.Forms.Setting_Forms
             }
             C_DB.DB_Connection(txt_server.Text, txt_database.Text);
             MessageBox.Show("تم الاتصال بقاعدة البيانات " + txt_database.Text);
-
+            Properties.Settings.Default.Server_Name = txt_server.Text;
+            Properties.Settings.Default.database = txt_database.Text;
+            Properties.Settings.Default.Save();
             //************************************************
             try//إنشاء الجداول
             {

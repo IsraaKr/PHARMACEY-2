@@ -140,7 +140,6 @@
             // 
             this.lbl_tiltle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_tiltle.MaximumSize = new System.Drawing.Size(4000, 50);
-            this.lbl_tiltle.Size = new System.Drawing.Size(1040, 50);
             // 
             // timer_date
             // 
@@ -323,7 +322,6 @@
             this.out_item_idTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.out_item_idTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.out_item_idTextEdit.Properties.Mask.EditMask = "N0";
-            this.out_item_idTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.out_item_idTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.out_item_idTextEdit.Size = new System.Drawing.Size(435, 26);
             this.out_item_idTextEdit.StyleController = this.dataLayoutControl2;
@@ -372,7 +370,6 @@
             this.out_op_idTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.out_op_idTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.out_op_idTextEdit.Properties.Mask.EditMask = "N0";
-            this.out_op_idTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.out_op_idTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.out_op_idTextEdit.Size = new System.Drawing.Size(328, 26);
             this.out_op_idTextEdit.StyleController = this.dataLayoutControl2;
@@ -718,6 +715,7 @@
             this.ItemForin_item_id.Size = new System.Drawing.Size(559, 30);
             this.ItemForin_item_id.Text = "رقم المادة";
             this.ItemForin_item_id.TextSize = new System.Drawing.Size(117, 19);
+            this.ItemForin_item_id.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // ItemForin_item_quntity3
             // 
@@ -924,13 +922,9 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1040, 675);
             this.Controls.Add(this.dataLayoutControl2);
-            this.Location = new System.Drawing.Point(0, 0);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "F_Out_Op";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.Text = "F_In_Op";
-            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             this.Controls.SetChildIndex(this.dataLayoutControl2, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).EndInit();

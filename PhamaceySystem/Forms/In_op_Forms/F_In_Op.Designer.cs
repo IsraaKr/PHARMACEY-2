@@ -362,7 +362,6 @@
             this.in_item_idTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.in_item_idTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.in_item_idTextEdit.Properties.Mask.EditMask = "N0";
-            this.in_item_idTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.in_item_idTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.in_item_idTextEdit.Size = new System.Drawing.Size(383, 26);
             this.in_item_idTextEdit.StyleController = this.dataLayoutControl2;
@@ -436,7 +435,6 @@
             this.in_op_idTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.in_op_idTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.in_op_idTextEdit.Properties.Mask.EditMask = "N0";
-            this.in_op_idTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.in_op_idTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.in_op_idTextEdit.Size = new System.Drawing.Size(372, 26);
             this.in_op_idTextEdit.StyleController = this.dataLayoutControl2;

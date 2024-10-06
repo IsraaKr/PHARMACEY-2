@@ -35,27 +35,16 @@ namespace PhamaceySystem.Forms.Report_Forms
 
         DataTable dt;
 
-        string sqll = @"  SELECT     T_OPeration_IN.in_op_id,
-T_OPeration_IN.in_op_date,
-T_OPeration_IN.in_op_time,
-T_OPeration_IN.in_op_text,
-T_OPeration_IN.med_count, 
-                      T_OPeration_IN_Item.in_item_id,
-T_Medician.med_code,
-T_Medician.med_name, 
-T_OPeration_IN_Item.in_item_quntity,
-T_OPeration_IN_Item.in_item_expDate,
-T_OPeration_IN_Item.is_out, 
-                      T_OPeration_IN_Item.out_item_quntitey, 
-T_Pers_Donars.Donar_name, 
-T_Pers_Emploee.Emp_name, 
-                      T_Store_Placees.name AS place_name
-FROM         T_OPeration_IN INNER JOIN
-                      T_Pers_Emploee ON T_OPeration_IN.emp_id = T_Pers_Emploee.Emp_id INNER JOIN
-                      T_Pers_Donars ON T_OPeration_IN.donar_id = T_Pers_Donars.Donar_id INNER JOIN
-                      T_OPeration_IN_Item ON T_OPeration_IN.in_op_id = T_OPeration_IN_Item.In_op_id INNER JOIN
-                      T_Medician ON T_OPeration_IN_Item.Med_id = T_Medician.med_id INNER JOIN
-                      T_Store_Placees ON T_OPeration_IN_Item.store_place_id = T_Store_Placees.id  ";
+        string sqll = @"  SELECT        T_OPeration_IN.in_op_id, T_OPeration_IN.in_op_date, T_OPeration_IN.in_op_time, T_OPeration_IN.in_op_text, T_OPeration_IN.med_count, T_OPeration_IN_Item.in_item_id, T_Medician.med_code, T_Medician.med_name, 
+                         T_Med_Shape.med_shape_name, T_OPeration_IN_Item.in_item_quntity, T_OPeration_IN_Item.in_item_expDate, T_OPeration_IN_Item.is_out, T_OPeration_IN_Item.out_item_quntitey, T_Pers_Donars.Donar_name, 
+                         T_Pers_Emploee.Emp_name, T_Store_Placees.name AS place_name
+FROM            T_OPeration_IN INNER JOIN
+                         T_Pers_Emploee ON T_OPeration_IN.emp_id = T_Pers_Emploee.Emp_id INNER JOIN
+                         T_Pers_Donars ON T_OPeration_IN.donar_id = T_Pers_Donars.Donar_id INNER JOIN
+                         T_OPeration_IN_Item ON T_OPeration_IN.in_op_id = T_OPeration_IN_Item.In_op_id INNER JOIN
+                         T_Medician ON T_OPeration_IN_Item.Med_id = T_Medician.med_id INNER JOIN
+                         T_Store_Placees ON T_OPeration_IN_Item.store_place_id = T_Store_Placees.id INNER JOIN
+                         T_Med_Shape ON T_Medician.med_shape_id = T_Med_Shape.med_shape_id  ";
         private void gv_column_names()
         {
             gv.Columns[0].Caption = "الرقم";
@@ -66,13 +55,14 @@ FROM         T_OPeration_IN INNER JOIN
             gv.Columns[5].Visible=false;
             gv.Columns[6].Caption = "الكود";
             gv.Columns[7].Caption = "الاسم";
-            gv.Columns[8].Caption="الكمية";
-            gv.Columns[9].Caption = "انتهاءالصلاحية";
-            gv.Columns[10].Caption = "خارجة";
-            gv.Columns[11].Visible = false;
-            gv.Columns[12].Caption = "المتبرع";
-            gv.Columns[13].Caption = "الموظف";
-            gv.Columns[14].Caption = "التخزين";
+            gv.Columns[8].Caption = "الشكل";
+            gv.Columns[9].Caption="الكمية";
+            gv.Columns[10].Caption = "انتهاءالصلاحية";
+            gv.Columns[11].Caption = "خارجة";
+            gv.Columns[12].Visible = false;
+            gv.Columns[13].Caption = "المتبرع";
+            gv.Columns[14].Caption = "الموظف";
+            gv.Columns[15].Caption = "التخزين";
             gv.BestFitColumns();
 
             gv.Columns[8].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;

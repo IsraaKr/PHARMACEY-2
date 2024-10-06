@@ -171,11 +171,21 @@ namespace PhamaceySystem.Forms.Store_Forms
                 //   med_countTextEdit1.Text = "0";
                 if (id_toUpdate != 0)
                 {
+                    try
+                    {
+
+                   
                     TF_OP_IN = new T_OPeration_IN();
                     TF_OP_IN = cmdOpIn.Get_By(i => i.in_op_id == id_toUpdate).FirstOrDefault();
 
                     Fill_Controls_op();
                     Fill_Graid_item();
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.InnerException.InnerException.ToString());
+                    }
                 }
                 base.Get_Data(status_mess);
             }
@@ -351,10 +361,21 @@ namespace PhamaceySystem.Forms.Store_Forms
 
         private void Set_Auto_Id_op()
         {
+            try
+            {
+
+           
             var max_id = cmdOpIn.Get_All()
                 .Where(c_id => c_id.in_op_id == cmdOpIn.Get_All().Max(max => max.in_op_id))
                 .FirstOrDefault();
             in_op_idTextEdit.Text = max_id == null ? "1" : (max_id.in_op_id + 1).ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
+
         }
 
         //*****************مواد الفاتورة*********************
@@ -494,10 +515,21 @@ namespace PhamaceySystem.Forms.Store_Forms
 
         private void Set_Auto_Id_item()
         {
+            try
+            {
+
+          
             var max_id = cmdOpInItem.Get_All()
                 .Where(c_id => c_id.in_item_id == cmdOpInItem.Get_All().Max(max => max.in_item_id))
                 .FirstOrDefault();
             in_item_idTextEdit.Text = max_id == null ? "1" : (max_id.in_item_id + 1).ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
+
         }
 
         private void Fill_Graid_item()
@@ -641,6 +673,9 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
 
         public void GetStoragePlace_Data_MulleyCheck()
         {
+            try
+            {
+
             var place_list = (from Emp in cmdStorageplace.Get_All()
                               select new { id = Emp.id, name = Emp.name, groupp = Emp.groupe, shufel = Emp.shufel }).OrderBy(
                 id => id.id);
@@ -652,10 +687,21 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
                 //med_storage_place_idSearchLookUpEdit.Properties.View.Columns[2].Caption = "مجموعة الرفوف ";
                 //med_storage_place_idSearchLookUpEdit.Properties.View.Columns[3].Caption = "رقم الرف ";
             }
+
+            }
+            catch (Exception ex)
+            {
+
+               MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
         }
 
         public void GetEmp_Data()
         {
+            try
+            {
+
+    
             var emp_list = (from Emp in cmdEmp.Get_All() select new { id = Emp.Emp_id, name = Emp.Emp_name }).OrderBy(
                 id => id.id);
             if (emp_list != null && emp_list.Count() > 0)
@@ -666,9 +712,19 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
                 emp_idSearchLookUpEdit.Properties.View.Columns[1].Caption = "الاسم ";
             }
         }
+            catch (Exception ex)
+            {
+
+               MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
+}
 
         public void GetDonars_Data()
         {
+            try
+            {
+
+            
             var Donar_list = (from Emp in cmdDonars.Get_All() select new { id = Emp.Donar_id, name = Emp.Donar_name }).OrderBy(
                 id => id.id);
             if (Donar_list != null && Donar_list.Count() > 0)
@@ -678,10 +734,20 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = " +
                 donar_idSearchLookUpEdit.Properties.View.Columns[0].Caption = "الرقم";
                 donar_idSearchLookUpEdit.Properties.View.Columns[1].Caption = "الاسم ";
             }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
         }
 
         public void GetMed_Data()
         {
+            try
+            {
+
+          
             var med_list = (from Emp in cmdMedician.Get_All()
                             join shape in cmdShape.Get_All()
 on Emp.med_shape_id equals shape.med_shape_id into slist
@@ -697,13 +763,29 @@ on Emp.med_shape_id equals shape.med_shape_id into slist
                 Med_idSearchlookupEdit.Properties.View.Columns[2].Caption = "الشكل";
 
             }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
         }
 
         public void Get_OP_Med_count_Data()
         {
+            try
+            {
+
+          
             int op_id = Convert.ToInt32(in_op_idTextEdit.Text);
             var count = cmdOpInItem.Get_All().Where(x => x.In_op_id == op_id).Count().ToString();
             med_countTextEdit1.Text = count;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
         }
 
         //*****************ازرار استيراد البيانات*******************************

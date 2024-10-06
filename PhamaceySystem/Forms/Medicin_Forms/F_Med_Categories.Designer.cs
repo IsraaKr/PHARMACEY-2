@@ -82,8 +82,6 @@
             this.ClientSize = new System.Drawing.Size(600, 640);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "F_Med_Categories";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.Text = "F_Med_Categories";
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();

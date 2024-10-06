@@ -167,14 +167,10 @@ on med.emp_id equals place.Emp_id into plist
             //جلب جزء من البيانات
             if (data != null && data.Count > 0)
             {
-
                 gc.DataSource = data;
-
                 gv_column_names();
-
             }
         }
-
         private void gv_column_names()
         {
             gv.Columns[0].Caption = "رقم الفاتورة";
@@ -182,8 +178,8 @@ on med.emp_id equals place.Emp_id into plist
             gv.Columns[2].Caption = "الوقت";
             gv.Columns[3].Caption = "البيان";
             gv.Columns[4].Visible = false;
-            gv.Columns[5].Caption = "المتبرع ";
-            gv.Columns[6].Caption = "المسلم ";
+            gv.Columns[5].Caption = "ةالجهة المستلم ";
+            gv.Columns[6].Caption = "المستلم ";
             gv.Columns[7].Visible = false;
             gv.Columns[8].Caption = "الموظف ";
             gv.Columns[9].Caption = "عدد المواد  ";

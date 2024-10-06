@@ -331,9 +331,18 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         }
         private void Set_Auto_Id_op()
         {
+            try { 
             var max_id = cmdOpDam.Get_All().Where(c_id => c_id.dam_OP_id ==
                          cmdOpDam.Get_All().Max(max => max.dam_OP_id)).FirstOrDefault();
             dam_op_idTextEdit.Text = max_id == null ? "1" : (max_id.dam_OP_id + 1).ToString();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
+
         }
 
 
@@ -468,9 +477,19 @@ namespace PhamaceySystem.Forms.Store_OP_Forms
         }
         private void Set_Auto_Id_item()
         {
+            try
+            {
+
+           
             var max_id = cmdOppDamItem.Get_All().Where(c_id => c_id.dmg_item_id ==
                          cmdOppDamItem.Get_All().Max(max => max.dmg_item_id)).FirstOrDefault();
             dam_item_idTextEdit.Text = max_id == null ? "1" : (max_id.dmg_item_id + 1).ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
 
         }
         private void Fill_Graid_item()
@@ -626,6 +645,7 @@ FROM         T_Operation_Damage_Item INNER JOIN
 
         public void GetEmp_Data()
         {
+            try { 
             var emp_list = (from Emp in cmdEmp.Get_All()
                             select new
                             {
@@ -638,6 +658,14 @@ FROM         T_Operation_Damage_Item INNER JOIN
                 emp_idSearchLookUpEdit.Properties.View.Columns[0].Caption = "الرقم";
                 emp_idSearchLookUpEdit.Properties.View.Columns[1].Caption = "الاسم ";
             }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
+
         }
 
         public void GetMed_Data()
@@ -669,7 +697,9 @@ FROM         T_Operation_Damage_Item INNER JOIN
 //                Med_idSearchlookupEdit.Properties.View.Columns[3].Caption = "الاجمالي";
 //                Med_idSearchlookupEdit.Properties.View.Columns[4].Caption = "انتهاء الصلاحية";
 //جلب الدواء من جدول الأدوية بحيث كميته اكبر من 0
-            var med_list = (from Emp in cmdMedician.Get_All().Where(l => l.med_total_now > 0)
+
+try{      
+                var med_list = (from Emp in cmdMedician.Get_All().Where(l => l.med_total_now > 0)
 
 
                             join shape in cmdShape.Get_All()
@@ -691,44 +721,53 @@ on Emp.med_shape_id equals shape.med_shape_id into slist
                 Med_idSearchlookupEdit.Properties.View.Columns[2].Caption = "الشكل ";
 
             }
+            }
+            catch (Exception ex)
+            {
 
-
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
             }
 
-        
+
+        }
+
+
         public void Get_Store_med()
         {
             //int med_idd = Convert.ToInt32(Med_idSearchlookupEdit.EditValue);
             //if (med_idd > 0)
             //{
-                //var med_list = (from Emp in cmdOpInItem.Get_All().Where(l => l.is_out == false  
-                //                                                        && l.Med_id == med_idd 
-                //                                                         &&  l.in_item_expDate.Value.Month < DateTime.Today.Month
-                //                                                         && l.in_item_expDate.Value.Year <= DateTime.Today.Year)
+            //var med_list = (from Emp in cmdOpInItem.Get_All().Where(l => l.is_out == false  
+            //                                                        && l.Med_id == med_idd 
+            //                                                         &&  l.in_item_expDate.Value.Month < DateTime.Today.Month
+            //                                                         && l.in_item_expDate.Value.Year <= DateTime.Today.Year)
 
-                //                join xxx in cmdMedician.Get_All()
-                //           on Emp.Med_id equals xxx.med_id into list
-                //                from yyy in list.DefaultIfEmpty()
-                //                join place in cmdStore_place.Get_All()
-                //          on Emp.store_place_id equals place.id into plist
-                //                from ppp in plist.DefaultIfEmpty()
-                //                join shape in cmdShape.Get_All()
-                //            on yyy.med_shape_id equals shape.med_shape_id into slist
+            //                join xxx in cmdMedician.Get_All()
+            //           on Emp.Med_id equals xxx.med_id into list
+            //                from yyy in list.DefaultIfEmpty()
+            //                join place in cmdStore_place.Get_All()
+            //          on Emp.store_place_id equals place.id into plist
+            //                from ppp in plist.DefaultIfEmpty()
+            //                join shape in cmdShape.Get_All()
+            //            on yyy.med_shape_id equals shape.med_shape_id into slist
 
-                //                from sss in slist.DefaultIfEmpty()
+            //                from sss in slist.DefaultIfEmpty()
 
 
-                //                select new
-                //                {
-                //                    item_id = Emp.in_item_id,
-                //                    med_id = Emp.Med_id,
-                //                    op_id = Emp.In_op_id,
-                //                    name =yyy.med_name,
-                //                    shape=sss.med_shape_name,
-                //                    quntatey = Emp.in_item_quntity - Emp.out_item_quntitey,
-                //                    datee = Emp.in_item_expDate,
-                //                    place = ppp.name,
-                //                }).OrderBy(l => l.datee).Distinct();
+            //                select new
+            //                {
+            //                    item_id = Emp.in_item_id,
+            //                    med_id = Emp.Med_id,
+            //                    op_id = Emp.In_op_id,
+            //                    name =yyy.med_name,
+            //                    shape=sss.med_shape_name,
+            //                    quntatey = Emp.in_item_quntity - Emp.out_item_quntitey,
+            //                    datee = Emp.in_item_expDate,
+            //                    place = ppp.name,
+            //                }).OrderBy(l => l.datee).Distinct()
+
+            try { 
+
                 int med_idd = Convert.ToInt32(Med_idSearchlookupEdit.EditValue);
                 if (med_idd > 0)
                 {
@@ -802,6 +841,13 @@ on Emp.med_shape_id equals shape.med_shape_id into slist
                     }
                 }
             }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
+
         }
         private void get_info_store_med(int med_idd)
         {
@@ -831,7 +877,7 @@ on Emp.med_shape_id equals shape.med_shape_id into slist
             //                all_in_item_quntityTextEdit.Text = (in_count_item - out_count_item).ToString();
             //                dtp_exp_date.Text = dt.Rows[0][3].ToString();
             //                placeTextEdit2.Text = dt.Rows[0][4].ToString();
-
+            try { 
             dt = C_DB.Select(@"SELECT     T_Medician.med_name,
 T_Med_Shape.med_shape_name,
 T_OPeration_IN_Item.in_item_quntity, 
@@ -864,20 +910,34 @@ WHERE     (T_OPeration_IN_Item.in_item_id  =  " + old_IN_item_id + ") AND (T_Med
 
 
             }
+            }
+            catch (Exception ex)
+            {
 
-        
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
+
+
         }
         public void Get_OP_Med_count_Data()
         {
-            if (dam_op_idTextEdit.Text == string.Empty || dam_op_idTextEdit.Text == null)
+            try
             {
-                med_countTextEdit1.Text = "0";
+                if (dam_op_idTextEdit.Text == string.Empty || dam_op_idTextEdit.Text == null)
+                {
+                    med_countTextEdit1.Text = "0";
+                }
+                else
+                {
+                    int op_id = Convert.ToInt32(dam_op_idTextEdit.Text.ToString().Replace(",", string.Empty));
+                    var count = cmdOppDamItem.Get_All().Where(x => x.dmg_op_id == op_id).Count().ToString();
+                    med_countTextEdit1.Text = count;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                int op_id = Convert.ToInt32(dam_op_idTextEdit.Text.ToString().Replace(",", string.Empty));
-                var count = cmdOppDamItem.Get_All().Where(x => x.dmg_op_id == op_id).Count().ToString();
-                med_countTextEdit1.Text = count;
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
             }
 
         }

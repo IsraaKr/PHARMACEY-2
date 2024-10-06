@@ -179,7 +179,6 @@
             this.med_idTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.med_idTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.med_idTextEdit.Properties.Mask.EditMask = "N0";
-            this.med_idTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.med_idTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.med_idTextEdit.Size = new System.Drawing.Size(288, 28);
             this.med_idTextEdit.StyleController = this.dataLayoutControl1;

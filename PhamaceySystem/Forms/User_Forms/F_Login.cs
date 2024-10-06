@@ -19,15 +19,20 @@ namespace PhamaceySystem.Forms.User_Forms
     {
         public F_Login()
         {
-            try
+            MessageBox.Show(Properties.Settings.Default.Server_Name + "+" + Properties.Settings.Default.database);
+                try
             {
-              //  DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = Properties.Settings.Default.theme;
+                //  DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = Properties.Settings.Default.theme;
                 //bool servecices = C_DB.Check_Services();
                 //if (servecices)
                 //{
-                    bool chec=false;              
-                   chec = cmdOptype.check_db_existing();
-           
+                bool chec = false;
+                if (Properties.Settings.Default.Server_Name != string.Empty && Properties.Settings.Default.database != string.Empty)
+                {
+                    MessageBox.Show(Properties.Settings.Default.Server_Name + "+" + Properties.Settings.Default.database);
+
+                    chec = cmdOptype.check_db_existing();
+
                     if (chec == true)
                     {
                         InitializeComponent();
@@ -46,6 +51,18 @@ namespace PhamaceySystem.Forms.User_Forms
                         else
                             Application.Exit();
                     }
+                }
+                else {
+                    var res = MessageBox.Show("خطاء في الاتصال بقاعدة البيانات !!! اختر نعم لضبط نص الاتصال أو لا للخروج من البرنامج", "تأكيد",
+                               MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (res == DialogResult.Yes)
+                    {
+                        F_Server_Setting f = new F_Server_Setting();
+                        f.Show();
+                    }
+                    else
+                        Application.Exit();
+                }
              //   }
             }
             catch (Exception ex)

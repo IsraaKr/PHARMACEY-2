@@ -346,9 +346,18 @@ namespace PhamaceySystem.Forms.Store_Forms
         }
         private void Set_Auto_Id_op()
         {
+            try { 
             var max_id = cmdOpOut.Get_All().Where(c_id => c_id.out_op_id ==
                          cmdOpOut.Get_All().Max(max => max.out_op_id)).FirstOrDefault();
             out_op_idTextEdit.Text = max_id == null ? "1" : (max_id.out_op_id + 1).ToString();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
+
         }
 
 
@@ -490,9 +499,16 @@ namespace PhamaceySystem.Forms.Store_Forms
         }
         private void Set_Auto_Id_item()
         {
+            try { 
             var max_id = cmdOppOutItem.Get_All().Where(c_id => c_id.out_item_id ==
                          cmdOppOutItem.Get_All().Max(max => max.out_item_id)).FirstOrDefault();
             out_item_idTextEdit.Text = max_id == null ? "1" : (max_id.out_item_id + 1).ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
 
         }
         private void Fill_Graid_item()
@@ -651,6 +667,7 @@ WHERE        (dbo.T_OPeration_Out_Item.out_op_id = " + id + ")");
 
         public void GetEmp_Data()
         {
+            try { 
             var emp_list = (from Emp in cmdEmp.Get_All()
                             select new
                             {
@@ -663,9 +680,19 @@ WHERE        (dbo.T_OPeration_Out_Item.out_op_id = " + id + ")");
                 emp_idSearchLookUpEdit.Properties.View.Columns[0].Caption = "الرقم";
                 emp_idSearchLookUpEdit.Properties.View.Columns[1].Caption = "الاسم ";
             }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
+
         }
         public void GetRecivers_Data()
         {
+
+            try { 
             var Donar_list = (from Emp in cmdReciver.Get_All()
                               select new
                               {
@@ -678,10 +705,18 @@ WHERE        (dbo.T_OPeration_Out_Item.out_op_id = " + id + ")");
                 reciver_idSearchLookUpEdit.Properties.View.Columns[0].Caption = "الرقم";
                 reciver_idSearchLookUpEdit.Properties.View.Columns[1].Caption = "الاسم ";
             }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
 
         }
         public void GetMed_Data()
-        {//جلب الدواء من جدول الأدوية بحيث كميته اكبر من 0
+        {
+            try {   
+            //جلب الدواء من جدول الأدوية بحيث كميته اكبر من 0
             var med_list = (from Emp in cmdMedician.Get_All().Where(l => l.med_total_now > 0)
 
 
@@ -704,10 +739,17 @@ on Emp.med_shape_id equals shape.med_shape_id into slist
                 Med_idSearchlookupEdit.Properties.View.Columns[2].Caption = "الشكل ";
 
             }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
 
         }
         public void Get_Store_med()
         {
+            try { 
             int med_idd = Convert.ToInt32(Med_idSearchlookupEdit.EditValue);
             if (med_idd > 0)
             {
@@ -785,9 +827,17 @@ on yyy.med_shape_id equals shape.med_shape_id into slist
                         }
                     }
             }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
+
         }
         private void get_info_store_med(int med_idd)
         {
+            try { 
             dt = C_DB.Select(@"SELECT     T_Medician.med_name,
 T_Med_Shape.med_shape_name,
 T_OPeration_IN_Item.in_item_quntity, 
@@ -820,9 +870,17 @@ WHERE     (T_OPeration_IN_Item.in_item_id  =  " + old_IN_item_id + ") AND (T_Med
 
 
             }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
+            }
+
         }
         public void Get_OP_Med_count_Data()
         {
+            try { 
             if (out_op_idTextEdit.Text == string.Empty || out_op_idTextEdit.Text == null)
             {
                 med_countTextEdit1.Text = "0";
@@ -834,6 +892,12 @@ WHERE     (T_OPeration_IN_Item.in_item_id  =  " + old_IN_item_id + ") AND (T_Med
                 int op_id = Convert.ToInt32(out_op_idTextEdit.Text.ToString().Replace(",", string.Empty));
                 var count = cmdOppOutItem.Get_All().Where(x => x.out_op_id == op_id).Count().ToString();
                 med_countTextEdit1.Text = count;
+            }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.InnerException.InnerException.ToString());
             }
 
 

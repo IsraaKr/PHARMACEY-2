@@ -319,7 +319,6 @@
             this.dam_item_idTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.dam_item_idTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.dam_item_idTextEdit.Properties.Mask.EditMask = "N0";
-            this.dam_item_idTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.dam_item_idTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.dam_item_idTextEdit.Properties.ReadOnly = true;
             this.dam_item_idTextEdit.Size = new System.Drawing.Size(446, 26);
@@ -369,7 +368,6 @@
             this.dam_op_idTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.dam_op_idTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.dam_op_idTextEdit.Properties.Mask.EditMask = "N0";
-            this.dam_op_idTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.dam_op_idTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.dam_op_idTextEdit.Properties.ReadOnly = true;
             this.dam_op_idTextEdit.Size = new System.Drawing.Size(329, 26);
@@ -854,13 +852,9 @@
             this.ClientSize = new System.Drawing.Size(1040, 675);
             this.Controls.Add(this.dataLayoutControl2);
             this.Controls.Add(this.dataLayoutControl1);
-            this.Location = new System.Drawing.Point(0, 0);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "F_Dameg_Op";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.Text = "F_In_Op";
-            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             this.Controls.SetChildIndex(this.dataLayoutControl1, 0);
             this.Controls.SetChildIndex(this.dataLayoutControl2, 0);
